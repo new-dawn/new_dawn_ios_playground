@@ -14,6 +14,9 @@
 		24F6580621B31C1300DB2547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */; };
 		24F6581121B31C1400DB2547 /* NewDawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6581021B31C1400DB2547 /* NewDawnTests.swift */; };
 		24F6581C21B31C1400DB2547 /* NewDawnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6581B21B31C1400DB2547 /* NewDawnUITests.swift */; };
+		24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582921B325D300DB2547 /* SignInViewController.swift */; };
+		24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */; };
+		24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582D21B32C3700DB2547 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		24F6581721B31C1400DB2547 /* NewDawnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewDawnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6581B21B31C1400DB2547 /* NewDawnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDawnUITests.swift; sourceTree = "<group>"; };
 		24F6581D21B31C1400DB2547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F6582921B325D300DB2547 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		24F6582D21B32C3700DB2547 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				24F6580221B31C1300DB2547 /* Assets.xcassets */,
 				24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */,
 				24F6580721B31C1300DB2547 /* Info.plist */,
+				24F6582921B325D300DB2547 /* SignInViewController.swift */,
+				24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */,
+				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */,
 				24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */,
+				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
+				24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
