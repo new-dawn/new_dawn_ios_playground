@@ -37,28 +37,30 @@ class RegisterUserViewController: UIViewController {
             (emailTextField.text?.isEmpty)! ||
             (passwordTextField.text?.isEmpty)!
         {
-            displayMessage(userMessage: "Missing Fields")
+            displayMessage(userMessage: "Missing Fields", dismiss: false)
             return
         }
         
         // Validate password
-        if passwordTextField.text == repeatPasswordTextField.text
+        if passwordTextField.text != repeatPasswordTextField.text
         {
-            displayMessage(userMessage: "Password Doesn't Match")
+            displayMessage(userMessage: "Password Doesn't Match", dismiss: false)
 
             return
         }
     }
     
-    func displayMessage(userMessage:String) -> Void {
+    func displayMessage(userMessage:String, dismiss:Bool) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(
                 title: "Alert", message: userMessage, preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default)
             {
                 (action:UIAlertAction!) in
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+                if dismiss == true {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
             }
             alertController.addAction(OKAction)
