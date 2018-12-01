@@ -31,7 +31,39 @@ class RegisterUserViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        print("Signup")
+        // Validate required fields are not empty
+        if (firstNameTextField.text?.isEmpty)! ||
+            (lastNameTextField.text?.isEmpty)! ||
+            (emailTextField.text?.isEmpty)! ||
+            (passwordTextField.text?.isEmpty)!
+        {
+            displayMessage(userMessage: "Missing Fields")
+            return
+        }
+        
+        // Validate password
+        if passwordTextField.text == repeatPasswordTextField.text
+        {
+            displayMessage(userMessage: "Password Doesn't Match")
+
+            return
+        }
+    }
+    
+    func displayMessage(userMessage:String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(
+                title: "Alert", message: userMessage, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default)
+            {
+                (action:UIAlertAction!) in
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
     /*
