@@ -48,6 +48,43 @@ class RegisterUserViewController: UIViewController {
 
             return
         }
+        
+        // Activity Indicator
+        prepareActivityIndicator()
+        
+        // Sent Request
+        sendRegisterRequest()
+    }
+    
+    func sendRegisterRequest() -> Void {
+        let url = URL(string: "http://localhost:8080/api/v1/register")
+        var request = URLRequest(url:url!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let postString = [
+            "firstName": firstNameTextField.text!,
+            "lastName": lastNameTextField.text!,
+            "email": emailTextField.text!,
+            "passwordTextField": passwordTextField.text!,
+            "repeatPasswordTextField":repeatPasswordTextField.text!
+        ] as [String: String]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            displayMessage(userMessage: "Register Request Failed", dismiss: false)
+            return
+        }
+    }
+    
+    func prepareActivityIndicator() -> Void {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = false
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
     }
     
     func displayMessage(userMessage:String, dismiss:Bool) -> Void {
