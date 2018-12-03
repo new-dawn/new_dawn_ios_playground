@@ -37,16 +37,88 @@ class RegisterUserViewController: UIViewController {
             (emailTextField.text?.isEmpty)! ||
             (passwordTextField.text?.isEmpty)!
         {
-            displayMessage(userMessage: "Missing Fields", dismiss: false)
+            self.displayMessage(userMessage: "Missing Fields", dismiss: false)
             return
         }
         
         // Validate password
         if passwordTextField.text != repeatPasswordTextField.text
         {
-            displayMessage(userMessage: "Password Doesn't Match", dismiss: false)
-
+            self.displayMessage(userMessage: "Password Doesn't Match", dismiss: false)
             return
+        }
+        
+        // Activity Indicator Created
+        let activityIndicator = self.prepareActivityIndicator()
+        
+        // Create Request
+        let request = self.createRegisterRequest()
+        if request == nil {
+            // Request Creation Failed
+            return
+        }
+        
+        // Process Request & Rmove Activity Indicator
+        self.processSessionTasks(request: request!, activityIndicator: activityIndicator)
+
+    }
+    
+    func createRegisterRequest() -> URLRequest? {
+        let url = URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/register/")
+        var request = URLRequest(url:url!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let postString = [
+            "first_name": firstNameTextField.text!,
+            "last_name": lastNameTextField.text!,
+            "email": emailTextField.text!,
+            "password": passwordTextField.text!,
+            "username": firstNameTextField.text! + lastNameTextField.text!
+        ] as [String: String]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            self.displayMessage(userMessage: "Register Request Creation Failed", dismiss: false)
+            return nil
+        }
+        return request
+    }
+    
+    func processSessionTasks(request: URLRequest, activityIndicator: UIActivityIndicatorView) {
+        let task = URLSession.shared.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            self.removeActivityIndicator(activityIndicator: activityIndicator)
+            
+            // Check response error
+            if error != nil
+            {
+                self.displayMessage(userMessage: "Could not perform this request", dismiss: false)
+                print("error=\(String(describing: error!))")
+                return
+            }
+            // TODO: Check response message to verify the user creation
+            self.removeActivityIndicator(activityIndicator: activityIndicator)
+            self.displayMessage(userMessage: "Registration Success", dismiss: false)
+        }
+        task.resume()
+    }
+    
+    func prepareActivityIndicator() -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = false
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        return activityIndicator
+    }
+    
+    func removeActivityIndicator(activityIndicator: UIActivityIndicatorView) -> Void {
+        DispatchQueue.main.async {
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
         }
     }
     
