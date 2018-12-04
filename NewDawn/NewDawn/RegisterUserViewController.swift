@@ -59,13 +59,13 @@ class RegisterUserViewController: UIViewController {
         }
         
         // Process Request & Rmove Activity Indicator
-        self.processSessionTasks(request: request!, activityIndicator: activityIndicator)
+        self.processSessionTasks(request: request!, callback: readRegisterResponse, activityIndicator: activityIndicator)
 
     }
     
     func createRegisterRequest() -> URLRequest? {
-        let url = URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/register/")
-        var request = URLRequest(url:url!)
+        let url = self.getURL(path: "register/", prod: false)
+        var request = URLRequest(url:url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -74,7 +74,7 @@ class RegisterUserViewController: UIViewController {
             "last_name": lastNameTextField.text!,
             "email": emailTextField.text!,
             "password": passwordTextField.text!,
-            "username": firstNameTextField.text! + lastNameTextField.text!
+            "username": emailTextField.text!
         ] as [String: String]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
@@ -86,59 +86,10 @@ class RegisterUserViewController: UIViewController {
         return request
     }
     
-    func processSessionTasks(request: URLRequest, activityIndicator: UIActivityIndicatorView) {
-        let task = URLSession.shared.dataTask(with: request) {
-            (data: Data?, response: URLResponse?, error: Error?) in
-            self.removeActivityIndicator(activityIndicator: activityIndicator)
-            
-            // Check response error
-            if error != nil
-            {
-                self.displayMessage(userMessage: "Could not perform this request", dismiss: false)
-                print("error=\(String(describing: error!))")
-                return
-            }
-            // TODO: Check response message to verify the user creation
-            self.removeActivityIndicator(activityIndicator: activityIndicator)
-            self.displayMessage(userMessage: "Registration Success", dismiss: false)
-        }
-        task.resume()
-    }
-    
-    func prepareActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    func readRegisterResponse(parseJSON: NSDictionary) -> Void {
         
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = false
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-        return activityIndicator
     }
-    
-    func removeActivityIndicator(activityIndicator: UIActivityIndicatorView) -> Void {
-        DispatchQueue.main.async {
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-        }
-    }
-    
-    func displayMessage(userMessage:String, dismiss:Bool) -> Void {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(
-                title: "Alert", message: userMessage, preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default)
-            {
-                (action:UIAlertAction!) in
-                if dismiss == true {
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
+
 
     /*
     // MARK: - Navigation
