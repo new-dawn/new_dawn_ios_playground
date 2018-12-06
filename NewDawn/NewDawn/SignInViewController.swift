@@ -96,7 +96,7 @@ extension UIViewController {
                 print("Success")
             } catch {
                 print("Error processing response")
-                self.displayMessage(userMessage: "rror processing response", dismiss: false)
+                self.displayMessage(userMessage: "Error processing response", dismiss: false)
             }
         }
         task.resume()
@@ -144,7 +144,7 @@ class SignInViewController: UIViewController {
         // Remove activity indicator
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
-        // Process Request & Rmove Activity Indicator
+        // Process Request & Remove Activity Indicator
         self.processSessionTasks(request: request!, callback: readLoginResponse)
     }
 
