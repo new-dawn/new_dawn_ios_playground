@@ -8,8 +8,12 @@
 
 import UIKit
 
-// Put this piece of code anywhere you like
+// Below is a library for common used code
+// applied to ALL UI VIEWS
 extension UIViewController {
+    
+    // Define a default behavior for all views:
+    // Get rid of keyboard when an user click on anywhere
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -20,8 +24,8 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    // TODO: Functions below should be put into a library class for reuse
-    // Right now put them into UIViewController super class
+    // A helper function to get URL based on prod/test
+    // TODO: Figure out a better way to configure it
     func getURL(path:String, prod:Bool = false) -> URL {
         if prod {
             return URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
@@ -30,6 +34,8 @@ extension UIViewController {
         }
     }
     
+    // A helper function to throw an alert on the screen
+    // with customized function
     func displayMessage(userMessage:String, dismiss:Bool = false) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(
@@ -48,6 +54,8 @@ extension UIViewController {
         }
     }
     
+    // A helper function to enable activity indicator circle
+    // Should be used whenever we want user to wait while loading something
     func prepareActivityIndicator() -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
@@ -58,6 +66,7 @@ extension UIViewController {
         return activityIndicator
     }
     
+    // A helper function to remove activity indicator circle
     func removeActivityIndicator(activityIndicator: UIActivityIndicatorView) -> Void {
         DispatchQueue.main.async {
             activityIndicator.stopAnimating()
@@ -65,11 +74,11 @@ extension UIViewController {
         }
     }
     
+    // A helper function to handle HTTP request with a callback function
     func processSessionTasks(
-        request: URLRequest, callback: @escaping (NSDictionary) -> Void, activityIndicator: UIActivityIndicatorView) {
+        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
         let task = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
-            self.removeActivityIndicator(activityIndicator: activityIndicator)
             
             // Check response error
             if error != nil
@@ -84,11 +93,11 @@ extension UIViewController {
                 if let parseJSON = json {
                     callback(parseJSON)
                 }
+                print("Success")
             } catch {
                 print("Error processing response")
+                self.displayMessage(userMessage: "rror processing response", dismiss: false)
             }
-            self.removeActivityIndicator(activityIndicator: activityIndicator)
-            self.displayMessage(userMessage: "Success", dismiss: false)
         }
         task.resume()
     }
@@ -132,8 +141,11 @@ class SignInViewController: UIViewController {
             return
         }
         
+        // Remove activity indicator
+        self.removeActivityIndicator(activityIndicator: activityIndicator)
+        
         // Process Request & Rmove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readLoginResponse, activityIndicator: activityIndicator)
+        self.processSessionTasks(request: request!, callback: readLoginResponse)
     }
 
     @IBAction func registerButtonTapped(_ sender: Any) {
@@ -143,8 +155,9 @@ class SignInViewController: UIViewController {
         self.present(registerUserViewController, animated: true)
     }
     
+    // Create Login request according to API spec
     func createLoginRequest() -> URLRequest? {
-        let url = getURL(path: "login/", prod: false)
+        let url = getURL(path: "user/login/")
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -163,8 +176,15 @@ class SignInViewController: UIViewController {
         return request
     }
     
+    // A Callback function to handle login response
     func readLoginResponse(parseJSON: NSDictionary) -> Void {
+        let msg = parseJSON["success"] as? Bool
+        if msg == false {
+            self.displayMessage(userMessage: "Request Failed")
+            return
+        }
         let accessToken = parseJSON["token"] as? String
+        // This access token is required with requests to get sensitive/private data
         print("Access token: \(String(describing: accessToken))")
         if (accessToken?.isEmpty)!
         {
@@ -172,9 +192,11 @@ class SignInViewController: UIViewController {
             return
         }
         
+        // Go to profile page
         DispatchQueue.main.async {
             let profilePage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
                 as! ProfileViewController
+            //
             let appDelegate = UIApplication.shared.delegate
             appDelegate?.window??.rootViewController = profilePage
         }

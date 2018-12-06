@@ -58,13 +58,16 @@ class RegisterUserViewController: UIViewController {
             return
         }
         
+        // Remove activity indicator
+        self.removeActivityIndicator(activityIndicator: activityIndicator)
+        
         // Process Request & Rmove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readRegisterResponse, activityIndicator: activityIndicator)
+        self.processSessionTasks(request: request!, callback: readRegisterResponse)
 
     }
     
     func createRegisterRequest() -> URLRequest? {
-        let url = self.getURL(path: "register/", prod: false)
+        let url = self.getURL(path: "register/")
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -87,7 +90,14 @@ class RegisterUserViewController: UIViewController {
     }
     
     func readRegisterResponse(parseJSON: NSDictionary) -> Void {
-        
+        // Go to profile page
+        DispatchQueue.main.async {
+            let profilePage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
+                as! ProfileViewController
+            //
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = profilePage
+        }
     }
 
 
