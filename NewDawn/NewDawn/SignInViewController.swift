@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 // Below is a library for common used code
 // applied to ALL UI VIEWS
@@ -93,7 +94,7 @@ extension UIViewController {
                 if let parseJSON = json {
                     callback(parseJSON)
                 }
-                print("Success")
+                print("Session Task Processed")
             } catch {
                 print("Error processing response")
                 self.displayMessage(userMessage: "Error processing response", dismiss: false)
@@ -183,9 +184,15 @@ class SignInViewController: UIViewController {
             self.displayMessage(userMessage: "Request Failed")
             return
         }
+        let userName = parseJSON["username"] as? String
         let accessToken = parseJSON["token"] as? String
         // This access token is required with requests to get sensitive/private data
+        print("Username: \(String(describing: userName))")
         print("Access token: \(String(describing: accessToken))")
+        let saveUserName: Bool = KeychainWrapper.standard.set(userName!, forKey: "userName")
+        let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+        print("Username Saved to Keychain: \(saveUserName)")
+        print("Access token Saved to Keychain: \(saveAccessToken)")
         if (accessToken?.isEmpty)!
         {
             self.displayMessage(userMessage: "No Access Token Found")

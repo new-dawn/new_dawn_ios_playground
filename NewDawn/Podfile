@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+use_frameworks!
+target 'NewDawn' do
+  # Pods for NewDawn
+  pod 'SwiftKeychainWrapper', '~> 3.0'
+  target 'NewDawnTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'NewDawnUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
