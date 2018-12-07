@@ -17,6 +17,9 @@
 		24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582921B325D300DB2547 /* SignInViewController.swift */; };
 		24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */; };
 		24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582D21B32C3700DB2547 /* ProfileViewController.swift */; };
+		287289B5642A2F4B53258129 /* Pods_NewDawnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */; };
+		E012BD5D910E38877F196B74 /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */; };
+		E7EBBC30E654CB6DEF94B0E4 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F98661778968083EC2BD71A /* Pods_NewDawn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		24F657F821B31C1300DB2547 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F657FB21B31C1300DB2547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F657FD21B31C1300DB2547 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +58,13 @@
 		24F6582921B325D300DB2547 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		24F6582D21B32C3700DB2547 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2F98661778968083EC2BD71A /* Pods_NewDawn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnUITests/Pods-NewDawnUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.release.xcconfig"; sourceTree = "<group>"; };
+		EAA2FE4297433EA944BC186B /* Pods-NewDawnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnUITests/Pods-NewDawnUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7EBBC30E654CB6DEF94B0E4 /* Pods_NewDawn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E012BD5D910E38877F196B74 /* Pods_NewDawnTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +88,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287289B5642A2F4B53258129 /* Pods_NewDawnUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17165545D8163B7189F60507 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */,
+				D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */,
+				A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */,
+				178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */,
+				5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */,
+				EAA2FE4297433EA944BC186B /* Pods-NewDawnUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		24F657EF21B31C1300DB2547 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +115,8 @@
 				24F6580F21B31C1300DB2547 /* NewDawnTests */,
 				24F6581A21B31C1400DB2547 /* NewDawnUITests */,
 				24F657F921B31C1300DB2547 /* Products */,
+				17165545D8163B7189F60507 /* Pods */,
+				D56257B6927956DFF08F74B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +164,16 @@
 			path = NewDawnUITests;
 			sourceTree = "<group>";
 		};
+		D56257B6927956DFF08F74B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F98661778968083EC2BD71A /* Pods_NewDawn.framework */,
+				9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */,
+				04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24F6582021B31C1400DB2547 /* Build configuration list for PBXNativeTarget "NewDawn" */;
 			buildPhases = (
+				D6F13A0E83988AE1BB08A620 /* [CP] Check Pods Manifest.lock */,
 				24F657F421B31C1300DB2547 /* Sources */,
 				24F657F521B31C1300DB2547 /* Frameworks */,
 				24F657F621B31C1300DB2547 /* Resources */,
+				060C65A601ECDAC5BED8874B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24F6582321B31C1400DB2547 /* Build configuration list for PBXNativeTarget "NewDawnTests" */;
 			buildPhases = (
+				D114E2D8E29C2935B21C5C7A /* [CP] Check Pods Manifest.lock */,
 				24F6580821B31C1300DB2547 /* Sources */,
 				24F6580921B31C1300DB2547 /* Frameworks */,
 				24F6580A21B31C1300DB2547 /* Resources */,
@@ -176,6 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24F6582621B31C1400DB2547 /* Build configuration list for PBXNativeTarget "NewDawnUITests" */;
 			buildPhases = (
+				9D4C1F1D198EEF699726E859 /* [CP] Check Pods Manifest.lock */,
 				24F6581321B31C1400DB2547 /* Sources */,
 				24F6581421B31C1400DB2547 /* Frameworks */,
 				24F6581521B31C1400DB2547 /* Resources */,
@@ -262,6 +306,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		060C65A601ECDAC5BED8874B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D4C1F1D198EEF699726E859 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewDawnUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D114E2D8E29C2935B21C5C7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewDawnTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6F13A0E83988AE1BB08A620 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewDawn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24F657F421B31C1300DB2547 /* Sources */ = {
@@ -422,6 +557,7 @@
 		};
 		24F6582121B31C1400DB2547 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NewDawn/Info.plist;
@@ -434,6 +570,7 @@
 		};
 		24F6582221B31C1400DB2547 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NewDawn/Info.plist;
@@ -446,6 +583,7 @@
 		};
 		24F6582421B31C1400DB2547 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +598,7 @@
 		};
 		24F6582521B31C1400DB2547 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -474,6 +613,7 @@
 		};
 		24F6582721B31C1400DB2547 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
@@ -487,6 +627,7 @@
 		};
 		24F6582821B31C1400DB2547 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAA2FE4297433EA944BC186B /* Pods-NewDawnUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
