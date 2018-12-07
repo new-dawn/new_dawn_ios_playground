@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +26,6 @@ class ProfileViewController: UIViewController {
     @IBAction func signOutButtonTapped(_ sender: Any) {
         
     }
-    
 
     /*
     // MARK: - Navigation
