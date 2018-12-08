@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftKeychainWrapper
 class RegisterUserViewController: UIViewController {
 
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -90,6 +90,28 @@ class RegisterUserViewController: UIViewController {
     }
     
     func readRegisterResponse(parseJSON: NSDictionary) -> Void {
+        let userName = parseJSON["username"] as? String
+        let accessToken = parseJSON["token"] as? String
+        if userName?.isEmpty == true || accessToken?.isEmpty == true {
+            print("Cannot receive username and access token")
+        }
+        // This access token is required with requests to get sensitive/private data
+        print("Username: \(String(describing: userName))")
+        print("Access token: \(String(describing: accessToken))")
+        let saveUserName: Bool = KeychainWrapper.standard.set(userName!, forKey: "userName")
+        let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+        print("Username Saved to Keychain: \(saveUserName)")
+        print("Access token Saved to Keychain: \(saveAccessToken)")
+        if (userName?.isEmpty)!
+        {
+            self.displayMessage(userMessage: "No Username Found")
+            return
+        }
+        if (accessToken?.isEmpty)!
+        {
+            self.displayMessage(userMessage: "No Access Token Found")
+            return
+        }
         // Go to profile page
         DispatchQueue.main.async {
             let profilePage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
