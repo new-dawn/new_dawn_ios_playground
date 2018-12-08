@@ -102,6 +102,12 @@ extension UIViewController {
         }
         task.resume()
     }
+    
+    // A helper function to get API Key from concatenating username and access token
+    func getAPIKey(username: String, accessToken: String) -> String {
+        // Concatenate according to TastyPie requirement
+        return "ApiKey \(String(describing: username)):\(String(describing: accessToken))"
+    }
 }
 
 class SignInViewController: UIViewController {
@@ -193,6 +199,11 @@ class SignInViewController: UIViewController {
         let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
         print("Username Saved to Keychain: \(saveUserName)")
         print("Access token Saved to Keychain: \(saveAccessToken)")
+        if (userName?.isEmpty)!
+        {
+            self.displayMessage(userMessage: "No Username Found")
+            return
+        }
         if (accessToken?.isEmpty)!
         {
             self.displayMessage(userMessage: "No Access Token Found")
@@ -203,7 +214,6 @@ class SignInViewController: UIViewController {
         DispatchQueue.main.async {
             let profilePage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
                 as! ProfileViewController
-            //
             let appDelegate = UIApplication.shared.delegate
             appDelegate?.window??.rootViewController = profilePage
         }
