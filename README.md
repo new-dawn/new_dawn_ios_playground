@@ -9,4 +9,5 @@ iOS repository for project New Dawn
 5. Create Pull Request when you are ready to merge your branch with master.
 
 ## Dev
-1. Made changes in NewDawn.xcworkspace instead of NewDawn.xcodeproj
+1. In `new_dawn_ios/NewDawn` directory, run `pod install` to install required depencency.
+2. Made changes in NewDawn.xcworkspace instead of NewDawn.xcodeproj
