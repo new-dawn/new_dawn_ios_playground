@@ -57,7 +57,7 @@ extension UIViewController {
     // A helper function to enable activity indicator circle
     // Should be used whenever we want user to wait while loading something
     func prepareActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = false
