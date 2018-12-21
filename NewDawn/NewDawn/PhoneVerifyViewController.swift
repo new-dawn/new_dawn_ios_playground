@@ -42,7 +42,7 @@ class PhoneVerifyViewController: UIViewController {
         // Remove activity indicator
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
-        // Process Request & Remove Activity Indicator
+        // Process Request
         self.processSessionTasks(request: request!, callback: readPhoneVerifyResponse)
         
         // Pass country code and phone number to next view

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */; };
 		24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */; };
+		24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */; };
 		24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F657FB21B31C1300DB2547 /* AppDelegate.swift */; };
 		24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F657FD21B31C1300DB2547 /* ViewController.swift */; };
 		24F6580121B31C1300DB2547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F657FF21B31C1300DB2547 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
+		24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
 		24F657F821B31C1300DB2547 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F657FB21B31C1300DB2547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F657FD21B31C1300DB2547 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */,
 				24F6580721B31C1300DB2547 /* Info.plist */,
 				24F6582921B325D300DB2547 /* SignInViewController.swift */,
+				24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */,
 				24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */,
 				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
 				24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */,
@@ -418,6 +421,7 @@
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
 				24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
+				24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */,
 				24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +700,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */,
+			);
+			currentVersion = 24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */;
+			path = UserInfoModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 24F657F021B31C1300DB2547 /* Project object */;
 }
