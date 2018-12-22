@@ -9,21 +9,21 @@
 import UIKit
 
 class PhoneVerifyViewController: UIViewController {
-    @IBOutlet weak var countryCodeTextField: UITextField!
+
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        polishTextField(textField: phoneNumberTextField)
+        phoneNumberTextField.setLeftPaddingPoints(25)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        let countryCode = countryCodeTextField.text
+        // For US only
         let phoneNumber = phoneNumberTextField.text
         
         // Validate Username and Password
-        if (countryCode?.isEmpty)! || (phoneNumber?.isEmpty)!
+        if (phoneNumber?.isEmpty)!
         {
             print("Country Code or Phone Number is Missing")
             return
@@ -42,7 +42,7 @@ class PhoneVerifyViewController: UIViewController {
         // Remove activity indicator
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
-        // Process Request & Remove Activity Indicator
+        // Process Request
         self.processSessionTasks(request: request!, callback: readPhoneVerifyResponse)
         
         // Pass country code and phone number to next view
@@ -53,7 +53,7 @@ class PhoneVerifyViewController: UIViewController {
         // Prepare fields sent to next page
         let authenticateController = segue.destination as! PhoneAuthenticateViewController
         authenticateController.userPhoneNumber = phoneNumberTextField.text!
-        authenticateController.userCountryCode = countryCodeTextField.text!
+        authenticateController.userCountryCode = "1"
     }
     
     // Create Phoen Verify request according to API spec
@@ -65,7 +65,7 @@ class PhoneVerifyViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let postString = [
             "phone_number": phoneNumberTextField.text!,
-            "country_code": countryCodeTextField.text!
+            "country_code": "1"
             ] as [String: String]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
@@ -85,7 +85,7 @@ class PhoneVerifyViewController: UIViewController {
             return
         }
     }
-    
+
     /*
     // MARK: - Navigation
 
@@ -96,4 +96,17 @@ class PhoneVerifyViewController: UIViewController {
     }
     */
 
+}
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
 }
