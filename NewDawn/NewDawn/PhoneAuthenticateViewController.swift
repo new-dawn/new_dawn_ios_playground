@@ -80,7 +80,18 @@ class PhoneAuthenticateViewController: UIViewController {
             self.displayMessage(userMessage: message!)
             return
         }
-        self.displayMessage(userMessage: message!)
+        
+        // Store phone number locally
+        localStoreKeyValue(key: "phoneNumber", value: userPhoneNumber)
+        
+        // Phone verification success. Go to main registration page
+        // Go to profile gender/name/birthday fill page
+        DispatchQueue.main.async {
+            let profileGNBPage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileGNBViewController")
+                as! ProfileGNBViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = profileGNBPage
+        }
     }
     
     /*

@@ -107,6 +107,19 @@ extension UIViewController {
         // Concatenate according to TastyPie requirement
         return "ApiKey \(String(describing: username)):\(String(describing: accessToken))"
     }
+    
+    func localStoreKeyValue(key: String, value: String) -> Void {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(value, forKey: key)
+        userDefaults.synchronize()
+    }
+    
+    func localReadKeyValue(key: String) -> String {
+        if let value: String = UserDefaults.standard.object(forKey: key) as! String? {
+            return value
+        }
+        return "No Value Founded"
+    }
 }
 
 
