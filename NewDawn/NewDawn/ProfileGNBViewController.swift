@@ -10,9 +10,16 @@ import UIKit
 
 class ProfileGNBViewController: UIViewController {
 
+    @IBOutlet weak var womenTextField: UITextField!
+    @IBOutlet weak var menTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        polishTextField(textField: womenTextField)
+        polishTextField(textField: menTextField)
+        polishTextField(textField: nameTextField)
+        polishTextField(textField: birthdayTextField)
         // Do any additional setup after loading the view.
     }
     
