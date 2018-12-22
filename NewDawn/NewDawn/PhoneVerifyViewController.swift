@@ -9,11 +9,12 @@
 import UIKit
 
 class PhoneVerifyViewController: UIViewController {
-    
+
     @IBOutlet weak var phoneNumberTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         phoneNumberTextField.setLeftPaddingPoints(25)
+        polishTextField(textField: phoneNumberTextField)
         // Do any additional setup after loading the view.
     }
     

@@ -108,17 +108,28 @@ extension UIViewController {
         return "ApiKey \(String(describing: username)):\(String(describing: accessToken))"
     }
     
+    // A helper function to store key value pair locally
     func localStoreKeyValue(key: String, value: String) -> Void {
         let userDefaults = UserDefaults.standard
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
     
+    // A helper function to get key value pair locally
     func localReadKeyValue(key: String) -> String {
         if let value: String = UserDefaults.standard.object(forKey: key) as! String? {
             return value
         }
         return "No Value Founded"
+    }
+    
+    // A helper function to make text field fancier
+    func polishTextField(textField: UITextField) -> Void {
+        textField.setLeftPaddingPoints(25)
+        textField.layer.cornerRadius = 20
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        textField.layer.masksToBounds = true
     }
 }
 
