@@ -124,15 +124,24 @@ extension UIViewController {
     }
     
     // A helper function to make text field fancier
-    func polishTextField(textField: UITextField, textCenter: Bool = false) -> Void {
-        textField.setLeftPaddingPoints(25)
+    func polishTextField(textField: UITextField) -> Void {
+        textField.setLeftPaddingPoints(10)
         textField.layer.cornerRadius = 20
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
         textField.layer.masksToBounds = true
-        if textCenter == true {
-            textField.textAlignment = .center;
-        }
+    }
+    
+    // A helper function to make button fancier
+    func polishUIButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func flipButton(button: UIButton) -> Void {
+        
     }
 }
 

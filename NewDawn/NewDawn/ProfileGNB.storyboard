@@ -32,7 +32,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Fill out details to get a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Fill out details to get you a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
                                 <rect key="frame" x="51" y="157" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Zb9-Dp-yqB"/>
@@ -53,7 +53,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Name" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdI-d3-yco">
-                                <rect key="frame" x="51" y="296" width="273" height="25"/>
+                                <rect key="frame" x="51" y="305" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2h9-Dc-GL6"/>
                                     <constraint firstAttribute="width" constant="273" id="wKd-XL-0l2"/>
@@ -63,7 +63,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Birthday" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-qb-e8g">
-                                <rect key="frame" x="51" y="373" width="273" height="25"/>
+                                <rect key="frame" x="51" y="382" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="BYI-yD-VQG"/>
                                     <constraint firstAttribute="height" constant="25" id="JrV-8a-oou"/>
@@ -72,30 +72,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Women" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAz-uu-F7e">
-                                <rect key="frame" x="57.5" y="250" width="120" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cIV-yo-yLo"/>
-                                    <constraint firstAttribute="width" constant="120" id="wAL-xX-E0M"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="      Men" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwe-dD-EXL">
-                                <rect key="frame" x="197.5" y="250" width="120" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="75F-XU-ggZ"/>
-                                    <constraint firstAttribute="height" constant="40" id="uxw-G6-fSS"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-wE-cfg">
-                                <rect key="frame" x="56.5" y="327" width="262" height="40"/>
+                                <rect key="frame" x="56.5" y="336" width="262" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="dA9-6R-y7P"/>
                                     <constraint firstAttribute="height" constant="40" id="oLw-4Y-Sfc"/>
@@ -105,7 +83,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zB-gA-YW1">
-                                <rect key="frame" x="56.5" y="404" width="262" height="40"/>
+                                <rect key="frame" x="56.5" y="413" width="262" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="7Zt-b2-ZTT"/>
                                     <constraint firstAttribute="height" constant="40" id="YdS-mo-TYN"/>
@@ -114,6 +92,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28d-s8-GDJ">
+                                <rect key="frame" x="57.5" y="259" width="120" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TFQ-E2-Smg"/>
+                                    <constraint firstAttribute="width" constant="120" id="mnn-bf-dMz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Women">
+                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="womenButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="ArN-yC-T9G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-us-cso">
+                                <rect key="frame" x="197.5" y="259" width="120" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Jnp-GH-1Gc"/>
+                                    <constraint firstAttribute="width" constant="120" id="cnx-ff-SKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Men">
+                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="menButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="JFe-xI-bIT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -124,25 +134,25 @@
                             <constraint firstItem="CqV-wE-cfg" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="Crf-BD-zPL"/>
                             <constraint firstItem="2zB-gA-YW1" firstAttribute="top" secondItem="QeE-qb-e8g" secondAttribute="bottom" constant="6" id="Dlw-yA-EoU"/>
                             <constraint firstItem="W2s-sC-0PV" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="52" id="JaB-dJ-uh6"/>
+                            <constraint firstItem="28d-s8-GDJ" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="-70" id="NQw-7L-OD9"/>
                             <constraint firstItem="CqV-wE-cfg" firstAttribute="top" secondItem="TdI-d3-yco" secondAttribute="bottom" constant="6" id="PAk-dc-ba2"/>
                             <constraint firstItem="uoN-FW-C7I" firstAttribute="top" secondItem="4zM-7y-F79" secondAttribute="bottom" constant="37" id="PB0-OJ-RR6"/>
-                            <constraint firstItem="TdI-d3-yco" firstAttribute="top" secondItem="ZAz-uu-F7e" secondAttribute="bottom" constant="6" id="Pjp-aD-Idm"/>
-                            <constraint firstItem="Cwe-dD-EXL" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="6" id="XBa-G0-WB8"/>
+                            <constraint firstItem="Gf3-us-cso" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="70" id="Rvn-Mb-j5i"/>
+                            <constraint firstItem="TdI-d3-yco" firstAttribute="top" secondItem="28d-s8-GDJ" secondAttribute="bottom" constant="6" id="SzS-cg-xwk"/>
+                            <constraint firstItem="Gf3-us-cso" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="15" id="V8B-DY-c0M"/>
                             <constraint firstItem="4zM-7y-F79" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="YJf-t1-8oW"/>
                             <constraint firstItem="QeE-qb-e8g" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ZoH-v1-b3Y"/>
                             <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="dKg-bJ-ea8"/>
                             <constraint firstItem="2zB-gA-YW1" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="eps-ap-i3R"/>
-                            <constraint firstItem="Cwe-dD-EXL" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="70" id="lgs-NB-aau"/>
+                            <constraint firstItem="28d-s8-GDJ" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="15" id="kFB-iv-sBU"/>
                             <constraint firstItem="uoN-FW-C7I" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ohv-nj-Bad"/>
-                            <constraint firstItem="ZAz-uu-F7e" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="6" id="sjp-qp-zeB"/>
-                            <constraint firstItem="ZAz-uu-F7e" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="-70" id="zng-B7-Hux"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="birthdayTextField" destination="2zB-gA-YW1" id="1Wo-DU-bMC"/>
-                        <outlet property="menTextField" destination="Cwe-dD-EXL" id="JTs-KU-v8S"/>
+                        <outlet property="menButton" destination="Gf3-us-cso" id="Jdk-fa-cqb"/>
                         <outlet property="nameTextField" destination="CqV-wE-cfg" id="s1i-tU-Hpe"/>
-                        <outlet property="womenTextField" destination="ZAz-uu-F7e" id="Te2-WQ-fsI"/>
+                        <outlet property="womenButton" destination="28d-s8-GDJ" id="MfM-7C-yMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP3-S2-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
