@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="4352" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ProfileGNBViewController-->
+        <scene sceneID="GIX-wn-jQD">
+            <objects>
+                <viewController storyboardIdentifier="ProfileGNBViewController" title="ProfileGNBViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IvN-LX-e3l" customClass="ProfileGNBViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iaC-Dy-Cff"/>
+                        <viewControllerLayoutGuide type="bottom" id="yH2-Zt-D3t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="ProfileGNBViewController" id="ZKy-hO-AYx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let us know more  about you" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
+                                <rect key="frame" x="52.5" y="144" width="270" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Pog-x6-XXW"/>
+                                    <constraint firstAttribute="width" constant="270" id="myI-JZ-gFS"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Fill out the details so you can have a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
+                                <rect key="frame" x="51" y="239" width="273" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="273" id="k4N-OX-gOH"/>
+                                    <constraint firstAttribute="height" constant="48" id="xHH-4r-NPI"/>
+                                </constraints>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4zM-7y-F79" firstAttribute="top" secondItem="W2s-sC-0PV" secondAttribute="bottom" constant="15" id="77w-PY-MOi"/>
+                            <constraint firstItem="W2s-sC-0PV" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="124" id="JaB-dJ-uh6"/>
+                            <constraint firstItem="4zM-7y-F79" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="YJf-t1-8oW"/>
+                            <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="dKg-bJ-ea8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pP3-S2-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576.8115942028987" y="835.59782608695662"/>
+        </scene>
+    </scenes>
+</document>
