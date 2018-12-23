@@ -9,6 +9,9 @@
 import UIKit
 
 class PhoneAuthenticateViewController: UIViewController {
+    
+    
+    
     @IBOutlet weak var verificationCodeTextField: UITextField!
     
     // The country code and phone number from previous view
@@ -23,31 +26,37 @@ class PhoneAuthenticateViewController: UIViewController {
     }
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        let verificationCode = verificationCodeTextField.text
+        let profileGNBPage = self.storyboard?.instantiateViewController(withIdentifier: "ProfileGNBViewController")
+            as! ProfileGNBViewController
+        let appDelegate = UIApplication.shared.delegate
+        appDelegate?.window??.rootViewController = profileGNBPage
         
-        // Validate Username and Password
-        if (verificationCode?.isEmpty)!
-        {
-            print("Verification Code is Missing")
-            self.displayMessage(userMessage: "Verification code cannot be empty")
-            return
-        }
-        
-        // Create Activity Indicator
-        let activityIndicator = self.prepareActivityIndicator()
-        
-        // Send Request
-        let request = self.createPhoneAuthenticateRequest()
-        if request == nil {
-            // Request Creation Failed
-            return
-        }
-        
-        // Remove activity indicator
-        self.removeActivityIndicator(activityIndicator: activityIndicator)
-        
-        // Process Request & Remove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readPhoneAuthenticateResponse)
+//        
+//        let verificationCode = verificationCodeTextField.text
+//        
+//        // Validate Username and Password
+//        if (verificationCode?.isEmpty)!
+//        {
+//            print("Verification Code is Missing")
+//            self.displayMessage(userMessage: "Verification code cannot be empty")
+//            return
+//        }
+//        
+//        // Create Activity Indicator
+//        let activityIndicator = self.prepareActivityIndicator()
+//        
+//        // Send Request
+//        let request = self.createPhoneAuthenticateRequest()
+//        if request == nil {
+//            // Request Creation Failed
+//            return
+//        }
+//        
+//        // Remove activity indicator
+//        self.removeActivityIndicator(activityIndicator: activityIndicator)
+//        
+//        // Process Request & Remove Activity Indicator
+//        self.processSessionTasks(request: request!, callback: readPhoneAuthenticateResponse)
     }
     
     // Create Phoen Verify request according to API spec

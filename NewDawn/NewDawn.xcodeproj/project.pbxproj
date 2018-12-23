@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,13 @@
 		24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */; };
 		24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6582D21B32C3700DB2547 /* ProfileViewController.swift */; };
 		287289B5642A2F4B53258129 /* Pods_NewDawnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */; };
+		54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */; };
+		54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278B921CFFB9200917F16 /* Profile_Height.swift */; };
+		54C278BC21CFFBAB00917F16 /* Profile_Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278BB21CFFBAB00917F16 /* Profile_Education.swift */; };
+		54C278C021CFFBFD00917F16 /* Profile_DrinkSmoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */; };
+		54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C121CFFC1600917F16 /* Profile_Photos.swift */; };
+		54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */; };
+		54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C521D0003C00917F16 /* Profile_WorkJob.swift */; };
 		E012BD5D910E38877F196B74 /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */; };
 		E7EBBC30E654CB6DEF94B0E4 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F98661778968083EC2BD71A /* Pods_NewDawn.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +76,13 @@
 		24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		24F6582D21B32C3700DB2547 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2F98661778968083EC2BD71A /* Pods_NewDawn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_HomeTown.swift; sourceTree = "<group>"; };
+		54C278B921CFFB9200917F16 /* Profile_Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Height.swift; sourceTree = "<group>"; };
+		54C278BB21CFFBAB00917F16 /* Profile_Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Education.swift; sourceTree = "<group>"; };
+		54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DrinkSmoke.swift; sourceTree = "<group>"; };
+		54C278C121CFFC1600917F16 /* Profile_Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Photos.swift; sourceTree = "<group>"; };
+		54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Notificatioin.swift; sourceTree = "<group>"; };
+		54C278C521D0003C00917F16 /* Profile_WorkJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_WorkJob.swift; sourceTree = "<group>"; };
 		5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnUITests/Pods-NewDawnUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +157,7 @@
 		24F657FA21B31C1300DB2547 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
-				243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */,
+				54C278B421CFFAB600917F16 /* ProfileViewController */,
 				24F657FB21B31C1300DB2547 /* AppDelegate.swift */,
 				24F657FD21B31C1300DB2547 /* ViewController.swift */,
 				24F657FF21B31C1300DB2547 /* Main.storyboard */,
@@ -156,7 +170,6 @@
 				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
 				24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */,
 				24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */,
-				24C0468321CDC84E006EC02E /* ProfileGNBViewController.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -177,6 +190,22 @@
 				24F6581D21B31C1400DB2547 /* Info.plist */,
 			);
 			path = NewDawnUITests;
+			sourceTree = "<group>";
+		};
+		54C278B421CFFAB600917F16 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24C0468321CDC84E006EC02E /* ProfileGNBViewController.swift */,
+				243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */,
+				54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */,
+				54C278B921CFFB9200917F16 /* Profile_Height.swift */,
+				54C278BB21CFFBAB00917F16 /* Profile_Education.swift */,
+				54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */,
+				54C278C121CFFC1600917F16 /* Profile_Photos.swift */,
+				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
+				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		D56257B6927956DFF08F74B6 /* Frameworks */ = {
@@ -279,7 +308,7 @@
 				};
 			};
 			buildConfigurationList = 24F657F321B31C1300DB2547 /* Build configuration list for PBXProject "NewDawn" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -423,13 +452,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */,
+				54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */,
+				54C278C021CFFBFD00917F16 /* Profile_DrinkSmoke.swift in Sources */,
+				54C278BC21CFFBAB00917F16 /* Profile_Education.swift in Sources */,
 				24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */,
+				54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */,
+				54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
 				24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */,
 				24C0468421CDC84E006EC02E /* ProfileGNBViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
+				54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */,
 				24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */,
+				54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */,
 				24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +608,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -583,9 +620,14 @@
 			baseConfigurationReference = FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JW6QXN44DS;
 				INFOPLIST_FILE = NewDawn/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawn";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawn.Identifier";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -597,9 +639,14 @@
 			baseConfigurationReference = D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JW6QXN44DS;
 				INFOPLIST_FILE = NewDawn/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawn";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawn.Identifier";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -613,7 +660,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = NewDawnTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -629,7 +680,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = NewDawnTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -644,7 +699,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -659,7 +718,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
