@@ -25,8 +25,12 @@ class ProfileGNBViewController: UIViewController {
     }
     
     @IBAction func womenButtonTapped(_ sender: Any) {
+        selectButton(button: womenButton)
+        deselectButton(button: menButton)
     }
     @IBAction func menButtonTapped(_ sender: Any) {
+        selectButton(button: menButton)
+        deselectButton(button: womenButton)
     }
     
     /*

@@ -140,8 +140,33 @@ extension UIViewController {
         button.layer.masksToBounds = true
     }
     
-    func flipButton(button: UIButton) -> Void {
-        
+    // A helper function to select/deselect button
+    func selectButton(button: UIButton) -> Void {
+        let color = UIColor(red:0/255, green:0/255, blue:0/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+    // A helper function to select/deselect button
+    func deselectButton(button: UIButton) -> Void {
+        let color = UIColor(red:128/255, green:128/255, blue:128/255, alpha:1)
+        button.setTitleColor(color, for: .normal)
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
+    }
+}
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
     }
 }
 
