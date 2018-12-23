@@ -122,6 +122,20 @@
                                     <action selector="menButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="JFe-xI-bIT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6j-AI-NKa">
+                                <rect key="frame" x="51" y="492" width="273" height="41"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="TkD-Qf-9PM"/>
+                                    <constraint firstAttribute="width" constant="273" id="leg-R0-ovc"/>
+                                </constraints>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="Q58-f5-BVS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -138,12 +152,14 @@
                             <constraint firstItem="Gf3-us-cso" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="70" id="Rvn-Mb-j5i"/>
                             <constraint firstItem="TdI-d3-yco" firstAttribute="top" secondItem="28d-s8-GDJ" secondAttribute="bottom" constant="6" id="SzS-cg-xwk"/>
                             <constraint firstItem="Gf3-us-cso" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="15" id="V8B-DY-c0M"/>
+                            <constraint firstItem="e6j-AI-NKa" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="Y4f-kE-6Ww"/>
                             <constraint firstItem="4zM-7y-F79" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="YJf-t1-8oW"/>
                             <constraint firstItem="QeE-qb-e8g" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ZoH-v1-b3Y"/>
                             <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="dKg-bJ-ea8"/>
                             <constraint firstItem="2zB-gA-YW1" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="eps-ap-i3R"/>
                             <constraint firstItem="28d-s8-GDJ" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="15" id="kFB-iv-sBU"/>
                             <constraint firstItem="uoN-FW-C7I" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ohv-nj-Bad"/>
+                            <constraint firstItem="e6j-AI-NKa" firstAttribute="top" secondItem="2zB-gA-YW1" secondAttribute="bottom" constant="39" id="p26-Iv-tUH"/>
                         </constraints>
                     </view>
                     <connections>
