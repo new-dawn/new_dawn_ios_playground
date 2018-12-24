@@ -9,14 +9,29 @@
 import UIKit
 
 class Profile_Education: UIViewController {
-
+    
+    var visible = false
+    @IBOutlet weak var degreeTextField: UITextField!
+    @IBOutlet weak var schoolTextField: UITextField!
+    @IBOutlet weak var visibleButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        polishTextField(textField: schoolTextField)
+        polishTextField(textField: degreeTextField)
+        polishUIButton(button: visibleButton)
     }
     
-
+    @IBAction func visibleButtonTapped(_ sender: Any) {
+        if visible == true {
+            deselectButton(button: visibleButton, text: "Invisible")
+            visible = false
+        } else {
+            selectButton(button: visibleButton, text: "Visible")
+            visible = true
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
