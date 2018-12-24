@@ -10,6 +10,7 @@ import UIKit
 
 class Profile_Education: UIViewController {
 
+    @IBOutlet weak var schoolTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
