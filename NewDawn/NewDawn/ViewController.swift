@@ -142,7 +142,10 @@ extension UIViewController {
     
     // A helper function to select/deselect button
     // The color is aligned with our theme
-    func selectButton(button: UIButton) -> Void {
+    func selectButton(button: UIButton, text: String? = nil) -> Void {
+        if text != nil {
+            button.setTitle(text!, for: .normal)
+        }
         let color = UIColor(red:0/255, green:0/255, blue:0/255, alpha:1)
         button.setTitleColor(.white, for: .normal)
         button.layer.borderColor = color.cgColor
@@ -151,7 +154,10 @@ extension UIViewController {
     
     // A helper function to select/deselect button
     // The color is aligned with our theme
-    func deselectButton(button: UIButton) -> Void {
+    func deselectButton(button: UIButton, text: String? = nil) -> Void {
+        if text != nil {
+            button.setTitle(text!, for: .normal)
+        }
         let color = UIColor(red:128/255, green:128/255, blue:128/255, alpha:1)
         button.setTitleColor(color, for: .normal)
         button.layer.borderColor = color.cgColor
