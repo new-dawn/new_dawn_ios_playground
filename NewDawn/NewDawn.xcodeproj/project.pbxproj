@@ -26,7 +26,7 @@
 		54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */; };
 		54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278B921CFFB9200917F16 /* Profile_Height.swift */; };
 		54C278BC21CFFBAB00917F16 /* Profile_Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278BB21CFFBAB00917F16 /* Profile_Education.swift */; };
-		54C278C021CFFBFD00917F16 /* Profile_DrinkSmoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */; };
+		54C278C021CFFBFD00917F16 /* Profile_Smoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278BF21CFFBFD00917F16 /* Profile_Smoke.swift */; };
 		54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C121CFFC1600917F16 /* Profile_Photos.swift */; };
 		54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */; };
 		54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C521D0003C00917F16 /* Profile_WorkJob.swift */; };
@@ -79,7 +79,7 @@
 		54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_HomeTown.swift; sourceTree = "<group>"; };
 		54C278B921CFFB9200917F16 /* Profile_Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Height.swift; sourceTree = "<group>"; };
 		54C278BB21CFFBAB00917F16 /* Profile_Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Education.swift; sourceTree = "<group>"; };
-		54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DrinkSmoke.swift; sourceTree = "<group>"; };
+		54C278BF21CFFBFD00917F16 /* Profile_Smoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Smoke.swift; sourceTree = "<group>"; };
 		54C278C121CFFC1600917F16 /* Profile_Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Photos.swift; sourceTree = "<group>"; };
 		54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Notificatioin.swift; sourceTree = "<group>"; };
 		54C278C521D0003C00917F16 /* Profile_WorkJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_WorkJob.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 				54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */,
 				54C278B921CFFB9200917F16 /* Profile_Height.swift */,
 				54C278BB21CFFBAB00917F16 /* Profile_Education.swift */,
-				54C278BF21CFFBFD00917F16 /* Profile_DrinkSmoke.swift */,
+				54C278BF21CFFBFD00917F16 /* Profile_Smoke.swift */,
 				54C278C121CFFC1600917F16 /* Profile_Photos.swift */,
 				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
 				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
@@ -453,7 +453,7 @@
 			files = (
 				24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */,
 				54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */,
-				54C278C021CFFBFD00917F16 /* Profile_DrinkSmoke.swift in Sources */,
+				54C278C021CFFBFD00917F16 /* Profile_Smoke.swift in Sources */,
 				54C278BC21CFFBAB00917F16 /* Profile_Education.swift in Sources */,
 				24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */,
 				54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */,

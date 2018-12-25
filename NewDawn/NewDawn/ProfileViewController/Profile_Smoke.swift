@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Profile_DrinkSmoke: UIViewController {
+class Profile_Smoke: UIViewController {
     var visible = false
     var smoke = false
     var socially = false
@@ -44,7 +44,7 @@ class Profile_DrinkSmoke: UIViewController {
             smoke = false
         } else {
             selectButton(button: noSmokeButton)
-            unselectButton(buttons: [sociallyButton,frequentlyButton])
+            deselectButtons(buttons: [sociallyButton,frequentlyButton])
             smoke = true
             socially = false
             frequent = false
@@ -57,7 +57,7 @@ class Profile_DrinkSmoke: UIViewController {
             frequent = false
         } else {
             selectButton(button: frequentlyButton)
-            unselectButton(buttons: [sociallyButton,noSmokeButton])
+            deselectButtons(buttons: [sociallyButton,noSmokeButton])
             smoke = false
             socially = false
             frequent = true
@@ -70,7 +70,7 @@ class Profile_DrinkSmoke: UIViewController {
             socially = false
         } else {
             selectButton(button: sociallyButton)
-            unselectButton(buttons: [frequentlyButton,noSmokeButton])
+            deselectButtons(buttons: [frequentlyButton,noSmokeButton])
             smoke = false
             socially = true
             frequent = false

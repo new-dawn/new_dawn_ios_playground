@@ -163,7 +163,7 @@ extension UIViewController {
     
     // Deselect all the buttons in the array.
     // Can be used in single choice scenario.
-    func unselectButton(buttons: [UIButton]) -> Void {
+    func deselectButtons(buttons: [UIButton]) -> Void {
         let buttonsNum = buttons.count - 1
         for buttonIndex in 0...buttonsNum{
             deselectButton(button: buttons[buttonIndex])

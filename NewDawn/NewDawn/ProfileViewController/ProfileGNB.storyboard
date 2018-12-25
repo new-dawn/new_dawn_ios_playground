@@ -487,10 +487,10 @@
             </objects>
             <point key="canvasLocation" x="4305" y="843"/>
         </scene>
-        <!--Profile Drink Smoke-->
+        <!--Profile Smoke-->
         <scene sceneID="r5d-Rv-jk4">
             <objects>
-                <viewController id="b8r-oE-fGS" customClass="Profile_DrinkSmoke" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b8r-oE-fGS" customClass="Profile_Smoke" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UmH-q8-Z5j"/>
                         <viewControllerLayoutGuide type="bottom" id="Ca7-Z2-GNv"/>
