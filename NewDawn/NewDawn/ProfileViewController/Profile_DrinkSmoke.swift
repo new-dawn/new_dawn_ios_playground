@@ -9,22 +9,51 @@
 import UIKit
 
 class Profile_DrinkSmoke: UIViewController {
-
+    var visible = false
+    var smoke = false
+    var socially = false
+    var frequent = false
+    
+    @IBOutlet weak var sociallyButton: UIButton!
+    @IBOutlet weak var frequentlyButton: UIButton!
+    @IBOutlet weak var noSmokeButton: UIButton!
+    @IBOutlet weak var visibleButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        polishUIButton(button: visibleButton)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func visibleButtonTapped(_ sender: Any) {
+        if visible == true {
+            deselectButton(button: visibleButton, text: "Invisible")
+            visible = false
+        } else {
+            selectButton(button: visibleButton, text: "Visible")
+            visible = true
+        }
     }
-    */
+    
+    @IBAction func noSmokeButtonTapped(_ sender: Any) {
+        if smoke == true {
+            deselectButton(button: noSmokeButton)
+            smoke = false
+        } else {
+            selectButton(button: noSmokeButton)
+            smoke = true
+        }
+    }
+    
+    @IBAction func frequentButtonTapped(_ sender: Any) {
+        if frequent == true {
+            deselectButton(button: frequentlyButton)
+            frequent = false
+        } else {
+            selectButton(button: frequentlyButton)
+            frequent = true
+        }
+    }
+    
 
 }

@@ -295,11 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-2a-Pjr">
-                                <rect key="frame" x="51" y="591" width="273" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="JlQ-DL-VDa"/>
-                                    <constraint firstAttribute="width" constant="273" id="hFO-0P-bub"/>
-                                </constraints>
+                                <rect key="frame" x="158" y="591" width="59" height="30"/>
                                 <state key="normal" title="Previous">
                                     <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -503,23 +499,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGE-1U-QGz">
-                                <rect key="frame" x="73" y="506" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="273" id="KQK-RF-OKW"/>
-                                    <constraint firstAttribute="height" constant="41" id="gSh-oh-sfW"/>
-                                </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="xV5-yx-kRY"/>
-                                    <segue destination="gIN-sC-2GR" kind="presentation" id="Khe-Ut-PaY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBr-WA-UeB">
-                                <rect key="frame" x="110" y="609" width="273" height="41"/>
+                                <rect key="frame" x="44" y="606" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="FCD-RX-yog"/>
@@ -533,17 +514,95 @@
                                     <segue destination="rCc-Xe-gYN" kind="presentation" id="PMS-th-kgJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-N9-kU6">
+                                <rect key="frame" x="126" y="304" width="85" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Socially">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-FP-KKi">
+                                <rect key="frame" x="132" y="366" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Frequently">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="frequentButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="LFH-s9-J27"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVV-uX-hBi">
+                                <rect key="frame" x="153" y="415" width="30" height="30"/>
+                                <state key="normal" title="No">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="noSmokeButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="oBj-dI-utv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O83-vz-Tzw">
+                                <rect key="frame" x="127.5" y="474" width="120" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Ml7-uE-BdF"/>
+                                    <constraint firstAttribute="height" constant="32" id="zoE-sw-2qk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Visible">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="visibleButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="QDm-4g-Ll5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGE-1U-QGz">
+                                <rect key="frame" x="44" y="547" width="273" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="xV5-yx-kRY"/>
+                                    <segue destination="gIN-sC-2GR" kind="presentation" id="Khe-Ut-PaY"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Let find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qja-3Z-qqY">
+                                <rect key="frame" x="44" y="219" width="273" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Do you smoke?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-cL-mxY">
+                                <rect key="frame" x="44" y="149" width="259" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ca7-Z2-GNv" firstAttribute="top" secondItem="WGE-1U-QGz" secondAttribute="bottom" constant="120" id="0kE-PU-uQS"/>
-                            <constraint firstItem="WGE-1U-QGz" firstAttribute="leading" secondItem="JfK-dm-az0" secondAttribute="leadingMargin" constant="57" id="DKf-qH-7ad"/>
+                            <constraint firstItem="O83-vz-Tzw" firstAttribute="centerX" secondItem="JfK-dm-az0" secondAttribute="centerX" id="AaK-jb-Ho4"/>
+                            <constraint firstItem="O83-vz-Tzw" firstAttribute="top" secondItem="OVV-uX-hBi" secondAttribute="bottom" constant="8" id="MMf-zP-waZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="frequentlyButton" destination="Fag-FP-KKi" id="Zaf-SH-HBB"/>
+                        <outlet property="noSmokeButton" destination="OVV-uX-hBi" id="H0j-4E-QHs"/>
+                        <outlet property="sociallyButton" destination="Voj-N9-kU6" id="W9E-nU-WBG"/>
+                        <outlet property="visibleButton" destination="O83-vz-Tzw" id="dSW-DB-eaG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ3-2b-dee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4975" y="844"/>
+            <point key="canvasLocation" x="4973.6000000000004" y="843.32833583208401"/>
         </scene>
         <!--Profile Photos-->
         <scene sceneID="2Ba-iV-oXy">
@@ -654,9 +713,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gin-xT-bC7"/>
-        <segue reference="vCo-NW-E29"/>
-        <segue reference="Lg2-B7-aic"/>
+        <segue reference="Khe-Ut-PaY"/>
+        <segue reference="8bZ-Is-HJz"/>
+        <segue reference="PMS-th-kgJ"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
         <segue reference="jxh-C2-kWy"/>
