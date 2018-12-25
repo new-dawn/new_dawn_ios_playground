@@ -395,6 +395,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="nextButtonTapped:" destination="bam-Sq-fYd" eventType="touchUpInside" id="cPp-0s-Ug7"/>
                                     <segue destination="rCc-Xe-gYN" kind="presentation" id="Lg2-B7-aic"/>
                                 </connections>
                             </button>

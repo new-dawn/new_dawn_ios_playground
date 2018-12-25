@@ -10,18 +10,41 @@ import UIKit
 
 class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var visible = false
+    // Constant string keys
+    let SCHOOL = "school"
+    let DEGREE = "degree"
+    let VISIBLE = "edu_visible"
+    
+    var visibleField = false
     let degreePickerData = [String](arrayLiteral: "High School", "Undergrad", "Grad", "PhD")
     
     @IBOutlet weak var degreeTextField: UITextField!
     @IBOutlet weak var schoolTextField: UITextField!
     @IBOutlet weak var visibleButton: UIButton!
     
+    // Load fields that user has already filled in
+    func loadStoredFields() {
+        if let school = localReadKeyValue(key: SCHOOL) as? String {
+            schoolTextField.text = school
+        }
+        if let degree = localReadKeyValue(key: DEGREE) as? String {
+            degreeTextField.text = degree
+        }
+        if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
+            visibleField = visible
+            // Select the button if a user has already done so
+            if visibleField == true {
+                selectButton(button: visibleButton, text: "Visible")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         polishTextField(textField: schoolTextField)
         polishTextField(textField: degreeTextField)
         polishUIButton(button: visibleButton)
+        loadStoredFields()
         
         // Picker Toolbar
         let toolbar = UIToolbar();
@@ -38,15 +61,25 @@ class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visible == true {
+        if visibleField == true {
             deselectButton(button: visibleButton, text: "Invisible")
-            visible = false
+            visibleField = false
+            localStoreKeyValue(key: VISIBLE, value: false)
         } else {
             selectButton(button: visibleButton, text: "Visible")
-            visible = true
+            visibleField = true
+            localStoreKeyValue(key: VISIBLE, value: true)
         }
     }
     
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        if (schoolTextField.text?.isEmpty)! || (degreeTextField.text?.isEmpty)! {
+            displayMessage(userMessage: "Cannot have empty field")
+        }
+        localStoreKeyValue(key: SCHOOL, value: schoolTextField.text!)
+        localStoreKeyValue(key: DEGREE, value: degreeTextField.text!)
+    }
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
