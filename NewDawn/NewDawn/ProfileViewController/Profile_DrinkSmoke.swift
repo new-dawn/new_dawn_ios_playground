@@ -22,6 +22,9 @@ class Profile_DrinkSmoke: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        polishUIButton(button: sociallyButton)
+        polishUIButton(button: frequentlyButton)
+        polishUIButton(button: noSmokeButton)
         polishUIButton(button: visibleButton)
     }
     
@@ -41,7 +44,10 @@ class Profile_DrinkSmoke: UIViewController {
             smoke = false
         } else {
             selectButton(button: noSmokeButton)
+            unselectButton(buttons: [sociallyButton,frequentlyButton])
             smoke = true
+            socially = false
+            frequent = false
         }
     }
     
@@ -51,9 +57,24 @@ class Profile_DrinkSmoke: UIViewController {
             frequent = false
         } else {
             selectButton(button: frequentlyButton)
+            unselectButton(buttons: [sociallyButton,noSmokeButton])
+            smoke = false
+            socially = false
             frequent = true
         }
     }
     
-
+    @IBAction func sociallyButtonTapped(_ sender: Any) {
+        if socially == true {
+            deselectButton(button: sociallyButton)
+            socially = false
+        } else {
+            selectButton(button: sociallyButton)
+            unselectButton(buttons: [frequentlyButton,noSmokeButton])
+            smoke = false
+            socially = true
+            frequent = false
+        }
+    }
+    
 }

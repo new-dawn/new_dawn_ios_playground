@@ -160,6 +160,15 @@ extension UIViewController {
         button.layer.borderColor = color.cgColor
         button.layer.backgroundColor = UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
     }
+    
+    // Deselect all the buttons in the array.
+    // Can be used in single choice scenario.
+    func unselectButton(buttons: [UIButton]) -> Void {
+        let buttonsNum = buttons.count - 1
+        for buttonIndex in 0...buttonsNum{
+            deselectButton(button: buttons[buttonIndex])
+        }
+    }
 }
 
 extension UITextField {
