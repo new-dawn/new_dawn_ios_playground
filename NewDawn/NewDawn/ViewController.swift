@@ -109,18 +109,15 @@ extension UIViewController {
     }
     
     // A helper function to store key value pair locally
-    func localStoreKeyValue(key: String, value: String) -> Void {
+    func localStoreKeyValue(key: String, value: Any) -> Void {
         let userDefaults = UserDefaults.standard
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
     
     // A helper function to get key value pair locally
-    func localReadKeyValue(key: String) -> String {
-        if let value: String = UserDefaults.standard.object(forKey: key) as! String? {
-            return value
-        }
-        return "No Value Founded"
+    func localReadKeyValue(key: String) -> Any? {
+        return UserDefaults.standard.object(forKey: key)
     }
     
     // A helper function to make text field fancier
@@ -162,6 +159,15 @@ extension UIViewController {
         button.setTitleColor(color, for: .normal)
         button.layer.borderColor = color.cgColor
         button.layer.backgroundColor = UIColor(red:255/255, green:255/255, blue:255/255, alpha:1).cgColor
+    }
+    
+    // Deselect all the buttons in the array.
+    // Can be used in single choice scenario.
+    func deselectButtons(buttons: [UIButton]) -> Void {
+        let buttonsNum = buttons.count - 1
+        for buttonIndex in 0...buttonsNum{
+            deselectButton(button: buttons[buttonIndex])
+        }
     }
 }
 
