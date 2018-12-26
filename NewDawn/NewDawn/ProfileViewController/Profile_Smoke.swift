@@ -72,7 +72,7 @@ class Profile_Smoke: UIViewController {
     @IBAction func noSmokeButtonTapped(_ sender: Any) {
         if smoke_pref == NOSMOKE {
             deselectButton(button: noSmokeButton)
-            smoke_pref = ""
+            smoke_pref = nil
         } else {
             selectButton(button: noSmokeButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
@@ -83,7 +83,7 @@ class Profile_Smoke: UIViewController {
     @IBAction func frequentButtonTapped(_ sender: Any) {
         if smoke_pref == FREQUENT_SMOKE {
             deselectButton(button: frequentlyButton)
-            smoke_pref = ""
+            smoke_pref = nil
         } else {
             selectButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noSmokeButton])
@@ -94,7 +94,7 @@ class Profile_Smoke: UIViewController {
     @IBAction func sociallyButtonTapped(_ sender: Any) {
         if smoke_pref == SOCIAL_SMOKE {
             deselectButton(button: sociallyButton)
-            smoke_pref = ""
+            smoke_pref = nil
         } else {
             selectButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noSmokeButton])
