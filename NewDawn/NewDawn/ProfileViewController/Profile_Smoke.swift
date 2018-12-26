@@ -15,7 +15,7 @@ class Profile_Smoke: UIViewController {
     let FREQUENT_SMOKE = "frequent"
     let VISIBLE = "smoke_visible"
     var visible_state = false
-    var smoke_pref = ""
+    var smoke_pref: String? = nil
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
@@ -104,7 +104,7 @@ class Profile_Smoke: UIViewController {
     
     @IBAction func continueButtonTapped(_ sender: Any) {
         
-            localStoreKeyValue(key: "smoke", value: smoke_pref)
+        localStoreKeyValue(key: "smoke", value: smoke_pref!)
             localStoreKeyValue(key: VISIBLE, value: visible_state)
         
     }
