@@ -9,8 +9,8 @@
 import UIKit
 
 class Profile_Smoke: UIViewController {
-    var visible = false
-    var smoke_pref = ["smoke_no":false, "smoke_socially":false, "smoke_frequently":false]
+    var visible = true
+    var smoke_pref = ["smoke":""]
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
@@ -19,12 +19,16 @@ class Profile_Smoke: UIViewController {
     
     
     func loadStoredFields() {
-        if localReadKeyValue(key: "smoke_no") != nil{
-            selectButton(button: noSmokeButton)
-        }else if localReadKeyValue(key: "smoke_socially") != nil{
-            selectButton(button: sociallyButton)
-        }else if localReadKeyValue(key: "smoke_frequently") != nil{
-            selectButton(button: frequentlyButton)
+        if let smoke = localReadKeyValue(key: "smoke") as? String{
+            if smoke == "no"{
+                selectButton(button: noSmokeButton)
+            }
+            else if smoke == "frequent"{
+                selectButton(button: frequentlyButton)
+            }
+            else if smoke == "social"{
+                selectButton(button: sociallyButton)
+            }
         }
         if let visible = localReadKeyValue(key: "smoke_visible") as? Bool {
             let visibleField = visible
@@ -56,55 +60,41 @@ class Profile_Smoke: UIViewController {
     }
     
     @IBAction func noSmokeButtonTapped(_ sender: Any) {
-        if smoke_pref["smoke_no"] == true {
+        if smoke_pref["smoke"] == "no" {
             deselectButton(button: noSmokeButton)
-            smoke_pref["smoke_no"] = false
+            smoke_pref["smoke"] = ""
         } else {
             selectButton(button: noSmokeButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
-            smoke_pref["smoke_no"] = true
-            smoke_pref["smoke_socially"] = false
-            smoke_pref["smoke_frequently"] = false
+            smoke_pref["smoke"] = "no"
         }
     }
     
     @IBAction func frequentButtonTapped(_ sender: Any) {
-        if smoke_pref["smoke_frequently"] == true {
+        if smoke_pref["smoke"] == "frequent" {
             deselectButton(button: frequentlyButton)
-            smoke_pref["smoke_frequently"] = false
+            smoke_pref["smoke"] = ""
         } else {
             selectButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noSmokeButton])
-            smoke_pref["smoke_no"] = false
-            smoke_pref["smoke_socially"] = false
-            smoke_pref["smoke_frequently"] = true
+            smoke_pref["smoke"] = "frequent"
         }
     }
     
     @IBAction func sociallyButtonTapped(_ sender: Any) {
-        if smoke_pref["smoke_socially"] == true {
+        if smoke_pref["smoke"] == "social" {
             deselectButton(button: sociallyButton)
-            smoke_pref["smoke_socially"] = false
+            smoke_pref["smoke"] = ""
         } else {
             selectButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noSmokeButton])
-            smoke_pref["smoke_no"] = false
-            smoke_pref["smoke_socially"] = true
-            smoke_pref["smoke_frequently"] = false
+            smoke_pref["smoke"] = "social"
         }
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
-
-            if (smoke_pref["smoke_no"] == true){
-                localStoreKeyValue(key: "smoke_no", value: smoke_pref["smoke_no"]!)
-            }
-            if (smoke_pref["smoke_socially"] == true){
-                localStoreKeyValue(key: "smoke_socially", value: smoke_pref["smoke_socially"]!)
-            }
-            if (smoke_pref["smoke_frequently"] == true){
-                localStoreKeyValue(key: "smoke_frequently", value: smoke_pref["smoke_frequently"]!)
-            }
+        
+            localStoreKeyValue(key: "smoke", value: smoke_pref["smoke"]!)
             localStoreKeyValue(key: "smoke_visible", value: visible)
         
     }
