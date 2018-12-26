@@ -8,14 +8,14 @@
 
 import UIKit
 
-// State contains "no", "frequent", "social"
-class SmokePref{
-    var state = ""
-}
 
 class Profile_Smoke: UIViewController {
-    var visible = false
-    var smoke_pref = SmokePref()
+    let NOSMOKE = "no"
+    let SOCIAL_SMOKE = "social"
+    let FREQUENT_SMOKE = "frequent"
+    let VISIBLE = "smoke_visible"
+    var visible_state = false
+    var smoke_pref = ""
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
@@ -26,25 +26,25 @@ class Profile_Smoke: UIViewController {
     func loadStoredFields() {
         // Select the buttons if a user has already done so
         if let smoke = localReadKeyValue(key: "smoke") as? String{
-            if smoke == "no"{
+            if smoke == NOSMOKE{
                 selectButton(button: noSmokeButton)
-                smoke_pref.state = "no"
+                smoke_pref = NOSMOKE
             }
-            else if smoke == "frequent"{
+            else if smoke == FREQUENT_SMOKE{
                 selectButton(button: frequentlyButton)
-                smoke_pref.state = "frequent"
+                smoke_pref = FREQUENT_SMOKE
             }
-            else if smoke == "social"{
+            else if smoke == SOCIAL_SMOKE{
                 selectButton(button: sociallyButton)
-                smoke_pref.state = "social"
+                smoke_pref = SOCIAL_SMOKE
             }
         }
         
-        if let smoke_visible = localReadKeyValue(key: "smoke_visible") as? Bool {
+        if let smoke_visible = localReadKeyValue(key: VISIBLE) as? Bool {
             let visibleField = smoke_visible
             if visibleField == true {
                 selectButton(button: visibleButton, text: "Visible")
-                visible = true
+                visible_state = true
             }
         }
     }
@@ -60,52 +60,52 @@ class Profile_Smoke: UIViewController {
     }
     
     @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visible == true {
+        if visible_state == true {
             deselectButton(button: visibleButton, text: "Invisible")
-            visible = false
+            visible_state = false
         } else {
             selectButton(button: visibleButton, text: "Visible")
-            visible = true
+            visible_state = true
         }
     }
     
     @IBAction func noSmokeButtonTapped(_ sender: Any) {
-        if smoke_pref.state == "no" {
+        if smoke_pref == NOSMOKE {
             deselectButton(button: noSmokeButton)
-            smoke_pref.state = ""
+            smoke_pref = ""
         } else {
             selectButton(button: noSmokeButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
-            smoke_pref.state = "no"
+            smoke_pref = NOSMOKE
         }
     }
     
     @IBAction func frequentButtonTapped(_ sender: Any) {
-        if smoke_pref.state == "frequent" {
+        if smoke_pref == FREQUENT_SMOKE {
             deselectButton(button: frequentlyButton)
-            smoke_pref.state = ""
+            smoke_pref = ""
         } else {
             selectButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noSmokeButton])
-            smoke_pref.state = "frequent"
+            smoke_pref = FREQUENT_SMOKE
         }
     }
     
     @IBAction func sociallyButtonTapped(_ sender: Any) {
-        if smoke_pref.state == "social" {
+        if smoke_pref == SOCIAL_SMOKE {
             deselectButton(button: sociallyButton)
-            smoke_pref.state = ""
+            smoke_pref = ""
         } else {
             selectButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noSmokeButton])
-            smoke_pref.state = "social"
+            smoke_pref = SOCIAL_SMOKE
         }
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
         
-            localStoreKeyValue(key: "smoke", value: smoke_pref.state)
-            localStoreKeyValue(key: "smoke_visible", value: visible)
+            localStoreKeyValue(key: "smoke", value: smoke_pref)
+            localStoreKeyValue(key: VISIBLE, value: visible_state)
         
     }
 }
