@@ -1,28 +1,25 @@
 //
-//  Profile_Notificatioin.swift
+//  Profile_DraftFinal.swift
 //  NewDawn
 //
-//  Created by macboy on 12/23/18.
+//  Created by 汤子毅 on 2018/12/26.
 //  Copyright © 2018 New Dawn. All rights reserved.
 //
 
 import UIKit
-import UserNotifications
 
-class Profile_Notificatioin: UIViewController {
+class Profile_DraftFinal: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let notif_center = UNUserNotificationCenter.current()
-        // Request permission to display alerts and play sounds.
-        notif_center.requestAuthorization(options: [.alert, .sound])
-        { (granted, error) in
-            // Enable or disable features based on authorization.
-        }
+
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func getStartedButtonTapped(_ sender: Any) {
+        // TODO: Send all info to backend and go to profile page
+    }
+    
     /*
     // MARK: - Navigation
 
