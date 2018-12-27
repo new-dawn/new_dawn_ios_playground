@@ -70,6 +70,7 @@ class ProfileGNBViewController: UIViewController {
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         if (firstnameTextField.text?.isEmpty)!
+            || (lastnameTextField.text?.isEmpty)!
             || (birthdayTextField.text?.isEmpty)! {
             displayMessage(userMessage: "Cannot have empty field")
         }
