@@ -8,16 +8,47 @@
 
 import UIKit
 
+
 class Profile_Smoke: UIViewController {
-    var visible = false
-    var smoke = false
-    var socially = false
-    var frequent = false
+    let SMOKE = "smoke"
+    let NOSMOKE = "no"
+    let SOCIAL_SMOKE = "social"
+    let FREQUENT_SMOKE = "frequent"
+    let VISIBLE = "smoke_visible"
+    var visible_state = false
+    var smoke_pref: String? = nil
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
     @IBOutlet weak var noSmokeButton: UIButton!
     @IBOutlet weak var visibleButton: UIButton!
+    
+    
+    func loadStoredFields() {
+        // Select the buttons if a user has already done so
+        if let smoke = localReadKeyValue(key: SMOKE) as? String{
+            if smoke == NOSMOKE{
+                selectButton(button: noSmokeButton)
+                smoke_pref = NOSMOKE
+            }
+            else if smoke == FREQUENT_SMOKE{
+                selectButton(button: frequentlyButton)
+                smoke_pref = FREQUENT_SMOKE
+            }
+            else if smoke == SOCIAL_SMOKE{
+                selectButton(button: sociallyButton)
+                smoke_pref = SOCIAL_SMOKE
+            }
+        }
+        
+        if let smoke_visible = localReadKeyValue(key: VISIBLE) as? Bool {
+            let visibleField = smoke_visible
+            if visibleField == true {
+                selectButton(button: visibleButton, text: "Visible")
+                visible_state = true
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -26,55 +57,56 @@ class Profile_Smoke: UIViewController {
         polishUIButton(button: frequentlyButton)
         polishUIButton(button: noSmokeButton)
         polishUIButton(button: visibleButton)
+        loadStoredFields()
     }
     
     @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visible == true {
+        if visible_state == true {
             deselectButton(button: visibleButton, text: "Invisible")
-            visible = false
+            visible_state = false
         } else {
             selectButton(button: visibleButton, text: "Visible")
-            visible = true
+            visible_state = true
         }
     }
     
     @IBAction func noSmokeButtonTapped(_ sender: Any) {
-        if smoke == true {
+        if smoke_pref == NOSMOKE {
             deselectButton(button: noSmokeButton)
-            smoke = false
+            smoke_pref = nil
         } else {
             selectButton(button: noSmokeButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
-            smoke = true
-            socially = false
-            frequent = false
+            smoke_pref = NOSMOKE
         }
     }
     
     @IBAction func frequentButtonTapped(_ sender: Any) {
-        if frequent == true {
+        if smoke_pref == FREQUENT_SMOKE {
             deselectButton(button: frequentlyButton)
-            frequent = false
+            smoke_pref = nil
         } else {
             selectButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noSmokeButton])
-            smoke = false
-            socially = false
-            frequent = true
+            smoke_pref = FREQUENT_SMOKE
         }
     }
     
     @IBAction func sociallyButtonTapped(_ sender: Any) {
-        if socially == true {
+        if smoke_pref == SOCIAL_SMOKE {
             deselectButton(button: sociallyButton)
-            socially = false
+            smoke_pref = nil
         } else {
             selectButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noSmokeButton])
-            smoke = false
-            socially = true
-            frequent = false
+            smoke_pref = SOCIAL_SMOKE
         }
     }
     
+    @IBAction func continueButtonTapped(_ sender: Any) {
+        
+        localStoreKeyValue(key: SMOKE, value: smoke_pref!)
+            localStoreKeyValue(key: VISIBLE, value: visible_state)
+        
+    }
 }
