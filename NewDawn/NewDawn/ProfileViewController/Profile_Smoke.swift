@@ -10,6 +10,7 @@ import UIKit
 
 
 class Profile_Smoke: UIViewController {
+    let SMOKE = "smoke"
     let NOSMOKE = "no"
     let SOCIAL_SMOKE = "social"
     let FREQUENT_SMOKE = "frequent"
@@ -25,7 +26,7 @@ class Profile_Smoke: UIViewController {
     
     func loadStoredFields() {
         // Select the buttons if a user has already done so
-        if let smoke = localReadKeyValue(key: "smoke") as? String{
+        if let smoke = localReadKeyValue(key: SMOKE) as? String{
             if smoke == NOSMOKE{
                 selectButton(button: noSmokeButton)
                 smoke_pref = NOSMOKE
@@ -104,7 +105,7 @@ class Profile_Smoke: UIViewController {
     
     @IBAction func continueButtonTapped(_ sender: Any) {
         
-        localStoreKeyValue(key: "smoke", value: smoke_pref!)
+        localStoreKeyValue(key: SMOKE, value: smoke_pref!)
             localStoreKeyValue(key: VISIBLE, value: visible_state)
         
     }
