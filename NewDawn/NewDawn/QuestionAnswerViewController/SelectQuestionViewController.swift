@@ -1,5 +1,5 @@
 //
-//  QuestionViewController.swift
+//  SelectQuestionViewController.swift
 //  NewDawn
 //
 //  Created by 汤子毅 on 2018/12/27.
@@ -8,16 +8,21 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
-    @IBOutlet weak var selectQuestionButton: UIButton!
+class SelectQuestionViewController: UIViewController {
+    // TODO: Replace hardcoded questions with backend request
+    var sample_questions = [
+        "Do you like hiking?",
+        "What's your favorate song?",
+        "Do you have a pet?",
+        "What's your best hobby?"
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: selectQuestionButton)
+
+        // Do any additional setup after loading the view.
     }
     
-    @IBAction func continueButtonTapped(_ sender: Any) {
-    }
-    
+
     /*
     // MARK: - Navigation
 
