@@ -9,11 +9,16 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+    // TODO: Replace hardcoded questions with backend request
+    var sample_questions = [
+        "Do you like hiking?",
+        "What's your favorate song?",
+        "Do you have a pet?"
+    ]
+    @IBOutlet weak var selectQuestionButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        polishUIButton(button: selectQuestionButton)
     }
     
 
