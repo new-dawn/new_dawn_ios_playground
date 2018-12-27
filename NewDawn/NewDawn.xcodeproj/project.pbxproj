@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
+		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
 		24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */; };
 		24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */; };
 		24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
+		2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DraftFinal.swift; sourceTree = "<group>"; };
 		24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
 		24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				54C278C121CFFC1600917F16 /* Profile_Photos.swift */,
 				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
 				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
+				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
+				2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */,
 				24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */,
 				24C0468421CDC84E006EC02E /* ProfileGNBViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
