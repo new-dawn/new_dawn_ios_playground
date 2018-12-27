@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
 		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
+		24B884E921D54F2000AD2786 /* QuestionAnswer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */; };
+		24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */; };
 		24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */; };
 		24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */; };
 		24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */; };
@@ -57,6 +59,8 @@
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
 		2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DraftFinal.swift; sourceTree = "<group>"; };
+		24B884E821D54F2000AD2786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QuestionAnswer.storyboard; sourceTree = "<group>"; };
+		24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionViewController.swift; path = QuestionAnswerViewController/QuestionViewController.swift; sourceTree = "<group>"; };
 		24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
 		24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
 				24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */,
 				24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */,
+				24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */,
+				24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B884E921D54F2000AD2786 /* QuestionAnswer.storyboard in Resources */,
 				243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */,
 				24F6580621B31C1300DB2547 /* LaunchScreen.storyboard in Resources */,
 				24F6580321B31C1300DB2547 /* Assets.xcassets in Resources */,
@@ -462,6 +469,7 @@
 				54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */,
 				54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
+				24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
 				2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */,
 				24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */,
@@ -506,6 +514,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24B884E821D54F2000AD2786 /* Base */,
+			);
+			name = QuestionAnswer.storyboard;
+			sourceTree = "<group>";
+		};
 		24F657FF21B31C1300DB2547 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
