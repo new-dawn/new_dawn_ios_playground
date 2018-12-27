@@ -9,43 +9,74 @@
 import UIKit
 
 class ProfileGNBViewController: UIViewController {
-
-    @IBOutlet weak var womenButton: UIButton!
-    @IBOutlet weak var menButton: UIButton!
     
-    @IBOutlet weak var nameTextField: UITextField!
+    let FIRSTNAME = "firstname"
+    let LASTNAME = "lastname"
+    let BIRTHDAY = "birthday"
+    let GENDER = "gender"
+    let MAN = "M"
+    let WOMAN = "W"
+
+    @IBOutlet weak var womanButton: UIButton!
+    @IBOutlet weak var manButton: UIButton!
+    
+    @IBOutlet weak var firstnameTextField: UITextField!
+    @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
     
     let datePicker = UIDatePicker()
+    
+    // Load fields that user has already filled in
+    func loadStoredFields() {
+        if let firstname = localReadKeyValue(key: FIRSTNAME) as? String {
+            firstnameTextField.text = firstname
+        }
+        if let lastname = localReadKeyValue(key: LASTNAME) as? String {
+            lastnameTextField.text = lastname
+        }
+        if let birthday = localReadKeyValue(key: BIRTHDAY) as? String {
+            birthdayTextField.text = birthday
+        }
+        if let gender = localReadKeyValue(key: GENDER) as? String {
+            if gender == MAN {
+                selectButton(button: manButton)
+            } else {
+                selectButton(button: womanButton)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: womenButton)
-        polishUIButton(button: menButton)
-        polishTextField(textField: nameTextField)
+        polishUIButton(button: womanButton)
+        polishUIButton(button: manButton)
+        polishTextField(textField: firstnameTextField)
+        polishTextField(textField: lastnameTextField)
         polishTextField(textField: birthdayTextField)
+        loadStoredFields()
         showDatePicker()
     }
     
-    @IBAction func womenButtonTapped(_ sender: Any) {
-        selectButton(button: womenButton)
-        deselectButton(button: menButton)
-        localStoreKeyValue(key: "sex", value: "W")
+    @IBAction func womanButtonTapped(_ sender: Any) {
+        selectButton(button: womanButton)
+        deselectButton(button: manButton)
+        localStoreKeyValue(key: GENDER, value: WOMAN)
     }
-    @IBAction func menButtonTapped(_ sender: Any) {
-        selectButton(button: menButton)
-        deselectButton(button: womenButton)
-        localStoreKeyValue(key: "sex", value: "M")
+    @IBAction func manButtonTapped(_ sender: Any) {
+        selectButton(button: manButton)
+        deselectButton(button: womanButton)
+        localStoreKeyValue(key: GENDER, value: MAN)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if (nameTextField.text?.isEmpty)!
+        if (firstnameTextField.text?.isEmpty)!
             || (birthdayTextField.text?.isEmpty)! {
             displayMessage(userMessage: "Cannot have empty field")
         }
         // Store Name, Birthday locally
-        localStoreKeyValue(key: "name", value: nameTextField.text!)
-        localStoreKeyValue(key: "birthday", value: birthdayTextField.text!)
+        localStoreKeyValue(key: FIRSTNAME, value: firstnameTextField.text!)
+        localStoreKeyValue(key: LASTNAME, value: lastnameTextField.text!)
+        localStoreKeyValue(key: BIRTHDAY, value: birthdayTextField.text!)
     }
     
     // A helper function to show date picker
