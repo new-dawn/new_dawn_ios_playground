@@ -137,6 +137,17 @@ extension UIViewController {
         button.layer.masksToBounds = true
     }
     
+    // A helper function to make question block fancier
+    func polishQuestionButton(button: UIButton) -> Void {
+        let black = UIColor(red:0/255, green:0/255, blue:0/255, alpha:1)
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = black.cgColor
+        button.setTitleColor(black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.masksToBounds = true
+    }
+
     // A helper function to select/deselect button
     // The color is aligned with our theme
     func selectButton(button: UIButton, text: String? = nil) -> Void {

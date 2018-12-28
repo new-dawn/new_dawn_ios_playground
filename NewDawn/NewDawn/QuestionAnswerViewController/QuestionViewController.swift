@@ -35,6 +35,18 @@ class QuestionViewController: UIViewController {
         polishUIButton(button: selectQuestionButton)
     }
     
+    // Hide navigation bar for this specific view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    // Restore navigation bar for following views
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @IBAction func continueButtonTapped(_ sender: Any) {
     }
     
