@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */; };
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
 		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
 		24B884E921D54F2000AD2786 /* QuestionAnswer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
 		2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DraftFinal.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		54C278B421CFFAB600917F16 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */,
 				24C0468321CDC84E006EC02E /* ProfileGNBViewController.swift */,
 				243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */,
 				54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */,
@@ -476,6 +479,7 @@
 				24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
 				2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */,
+				0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */,
 				24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */,
 				24C0468421CDC84E006EC02E /* ProfileGNBViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
