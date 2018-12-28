@@ -8,8 +8,28 @@
 
 import UIKit
 
+struct Question {
+    var id: Int
+    var question: String
+    init(id: Int, question: String) {
+        self.id = id
+        self.question = question
+    }
+}
+
+struct QuestionAnswer {
+    var q_id: Int
+    var answer: String
+    init(q_id: Int, answer: String) {
+        self.q_id = q_id
+        self.answer = answer
+    }
+}
+
 class QuestionViewController: UIViewController {
+    
     @IBOutlet weak var selectQuestionButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         polishUIButton(button: selectQuestionButton)
