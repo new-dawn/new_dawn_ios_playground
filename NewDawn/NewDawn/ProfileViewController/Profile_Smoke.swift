@@ -15,7 +15,7 @@ class Profile_Smoke: UIViewController {
     let NOSMOKE = "no"
     let SMOKE = "smoke"
     let SOCIAL_SMOKE = "social"
-    let UNKNOWN = "unknown"
+    let UNKNOWN = "N/A"
     let VISIBLE = "smoke_visible"
     var smoke_pref: String? = nil
     var visible_state = false
