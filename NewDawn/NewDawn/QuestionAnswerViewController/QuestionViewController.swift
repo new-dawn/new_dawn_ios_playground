@@ -48,7 +48,6 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
-
     }
     
     /*

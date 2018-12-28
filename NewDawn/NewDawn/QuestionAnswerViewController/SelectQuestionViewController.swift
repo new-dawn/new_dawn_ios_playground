@@ -52,7 +52,6 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.parent?.title = "nav bar title"
         // Create a scroll view
         self.scrollView = UIScrollView()
         self.scrollView.delegate = self
