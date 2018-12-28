@@ -113,5 +113,6 @@ class Profile_Smoke: UIViewController {
             localStoreKeyValue(key: SMOKE, value: UNKNOWN)
         }
         localStoreKeyValue(key: VISIBLE, value: visible_state)
+
     }
 }
