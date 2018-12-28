@@ -14,7 +14,7 @@ class Profile_Drink: UIViewController {
     let FREQUENT_DRINK = "frequent"
     let NODRINK = "no"
     let SOCIAL_DRINK = "social"
-    let UNKNOWN = "UNKNOWN"
+    let UNKNOWN = "unknown"
     let VISIBLE = "drink_visible"
     var drink_pref: String? = nil
     var visible_state = false
