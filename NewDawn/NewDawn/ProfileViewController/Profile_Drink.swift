@@ -11,12 +11,14 @@ import UIKit
 class Profile_Drink: UIViewController {
     
     let DRINK = "drink"
+    let FREQUENT_DRINK = "frequent"
     let NODRINK = "no"
     let SOCIAL_DRINK = "social"
-    let FREQUENT_DRINK = "frequent"
+    let UNKNOWN = "UNKNOWN"
     let VISIBLE = "drink_visible"
-    var visible_state = false
     var drink_pref: String? = nil
+    var visible_state = false
+    
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
@@ -104,8 +106,10 @@ class Profile_Drink: UIViewController {
     @IBAction func continueButtonTapped(_ sender: Any) {
         if drink_pref != nil{
             localStoreKeyValue(key: DRINK, value: drink_pref!)
-            localStoreKeyValue(key: VISIBLE, value: visible_state)
+        }else{
+            localStoreKeyValue(key: DRINK, value: UNKNOWN)
         }
+        localStoreKeyValue(key: VISIBLE, value: visible_state)
     }
     
 }
