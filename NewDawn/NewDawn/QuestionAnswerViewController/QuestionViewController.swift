@@ -44,10 +44,11 @@ class QuestionViewController: UIViewController {
     // Restore navigation bar for following views
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
+
     }
     
     /*
