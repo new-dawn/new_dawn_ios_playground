@@ -10,9 +10,9 @@ import UIKit
 
 class Profile_WorkJob: UIViewController {
     
-    let WORKPLACE = "workplace"
-    let VISIBLE = "work_visible"
     let JOBTITLE = "job_title"
+    let VISIBLE = "work_visible"
+    let WORKPLACE = "workplace"
     var visibleField = false
     
     @IBOutlet weak var workplaceTextField: UITextField!

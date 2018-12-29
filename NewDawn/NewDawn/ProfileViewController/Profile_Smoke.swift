@@ -108,7 +108,7 @@ class Profile_Smoke: UIViewController {
     @IBAction func continueButtonTapped(_ sender: Any) {
         
         if smoke_pref != nil{
-        localStoreKeyValue(key: SMOKE, value: smoke_pref!)
+            localStoreKeyValue(key: SMOKE, value: smoke_pref!)
         }else{
             localStoreKeyValue(key: SMOKE, value: UNKNOWN)
         }
