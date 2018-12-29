@@ -139,16 +139,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-wx-7a2">
-                                <rect key="frame" x="24.5" y="307" width="326" height="80"/>
+                                <rect key="frame" x="67.5" y="307" width="240" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="326" id="2tw-cf-nDo"/>
+                                    <constraint firstAttribute="width" constant="240" id="2tw-cf-nDo"/>
                                     <constraint firstAttribute="height" constant="80" id="67t-Gh-KL8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Question sent by previous view." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Question sent by previous view." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
                                 <rect key="frame" x="24.5" y="109" width="326" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

@@ -134,8 +134,7 @@ extension UIViewController {
         if text != nil {
             textView.text = text
         }
-        textView.centerVertically()
-        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         textView.layer.cornerRadius = 20
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor

@@ -16,7 +16,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     let QUESTION_WIDTH = 326
     let QUESTION_HEIGHT = 180
     let QUESTION_BLOCK_HEIGHT = 190
-    let Y_CENTER_OFFSET = -150
+    let Y_CENTER_OFFSET = -200
 
     // TODO: Replace hardcoded questions with backend request
     var sample_questions = [
