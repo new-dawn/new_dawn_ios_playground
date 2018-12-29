@@ -16,7 +16,7 @@ class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     let VISIBLE = "edu_visible"
     
     var visibleField = false
-    let degreePickerData = [String](arrayLiteral: "High School", "Undergrad", "Grad", "PhD")
+    let degreePickerData = [String](arrayLiteral: "", "High School", "Undergrad", "Grad", "PhD")
     
     @IBOutlet weak var degreeTextField: UITextField!
     @IBOutlet weak var schoolTextField: UITextField!
