@@ -10,6 +10,8 @@ import UIKit
 
 class AnswerQuestionViewController: UIViewController {
     
+    let QUESTION_ANSWERS = "question_answers"
+    
     // The question to be selected from previous view
     var question = Question()
 
@@ -22,7 +24,14 @@ class AnswerQuestionViewController: UIViewController {
         polishTextView(textView: answerTextField)
     }
     
+    func createQuestionAnswer() -> QuestionAnswer {
+        return QuestionAnswer(q_id: question.id, answer: answerTextField.text!)
+    }
+    
     @IBAction func addButtonTapped(_ sender: Any) {
+        if (answerTextField.text?.isEmpty)! {
+            displayMessage(userMessage: "Answer cannot be empty")
+        }
     }
 
 }
