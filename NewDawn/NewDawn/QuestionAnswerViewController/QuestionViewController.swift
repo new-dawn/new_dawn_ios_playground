@@ -11,7 +11,7 @@ import UIKit
 struct Question {
     var id: Int
     var question: String
-    init(){
+    init() {
         self.id = 0
         self.question = "N/A"
     }
@@ -24,6 +24,10 @@ struct Question {
 struct QuestionAnswer {
     var q_id: Int
     var answer: String
+    init() {
+        self.q_id = 0
+        self.answer = "N/A"
+    }
     init(q_id: Int, answer: String) {
         self.q_id = q_id
         self.answer = answer
@@ -32,6 +36,8 @@ struct QuestionAnswer {
 
 class QuestionViewController: UIViewController {
     
+    var questionAnswers = [QuestionAnswer]()
+
     @IBOutlet weak var selectQuestionButton: UIButton!
     
     override func viewDidLoad() {
