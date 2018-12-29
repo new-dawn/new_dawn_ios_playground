@@ -27,8 +27,37 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         Question(id: 5, question: "What't your most recent trip?"),
     ]
     
+    func getQuestionByID(id: Int) -> Question {
+        for question in sample_questions {
+            if question.id == id {
+                return question
+            }
+        }
+        return sample_questions[0]
+    }
+    
     func getContentHeight() -> Int {
         return QUESTION_BLOCK_HEIGHT * sample_questions.count + 100
+    }
+    
+    @objc func buttonClicked(sender: UIButton) {
+        // Find the correct question by taking the button tag
+        let question = getQuestionByID(id: sender.tag)
+        // Segue to the next view (Answer Question)
+        performSegue(withIdentifier: "answerQuestion", sender: question)
+    }
+    
+    func createQuestionButton(question: Question, offsetY: Int) -> UIButton {
+        let questionButton = UIButton(
+            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+        // Set button style and content
+        polishQuestionButton(button: questionButton)
+        questionButton.setTitle(question.question, for: .normal)
+        // Store question if as button tag
+        questionButton.tag = Int(question.id)
+        questionButton.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
+        // Add the button to the container
+        return questionButton
     }
     
     func generateQuestions() -> Void {
@@ -37,15 +66,9 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         var buttonOffsetY: Int = Y_CENTER_OFFSET
         for question in sample_questions {
             // Auto-generate a question button
-            let questionButton = UIButton(
-                frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: buttonOffsetY))
             // Increment the offset for next button
+            let questionButton = createQuestionButton(question: question, offsetY: buttonOffsetY)
             buttonOffsetY = buttonOffsetY + QUESTION_BLOCK_HEIGHT
-            // Set button style and content
-            polishQuestionButton(button: questionButton)
-            questionButton.setTitle(question.question, for: .normal)
-            questionButton.tag = Int(question.id)
-            // Add the button to the container
             containerView.addSubview(questionButton)
         }
     }
@@ -55,7 +78,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         // Create a scroll view
         self.scrollView = UIScrollView()
         self.scrollView.delegate = self
-        self.scrollView.contentSize = CGSize(width: 0, height: getContentHeight())
+        self.scrollView.contentSize = CGSize(width: QUESTION_WIDTH, height: getContentHeight())
         // Create a container view
         containerView = UIView()
         scrollView.addSubview(containerView)
@@ -73,14 +96,11 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
             height: scrollView.contentSize.height)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Prepare the question sent to Answer Question view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // Push the selected Question to the next view
+        let answerQuestionController = segue.destination as! AnswerQuestionViewController
+        answerQuestionController.question = sender as! Question
     }
-    */
 
 }

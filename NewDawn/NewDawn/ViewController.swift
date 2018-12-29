@@ -129,6 +129,19 @@ extension UIViewController {
         textField.layer.masksToBounds = true
     }
     
+    // A helper function to make text view fancier
+    func polishTextView(textView: UITextView, text: String? = nil) -> Void {
+        if text != nil {
+            textView.text = text
+        }
+        textView.centerVertically()
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.layer.cornerRadius = 20
+        textView.layer.borderWidth = 1.0
+        textView.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        textView.layer.masksToBounds = true
+    }
+    
     // A helper function to make button fancier
     func polishUIButton(button: UIButton) -> Void {
         button.layer.cornerRadius = 20

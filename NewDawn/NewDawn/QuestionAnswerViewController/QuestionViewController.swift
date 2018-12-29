@@ -11,6 +11,10 @@ import UIKit
 struct Question {
     var id: Int
     var question: String
+    init(){
+        self.id = 0
+        self.question = "N/A"
+    }
     init(id: Int, question: String) {
         self.id = id
         self.question = question
