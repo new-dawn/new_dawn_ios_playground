@@ -470,6 +470,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="lHm-8G-dFq"/>
+                                    <action selector="nextButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="mBK-ph-46y"/>
                                     <segue destination="Y6c-YO-xpe" kind="presentation" id="cLz-FJ-ORZ"/>
                                 </connections>
                             </button>
@@ -548,6 +549,7 @@
                                 </state>
                                 <connections>
                                     <action selector="visibleButtonTapped:" destination="bam-Sq-fYd" eventType="touchUpInside" id="JGb-DM-H9I"/>
+                                    <action selector="visibleButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="yFO-Pu-Fzv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crW-OJ-FGp">
@@ -588,6 +590,11 @@
                             <constraint firstItem="Wgh-Hw-dqC" firstAttribute="top" secondItem="VcE-LR-sca" secondAttribute="bottom" constant="97" id="w3B-j0-Cgh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="jobtitleTextField" destination="Zhs-c6-sIz" id="RMp-KL-Grk"/>
+                        <outlet property="visibleButton" destination="laC-gM-bWG" id="NiE-Fg-C2l"/>
+                        <outlet property="workplaceTextField" destination="W8E-dP-Edl" id="MvL-XW-pzf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHW-3N-KiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1089,7 +1096,7 @@
         <segue reference="cLz-FJ-ORZ"/>
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="6m0-PK-7Bw"/>
-        <segue reference="Sib-rs-igN"/>
+        <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
         <segue reference="G4q-1k-jVJ"/>
