@@ -469,7 +469,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="lHm-8G-dFq"/>
                                     <action selector="nextButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="mBK-ph-46y"/>
                                     <segue destination="Y6c-YO-xpe" kind="presentation" id="cLz-FJ-ORZ"/>
                                 </connections>
@@ -691,7 +690,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="m96-rl-rU8"/>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="xV5-yx-kRY"/>
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="Khe-Ut-PaY"/>
                                 </connections>
@@ -965,7 +963,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonTapped:" destination="Y6c-YO-xpe" eventType="touchUpInside" id="rn5-NI-4gw"/>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="tf9-cF-iUi"/>
                                     <segue destination="b8r-oE-fGS" kind="presentation" id="6m0-PK-7Bw"/>
                                 </connections>
@@ -1099,6 +1096,6 @@
         <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
-        <segue reference="G4q-1k-jVJ"/>
+        <segue reference="jxh-C2-kWy"/>
     </inferredMetricsTieBreakers>
 </document>
