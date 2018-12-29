@@ -10,13 +10,14 @@ import UIKit
 
 
 class Profile_Smoke: UIViewController {
+
     let FREQUENT_SMOKE = "frequent"
     let NOSMOKE = "no"
     let SMOKE = "smoke"
     let SOCIAL_SMOKE = "social"
-    let UNKNOWN = "UNKNOWN"
+    let UNKNOWN = "N/A"
     let VISIBLE = "smoke_visible"
-        var smoke_pref: String? = nil
+    var smoke_pref: String? = nil
     var visible_state = false
     
     @IBOutlet weak var sociallyButton: UIButton!
@@ -112,6 +113,6 @@ class Profile_Smoke: UIViewController {
             localStoreKeyValue(key: SMOKE, value: UNKNOWN)
         }
         localStoreKeyValue(key: VISIBLE, value: visible_state)
-        
+
     }
 }

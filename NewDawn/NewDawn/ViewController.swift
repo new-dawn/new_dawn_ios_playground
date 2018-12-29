@@ -169,6 +169,17 @@ extension UIViewController {
             deselectButton(button: buttons[buttonIndex])
         }
     }
+    
+    // Generate a centered Rectangle
+    // The offsetY is used to adjust Y position
+    // Can be used to construct text field, button, etc.
+    func genCenterRect(width: Int, height: Int, offsetY: Int = 0) -> CGRect {
+        let screenSize: CGRect = UIScreen.main.bounds
+        return CGRect(
+            x: (screenSize.width / 2) - CGFloat(width / 2),
+            y: (screenSize.height / 2) - CGFloat(height / 2) + CGFloat(offsetY),
+            width: CGFloat(width), height: CGFloat(height))
+    }
 }
 
 extension UITextField {

@@ -629,11 +629,6 @@
                                 <state key="normal" title="Socially">
                                     <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sociallyButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="w69-H0-bEk"/>
                                 </connections>
@@ -824,7 +819,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nuF-Ot-s92" kind="show" id="J0v-J1-5FF"/>
+                                    <segue destination="wEY-mn-Jxw" kind="show" id="72h-xL-nrG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuL-65-CAT">
@@ -881,10 +876,18 @@
             </objects>
             <point key="canvasLocation" x="7138" y="842"/>
         </scene>
+        <!--QuestionViewController-->
+        <scene sceneID="xv7-uS-c3E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QuestionAnswer" referencedIdentifier="QuestionViewController" id="wEY-mn-Jxw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwc-Nx-ffi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6265" y="1394"/>
+        </scene>
         <!--Profile Draft Final-->
         <scene sceneID="5Ue-ED-ekx">
             <objects>
-                <viewController id="nuF-Ot-s92" customClass="Profile_DraftFinal" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile_DraftFinal" id="nuF-Ot-s92" customClass="Profile_DraftFinal" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wWw-fa-7le"/>
                         <viewControllerLayoutGuide type="bottom" id="o45-Ic-WZA"/>
@@ -1004,11 +1007,6 @@
                                 <state key="normal" title="Socially">
                                     <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sociallyButtonTapped:" destination="Y6c-YO-xpe" eventType="touchUpInside" id="UdP-jq-1pj"/>
                                 </connections>

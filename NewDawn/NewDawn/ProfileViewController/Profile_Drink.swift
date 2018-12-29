@@ -14,11 +14,10 @@ class Profile_Drink: UIViewController {
     let FREQUENT_DRINK = "frequent"
     let NODRINK = "no"
     let SOCIAL_DRINK = "social"
-    let UNKNOWN = "UNKNOWN"
+    let UNKNOWN = "N/A"
     let VISIBLE = "drink_visible"
     var drink_pref: String? = nil
     var visible_state = false
-    
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
