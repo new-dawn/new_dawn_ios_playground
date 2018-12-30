@@ -36,7 +36,7 @@
 		54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C121CFFC1600917F16 /* Profile_Photos.swift */; };
 		54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */; };
 		54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C521D0003C00917F16 /* Profile_WorkJob.swift */; };
-		8F2EF86521D90A4600FBF8E5 /* ProfilePhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2EF86421D90A4600FBF8E5 /* ProfilePhotos.storyboard */; };
+		8F2EF86F21D9119100FBF8E5 /* Profile_PhotosUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */; };
 		E012BD5D910E38877F196B74 /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */; };
 		E7EBBC30E654CB6DEF94B0E4 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F98661778968083EC2BD71A /* Pods_NewDawn.framework */; };
 /* End PBXBuildFile section */
@@ -97,7 +97,7 @@
 		54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Notificatioin.swift; sourceTree = "<group>"; };
 		54C278C521D0003C00917F16 /* Profile_WorkJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_WorkJob.swift; sourceTree = "<group>"; };
 		5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnUITests/Pods-NewDawnUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8F2EF86421D90A4600FBF8E5 /* ProfilePhotos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilePhotos.storyboard; sourceTree = "<group>"; };
+		8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_PhotosUpload.swift; sourceTree = "<group>"; };
 		9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,7 +171,6 @@
 		24F657FA21B31C1300DB2547 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
-				8F2EF86321D90A0600FBF8E5 /* ProfilePhotos */,
 				54C278B421CFFAB600917F16 /* ProfileViewController */,
 				24F657FB21B31C1300DB2547 /* AppDelegate.swift */,
 				24F657FD21B31C1300DB2547 /* ViewController.swift */,
@@ -225,16 +224,9 @@
 				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
 				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
 				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
+				8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */,
 			);
 			path = ProfileViewController;
-			sourceTree = "<group>";
-		};
-		8F2EF86321D90A0600FBF8E5 /* ProfilePhotos */ = {
-			isa = PBXGroup;
-			children = (
-				8F2EF86421D90A4600FBF8E5 /* ProfilePhotos.storyboard */,
-			);
-			path = ProfilePhotos;
 			sourceTree = "<group>";
 		};
 		D56257B6927956DFF08F74B6 /* Frameworks */ = {
@@ -362,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24B884E921D54F2000AD2786 /* QuestionAnswer.storyboard in Resources */,
-				8F2EF86521D90A4600FBF8E5 /* ProfilePhotos.storyboard in Resources */,
 				243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */,
 				24F6580621B31C1300DB2547 /* LaunchScreen.storyboard in Resources */,
 				24F6580321B31C1300DB2547 /* Assets.xcassets in Resources */,
@@ -499,6 +490,7 @@
 				24C0468421CDC84E006EC02E /* ProfileGNBViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
 				54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */,
+				8F2EF86F21D9119100FBF8E5 /* Profile_PhotosUpload.swift in Sources */,
 				24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */,
 				54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */,
 				24B884EF21D6BBE100AD2786 /* AnswerQuestionViewController.swift in Sources */,
