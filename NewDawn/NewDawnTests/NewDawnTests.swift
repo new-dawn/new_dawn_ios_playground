@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import NewDawn
+// @testable import NewDawn
 
 class NewDawnTests: XCTestCase {
     

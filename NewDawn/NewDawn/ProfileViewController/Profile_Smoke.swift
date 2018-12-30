@@ -10,7 +10,7 @@ import UIKit
 
 
 class Profile_Smoke: UIViewController {
-    
+
     let FREQUENT_SMOKE = "frequent"
     let NOSMOKE = "no"
     let SMOKE = "smoke"
