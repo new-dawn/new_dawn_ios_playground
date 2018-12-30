@@ -469,12 +469,90 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="lHm-8G-dFq"/>
+                                    <action selector="nextButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="mBK-ph-46y"/>
                                     <segue destination="Y6c-YO-xpe" kind="presentation" id="cLz-FJ-ORZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crW-OJ-FGp">
-                                <rect key="frame" x="37" y="579" width="273" height="41"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Work?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Hw-dqC">
+                                <rect key="frame" x="53" y="117" width="270" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Rp5-4c-aUX"/>
+                                    <constraint firstAttribute="width" constant="270" id="ko8-eH-k37"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inc-9W-qYR">
+                                <rect key="frame" x="53" y="168" width="273" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="273" id="KJB-eu-Ae5"/>
+                                    <constraint firstAttribute="height" constant="33" id="uWd-Ff-Hg0"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please add a workplace" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8E-dP-Edl">
+                                <rect key="frame" x="53" y="225" width="262" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="1rF-nP-1Vq"/>
+                                    <constraint firstAttribute="height" constant="40" id="kO5-aZ-pZ4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Job?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-Ka-uas">
+                                <rect key="frame" x="53" y="289" width="270" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="KpL-Pm-l5N"/>
+                                    <constraint firstAttribute="height" constant="40" id="kWS-LQ-0Lw"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPL-2K-W0a">
+                                <rect key="frame" x="53" y="340" width="273" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="UKb-7m-985"/>
+                                    <constraint firstAttribute="width" constant="273" id="pDC-UZ-gbM"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please add a job title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-c6-sIz">
+                                <rect key="frame" x="53" y="397" width="262" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="LKy-US-6bC"/>
+                                    <constraint firstAttribute="height" constant="40" id="lAR-q3-2yO"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laC-gM-bWG">
+                                <rect key="frame" x="127.5" y="443" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qhe-ho-svl"/>
+                                    <constraint firstAttribute="width" constant="120" id="UzF-CB-uLS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Invisible">
+                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="visibleButtonTapped:" destination="bam-Sq-fYd" eventType="touchUpInside" id="JGb-DM-H9I"/>
+                                    <action selector="visibleButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="yFO-Pu-Fzv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crW-OJ-FGp">
+                                <rect key="frame" x="51" y="549" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="ijE-EO-Nnj"/>
@@ -491,14 +569,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="05y-pb-bQx" firstAttribute="top" secondItem="v1U-8N-iGH" secondAttribute="bottom" constant="128" id="ouB-So-NAU"/>
-                            <constraint firstItem="v1U-8N-iGH" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="vMN-O7-bQ4"/>
+                            <constraint firstAttribute="bottom" secondItem="crW-OJ-FGp" secondAttribute="bottom" constant="77" id="4Jh-Jj-u1n"/>
+                            <constraint firstItem="inc-9W-qYR" firstAttribute="top" secondItem="Wgh-Hw-dqC" secondAttribute="bottom" constant="11" id="4dE-Il-6Mg"/>
+                            <constraint firstItem="crW-OJ-FGp" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="8qF-1p-pch"/>
+                            <constraint firstItem="laC-gM-bWG" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="Cnr-1k-gGv"/>
+                            <constraint firstItem="UPL-2K-W0a" firstAttribute="top" secondItem="Q8G-Ka-uas" secondAttribute="bottom" constant="11" id="K3w-P3-W1K"/>
+                            <constraint firstItem="crW-OJ-FGp" firstAttribute="top" secondItem="v1U-8N-iGH" secondAttribute="bottom" constant="10" id="MC0-bE-10W"/>
+                            <constraint firstItem="Zhs-c6-sIz" firstAttribute="top" secondItem="UPL-2K-W0a" secondAttribute="bottom" constant="24" id="WAP-b9-w4y"/>
+                            <constraint firstItem="v1U-8N-iGH" firstAttribute="top" secondItem="laC-gM-bWG" secondAttribute="bottom" constant="15" id="XjJ-Bw-xTX"/>
+                            <constraint firstItem="W8E-dP-Edl" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="cxQ-6j-lQP"/>
+                            <constraint firstItem="W8E-dP-Edl" firstAttribute="top" secondItem="inc-9W-qYR" secondAttribute="bottom" constant="24" id="dA2-Nu-z4f"/>
+                            <constraint firstItem="Zhs-c6-sIz" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="eV0-U2-jgo"/>
+                            <constraint firstItem="Q8G-Ka-uas" firstAttribute="top" secondItem="W8E-dP-Edl" secondAttribute="bottom" constant="24" id="fzx-8o-4ZY"/>
+                            <constraint firstItem="UPL-2K-W0a" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="iMQ-1k-AQ7"/>
+                            <constraint firstItem="Wgh-Hw-dqC" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="ifw-9h-9A4"/>
+                            <constraint firstItem="v1U-8N-iGH" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="muf-AW-SAX"/>
+                            <constraint firstItem="Q8G-Ka-uas" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="nRX-p8-Ygw"/>
+                            <constraint firstItem="inc-9W-qYR" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="uFq-fC-POL"/>
+                            <constraint firstItem="Wgh-Hw-dqC" firstAttribute="top" secondItem="VcE-LR-sca" secondAttribute="bottom" constant="97" id="w3B-j0-Cgh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="jobtitleTextField" destination="Zhs-c6-sIz" id="RMp-KL-Grk"/>
+                        <outlet property="visibleButton" destination="laC-gM-bWG" id="NiE-Fg-C2l"/>
+                        <outlet property="workplaceTextField" destination="W8E-dP-Edl" id="MvL-XW-pzf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHW-3N-KiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4305" y="843"/>
+            <point key="canvasLocation" x="4304.8000000000002" y="842.42878560719646"/>
         </scene>
         <!--Profile Smoke-->
         <scene sceneID="r5d-Rv-jk4">
@@ -591,7 +690,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="m96-rl-rU8"/>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="xV5-yx-kRY"/>
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="Khe-Ut-PaY"/>
                                 </connections>
@@ -865,7 +963,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonTapped:" destination="Y6c-YO-xpe" eventType="touchUpInside" id="rn5-NI-4gw"/>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="tf9-cF-iUi"/>
                                     <segue destination="b8r-oE-fGS" kind="presentation" id="6m0-PK-7Bw"/>
                                 </connections>
@@ -993,10 +1090,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iHz-cU-Dm1"/>
+        <segue reference="cLz-FJ-ORZ"/>
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="6m0-PK-7Bw"/>
-        <segue reference="Sib-rs-igN"/>
+        <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
         <segue reference="jxh-C2-kWy"/>
