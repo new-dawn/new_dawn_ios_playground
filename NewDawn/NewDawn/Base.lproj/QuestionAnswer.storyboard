@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -94,13 +94,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fAt-7v-Ncu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="EHg-jR-QvC"/>
                     <connections>
                         <outlet property="selectQuestionButton" destination="FS7-pZ-OuQ" id="XfG-vd-7FU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oP-Pm-OaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="149"/>
+            <point key="canvasLocation" x="848.79999999999995" y="148.87556221889056"/>
         </scene>
         <!--Profile_DraftFinal-->
         <scene sceneID="5xM-9K-8cx">
@@ -120,13 +121,100 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NHs-yO-eQl"/>
                     </view>
+                    <connections>
+                        <segue destination="pDu-07-LST" kind="show" identifier="answerQuestion" id="sD3-D2-pqo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkJ-Fh-XOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="149"/>
+            <point key="canvasLocation" x="1552.8" y="148.87556221889056"/>
+        </scene>
+        <!--Answer Question View Controller-->
+        <scene sceneID="fEw-Gk-xMt">
+            <objects>
+                <viewController storyboardIdentifier="AnswerQuestionViewController" id="pDu-07-LST" customClass="AnswerQuestionViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tKH-Wy-kz3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Question sent by previous view. Will be replaced during run time" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
+                                <rect key="frame" x="24.5" y="65" width="326" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="Cdc-Q1-asf"/>
+                                    <constraint firstAttribute="height" constant="128" id="nyg-PG-X6n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6l-ot-2zc">
+                                <rect key="frame" x="51" y="483" width="273" height="41"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="DAT-SY-k3b"/>
+                                    <constraint firstAttribute="width" constant="273" id="cts-VV-73B"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="pDu-07-LST" eventType="touchUpInside" id="nxa-mY-wRs"/>
+                                    <segue destination="0y1-Cg-qwi" kind="show" identifier="addAnswer" id="Nga-Hd-0GA"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-wx-7a2">
+                                <rect key="frame" x="24.5" y="219" width="326" height="164"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="2tw-cf-nDo"/>
+                                    <constraint firstAttribute="height" constant="164" id="67t-Gh-KL8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s6l-ot-2zc" firstAttribute="top" secondItem="nLt-wx-7a2" secondAttribute="bottom" constant="100" id="2BB-Eq-sHI"/>
+                            <constraint firstItem="KTC-1b-B6w" firstAttribute="top" secondItem="kYP-O7-asj" secondAttribute="top" constant="45" id="ENU-eG-gFb"/>
+                            <constraint firstItem="nLt-wx-7a2" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="FtX-oL-bwV"/>
+                            <constraint firstItem="s6l-ot-2zc" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="poa-uu-KLS"/>
+                            <constraint firstItem="KTC-1b-B6w" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="rmf-Rd-PHX"/>
+                            <constraint firstItem="nLt-wx-7a2" firstAttribute="top" secondItem="KTC-1b-B6w" secondAttribute="bottom" constant="26" id="sVB-hC-k9S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kYP-O7-asj"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerTextField" destination="nLt-wx-7a2" id="ukw-Ik-jms"/>
+                        <outlet property="questionTextField" destination="KTC-1b-B6w" id="oD1-AI-MNA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MtF-zP-qzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2219" y="148"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N9O-Je-ox4">
+            <objects>
+                <navigationController storyboardIdentifier="QuestionAnswerNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="7o6-hA-6Ni" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rBD-B8-BHQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0y1-Cg-qwi" kind="relationship" relationship="rootViewController" id="A8L-7S-Akf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IFt-xt-QDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90.400000000000006" y="148.87556221889056"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HV7-E2-0gs"/>
+        <segue reference="Qe9-h5-ZyE"/>
+        <segue reference="Fds-EV-yxy"/>
+        <segue reference="Nga-Hd-0GA"/>
     </inferredMetricsTieBreakers>
 </document>

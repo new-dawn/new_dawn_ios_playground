@@ -129,6 +129,18 @@ extension UIViewController {
         textField.layer.masksToBounds = true
     }
     
+    // A helper function to make text view fancier
+    func polishTextView(textView: UITextView, text: String? = nil) -> Void {
+        if text != nil {
+            textView.text = text
+        }
+        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        textView.layer.cornerRadius = 20
+        textView.layer.borderWidth = 1.0
+        textView.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        textView.layer.masksToBounds = true
+    }
+    
     // A helper function to make button fancier
     func polishUIButton(button: UIButton) -> Void {
         button.layer.cornerRadius = 20
@@ -137,6 +149,17 @@ extension UIViewController {
         button.layer.masksToBounds = true
     }
     
+    // A helper function to make question block fancier
+    func polishQuestionButton(button: UIButton) -> Void {
+        let black = UIColor(red:0/255, green:0/255, blue:0/255, alpha:1)
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = black.cgColor
+        button.setTitleColor(black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.masksToBounds = true
+    }
+
     // A helper function to select/deselect button
     // The color is aligned with our theme
     func selectButton(button: UIButton, text: String? = nil) -> Void {

@@ -16,6 +16,12 @@ class Profile_DraftFinal: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // Hide navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     @IBAction func getStartedButtonTapped(_ sender: Any) {
         // TODO: Send all info to backend and go to profile page
     }

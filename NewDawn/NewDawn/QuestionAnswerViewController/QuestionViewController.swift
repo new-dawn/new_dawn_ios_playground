@@ -8,9 +8,15 @@
 
 import UIKit
 
+let UNKNOWN = "N/A"
+
 struct Question {
     var id: Int
     var question: String
+    init() {
+        self.id = 0
+        self.question = UNKNOWN
+    }
     init(id: Int, question: String) {
         self.id = id
         self.question = question
@@ -20,6 +26,10 @@ struct Question {
 struct QuestionAnswer {
     var q_id: Int
     var answer: String
+    init() {
+        self.q_id = 0
+        self.answer = UNKNOWN
+    }
     init(q_id: Int, answer: String) {
         self.q_id = q_id
         self.answer = answer
@@ -28,11 +38,25 @@ struct QuestionAnswer {
 
 class QuestionViewController: UIViewController {
     
+    var questionAnswers = [QuestionAnswer]()
+
     @IBOutlet weak var selectQuestionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         polishUIButton(button: selectQuestionButton)
+    }
+    
+    // Hide navigation bar for this specific view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    // Restore navigation bar for following views
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
