@@ -8,12 +8,14 @@
 
 import UIKit
 
+let UNKNOWN = "N/A"
+
 struct Question {
     var id: Int
     var question: String
     init() {
         self.id = 0
-        self.question = "N/A"
+        self.question = UNKNOWN
     }
     init(id: Int, question: String) {
         self.id = id
@@ -26,7 +28,7 @@ struct QuestionAnswer {
     var answer: String
     init() {
         self.q_id = 0
-        self.answer = "N/A"
+        self.answer = UNKNOWN
     }
     init(q_id: Int, answer: String) {
         self.q_id = q_id
