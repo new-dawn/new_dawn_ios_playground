@@ -49,11 +49,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var selectQuestionButton: UIButton!
     
     func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
-        if let data = UserDefaults.standard.value(forKey: QUESTION_ANSWERS) as? Data {
-            let question_answers_existed = try? PropertyListDecoder().decode(Array<QuestionAnswer>.self, from: data)
-            if (question_answers_existed != nil) {
-                return question_answers_existed!
-            }
+        if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            return existed_question_answers
         }
         return [QuestionAnswer]()
     }
