@@ -8,9 +8,9 @@
 
 import UIKit
 
+let QUESTION_ANSWERS = "question_answers"
+
 class AnswerQuestionViewController: UIViewController {
-    
-    let QUESTION_ANSWERS = "question_answers"
     
     // The question to be selected from previous view
     var question = Question()
@@ -32,6 +32,15 @@ class AnswerQuestionViewController: UIViewController {
         if (answerTextField.text?.isEmpty)! {
             displayMessage(userMessage: "Answer cannot be empty")
         }
+        let question_answer = QuestionAnswer(q_id: question.id, answer: answerTextField.text!)
+        var question_answers = [QuestionAnswer]()
+        // Check if local storage already has question answers
+        if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            question_answers = existed_question_answers
+        }
+        // Append the new answer and store all question answers to local storage
+        question_answers.append(question_answer)
+        localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: question_answers)
     }
 
 }

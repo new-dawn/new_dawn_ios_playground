@@ -10,7 +10,7 @@ import UIKit
 
 let UNKNOWN = "N/A"
 
-struct Question {
+struct Question: Codable {
     var id: Int
     var question: String
     init() {
@@ -23,7 +23,7 @@ struct Question {
     }
 }
 
-struct QuestionAnswer {
+struct QuestionAnswer: Codable {
     var q_id: Int
     var answer: String
     init() {
@@ -42,9 +42,24 @@ class QuestionViewController: UIViewController {
 
     @IBOutlet weak var selectQuestionButton: UIButton!
     
+    func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
+        if let data = UserDefaults.standard.value(forKey: QUESTION_ANSWERS) as? Data {
+            let question_answers_existed = try? PropertyListDecoder().decode(Array<QuestionAnswer>.self, from: data)
+            if (question_answers_existed != nil) {
+                return question_answers_existed!
+            }
+        }
+        return [QuestionAnswer]()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         polishUIButton(button: selectQuestionButton)
+        let question_answers = getQuestionAnswersFromLocalStore()
+        self.displayMessage(userMessage: "Number of answers: \(question_answers.count)")
+        for question_answer in question_answers {
+            
+        }
     }
     
     // Hide navigation bar for this specific view
