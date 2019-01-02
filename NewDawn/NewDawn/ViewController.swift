@@ -115,9 +115,25 @@ extension UIViewController {
         userDefaults.synchronize()
     }
     
+    // A helper function to store key value pair locally
+    // with value being a codable strct
+    func localStoreKeyValueStruct<T: Codable>(key: String, value: T) -> Void {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(value), forKey: key)
+    }
+    
     // A helper function to get key value pair locally
     func localReadKeyValue(key: String) -> Any? {
         return UserDefaults.standard.object(forKey: key)
+    }
+    
+    // A helper function to store key value pair locally
+    // with value being a codable struct
+    func localReadKeyValueStruct<T: Codable>(key: String) -> T? {
+        if let data = UserDefaults.standard.value(forKey: key) as? Data {
+            let value = try? PropertyListDecoder().decode(T.self, from: data)
+            return value
+        }
+        return nil
     }
     
     // A helper function to make text field fancier

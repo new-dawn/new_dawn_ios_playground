@@ -10,7 +10,7 @@ import UIKit
 
 let UNKNOWN = "N/A"
 
-struct Question {
+struct Question: Codable {
     var id: Int
     var question: String
     init() {
@@ -23,28 +23,70 @@ struct Question {
     }
 }
 
-struct QuestionAnswer {
-    var q_id: Int
+struct QuestionAnswer: Codable {
+    var question: Question
     var answer: String
     init() {
-        self.q_id = 0
+        self.question = Question()
         self.answer = UNKNOWN
     }
-    init(q_id: Int, answer: String) {
-        self.q_id = q_id
+    init(question: Question, answer: String) {
+        self.question = question
         self.answer = answer
     }
 }
 
 class QuestionViewController: UIViewController {
     
+    let QUESTION_WIDTH = 257
+    let QUESTION_HEIGHT = 40
+    let QUESTION_BLOCK_HEIGHT = 50
+    let Y_CENTER_OFFSET = 85
+    let QUESTION_FONT_SIZE = 12
+    
     var questionAnswers = [QuestionAnswer]()
 
     @IBOutlet weak var selectQuestionButton: UIButton!
     
+    func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
+        if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            return existed_question_answers
+        }
+        return [QuestionAnswer]()
+    }
+    
+    func createQuestionAnswerButton(question_answer: QuestionAnswer, offsetY: Int) -> UIButton {
+        let questionButton = UIButton(
+            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+        // Set button style and content
+        polishQuestionButton(button: questionButton)
+        questionButton.setTitle(question_answer.question.question, for: .normal)
+        questionButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        // Store question if as button tag
+        questionButton.tag = Int(question_answer.question.id)
+
+        // Add the button to the container
+        return questionButton
+    }
+    
+    func generateQuestionAnswers(question_answers: Array<QuestionAnswer>) -> Void {
+        // A dynamic offset to control the distance
+        // between question blocks
+        var buttonOffsetY: Int = Y_CENTER_OFFSET
+        for question_answer in question_answers {
+            // Auto-generate a question button
+            // Increment the offset for next button
+            let questionButton = createQuestionAnswerButton(question_answer: question_answer, offsetY: buttonOffsetY)
+            buttonOffsetY = buttonOffsetY + QUESTION_BLOCK_HEIGHT
+            view.addSubview(questionButton)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         polishUIButton(button: selectQuestionButton)
+        let question_answers = getQuestionAnswersFromLocalStore()
+        generateQuestionAnswers(question_answers: question_answers)
     }
     
     // Hide navigation bar for this specific view
