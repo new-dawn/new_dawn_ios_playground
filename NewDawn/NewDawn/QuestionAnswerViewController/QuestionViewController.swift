@@ -44,6 +44,10 @@ class QuestionViewController: UIViewController {
     let Y_CENTER_OFFSET = 85
     let QUESTION_FONT_SIZE = 12
     
+    let QUESTION_MAX_NUM = 3
+    
+    let SELECT_QUESTION_TEXT = "Select a question                   +"
+    
     var questionAnswers = [QuestionAnswer]()
 
     @IBOutlet weak var selectQuestionButton: UIButton!
@@ -53,6 +57,46 @@ class QuestionViewController: UIViewController {
             return existed_question_answers
         }
         return [QuestionAnswer]()
+    }
+    
+    func removeQuestionAnswerFromLocalStore(q_id: Int) -> Void {
+        if var existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            var index = -1
+            for question_answer in existed_question_answers {
+                if question_answer.question.id == q_id {
+                    break
+                }
+                index = index + 1
+            }
+            if index != -1 {
+                existed_question_answers.remove(at: index)
+            }
+            localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: existed_question_answers)
+        }
+    }
+    
+    @objc func crossSignButtonClicked(sender: UIButton) {
+        // Remove the question
+        removeQuestionAnswerFromLocalStore(q_id: sender.tag)
+        view.setNeedsDisplay()
+    }
+    
+    @objc func selectQuestionButtonClicked(sender: UIButton) {
+        // Find the correct question by taking the button tag
+        performSegue(withIdentifier: "selectQuestion", sender: "selectQuestionButton")
+    }
+    
+    func createCrossSignButton(question_answer: QuestionAnswer) -> UIButton {
+        // A cross sign button on the right top corner of each button
+        let crossButton = UIButton(frame: CGRect(x: QUESTION_WIDTH-QUESTION_HEIGHT, y: QUESTION_HEIGHT/2-(QUESTION_HEIGHT/2), width: QUESTION_HEIGHT, height: QUESTION_HEIGHT))
+        crossButton.layer.cornerRadius = CGFloat(QUESTION_HEIGHT/2)
+        crossButton.backgroundColor = UIColor.black
+        //crossButton.setImage(UIImage(named: "cross.png"), for: .normal)
+        crossButton.setTitle("x", for: .normal)
+        crossButton.addTarget(self, action: #selector(crossSignButtonClicked), for: .touchUpInside)
+        crossButton.autoresizingMask = [.flexibleLeftMargin, .flexibleBottomMargin]
+        crossButton.tag = Int(question_answer.question.id)
+        return crossButton
     }
     
     func createQuestionAnswerButton(question_answer: QuestionAnswer, offsetY: Int) -> UIButton {
@@ -65,8 +109,23 @@ class QuestionViewController: UIViewController {
         // Store question if as button tag
         questionButton.tag = Int(question_answer.question.id)
 
-        // Add the button to the container
+        // Add cross sign button
+        let crossSignButton = createCrossSignButton(question_answer: question_answer)
+        questionButton.addSubview(crossSignButton)
         return questionButton
+    }
+    
+    func createSelectQuestionButton(offsetY: Int) -> UIButton {
+        let selectQuestionButton = UIButton(
+            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+        // Set button style and content
+        polishQuestionButton(button: selectQuestionButton)
+        selectQuestionButton.setTitle(SELECT_QUESTION_TEXT, for: .normal)
+        selectQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        selectQuestionButton.addTarget(self, action:#selector(self.selectQuestionButtonClicked), for: .touchUpInside)
+        
+        // Add the button to the container
+        return selectQuestionButton
     }
     
     func generateQuestionAnswers(question_answers: Array<QuestionAnswer>) -> Void {
@@ -79,6 +138,12 @@ class QuestionViewController: UIViewController {
             let questionButton = createQuestionAnswerButton(question_answer: question_answer, offsetY: buttonOffsetY)
             buttonOffsetY = buttonOffsetY + QUESTION_BLOCK_HEIGHT
             view.addSubview(questionButton)
+        }
+        if question_answers.count < QUESTION_MAX_NUM {
+            // Append select question button at the end
+            // if the number of questions is below threshold
+            let selectQuestionButton = createSelectQuestionButton(offsetY: buttonOffsetY)
+            view.addSubview(selectQuestionButton)
         }
     }
     
