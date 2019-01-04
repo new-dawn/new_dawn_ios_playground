@@ -36,6 +36,7 @@
 		54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C121CFFC1600917F16 /* Profile_Photos.swift */; };
 		54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */; };
 		54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C278C521D0003C00917F16 /* Profile_WorkJob.swift */; };
+		8F2EF86F21D9119100FBF8E5 /* Profile_PhotosUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */; };
 		E012BD5D910E38877F196B74 /* Pods_NewDawnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */; };
 		E7EBBC30E654CB6DEF94B0E4 /* Pods_NewDawn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F98661778968083EC2BD71A /* Pods_NewDawn.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Notificatioin.swift; sourceTree = "<group>"; };
 		54C278C521D0003C00917F16 /* Profile_WorkJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_WorkJob.swift; sourceTree = "<group>"; };
 		5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnUITests/Pods-NewDawnUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_PhotosUpload.swift; sourceTree = "<group>"; };
 		9FAFEA34623E904F57768353 /* Pods_NewDawnTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A655CC03DE0211298043CAFD /* Pods-NewDawnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawn.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
 				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
 				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
+				8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				24C0468421CDC84E006EC02E /* ProfileGNBViewController.swift in Sources */,
 				24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */,
 				54C278C221CFFC1600917F16 /* Profile_Photos.swift in Sources */,
+				8F2EF86F21D9119100FBF8E5 /* Profile_PhotosUpload.swift in Sources */,
 				24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */,
 				54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */,
 				24B884EF21D6BBE100AD2786 /* AnswerQuestionViewController.swift in Sources */,
@@ -593,7 +597,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -637,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
