@@ -41,18 +41,61 @@ class QuestionViewController: UIViewController {
     let QUESTION_WIDTH = 257
     let QUESTION_HEIGHT = 40
     let QUESTION_BLOCK_HEIGHT = 50
-    let Y_CENTER_OFFSET = 85
+    let Y_CENTER_OFFSET = 50
     let QUESTION_FONT_SIZE = 12
+    let QUESTION_MAX_NUM = 3
     
-    var questionAnswers = [QuestionAnswer]()
-
-    @IBOutlet weak var selectQuestionButton: UIButton!
+    let SELECT_QUESTION_TEXT = "Select a question                     +"
+    
+    // Keep track of all question answer views
+    var questionAnswerViews = [UIView]()
     
     func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
         if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
             return existed_question_answers
         }
         return [QuestionAnswer]()
+    }
+    
+    func removeQuestionAnswerFromLocalStore(q_id: Int) -> Void {
+        // Remove the answered question from local storage
+        if var existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            var index = -1
+            for question_answer in existed_question_answers {
+                index = index + 1
+                if question_answer.question.id == q_id {
+                    break
+                }
+            }
+            if index != -1 {
+                existed_question_answers.remove(at: index)
+            }
+            localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: existed_question_answers)
+        }
+    }
+    
+    @objc func crossSignButtonClicked(sender: UIButton) {
+        removeQuestionAnswerFromLocalStore(q_id: sender.tag)
+        let question_answers = getQuestionAnswersFromLocalStore()
+        refreshQuestionAnswers(refreshed_question_answers: question_answers)
+    }
+    
+    @objc func selectQuestionButtonClicked(sender: UIButton) {
+        // Find the correct question by taking the button tag
+        performSegue(withIdentifier: "selectQuestion", sender: "selectQuestionButton")
+    }
+    
+    func createCrossSignButton(question_answer: QuestionAnswer) -> UIButton {
+        // A cross sign button on the right top corner of each button
+        let crossButton = UIButton(frame: CGRect(x: QUESTION_WIDTH-QUESTION_HEIGHT, y: QUESTION_HEIGHT/2-(QUESTION_HEIGHT/2), width: QUESTION_HEIGHT, height: QUESTION_HEIGHT))
+        crossButton.layer.cornerRadius = CGFloat(QUESTION_HEIGHT/2)
+        crossButton.backgroundColor = UIColor.gray
+        //crossButton.setImage(UIImage(named: "cross.png"), for: .normal)
+        crossButton.setTitle("x", for: .normal)
+        crossButton.addTarget(self, action: #selector(crossSignButtonClicked), for: .touchUpInside)
+        crossButton.autoresizingMask = [.flexibleLeftMargin, .flexibleBottomMargin]
+        crossButton.tag = Int(question_answer.question.id)
+        return crossButton
     }
     
     func createQuestionAnswerButton(question_answer: QuestionAnswer, offsetY: Int) -> UIButton {
@@ -65,8 +108,23 @@ class QuestionViewController: UIViewController {
         // Store question if as button tag
         questionButton.tag = Int(question_answer.question.id)
 
-        // Add the button to the container
+        // Add cross sign button
+        let crossSignButton = createCrossSignButton(question_answer: question_answer)
+        questionButton.addSubview(crossSignButton)
         return questionButton
+    }
+    
+    func createSelectQuestionButton(offsetY: Int) -> UIButton {
+        let selectQuestionButton = UIButton(
+            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+        // Set button style and content
+        polishQuestionButton(button: selectQuestionButton)
+        selectQuestionButton.setTitle(SELECT_QUESTION_TEXT, for: .normal)
+        selectQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        selectQuestionButton.addTarget(self, action:#selector(self.selectQuestionButtonClicked), for: .touchUpInside)
+        
+        // Add the button to the container
+        return selectQuestionButton
     }
     
     func generateQuestionAnswers(question_answers: Array<QuestionAnswer>) -> Void {
@@ -79,12 +137,27 @@ class QuestionViewController: UIViewController {
             let questionButton = createQuestionAnswerButton(question_answer: question_answer, offsetY: buttonOffsetY)
             buttonOffsetY = buttonOffsetY + QUESTION_BLOCK_HEIGHT
             view.addSubview(questionButton)
+            questionAnswerViews.append(questionButton)
         }
+        if question_answers.count < QUESTION_MAX_NUM {
+            // Append select question button at the end
+            // if the number of questions is below threshold
+            let selectQuestionButton = createSelectQuestionButton(offsetY: buttonOffsetY)
+            view.addSubview(selectQuestionButton)
+            questionAnswerViews.append(selectQuestionButton)
+        }
+    }
+    
+    func refreshQuestionAnswers(refreshed_question_answers: Array<QuestionAnswer>) -> Void {
+        for questionAnswerView in questionAnswerViews {
+            questionAnswerView.removeFromSuperview()
+        }
+        questionAnswerViews.removeAll()
+        generateQuestionAnswers(question_answers: refreshed_question_answers)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: selectQuestionButton)
         let question_answers = getQuestionAnswersFromLocalStore()
         generateQuestionAnswers(question_answers: question_answers)
     }
