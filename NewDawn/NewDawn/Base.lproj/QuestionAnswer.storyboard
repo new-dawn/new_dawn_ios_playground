@@ -39,21 +39,6 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS7-pZ-OuQ">
-                                <rect key="frame" x="59" y="349" width="257" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="257" id="cKl-uP-6Gk"/>
-                                    <constraint firstAttribute="height" constant="40" id="dgm-Fh-shW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Select a question                   +">
-                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="fB2-1Z-fY6" kind="show" identifier="selectQuestion" id="Qe9-h5-ZyE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cka-hP-jaY">
                                 <rect key="frame" x="51" y="546" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -82,7 +67,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fAt-7v-Ncu" firstAttribute="bottom" secondItem="X9X-OR-AOM" secondAttribute="bottom" constant="40" id="9k9-r3-Nov"/>
-                            <constraint firstItem="FS7-pZ-OuQ" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="Erb-5m-k3M"/>
                             <constraint firstItem="X9X-OR-AOM" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="FAY-Pt-feL"/>
                             <constraint firstItem="R9e-EA-DeO" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="Rob-2v-q9e"/>
                             <constraint firstItem="cka-hP-jaY" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="f8u-t1-Q8T"/>
@@ -90,13 +74,12 @@
                             <constraint firstItem="R9e-EA-DeO" firstAttribute="top" secondItem="TBc-z2-7Al" secondAttribute="bottom" constant="8" id="kNN-GL-eIP"/>
                             <constraint firstItem="TBc-z2-7Al" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="sO4-Zx-zZG"/>
                             <constraint firstItem="TBc-z2-7Al" firstAttribute="top" secondItem="fAt-7v-Ncu" secondAttribute="top" constant="106" id="uDL-yD-Qpi"/>
-                            <constraint firstItem="FS7-pZ-OuQ" firstAttribute="top" secondItem="R9e-EA-DeO" secondAttribute="bottom" constant="15" id="wc9-GJ-gfF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fAt-7v-Ncu"/>
                     </view>
                     <navigationItem key="navigationItem" id="EHg-jR-QvC"/>
                     <connections>
-                        <outlet property="selectQuestionButton" destination="FS7-pZ-OuQ" id="XfG-vd-7FU"/>
+                        <segue destination="fB2-1Z-fY6" kind="show" identifier="selectQuestion" id="jnV-Dh-21n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oP-Pm-OaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qe9-h5-ZyE"/>
+        <segue reference="jnV-Dh-21n"/>
         <segue reference="Fds-EV-yxy"/>
         <segue reference="Nga-Hd-0GA"/>
     </inferredMetricsTieBreakers>
