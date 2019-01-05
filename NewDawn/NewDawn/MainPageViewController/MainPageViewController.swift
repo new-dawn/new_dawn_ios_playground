@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct UserProfile {
+    let name: String?
+    let height: Int?
+    let hometown: String?
+    let education: String?
+    let degree: String?
+    let smoke: Bool?
+}
+
 class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
