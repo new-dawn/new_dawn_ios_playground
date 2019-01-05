@@ -1154,6 +1154,7 @@
                                 </state>
                                 <connections>
                                     <action selector="getStartedButtonTapped:" destination="nuF-Ot-s92" eventType="touchUpInside" id="4Ry-79-kQI"/>
+                                    <segue destination="xSt-Rq-d95" kind="show" id="e7n-rx-fNW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1169,6 +1170,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQF-Uf-iFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7778" y="841"/>
+        </scene>
+        <!--MainTabViewController-->
+        <scene sceneID="23E-Yu-gyK">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainPageViewController" storyboardName="MainPage" referencedIdentifier="MainTabViewController" id="xSt-Rq-d95" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nx0-l8-iLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8561" y="835"/>
         </scene>
         <!--Profile Drink-->
         <scene sceneID="j6m-23-sCm">
@@ -1320,13 +1329,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iHz-cU-Dm1"/>
-        <segue reference="Khe-Ut-PaY"/>
-        <segue reference="6m0-PK-7Bw"/>
-        <segue reference="Sib-rs-igN"/>
-        <segue reference="7PI-cb-EZr"/>
-        <segue reference="xAU-WT-A6c"/>
-        <segue reference="G4q-1k-jVJ"/>
         <segue reference="cLz-FJ-ORZ"/>
         <segue reference="9eK-Ra-S3u"/>
         <segue reference="vCo-NW-E29"/>

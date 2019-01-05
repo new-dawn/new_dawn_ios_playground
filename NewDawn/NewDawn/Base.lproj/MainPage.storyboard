@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ChatPageViewController-->
+        <scene sceneID="Vpl-kZ-jWd">
+            <objects>
+                <viewController title="ChatPageViewController" id="uPC-H9-xi1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CAm-ek-Mnx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zp2-gO-EXw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="ChatTab" id="dSz-1b-t0x">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiJ-7D-0xF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5" y="294"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5zp-LZ-TYK">
+            <objects>
+                <viewController id="fnq-R9-Le7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GPT-qK-SE0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="MeTab" id="Czm-Gs-dNX">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7" y="972"/>
+        </scene>
+        <!--MainPageViewController-->
+        <scene sceneID="ojW-Lt-AvB">
+            <objects>
+                <viewController storyboardIdentifier="MainPageViewController" title="MainPageViewController" id="yas-rO-B8O" customClass="MainPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iyV-4B-CqF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YOg-rt-lIT"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="HomeTab" selectedImage="HomeTab" id="6QP-VM-GYP">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09B-dV-Nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5" y="-371"/>
+        </scene>
+        <!--MainTabViewController-->
+        <scene sceneID="XDc-Vt-PhA">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabViewController" title="MainTabViewController" id="Fk6-UT-HuI" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Blv-JF-0Zk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yas-rO-B8O" kind="relationship" relationship="viewControllers" id="Mjd-ca-TGK"/>
+                        <segue destination="uPC-H9-xi1" kind="relationship" relationship="viewControllers" id="ltZ-RN-uTB"/>
+                        <segue destination="fnq-R9-Le7" kind="relationship" relationship="viewControllers" id="FON-ks-blu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UjO-o1-EGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959" y="-38"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ChatTab" width="48" height="48"/>
+        <image name="HomeTab" width="48" height="48"/>
+        <image name="MeTab" width="24" height="24"/>
+    </resources>
+</document>
