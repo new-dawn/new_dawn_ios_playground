@@ -12,7 +12,7 @@ class Profile_WorkJob: UIViewController {
     
     let JOBTITLE = "job_title"
     let VISIBLE = "work_visible"
-    let WORKPLACE = "workplace"
+    let WORKPLACE = "employer"
     var visibleField = false
     
     @IBOutlet weak var workplaceTextField: UITextField!
