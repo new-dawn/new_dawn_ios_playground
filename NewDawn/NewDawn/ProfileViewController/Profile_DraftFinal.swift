@@ -66,7 +66,7 @@ class Profile_DraftFinal: UIViewController {
             "gender":localReadKeyValue(key: "gender")!,
         ]
         let profile_data = [
-            "height": _height_num_handler(height: localReadKeyValue(key: "height")! as! String),
+            "height": _height_num_handler(height: localReadKeyValue(key: "height") as! String),
             "hometown":localReadKeyValue(key: "hometown")!,
             "school":localReadKeyValue(key: "school")!,
             "degree":localReadKeyValue(key: "degree")!,
