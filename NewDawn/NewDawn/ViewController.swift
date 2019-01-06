@@ -126,7 +126,7 @@ extension UIViewController {
         return UserDefaults.standard.object(forKey: key)
     }
     
-    // A helper function to store key value pair locally
+    // A helper function to get key value pair locally
     // with value being a codable struct
     func localReadKeyValueStruct<T: Codable>(key: String) -> T? {
         if let data = UserDefaults.standard.value(forKey: key) as? Data {

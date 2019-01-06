@@ -85,6 +85,9 @@ class Profile_DraftFinal: UIViewController {
 //        "smoke_visible":localReadKeyValue(key: "smoke_visible")!,
 //        "drink_visible":localReadKeyValue(key: "drink_visible")!,
 //        ]
+        
+        let question_answer_data = ["answer_question": getQuestionAnswersFromLocalStore()]
+        
         let pesudo_info = [
             "username":user_data["first_name"],
             "password":user_data["first_name"]
@@ -94,6 +97,7 @@ class Profile_DraftFinal: UIViewController {
         register_data += user_data as! Dictionary<String, String>
         register_data += account_data as! Dictionary<String, String>
         register_data += profile_data
+        register_data += question_answer_data
         register_data += pesudo_info as! Dictionary<String, String>
         print(register_data)
         return register_data
@@ -129,5 +133,29 @@ class Profile_DraftFinal: UIViewController {
             return 139
         }
         return Int(height.prefix(3))!
+    }
+    
+    // Transform QuestionAnswer struct to array of dicts
+    func _question_answer_handler(existed_question_answers: Array<QuestionAnswer>) -> Array<[String: Any]>{
+        var question_answer_array = [[String: Any]]()
+        var num_count = 1;
+        for question_answer in existed_question_answers{
+            let holder = [
+                "question": question_answer.question.question,
+                "answer": question_answer.answer,
+                "order": num_count
+                ] as [String : Any]
+            num_count += 1
+            question_answer_array.append(holder)
+        }
+        return question_answer_array
+    }
+    
+    func getQuestionAnswersFromLocalStore() -> Array<[String: Any]> {
+        if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            let question_answer_array = _question_answer_handler(existed_question_answers: existed_question_answers)
+            return question_answer_array
+        }
+        return [[String: Any]]()
     }
 }
