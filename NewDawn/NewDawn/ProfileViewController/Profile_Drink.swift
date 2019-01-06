@@ -9,6 +9,7 @@
 import UIKit
 
 let DRINK = "drink"
+
 class Profile_Drink: UIViewController {
     
     let FREQUENT_DRINK = "frequent"

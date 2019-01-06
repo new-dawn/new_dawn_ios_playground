@@ -12,6 +12,7 @@ let FIRSTNAME = "firstname"
 let LASTNAME = "lastname"
 let BIRTHDAY = "birthday"
 let GENDER = "gender"
+
 class ProfileGNBViewController: UIViewController {
     
     let MAN = "M"

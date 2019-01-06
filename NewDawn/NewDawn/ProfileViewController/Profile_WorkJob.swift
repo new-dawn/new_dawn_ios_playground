@@ -10,6 +10,7 @@ import UIKit
 
 let JOBTITLE = "job_title"
 let WORKPLACE = "employer"
+
 class Profile_WorkJob: UIViewController {
     
     let VISIBLE = "work_visible"
