@@ -6,7 +6,6 @@
 //  Copyright © 2018 New Dawn. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class Profile_DraftFinal: UIViewController {
