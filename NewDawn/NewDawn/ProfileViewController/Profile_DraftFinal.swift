@@ -57,38 +57,16 @@ class Profile_DraftFinal: UIViewController {
     
     func getUserInputInfo() -> [String: Any]{
         
-        let user_data = [
-            "first_name":localReadKeyValue(key: "firstname")!,
-            "last_name":localReadKeyValue(key: "lastname")!,
-        ]
-        let account_data = [
-            "birthday":_birthday_str_handler(birthday: localReadKeyValue(key: "birthday") as! String),
-            "gender":localReadKeyValue(key: "gender")!,
-        ]
-        let profile_data = [
-            "height": _height_num_handler(height: localReadKeyValue(key: "height") as! String),
-            "hometown":localReadKeyValue(key: "hometown")!,
-            "school":localReadKeyValue(key: "school")!,
-            "degree":localReadKeyValue(key: "degree")!,
-            "job_title":localReadKeyValue(key: "job_title")!,
-            "employer":localReadKeyValue(key: "employer")!,
-            "drink":localReadKeyValue(key: "drink")!,
-            "smoke":localReadKeyValue(key: "smoke")!,
-        ]
-//        let visibility_data = [
-//        "height_visible":localReadKeyValue(key: "height_visible")!,
-//        "hometown_visible":localReadKeyValue(key: "hometown_visible")!,
-//        "edu_visible":localReadKeyValue(key: "edu_visible")!,
-//        "work_visible":localReadKeyValue(key: "work_visible")!,
-//        "smoke_visible":localReadKeyValue(key: "smoke_visible")!,
-//        "drink_visible":localReadKeyValue(key: "drink_visible")!,
-//        ]
+        let user_data = getUserData()
+        let account_data = getAccountData()
+        let profile_data = getProfileData()
+//        let visibility_data = []
         
-        let question_answer_data = ["answer_question": getQuestionAnswersFromLocalStore()]
+        let question_answer_data = getQuestionAnswersData()
         
-        let pesudo_info = [
-            "username":user_data["first_name"],
-            "password":user_data["first_name"]
+        let pesudo_data = [
+            "username":user_data[FIRSTNAME],
+            "password":user_data[LASTNAME]
         ]
         
         var register_data = [String: Any]()
@@ -96,7 +74,7 @@ class Profile_DraftFinal: UIViewController {
         register_data += account_data as! Dictionary<String, String>
         register_data += profile_data
         register_data += question_answer_data
-        register_data += pesudo_info as! Dictionary<String, String>
+        register_data += pesudo_data as! Dictionary<String, String>
         return register_data
     }
     
@@ -107,6 +85,34 @@ class Profile_DraftFinal: UIViewController {
             return
         }
     }
+    
+    func getUserData() -> [String: Any]{
+        return  [
+            "first_name":localReadKeyValue(key: FIRSTNAME)!,
+            "last_name":localReadKeyValue(key: LASTNAME)!,
+        ]
+    }
+    
+    func getAccountData() -> [String: Any] {
+        return [
+            "birthday":_birthday_str_handler(birthday: localReadKeyValue(key: BIRTHDAY) as! String),
+            "gender":localReadKeyValue(key: GENDER)!,
+        ]
+    }
+    
+    func getProfileData() -> [String: Any] {
+        return [
+            "height": _height_num_handler(height: localReadKeyValue(key: HEIGHT) as! String),
+            "hometown":localReadKeyValue(key: HOMETOWN)!,
+            "school":localReadKeyValue(key: SCHOOL)!,
+            "degree":localReadKeyValue(key: DEGREE)!,
+            "job_title":localReadKeyValue(key: JOBTITLE)!,
+            "employer":localReadKeyValue(key: WORKPLACE)!,
+            "drink":localReadKeyValue(key: DRINK)!,
+            "smoke":localReadKeyValue(key: SMOKE)!,
+        ]
+    }
+    
     
     // Transform mm/dd/yy to yyyy/mm/dd
     func _birthday_str_handler(birthday: String) -> String{
@@ -139,11 +145,11 @@ class Profile_DraftFinal: UIViewController {
         return question_answer_array
     }
     
-    func getQuestionAnswersFromLocalStore() -> Array<[String: Any]> {
+    func getQuestionAnswersData() -> [String: Any] {
         if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
             let question_answer_array = _question_answer_handler(existed_question_answers: existed_question_answers)
-            return question_answer_array
+            return ["answer_question": question_answer_array]
         }
-        return [[String: Any]]()
+        return ["answer_question": [[String: Any]]()]
     }
 }

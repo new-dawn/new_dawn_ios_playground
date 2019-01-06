@@ -8,10 +8,10 @@
 
 import UIKit
 
+let HEIGHT = "height"
 class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     /* Constant String Keys*/
-    let HEIGHT = "height"
     let VISIBLE = "height_visible"
     
     /* Constrains */

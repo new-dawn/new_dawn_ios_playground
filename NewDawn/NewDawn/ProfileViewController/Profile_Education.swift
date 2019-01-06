@@ -8,11 +8,11 @@
 
 import UIKit
 
+let SCHOOL = "school"
+let DEGREE = "degree"
 class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Constant string keys
-    let SCHOOL = "school"
-    let DEGREE = "degree"
     let VISIBLE = "edu_visible"
     
     var visibleField = false

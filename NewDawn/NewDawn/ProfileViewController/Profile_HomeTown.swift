@@ -8,11 +8,11 @@
 
 import UIKit
 
+let HOMETOWN = "hometown"
 class Profile_HomeTown: UIViewController {
     
     
     /* Constant String Keys*/
-    let HOMETOWN = "hometown"
     let VISIBLE = "hometown_visible"
     
     /* Constrains */
