@@ -9,10 +9,10 @@
 import UIKit
 
 let JOBTITLE = "job_title"
-let WORKPLACE = "employer"
+let WORKPLACE = "workplace"
 
 class Profile_WorkJob: UIViewController {
-    
+
     let VISIBLE = "work_visible"
     var visibleField = false
     
