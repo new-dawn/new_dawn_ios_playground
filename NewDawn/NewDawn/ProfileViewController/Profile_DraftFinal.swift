@@ -49,7 +49,6 @@ class Profile_DraftFinal: UIViewController {
             request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
         } catch let error {
             // TODO: Sepearte error messages into engineer's and user's
-            print("what error")
             print(error.localizedDescription)
             self.displayMessage(userMessage: "Registration Request Creation Failed", dismiss: false)
             return nil
@@ -99,7 +98,6 @@ class Profile_DraftFinal: UIViewController {
         register_data += profile_data
         register_data += question_answer_data
         register_data += pesudo_info as! Dictionary<String, String>
-        print(register_data)
         return register_data
     }
     
@@ -107,7 +105,6 @@ class Profile_DraftFinal: UIViewController {
         let msg = parseJSON["success"] as? Bool
         if msg == false {
             self.displayMessage(userMessage: "Registration Data Failed to Send")
-            print("failed")
             return
         }
     }
