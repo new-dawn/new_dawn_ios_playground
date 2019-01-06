@@ -8,7 +8,7 @@
 
 import Foundation
 
-// An MVVC library of Main Page display
+// An MVVM design of Main Page display
 
 // A user profile class instantiated by json dictionary sent from backend
 class UserProfile {
