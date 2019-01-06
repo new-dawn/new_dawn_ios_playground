@@ -48,7 +48,7 @@ class Profile_DraftFinal: UIViewController {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
         } catch let error {
-            // TODO: Sepearte error messages to engineer's and user's
+            // TODO: Sepearte error messages into engineer's and user's
             print("what error")
             print(error.localizedDescription)
             self.displayMessage(userMessage: "Registration Request Creation Failed", dismiss: false)
@@ -75,7 +75,7 @@ class Profile_DraftFinal: UIViewController {
             "job_title":localReadKeyValue(key: "job_title")!,
             "employer":localReadKeyValue(key: "employer")!,
             "drink":localReadKeyValue(key: "drink")!,
-//            "smoke":localReadKeyValue(key: "smoke")!,
+            "smoke":localReadKeyValue(key: "smoke")!,
         ]
 //        let visibility_data = [
 //        "height_visible":localReadKeyValue(key: "height_visible")!,
@@ -102,15 +102,7 @@ class Profile_DraftFinal: UIViewController {
         print(register_data)
         return register_data
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     func readRegistrationResponse(parseJSON: NSDictionary) -> Void {
         let msg = parseJSON["success"] as? Bool
         if msg == false {
