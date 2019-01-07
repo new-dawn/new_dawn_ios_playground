@@ -21,6 +21,7 @@ class UserProfile {
     var smoke: String?
     
     init?(data: NSDictionary) {
+<<<<<<< HEAD
         self.firstname = data[FIRSTNAME] as? String
         self.lastname = data[LASTNAME] as? String
         self.height = data[HEIGHT] as? Int
@@ -28,6 +29,15 @@ class UserProfile {
         self.school = data[SCHOOL] as? String
         self.degree = data[DEGREE] as? String
         self.smoke = data[SMOKE] as? String
+=======
+//        self.firstname = data[FIRSTNAME] as? String
+//        self.lastname = data[LASTNAME] as? String
+//        self.height = data[HEIGHT] as? Int
+//        self.hometown = data[HOMETOWN] as? String
+//        self.school = data[SCHOOL] as? String
+//        self.degree = data[DEGREE] as? String
+//        self.smoke = data[SMOKE] as? String
+>>>>>>> a08f1786d9a3bcf5b439efccabe4391fabf66aaf
     }
 }
 
