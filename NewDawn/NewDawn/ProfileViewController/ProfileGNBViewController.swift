@@ -14,7 +14,7 @@ let BIRTHDAY = "birthday"
 let GENDER = "gender"
 
 class ProfileGNBViewController: UIViewController {
-    
+
     let MAN = "M"
     let WOMAN = "W"
 
