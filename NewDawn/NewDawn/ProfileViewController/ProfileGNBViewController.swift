@@ -8,12 +8,13 @@
 
 import UIKit
 
+let FIRSTNAME = "firstname"
+let LASTNAME = "lastname"
+let BIRTHDAY = "birthday"
+let GENDER = "gender"
+
 class ProfileGNBViewController: UIViewController {
     
-    let FIRSTNAME = "firstname"
-    let LASTNAME = "lastname"
-    let BIRTHDAY = "birthday"
-    let GENDER = "gender"
     let MAN = "M"
     let WOMAN = "W"
 
