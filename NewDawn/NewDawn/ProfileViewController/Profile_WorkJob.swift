@@ -9,7 +9,7 @@
 import UIKit
 
 let JOBTITLE = "job_title"
-let WORKPLACE = "workplace"
+let WORKPLACE = "employer"
 
 class Profile_WorkJob: UIViewController {
     

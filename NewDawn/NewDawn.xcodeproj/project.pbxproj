@@ -17,6 +17,8 @@
 		24B884F221E03ADF00AD2786 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B884F021E03ADF00AD2786 /* MainPage.storyboard */; };
 		24B884F621E041BE00AD2786 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884F521E041BE00AD2786 /* MainPageViewController.swift */; };
 		24B884F821E1900000AD2786 /* MainPageViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884F721E1900000AD2786 /* MainPageViewModels.swift */; };
+		24B884FC21E302EC00AD2786 /* MainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */; };
+		24B884FE21E463A100AD2786 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884FD21E463A100AD2786 /* UserModels.swift */; };
 		24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */; };
 		24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */; };
 		24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */; };
@@ -74,6 +76,8 @@
 		24B884F121E03ADF00AD2786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainPage.storyboard; sourceTree = "<group>"; };
 		24B884F521E041BE00AD2786 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewController.swift; path = NewDawn/MainPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		24B884F721E1900000AD2786 /* MainPageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewModels.swift; path = MainPageViewController/MainPageViewModels.swift; sourceTree = "<group>"; };
+		24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageTableViewCell.swift; path = MainPageViewController/MainPageTableViewCell.swift; sourceTree = "<group>"; };
+		24B884FD21E463A100AD2786 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModels.swift; path = Models/UserModels.swift; sourceTree = "<group>"; };
 		24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
 		24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				24B884EC21D55E0C00AD2786 /* SelectQuestionViewController.swift */,
 				24B884EE21D6BBE100AD2786 /* AnswerQuestionViewController.swift */,
 				24B884F721E1900000AD2786 /* MainPageViewModels.swift */,
+				24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */,
+				24B884FD21E463A100AD2786 /* UserModels.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			files = (
 				24B884ED21D55E0C00AD2786 /* SelectQuestionViewController.swift in Sources */,
 				24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */,
+				24B884FC21E302EC00AD2786 /* MainPageTableViewCell.swift in Sources */,
 				54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */,
 				54C278C021CFFBFD00917F16 /* Profile_Smoke.swift in Sources */,
 				24B884F821E1900000AD2786 /* MainPageViewModels.swift in Sources */,
@@ -505,6 +512,7 @@
 				8F2EF86F21D9119100FBF8E5 /* Profile_PhotosUpload.swift in Sources */,
 				24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */,
 				54C278C621D0003C00917F16 /* Profile_WorkJob.swift in Sources */,
+				24B884FE21E463A100AD2786 /* UserModels.swift in Sources */,
 				24B884EF21D6BBE100AD2786 /* AnswerQuestionViewController.swift in Sources */,
 				24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */,
 			);

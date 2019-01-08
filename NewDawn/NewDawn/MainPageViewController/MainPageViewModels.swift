@@ -7,31 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
 // An MVVM design of Main Page display
-
-// A user profile class instantiated by json dictionary sent from backend
-class UserProfile {
-    var firstname: String?
-    var lastname: String?
-    var height: Int?
-    var hometown: String?
-    var school: String?
-    var degree: String?
-    var smoke: String?
-    
-    init?(data: NSDictionary) {
-        self.firstname = data[FIRSTNAME] as? String
-        self.lastname = data[LASTNAME] as? String
-        self.height = data[HEIGHT] as? Int
-        self.hometown = data[HOMETOWN] as? String
-        self.school = data[SCHOOL] as? String
-        self.degree = data[DEGREE] as? String
-        self.smoke = data[SMOKE] as? String
-    }
-}
-
-// A collections of Main Page classes
 
 // The main page has different type of sections
 // image, basic info, question answers, instagram/linkedin etc.
@@ -67,8 +45,6 @@ extension MainPageViewModellItem {
 // ---------- View Model Item Definitions ----------
 
 class BasicInfoViewModelItem: MainPageViewModellItem {
-    
-    let UNKNOWN: String = "N/A"
 
     // Required Attributes
     var type: MainPageViewModelItemType {
@@ -86,10 +62,34 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
     var school: String
     var degree: String
     
-    init() {
-        self.smoke = UNKNOWN
-        self.school = UNKNOWN
-        self.degree = UNKNOWN
+    init(smoke: String, school: String, degree: String) {
+        self.smoke = smoke
+        self.school = school
+        self.degree = degree
+    }
+    
+}
+
+class QuestionAnswerViewModelItem: MainPageViewModellItem {
+    
+    // Required Attributes
+    var type: MainPageViewModelItemType {
+        return .QUESTION_ANSWER
+    }
+    var sectionTitle: String {
+        return "Question Answer"
+    }
+    var rowCount: Int {
+        return 4
+    }
+    
+    // Customized Attributes
+    var question: String
+    var answer: String
+    
+    init(question: String, answer: String) {
+        self.question = question
+        self.answer = answer
     }
     
 }
@@ -99,32 +99,57 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
 class MainPageViewModel: NSObject {
     var items = [MainPageViewModellItem]()
     
-    // TODO: replace dummy data with real backend response
-    let DUMMY_DATA: NSDictionary = [
-        "firstname": "Test",
-        "lastname": "User",
-        "degree": "Undergrad",
-        "school": "NYU"
-    ]
-    
     init(userProfile: UserProfile) {
         super.init()
-        // Append basic info item
-        items.append(fetchBasicInfo(userProfile: userProfile))
+        // Append all items in order
+        items.append(
+            fetchBasicInfo(userProfile: userProfile))
+        items.append(
+            fetchQuestionAnswer(userProfile: userProfile, index: 0))
     }
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
-        let basicInfo = BasicInfoViewModelItem()
+        let basicInfo = BasicInfoViewModelItem(
+            smoke: userProfile.smoke, school: userProfile.school, degree: userProfile.degree)
         // Populate basic info field with existed data in user profile
-        if let smoke = userProfile.smoke {
-            basicInfo.smoke = smoke
-        }
-        if let school = userProfile.school {
-            basicInfo.school = school
-        }
-        if let degree = userProfile.degree {
-            basicInfo.degree = degree
-        }
         return basicInfo
+    }
+    
+    func fetchQuestionAnswer(userProfile: UserProfile, index: Int) -> QuestionAnswerViewModelItem {
+        let questionAnswer = QuestionAnswerViewModelItem(
+            question: userProfile.questionAnswers[index].question.question,
+            answer: userProfile.questionAnswers[index].answer
+        )
+        return questionAnswer
+    }
+}
+
+extension MainPageViewModel: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return items.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items[section].rowCount
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = items[indexPath.section]
+        switch item.type {
+        case .QUESTION_ANSWER:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "questionAnswerCell") as? QuestionAnswerViewCell {
+                cell.item = item
+                return cell
+            }
+        case .MAIN_IMAGE:
+        return UITableViewCell()
+        case .BASIC_INFO:
+        return UITableViewCell()
+        case .IMAGE:
+        return UITableViewCell()
+        case .INSTAGRAM:
+        return UITableViewCell()
+        case .LINKEDIN:
+        return UITableViewCell()
+        }
+        return UITableViewCell()
     }
 }
