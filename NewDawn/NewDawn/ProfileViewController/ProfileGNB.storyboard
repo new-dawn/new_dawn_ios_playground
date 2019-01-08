@@ -811,7 +811,7 @@
                                 </state>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="b8r-oE-fGS" eventType="touchUpInside" id="lH1-TM-LaP"/>
-                                    <segue destination="gIN-sC-2GR" kind="presentation" id="Khe-Ut-PaY"/>
+                                    <segue destination="gIN-sC-2GR" kind="presentation" identifier="smoke_continue" id="Khe-Ut-PaY"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Do you smoke?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-cL-mxY">
@@ -1329,7 +1329,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-FJ-ORZ"/>
+        <segue reference="iHz-cU-Dm1"/>
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="6m0-PK-7Bw"/>
         <segue reference="Sib-rs-igN"/>
