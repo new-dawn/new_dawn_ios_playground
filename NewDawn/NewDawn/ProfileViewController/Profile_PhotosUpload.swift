@@ -21,21 +21,18 @@ class Profile_PhotosUpload: UIViewController, UINavigationControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//
-//            imageView.image = let image = info[UIImagePickerControllerOriginalImage]
-//
-//        } else {
-//
-//            print("There was a problem getting the image")
-//
-//        }
+        if let image = info[.editedImage] as? UIImage{
+            imageView.image = image
+        }else if let image = info[.originalImage] as? UIImage {
+            imageView.image = image
+        } else {
+            
+            print("There was a problem getting the image")
+            
+        }
         
-//        if let image = info[.originalImage] as? UIImage {
-//            imageView.image = image
-//        }
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -46,13 +43,16 @@ class Profile_PhotosUpload: UIViewController, UINavigationControllerDelegate, UI
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.delegate = self
-        
+//        let actionSheet = UIAlertController()
         imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
         
-        imagePickerController.allowsEditing = false
+        imagePickerController.allowsEditing = true
+        
         
         self.present(imagePickerController, animated: true, completion: nil)
     }
+    
+    
     /*
     // MARK: - Navigation
 
