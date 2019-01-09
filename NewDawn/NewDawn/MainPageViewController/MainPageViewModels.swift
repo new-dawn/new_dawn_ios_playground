@@ -29,6 +29,7 @@ protocol MainPageViewModellItem {
     var rowCount: Int { get }
     var sectionTitle: String { get }
     var likable: Bool { get }
+    var rowHeight: Int { get }
 }
 
 // Specify some default values
@@ -39,13 +40,83 @@ extension MainPageViewModellItem {
     var likable: Bool {
         return false
     }
+    var rowHeight: Int {
+        return 50
+    }
 }
 
+// ----------  Build Main Page View Model ----------
+
+class MainPageViewModel: NSObject {
+    var items = [MainPageViewModellItem]()
+    
+    init(userProfile: UserProfile) {
+        super.init()
+        // Append all items in order
+        if !userProfile.questionAnswers.isEmpty {
+            for index in 0...userProfile.questionAnswers.count-1 {
+                items.append(
+                    fetchQuestionAnswer(userProfile: userProfile, index: index))
+            }
+        }
+    }
+    
+    func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
+        let basicInfo = BasicInfoViewModelItem(
+            smoke: userProfile.smoke, school: userProfile.school, degree: userProfile.degree)
+        // Populate basic info field with existed data in user profile
+        return basicInfo
+    }
+    
+    func fetchQuestionAnswer(userProfile: UserProfile, index: Int) -> QuestionAnswerViewModelItem {
+        let questionAnswer = QuestionAnswerViewModelItem(
+            question: userProfile.questionAnswers[index].question.question,
+            answer: userProfile.questionAnswers[index].answer
+        )
+        return questionAnswer
+    }
+}
+
+extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return items.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items[section].rowCount
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = items[indexPath.section]
+        switch item.type {
+        case .QUESTION_ANSWER:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "questionAnswerCell", for: indexPath) as? QuestionAnswerViewCell {
+                cell.item = item
+                return cell
+            }
+        case .MAIN_IMAGE:
+        return UITableViewCell()
+        case .BASIC_INFO:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "basicInfoCell", for: indexPath) as? BasicInfoViewCell {
+                cell.item = item
+                return cell
+            }
+        case .IMAGE:
+        return UITableViewCell()
+        case .INSTAGRAM:
+        return UITableViewCell()
+        case .LINKEDIN:
+        return UITableViewCell()
+        }
+        return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(items[indexPath.section].rowHeight)
+    }
+}
 
 // ---------- View Model Item Definitions ----------
 
 class BasicInfoViewModelItem: MainPageViewModellItem {
-
+    
     // Required Attributes
     var type: MainPageViewModelItemType {
         return .BASIC_INFO
@@ -54,7 +125,10 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
         return "Basic Info"
     }
     var rowCount: Int {
-        return 2
+        return 1
+    }
+    var rowHeight: Int {
+        return 80
     }
     
     // Customized Attributes
@@ -80,7 +154,10 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
         return "Question Answer"
     }
     var rowCount: Int {
-        return 4
+        return 1
+    }
+    var rowHeight: Int {
+        return 100
     }
     
     // Customized Attributes
@@ -94,62 +171,3 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     
 }
 
-// ----------  Build Main Page View Model ----------
-
-class MainPageViewModel: NSObject {
-    var items = [MainPageViewModellItem]()
-    
-    init(userProfile: UserProfile) {
-        super.init()
-        // Append all items in order
-        items.append(
-            fetchBasicInfo(userProfile: userProfile))
-        items.append(
-            fetchQuestionAnswer(userProfile: userProfile, index: 0))
-    }
-    
-    func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
-        let basicInfo = BasicInfoViewModelItem(
-            smoke: userProfile.smoke, school: userProfile.school, degree: userProfile.degree)
-        // Populate basic info field with existed data in user profile
-        return basicInfo
-    }
-    
-    func fetchQuestionAnswer(userProfile: UserProfile, index: Int) -> QuestionAnswerViewModelItem {
-        let questionAnswer = QuestionAnswerViewModelItem(
-            question: userProfile.questionAnswers[index].question.question,
-            answer: userProfile.questionAnswers[index].answer
-        )
-        return questionAnswer
-    }
-}
-
-extension MainPageViewModel: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].rowCount
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = items[indexPath.section]
-        switch item.type {
-        case .QUESTION_ANSWER:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "questionAnswerCell") as? QuestionAnswerViewCell {
-                cell.item = item
-                return cell
-            }
-        case .MAIN_IMAGE:
-        return UITableViewCell()
-        case .BASIC_INFO:
-        return UITableViewCell()
-        case .IMAGE:
-        return UITableViewCell()
-        case .INSTAGRAM:
-        return UITableViewCell()
-        case .LINKEDIN:
-        return UITableViewCell()
-        }
-        return UITableViewCell()
-    }
-}

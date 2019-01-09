@@ -8,8 +8,8 @@
 
 import UIKit
 
-let FIRSTNAME = "firstname"
-let LASTNAME = "lastname"
+let FIRSTNAME = "first_name"
+let LASTNAME = "last_name"
 let BIRTHDAY = "birthday"
 let GENDER = "gender"
 

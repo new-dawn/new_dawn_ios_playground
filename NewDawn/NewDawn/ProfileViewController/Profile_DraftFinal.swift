@@ -32,7 +32,7 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         self.removeActivityIndicator(activityIndicator: activityIndicator)
-        self.processSessionTasks(request: request!, callback: readRegistrationResponse)
+        //self.processSessionTasks(request: request!, callback: readRegistrationResponse)
         
     }
     
@@ -88,8 +88,8 @@ class Profile_DraftFinal: UIViewController {
     
     func getUserData() -> [String: Any]{
         return  [
-            "first_name":localReadKeyValue(key: FIRSTNAME)!,
-            "last_name":localReadKeyValue(key: LASTNAME)!,
+            FIRSTNAME: localReadKeyValue(key: FIRSTNAME)!,
+            LASTNAME: localReadKeyValue(key: LASTNAME)!,
         ]
     }
     
@@ -103,7 +103,7 @@ class Profile_DraftFinal: UIViewController {
     func getProfileData() -> [String: Any] {
         return [
             "height": _height_num_handler(height: localReadKeyValue(key: HEIGHT) as! String),
-            "hometown":localReadKeyValue(key: HOMETOWN)!,
+            //"hometown":localReadKeyValue(key: HOMETOWN)!,
             "school":localReadKeyValue(key: SCHOOL)!,
             "degree":localReadKeyValue(key: DEGREE)!,
             "job_title":localReadKeyValue(key: JOBTITLE)!,

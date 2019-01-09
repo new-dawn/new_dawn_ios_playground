@@ -22,6 +22,15 @@ class MainPageTableViewCell: UITableViewCell {
     }
 }
 
+class BasicInfoViewCell: UITableViewCell {
+    // TODO: Add IBOutlet for Basic Info Entries
+    var item: MainPageViewModellItem? {
+        didSet {
+            guard let _ = item as? BasicInfoViewModelItem else { return }
+        }
+    }
+}
+
 class QuestionAnswerViewCell: UITableViewCell {
     
     @IBOutlet weak var questionLabel: UILabel!

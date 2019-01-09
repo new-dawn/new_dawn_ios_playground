@@ -9,13 +9,16 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
-
+    
+    fileprivate let viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA))
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA))
         tableView.dataSource = viewModel
+        tableView.delegate = viewModel
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
 
 }

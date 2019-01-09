@@ -10,7 +10,7 @@ import Foundation
 
 // TODO: Move all user info constants to this file
 let QUESTION = "question"
-let ANSWER = "question_answer"
+let ANSWER = "answer"
 let ID = "id"
 
 // This is a sample json dict we expect to receive from backend
@@ -29,7 +29,12 @@ let USER_DUMMY_DATA: NSDictionary = [
             "id": 2,
             "question": "How old are you",
             "answer": "I'm 22"
-        ]
+        ],
+        [
+            "id": 3,
+            "question": "What's your favorite sone",
+            "answer": "Five Stars Red Flag"
+        ],
     ]
 ]
 
