@@ -10,32 +10,6 @@ import UIKit
 
 let UNKNOWN = "N/A"
 
-struct Question: Codable {
-    var id: Int
-    var question: String
-    init() {
-        self.id = 0
-        self.question = UNKNOWN
-    }
-    init(id: Int, question: String) {
-        self.id = id
-        self.question = question
-    }
-}
-
-struct QuestionAnswer: Codable {
-    var question: Question
-    var answer: String
-    init() {
-        self.question = Question()
-        self.answer = UNKNOWN
-    }
-    init(question: Question, answer: String) {
-        self.question = question
-        self.answer = answer
-    }
-}
-
 class QuestionViewController: UIViewController {
     
     let QUESTION_WIDTH = 257
