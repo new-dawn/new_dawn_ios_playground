@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let homePage = mainStoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
             self.window?.rootViewController = homePage
         }
+        let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+        let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+        self.window?.rootViewController = homePage
         return true
     }
 
