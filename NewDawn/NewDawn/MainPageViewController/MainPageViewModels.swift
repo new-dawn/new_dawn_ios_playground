@@ -16,7 +16,6 @@ import UIKit
 enum MainPageViewModelItemType {
     case MAIN_IMAGE
     case BASIC_INFO
-    case IMAGE
     case QUESTION_ANSWER
     case INSTAGRAM
     case LINKEDIN
@@ -53,6 +52,12 @@ class MainPageViewModel: NSObject {
     init(userProfile: UserProfile) {
         super.init()
         // Append all items in order
+        if !userProfile.mainImages.isEmpty {
+            for index in 0...userProfile.mainImages.count-1 {
+                items.append(
+                    fetchMainImage(userProfile: userProfile, index: index))
+            }
+        }
         if !userProfile.questionAnswers.isEmpty {
             for index in 0...userProfile.questionAnswers.count-1 {
                 items.append(
@@ -75,6 +80,14 @@ class MainPageViewModel: NSObject {
         )
         return questionAnswer
     }
+    
+    func fetchMainImage(userProfile: UserProfile, index: Int) -> MainImageViewModelItem {
+        let mainImage = MainImageViewModelItem(
+            mainImageURL: userProfile.mainImages[index].image_url,
+            caption: userProfile.mainImages[index].caption
+        )
+        return mainImage
+    }
 }
 
 extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
@@ -93,14 +106,15 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }
         case .MAIN_IMAGE:
-        return UITableViewCell()
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "mainImageViewCell", for: indexPath) as? MainImageViewCell {
+                cell.item = item
+                return cell
+            }
         case .BASIC_INFO:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "basicInfoCell", for: indexPath) as? BasicInfoViewCell {
                 cell.item = item
                 return cell
             }
-        case .IMAGE:
-        return UITableViewCell()
         case .INSTAGRAM:
         return UITableViewCell()
         case .LINKEDIN:
@@ -167,6 +181,33 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     init(question: String, answer: String) {
         self.question = question
         self.answer = answer
+    }
+    
+}
+
+class MainImageViewModelItem: MainPageViewModellItem {
+    
+    // Required Attributes
+    var type: MainPageViewModelItemType {
+        return .MAIN_IMAGE
+    }
+    var sectionTitle: String {
+        return "Image"
+    }
+    var rowCount: Int {
+        return 1
+    }
+    var rowHeight: Int {
+        return 380
+    }
+    
+    // Customized Attributes
+    var mainImageURL: String
+    var caption: String
+    
+    init(mainImageURL: String, caption: String) {
+        self.mainImageURL = mainImageURL
+        self.caption = caption
     }
     
 }

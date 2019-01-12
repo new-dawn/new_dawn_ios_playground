@@ -44,3 +44,15 @@ class QuestionAnswerViewCell: UITableViewCell {
         }
     }
 }
+
+class MainImageViewCell: UITableViewCell {
+    
+    @IBOutlet weak var mainImageView: UIImageView!
+
+    var item: MainPageViewModellItem? {
+        didSet {
+            guard let item = item as? MainImageViewModelItem else { return }
+            mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
+        }
+    }
+}

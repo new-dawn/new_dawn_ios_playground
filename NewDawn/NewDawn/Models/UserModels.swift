@@ -12,6 +12,9 @@ import Foundation
 let QUESTION = "question"
 let ANSWER = "answer"
 let ID = "id"
+let IMAGES = "images"
+let CAPTION = "caption"
+let MEDIA = "media"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA: NSDictionary = [
@@ -19,6 +22,12 @@ let USER_DUMMY_DATA: NSDictionary = [
     "lastname": "User",
     "degree": "Undergrad",
     "school": "NYU",
+    "images": [
+        [
+            "media": "media/images/testcat.JPG",
+            "caption": "First image"
+        ],
+    ],
     "question_answers": [
         [
             "id": 1,
@@ -65,6 +74,15 @@ struct QuestionAnswer: Codable {
     }
 }
 
+struct MainImage: Codable {
+    var image_url: String
+    var caption: String
+    init(image_url: String, caption: String) {
+        self.image_url = image_url
+        self.caption = caption
+    }
+}
+
 // A user profile class instantiated by json dictionary sent from backend
 class UserProfile {
     var firstname: String = UNKNOWN
@@ -75,6 +93,7 @@ class UserProfile {
     var degree: String = UNKNOWN
     var smoke: String = UNKNOWN
     var questionAnswers: Array<QuestionAnswer> = [QuestionAnswer]()
+    var mainImages: Array<MainImage> = [MainImage]()
     
     init(data: NSDictionary) {
         if let firstname = data[FIRSTNAME] as? String {
@@ -103,6 +122,14 @@ class UserProfile {
                 if let id = dict[ID] as? Int, let question = dict[QUESTION] as? String, let answer = dict[ANSWER] as? String {
                     questionAnswers.append(
                         QuestionAnswer(question: Question(id: id, question: question), answer: answer))
+                }
+            }
+        }
+        if let images = data[IMAGES] as? Array<NSDictionary> {
+            for dict in images {
+                if let image_url = dict[MEDIA] as? String, let caption = dict[CAPTION] as? String {
+                    mainImages.append(
+                        MainImage(image_url: image_url, caption: caption))
                 }
             }
         }
