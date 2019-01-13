@@ -13,14 +13,14 @@
         <!--ChatPageViewController-->
         <scene sceneID="Vpl-kZ-jWd">
             <objects>
-                <viewController title="ChatPageViewController" id="uPC-H9-xi1" sceneMemberID="viewController">
+                <viewController title="ChatPageViewController" id="uPC-H9-xi1" customClass="ChatPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CAm-ek-Mnx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zp2-gO-EXw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="erX-xF-JYc"/>
+                    <navigationItem key="navigationItem" title="Chat" id="erX-xF-JYc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiJ-7D-0xF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,14 +30,14 @@
         <scene sceneID="5zp-LZ-TYK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="SettingPageViewController" id="fnq-R9-Le7" sceneMemberID="viewController">
+                <viewController title="SettingPageViewController" id="fnq-R9-Le7" customClass="SettingPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPT-qK-SE0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fik-Zp-lfL"/>
+                    <navigationItem key="navigationItem" title="Profile" id="fik-Zp-lfL"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="932" y="971.96401799100454"/>
