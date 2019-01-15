@@ -19,6 +19,7 @@ class MainPageViewController: UIViewController {
         tableView.delegate = viewModel
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        navigationItem.hidesBackButton = true
     }
 
 }
