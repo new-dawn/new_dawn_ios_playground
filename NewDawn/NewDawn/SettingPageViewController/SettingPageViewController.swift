@@ -10,10 +10,20 @@ import UIKit
 
 class SettingPageViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var preferenceButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        polishCircularImage(image: profileImage)
+        polishUIButton(button: preferenceButton)
+        polishUIButton(button: accountButton)
+        polishUIButton(button: helpButton)
+        polishUIButton(button: settingButton)
     }
     
 
