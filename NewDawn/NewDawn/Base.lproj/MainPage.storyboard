@@ -29,7 +29,6 @@
         <!--SettingPageViewController-->
         <scene sceneID="5zp-LZ-TYK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="SettingPageViewController" id="fnq-R9-Le7" customClass="SettingPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPT-qK-SE0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -39,6 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="fik-Zp-lfL"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="971.96401799100454"/>
         </scene>
@@ -112,13 +112,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-of-WwC">
-                                                    <rect key="frame" x="15" y="11" width="60" height="20"/>
+                                                    <rect key="frame" x="8" y="8" width="60" height="20"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1u-10-QgG">
-                                                    <rect key="frame" x="15" y="46" width="95" height="38"/>
+                                                    <rect key="frame" x="8" y="43" width="95" height="38"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -240,7 +240,6 @@
         <!--Navigation Controller-->
         <scene sceneID="02K-Mz-h5T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oh3-mh-SJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Rc-cO-yru" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="MeTab" id="Czm-Gs-dNX">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
@@ -255,6 +254,7 @@
                         <segue destination="fnq-R9-Le7" kind="relationship" relationship="rootViewController" id="fFq-Kr-8KU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oh3-mh-SJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="971.96401799100454"/>
         </scene>

@@ -17,7 +17,7 @@ let CAPTION = "caption"
 let MEDIA = "media"
 
 // This is a sample json dict we expect to receive from backend
-let USER_DUMMY_DATA: NSDictionary = [
+let USER_DUMMY_DATA_1: NSDictionary = [
     "firstname": "Test",
     "lastname": "User",
     "degree": "Undergrad",
@@ -46,6 +46,38 @@ let USER_DUMMY_DATA: NSDictionary = [
         ],
     ]
 ]
+
+let USER_DUMMY_DATA_2: NSDictionary = [
+    "firstname": "Ziyi",
+    "lastname": "Tang",
+    "degree": "Undergrad",
+    "school": "NYU",
+    "images": [
+        [
+            "media": "media/images/testnyu.jpg",
+            "caption": "First image"
+        ],
+    ],
+    "question_answers": [
+        [
+            "id": 1,
+            "question": "What's your favourate music",
+            "answer": "GOGOGO"
+        ],
+        [
+            "id": 2,
+            "question": "Do you play games",
+            "answer": "Yes"
+        ],
+        [
+            "id": 3,
+            "question": "What's your icon",
+            "answer": "Five Stars"
+        ],
+    ]
+]
+
+let USER_DUMMY_DATA = [USER_DUMMY_DATA_1, USER_DUMMY_DATA_2]
 
 // Question and answer structures
 struct Question: Codable {
