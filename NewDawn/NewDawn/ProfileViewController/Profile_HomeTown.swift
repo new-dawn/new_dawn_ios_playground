@@ -23,18 +23,6 @@ class Profile_HomeTown: UIViewController {
     @IBOutlet weak var homeTwonTextField: UITextField!
     @IBOutlet weak var visibleButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        polishTextField(textField: homeTwonTextField)
-        polishUIButton(button: visibleButton)
-        loadStoredFields()
-        
-    }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
-    
     func loadStoredFields() {
         if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
             homeTwonTextField.text = hometown
@@ -47,6 +35,19 @@ class Profile_HomeTown: UIViewController {
             }
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        polishTextField(textField: homeTwonTextField)
+        polishUIButton(button: visibleButton)
+        loadStoredFields()
+        
+    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
+    
     
     @IBAction func visibleButtonTapped(_ sender: Any) {
         if visibleField == true {
