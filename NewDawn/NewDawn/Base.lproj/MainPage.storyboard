@@ -80,6 +80,9 @@
                                 <state key="normal" title="Setting">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8vw-nJ-uOU" kind="presentation" id="rn8-cl-149"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tap to edit profile" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-Ub-Vdi">
                                 <rect key="frame" x="112" y="254" width="152" height="25"/>
@@ -135,6 +138,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="971.96401799100454"/>
+        </scene>
+        <!--ProfileGNB-->
+        <scene sceneID="zks-4R-m7E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileGNB" id="8vw-nJ-uOU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5YQ-so-w5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1692" y="884"/>
         </scene>
         <!--MainPageViewController-->
         <scene sceneID="ojW-Lt-AvB">
