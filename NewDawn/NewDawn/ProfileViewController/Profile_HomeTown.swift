@@ -20,24 +20,13 @@ class Profile_HomeTown: UIViewController {
     
     var visibleField = false
 
-    @IBOutlet weak var homeTwonTextField: UITextField!
-    @IBOutlet weak var visibleButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        polishTextField(textField: homeTwonTextField)
-        polishUIButton(button: visibleButton)
-        loadStoredFields()
-        
-    }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
+    @IBOutlet weak var hometownTextField: UITextField!
+    @IBOutlet weak var visibleButton: UIButton!
     
     func loadStoredFields() {
         if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
-            homeTwonTextField.text = hometown
+            hometownTextField.text = hometown
         }
         if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
             visibleField = visible
@@ -47,6 +36,19 @@ class Profile_HomeTown: UIViewController {
             }
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        polishTextField(textField: hometownTextField)
+        polishUIButton(button: visibleButton)
+        loadStoredFields()
+        
+    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
+    
     
     @IBAction func visibleButtonTapped(_ sender: Any) {
         if visibleField == true {
@@ -61,10 +63,10 @@ class Profile_HomeTown: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if (homeTwonTextField.text?.isEmpty)!  {
+        if (hometownTextField.text?.isEmpty)!  {
             displayMessage(userMessage: "Cannot have empty field")
         }
-        localStoreKeyValue(key: HOMETOWN, value: homeTwonTextField.text!)
+        localStoreKeyValue(key: HOMETOWN, value: hometownTextField.text!)
     }
     
     
