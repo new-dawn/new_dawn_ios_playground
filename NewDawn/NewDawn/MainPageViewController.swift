@@ -16,11 +16,11 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if ProfileIndexUtil.loadProfileIndex() >= USER_DUMMY_DATA.count {
-//            // TODO: When the user has seen all profiles, we go back to the first profile.
-//            // In the future, we should go to an ending page
-//            self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
-//        }
+        if ProfileIndexUtil.loadProfileIndex() >= USER_DUMMY_DATA.count {
+            // TODO: When the user has seen all profiles, we go back to the first profile.
+            // In the future, we should go to an ending page
+            self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
+        }
         viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA[ProfileIndexUtil.loadProfileIndex()]))
         tableView.dataSource = viewModel
         tableView.delegate = viewModel
@@ -33,8 +33,7 @@ class MainPageViewController: UIViewController {
         // The profile is skipped
         if ProfileIndexUtil.reachLastProfile() {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
-        }
-        else {
+        } else {
             ProfileIndexUtil.updateProfileIndex()
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
         }

@@ -235,8 +235,8 @@ extension UIViewController {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
             DispatchQueue.main.async {
-                let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainPageViewController")
-                    as! MainPageViewController
+                let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabViewController")
+                    as! MainPageTabBarViewController
                 let appDelegate = UIApplication.shared.delegate
                 appDelegate?.window??.rootViewController = mainPage
             }
