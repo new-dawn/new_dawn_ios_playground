@@ -256,7 +256,6 @@
                                 </state>
                                 <connections>
                                     <action selector="skipButtonTapped:" destination="yas-rO-B8O" eventType="touchUpInside" id="P6P-bZ-29N"/>
-                                    <segue destination="yas-rO-B8O" kind="show" id="HRn-GG-J6Y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -274,11 +273,45 @@
                     <navigationItem key="navigationItem" title="Suggested" id="FWF-dW-M0B"/>
                     <connections>
                         <outlet property="tableView" destination="tfe-kP-M9w" id="qf8-qx-laV"/>
+                        <segue destination="fTa-64-NDo" kind="show" identifier="mainPageSelf" id="22V-LO-T18"/>
+                        <segue destination="uoe-vL-6bP" kind="show" identifier="mainPageEnd" id="7wV-IY-x2D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09B-dV-Nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="-371.06446776611699"/>
+        </scene>
+        <!--MainPageViewController-->
+        <scene sceneID="A1l-gg-cOS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainPageViewControllerRef" storyboardName="MainPage" referencedIdentifier="MainPageViewController" id="fTa-64-NDo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dr1-Up-q6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="-834"/>
+        </scene>
+        <!--Main Page End View Controller-->
+        <scene sceneID="NKw-Cc-if6">
+            <objects>
+                <viewController storyboardIdentifier="MainPageEndViewController" id="uoe-vL-6bP" customClass="MainPageEndViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F6H-it-Pmp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emL-47-52g">
+                                <rect key="frame" x="155" y="275" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wUl-5W-KJG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XU-2e-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810" y="-371"/>
         </scene>
         <!--MainTabViewController-->
         <scene sceneID="XDc-Vt-PhA">

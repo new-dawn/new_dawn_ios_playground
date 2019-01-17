@@ -228,6 +228,20 @@ extension UIViewController {
             y: (screenSize.height / 2) - CGFloat(height / 2) + CGFloat(offsetY),
             width: CGFloat(width), height: CGFloat(height))
     }
+    
+    @objc func checkMainPageReload() {
+        // If the current date is not the latest stored date, refresh the main page entirely
+        if TimerUtil.isOutdated() {
+            ProfileIndexUtil.refreshProfileIndex()
+            TimerUtil.updateDate()
+            DispatchQueue.main.async {
+                let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainPageViewController")
+                    as! MainPageViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = mainPage
+            }
+        }
+    }
 }
 
 extension UITextField {
