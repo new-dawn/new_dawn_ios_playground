@@ -68,7 +68,7 @@ class TimerUtil {
     }
     
     // A helper function to check if current date surpasses the latest date
-    static func isOutdated(always: Bool = false) -> Bool {
+    static func isOutdated(always: Bool = true) -> Bool {
         // TODO: Make always default to false
         return always || getCurrentDate() > readStoredDate()
     }
