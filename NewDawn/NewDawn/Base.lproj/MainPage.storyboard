@@ -297,15 +297,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emL-47-52g">
-                                <rect key="frame" x="155" y="275" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Oops, there is no suggestions currently. They are on the way" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
+                                <rect key="frame" x="32.5" y="244" width="310" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="ifH-I8-3LH"/>
+                                    <constraint firstAttribute="height" constant="200" id="pl3-ad-UHg"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xH9-Ne-pni" firstAttribute="top" secondItem="wUl-5W-KJG" secondAttribute="top" constant="180" id="M76-XA-TaN"/>
+                            <constraint firstItem="xH9-Ne-pni" firstAttribute="centerX" secondItem="F6H-it-Pmp" secondAttribute="centerX" id="ahm-ot-ILe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wUl-5W-KJG"/>
                     </view>
                 </viewController>

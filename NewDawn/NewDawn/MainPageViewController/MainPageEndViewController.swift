@@ -13,6 +13,7 @@ class MainPageEndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkMainPageReload()
+        navigationItem.hidesBackButton = true
         NotificationCenter.default.addObserver(self, selector: #selector(UIViewController.checkMainPageReload), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
