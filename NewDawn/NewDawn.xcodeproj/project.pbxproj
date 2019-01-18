@@ -23,6 +23,10 @@
 		24B8850621E82DE800AD2786 /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8850521E82DE800AD2786 /* HttpUtil.swift */; };
 		24B8850921EBA73100AD2786 /* SettingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8850821EBA73000AD2786 /* SettingPageViewController.swift */; };
 		24B8850B21EBA75400AD2786 /* ChatPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */; };
+		24B8850D21F02A0200AD2786 /* MainPageEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */; };
+		24B8850F21F02C1900AD2786 /* TimerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8850E21F02C1900AD2786 /* TimerUtil.swift */; };
+		24B8851121F02E1600AD2786 /* LocalStorageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8851021F02E1600AD2786 /* LocalStorageUtil.swift */; };
+		24B8851321F0429200AD2786 /* ProfileIndexUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */; };
 		24C0464021C54F02006EC02E /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */; };
 		24C0464221C54FE5006EC02E /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */; };
 		24C0464521CD9BB0006EC02E /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */; };
@@ -86,6 +90,10 @@
 		24B8850521E82DE800AD2786 /* HttpUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUtil.swift; path = HttpUtil/HttpUtil.swift; sourceTree = "<group>"; };
 		24B8850821EBA73000AD2786 /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingPageViewController.swift; path = SettingPageViewController/SettingPageViewController.swift; sourceTree = "<group>"; };
 		24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatPageViewController.swift; path = ChatPageViewController/ChatPageViewController.swift; sourceTree = "<group>"; };
+		24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageEndViewController.swift; path = MainPageViewController/MainPageEndViewController.swift; sourceTree = "<group>"; };
+		24B8850E21F02C1900AD2786 /* TimerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtil.swift; sourceTree = "<group>"; };
+		24B8851021F02E1600AD2786 /* LocalStorageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageUtil.swift; sourceTree = "<group>"; };
+		24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIndexUtil.swift; sourceTree = "<group>"; };
 		24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
 		24C0464421CD9BB0006EC02E /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
@@ -215,6 +223,10 @@
 				24B8850521E82DE800AD2786 /* HttpUtil.swift */,
 				24B8850821EBA73000AD2786 /* SettingPageViewController.swift */,
 				24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */,
+				24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */,
+				24B8850E21F02C1900AD2786 /* TimerUtil.swift */,
+				24B8851021F02E1600AD2786 /* LocalStorageUtil.swift */,
+				24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -510,13 +522,17 @@
 				54C278C021CFFBFD00917F16 /* Profile_Smoke.swift in Sources */,
 				24B884F821E1900000AD2786 /* MainPageViewModels.swift in Sources */,
 				24B884F621E041BE00AD2786 /* MainPageViewController.swift in Sources */,
+				24B8850F21F02C1900AD2786 /* TimerUtil.swift in Sources */,
 				54C278BC21CFFBAB00917F16 /* Profile_Education.swift in Sources */,
 				24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */,
+				24B8851321F0429200AD2786 /* ProfileIndexUtil.swift in Sources */,
 				54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */,
 				54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */,
+				24B8850D21F02A0200AD2786 /* MainPageEndViewController.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
 				24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */,
 				24B8850221E8283900AD2786 /* MainPageTabBarViewController.swift in Sources */,
+				24B8851121F02E1600AD2786 /* LocalStorageUtil.swift in Sources */,
 				24F657FC21B31C1300DB2547 /* AppDelegate.swift in Sources */,
 				2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */,
 				0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */,

@@ -256,7 +256,6 @@
                                 </state>
                                 <connections>
                                     <action selector="skipButtonTapped:" destination="yas-rO-B8O" eventType="touchUpInside" id="P6P-bZ-29N"/>
-                                    <segue destination="yas-rO-B8O" kind="show" id="HRn-GG-J6Y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -274,11 +273,53 @@
                     <navigationItem key="navigationItem" title="Suggested" id="FWF-dW-M0B"/>
                     <connections>
                         <outlet property="tableView" destination="tfe-kP-M9w" id="qf8-qx-laV"/>
+                        <segue destination="fTa-64-NDo" kind="show" identifier="mainPageSelf" id="22V-LO-T18"/>
+                        <segue destination="uoe-vL-6bP" kind="show" identifier="mainPageEnd" id="7wV-IY-x2D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09B-dV-Nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="-371.06446776611699"/>
+        </scene>
+        <!--MainPageViewController-->
+        <scene sceneID="A1l-gg-cOS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainPageViewControllerRef" storyboardName="MainPage" referencedIdentifier="MainPageViewController" id="fTa-64-NDo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dr1-Up-q6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1575" y="-837"/>
+        </scene>
+        <!--Main Page End View Controller-->
+        <scene sceneID="NKw-Cc-if6">
+            <objects>
+                <viewController storyboardIdentifier="MainPageEndViewController" id="uoe-vL-6bP" customClass="MainPageEndViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F6H-it-Pmp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Oops, there is no suggestions currently. They are on the way" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
+                                <rect key="frame" x="32.5" y="244" width="310" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="ifH-I8-3LH"/>
+                                    <constraint firstAttribute="height" constant="200" id="pl3-ad-UHg"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xH9-Ne-pni" firstAttribute="top" secondItem="wUl-5W-KJG" secondAttribute="top" constant="180" id="M76-XA-TaN"/>
+                            <constraint firstItem="xH9-Ne-pni" firstAttribute="centerX" secondItem="F6H-it-Pmp" secondAttribute="centerX" id="ahm-ot-ILe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wUl-5W-KJG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XU-2e-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810" y="-371"/>
         </scene>
         <!--MainTabViewController-->
         <scene sceneID="XDc-Vt-PhA">
