@@ -31,7 +31,6 @@ class MainPageViewController: UIViewController {
             navigationItem.hidesBackButton = true
         }
     }
-
     @IBAction func skipButtonTapped(_ sender: Any) {
         // The profile is skipped
         if ProfileIndexUtil.reachLastProfile() {
