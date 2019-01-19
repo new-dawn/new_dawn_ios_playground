@@ -17,17 +17,18 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getUserData(){ () -> () in
-        if ProfileIndexUtil.loadProfileIndex() >= USER_DUMMY_DATA.count {
-            // TODO: When the user has seen all profiles, we go back to the first profile.
-            // In the future, we should go to an ending page
-            self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
-        }
-        viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA[ProfileIndexUtil.loadProfileIndex()]))
-        tableView.dataSource = viewModel
-        tableView.delegate = viewModel
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        navigationItem.hidesBackButton = true
+            if ProfileIndexUtil.loadProfileIndex() >= USER_DUMMY_DATA.count {
+                // TODO: When the user has seen all profiles, we go back to the first profile.
+                // In the future, we should go to an ending page
+                self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
+            }
+            print(USER_DUMMY_DATA)
+            viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA[ProfileIndexUtil.loadProfileIndex()]))
+            tableView.dataSource = viewModel
+            tableView.delegate = viewModel
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = UITableView.automaticDimension
+            navigationItem.hidesBackButton = true
         }
     }
 
@@ -46,7 +47,6 @@ class MainPageViewController: UIViewController {
         processSessionTasks(request: request!, callback: readReponse)
         handleComplete()
     }
-    
     
     func readReponse(response: NSDictionary) -> Void{
         let profile_responses = response["objects"] as? [[String: Any]]
