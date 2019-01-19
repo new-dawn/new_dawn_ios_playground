@@ -32,3 +32,20 @@ extension UIImageView {
             }.resume()
     }
 }
+
+class HttpUtil{
+    // A helper function to add parameters to request URL
+    static func encodeParams(raw_params: Dictionary<String, String>) -> String{
+        var params:String = ""
+        var n = 0
+        for (key, value) in raw_params{
+            if n == 0{
+                params = "?" + key + "=" + value
+            }else{
+                params = params + "&" + key + "=" + value
+            }
+            n += 1
+        }
+        return params
+    }
+}

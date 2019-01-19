@@ -54,20 +54,6 @@ class MainPageViewController: UIViewController {
             USER_DUMMY_DATA.append(dummy_user as NSDictionary)
         }
     }
-
-    func encodeParams(raw_params: Dictionary<String, String>) -> String{
-        var params:String = ""
-        var n = 0
-        for (key, value) in raw_params{
-            if n == 0{
-                params = "?" + key + "=" + value
-            }else{
-                params = params + "&" + key + "=" + value
-            }
-            n += 1
-        }
-        return params
-    }
     
     func createGetProfileRequest() -> URLRequest? {
         // TODO: get username and api_key from keychain/local storage
@@ -75,7 +61,7 @@ class MainPageViewController: UIViewController {
             "username":"duckmoll",
             "api_key":"f1c085c2ed2196cb029827c80f879a2ef3ce2189"
         ]
-        let params = encodeParams(raw_params: psudo_params)
+        let params = HttpUtil.encodeParams(raw_params: psudo_params)
         let url = getURL(path: "profile/" + params)
         var request = URLRequest(url:url)
         request.httpMethod = "GET"
