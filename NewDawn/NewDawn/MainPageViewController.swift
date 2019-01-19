@@ -22,7 +22,6 @@ class MainPageViewController: UIViewController {
                 // In the future, we should go to an ending page
                 self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
             }
-            print(USER_DUMMY_DATA)
             viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA[ProfileIndexUtil.loadProfileIndex()]))
             tableView.dataSource = viewModel
             tableView.delegate = viewModel
