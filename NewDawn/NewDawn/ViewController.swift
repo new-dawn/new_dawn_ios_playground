@@ -28,7 +28,7 @@ extension UIViewController {
     // TODO: Figure out a better way to configure it
     func getURL(path:String, prod:Bool = false) -> URL {
         if prod {
-            return URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
+            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
         } else {
             return URL(string: "http://localhost:8000/api/v1/" + path)!
         }
