@@ -231,6 +231,7 @@ extension UIViewController {
     
     @objc func checkMainPageReload() {
         // If the current date is not the latest stored date, refresh the main page entirely
+        UserProfileBuilder.fetchAndStoreUserProfiles()
         if TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
@@ -250,6 +251,7 @@ extension UITextField {
         self.leftView = paddingView
         self.leftViewMode = .always
     }
+    
     func setRightPaddingPoints(_ amount:CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.rightView = paddingView

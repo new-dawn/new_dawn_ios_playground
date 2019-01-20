@@ -48,4 +48,37 @@ class HttpUtil{
         }
         return params
     }
+    
+    static func processSessionTasks(
+        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
+            // Check response error
+            if error != nil
+            {
+                print("error=\(String(describing: error!))")
+                return
+            }
+            // Parse Response
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                if let parseJSON = json {
+                    callback(parseJSON)
+                }
+                print("Session Task Processed")
+            } catch {
+                print("Error processing response")
+            }
+        }
+        task.resume()
+    }
+    
+    static func getURL(path:String, prod:Bool = false) -> URL {
+        if prod {
+            return URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
+        } else {
+            return URL(string: "http://localhost:8000/api/v1/" + path)!
+        }
+    }
 }

@@ -116,7 +116,7 @@ struct MainImage: Codable {
 }
 
 // A user profile class instantiated by json dictionary sent from backend
-class UserProfile {
+struct UserProfile: Codable {
     var firstname: String = UNKNOWN
     var lastname: String = UNKNOWN
     var height: Int = -1
@@ -166,4 +166,79 @@ class UserProfile {
             }
         }
     }
+}
+
+
+class UserProfileBuilder{
+    
+    static func createGetProfileRequest(input_params: [String:String])-> URLRequest?{
+        
+        let params = HttpUtil.encodeParams(raw_params: input_params)
+        let url = HttpUtil.getURL(path: "profile/" + params)
+        var request = URLRequest(url:url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("ApiKey", forHTTPHeaderField: "Authorization")
+        return request
+    }
+    
+    // Usage for user to other users' profiles information from backend
+    static func fetchAndStoreUserProfiles(){
+        // // TODO: get username and api_key from keychain/local storage
+        let psudo_params = [
+            "username":"duckmoll",
+            "api_key":"f1c085c2ed2196cb029827c80f879a2ef3ce2189"
+        ]
+        let request = self.createGetProfileRequest(input_params: psudo_params)
+        HttpUtil.processSessionTasks(request: request!, callback: fetchAndStoreInLocalStorage)
+    }
+    
+    static func parseProfileInfo(profile_data: [String: Any])-> [String: Any]{
+        let user_data = profile_data["user"]! as? [String: Any]
+        var info = [
+            FIRSTNAME: user_data![FIRSTNAME]! as! String,
+            LASTNAME: user_data![LASTNAME]! as! String,
+            DEGREE: profile_data[DEGREE]! as! String,
+            SCHOOL: profile_data[SCHOOL]! as! String,
+            "images": [
+                [
+                    "media": "media/images/testcat.JPG",
+                    "caption": "First image"
+                ],
+            ],
+            "question_answers":[String]()
+            ] as [String : Any]
+        for answer_question in (profile_data["answer_question"] as? [[String: Any]])!{
+            let answer_question_dict = [
+                "id": answer_question["order"]!,
+                QUESTION: answer_question[QUESTION]!,
+                ANSWER: answer_question[ANSWER]!
+                ] as [String : Any]
+            var q_a_temp = info["question_answers"] as? [[String: Any]] ?? [[String: Any]]()
+            q_a_temp.append(answer_question_dict)
+            info["question_answers"] = q_a_temp
+        }
+        return info
+    }
+    
+    // Store all retrieved users' information to a list of dictionary and into local storage
+    static func fetchAndStoreInLocalStorage(response: NSDictionary)-> Void{
+        var fetched_users = [UserProfile]()
+        let profile_responses = response["objects"] as? [[String: Any]]
+        for profile in profile_responses!{
+            let dummy_user = parseProfileInfo(profile_data: profile)
+            let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
+            fetched_users.append(dummy_user_profile)
+        }
+        let profilesData = try! JSONEncoder().encode(fetched_users)
+        UserDefaults.standard.set(profilesData, forKey: "UserProfiles")
+    }
+    
+    
+    static func getUserProfileListFromLocalStorage()->[UserProfile]{
+        let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
+        let profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
+        return profilesArray
+    }
+
 }
