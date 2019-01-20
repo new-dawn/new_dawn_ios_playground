@@ -231,7 +231,6 @@ extension UIViewController {
     
     @objc func checkMainPageReload() {
         // If the current date is not the latest stored date, refresh the main page entirely
-        UserProfileBuilder.fetchAndStoreUserProfiles()
         if TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()

@@ -237,7 +237,14 @@ class UserProfileBuilder{
     
     static func getUserProfileListFromLocalStorage()->[UserProfile]{
         let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
-        let profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
+        var profilesArray = [UserProfile]()
+        if profilesData == nil{
+            UserProfileBuilder.fetchAndStoreUserProfiles()
+            let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
+            profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
+            return profilesArray
+        }
+        profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
         return profilesArray
     }
 
