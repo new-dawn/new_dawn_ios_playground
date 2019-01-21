@@ -16,6 +16,9 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if TimerUtil.isOutdated(){
+            UserProfileBuilder.fetchAndStoreUserProfiles()
+        }
         var user_profiles:[UserProfile] = UserProfileBuilder.getUserProfileListFromLocalStorage()
         if ProfileIndexUtil.loadProfileIndex() >= user_profiles.count {
             // TODO: When the user has seen all profiles, we go back to the first profile.

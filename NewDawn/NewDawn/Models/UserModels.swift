@@ -189,7 +189,7 @@ class UserProfileBuilder{
             "username":"duckmoll",
             "api_key":"f1c085c2ed2196cb029827c80f879a2ef3ce2189"
         ]
-        let request = self.createGetProfileRequest(input_params: psudo_params)
+        let request = UserProfileBuilder.createGetProfileRequest(input_params: psudo_params)
         HttpUtil.processSessionTasks(request: request!, callback: fetchAndStoreInLocalStorage)
     }
     
@@ -226,7 +226,7 @@ class UserProfileBuilder{
         var fetched_users = [UserProfile]()
         let profile_responses = response["objects"] as? [[String: Any]]
         for profile in profile_responses!{
-            let dummy_user = parseProfileInfo(profile_data: profile)
+            let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
             let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
             fetched_users.append(dummy_user_profile)
         }
@@ -239,13 +239,10 @@ class UserProfileBuilder{
         let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
         var profilesArray = [UserProfile]()
         if profilesData == nil{
-            UserProfileBuilder.fetchAndStoreUserProfiles()
-            let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
+            return [UserProfile]()
+        }else{
             profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
             return profilesArray
         }
-        profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
-        return profilesArray
     }
-
 }
