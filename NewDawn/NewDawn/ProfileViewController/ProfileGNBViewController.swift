@@ -16,6 +16,7 @@ let GENDER = "gender"
 class ProfileGNBViewController: UIViewController {
     let MAN = "M"
     let WOMAN = "W"
+    var gender = UNKNOWN
 
     @IBOutlet weak var womanButton: UIButton!
     @IBOutlet weak var manButton: UIButton!
@@ -37,7 +38,8 @@ class ProfileGNBViewController: UIViewController {
         if let birthday = localReadKeyValue(key: BIRTHDAY) as? String {
             birthdayTextField.text = birthday
         }
-        if let gender = localReadKeyValue(key: GENDER) as? String {
+        if let stored_gender = localReadKeyValue(key: GENDER) as? String {
+            gender = stored_gender
             if gender == MAN {
                 selectButton(button: manButton)
             } else {
@@ -57,18 +59,38 @@ class ProfileGNBViewController: UIViewController {
         showDatePicker()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool{
+        if (firstnameTextField.text?.isEmpty)! ||
+            (lastnameTextField.text?.isEmpty)! ||
+            (birthdayTextField.text?.isEmpty)! ||
+            gender == UNKNOWN{
+            self.displayMessage(userMessage: "Cannot have empty field")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     @IBAction func womanButtonTapped(_ sender: Any) {
         selectButton(button: womanButton)
         deselectButton(button: manButton)
-        localStoreKeyValue(key: GENDER, value: WOMAN)
+        gender = WOMAN
+        localStoreKeyValue(key: GENDER, value: gender)
     }
     @IBAction func manButtonTapped(_ sender: Any) {
         selectButton(button: manButton)
         deselectButton(button: womanButton)
-        localStoreKeyValue(key: GENDER, value: MAN)
+        gender = MAN
+        localStoreKeyValue(key: GENDER, value: gender)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+        
+        if shouldPerformSegue(withIdentifier: "profileGNG_continue", sender: self){
+            performSegue(withIdentifier: "profileGNG_continue", sender: self)
+            }
+        
         if (firstnameTextField.text?.isEmpty)!
             || (lastnameTextField.text?.isEmpty)!
             || (birthdayTextField.text?.isEmpty)! {
