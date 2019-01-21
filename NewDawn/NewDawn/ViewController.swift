@@ -229,16 +229,22 @@ extension UIViewController {
             width: CGFloat(width), height: CGFloat(height))
     }
     
-    @objc func checkMainPageReload() {
+    // Check if timer is outdated, or force refresh the main page
+    // with newly fetched user profiles. Also update profile index and timer.
+    @objc func checkMainPageReload(_ force: Bool = false) {
         // If the current date is not the latest stored date, refresh the main page entirely
-        if TimerUtil.isOutdated() {
+        if force || TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
-            DispatchQueue.main.async {
-                let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabViewController")
-                    as! MainPageTabBarViewController
-                let appDelegate = UIApplication.shared.delegate
-                appDelegate?.window??.rootViewController = mainPage
+            UserProfileBuilder.fetchAndStoreUserProfiles() {
+                (data) in
+                UserProfileBuilder.parseAndStoreInLocalStorage(response: data)
+                DispatchQueue.main.async {
+                    let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabViewController")
+                        as! MainPageTabBarViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = mainPage
+                }
             }
         }
     }

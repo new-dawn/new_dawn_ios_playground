@@ -12,8 +12,13 @@ class MainPageEndViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkMainPageReload()
         navigationItem.hidesBackButton = true
+
+        // Check if reload is needed and refresh the main page if necessary
+        // TODO: Remove "force = true" since it will always refresh the main page
+        self.checkMainPageReload(true)
+
+        // Check refresh again when user resume the app on ending page
         NotificationCenter.default.addObserver(self, selector: #selector(UIViewController.checkMainPageReload), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
