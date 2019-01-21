@@ -230,19 +230,16 @@ class UserProfileBuilder{
             let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
             fetched_users.append(dummy_user_profile)
         }
-        let profilesData = try! JSONEncoder().encode(fetched_users)
-        UserDefaults.standard.set(profilesData, forKey: "UserProfiles")
+        LocalStorageUtil.localStoreKeyValueStruct(key: "UserProfiles", value: fetched_users)
     }
     
     
     static func getUserProfileListFromLocalStorage()->[UserProfile]{
-        let profilesData = UserDefaults.standard.data(forKey: "UserProfiles")
-        var profilesArray = [UserProfile]()
+        let profilesData: [UserProfile]? = LocalStorageUtil.localReadKeyValueStruct(key: "UserProfiles")
         if profilesData == nil{
             return [UserProfile]()
         }else{
-            profilesArray = try! JSONDecoder().decode([UserProfile].self, from: profilesData!)
-            return profilesArray
+            return profilesData!
         }
     }
 }
