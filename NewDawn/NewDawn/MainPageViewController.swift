@@ -16,12 +16,16 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if ProfileIndexUtil.loadProfileIndex() >= USER_DUMMY_DATA.count {
+        if TimerUtil.isOutdated(){
+            UserProfileBuilder.fetchAndStoreUserProfiles()
+        }
+        var user_profiles:[UserProfile] = UserProfileBuilder.getUserProfileListFromLocalStorage()
+        if ProfileIndexUtil.loadProfileIndex() >= user_profiles.count {
             // TODO: When the user has seen all profiles, we go back to the first profile.
             // In the future, we should go to an ending page
             self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
         }
-        viewModel = MainPageViewModel(userProfile: UserProfile(data: USER_DUMMY_DATA[ProfileIndexUtil.loadProfileIndex()]))
+        viewModel = MainPageViewModel(userProfile: user_profiles[ProfileIndexUtil.loadProfileIndex()])
         tableView.dataSource = viewModel
         tableView.delegate = viewModel
         tableView.rowHeight = UITableView.automaticDimension
@@ -38,4 +42,5 @@ class MainPageViewController: UIViewController {
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
         }
     }
+    
 }
