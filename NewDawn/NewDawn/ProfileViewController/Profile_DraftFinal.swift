@@ -103,13 +103,13 @@ class Profile_DraftFinal: UIViewController {
     func getProfileData() -> [String: Any] {
         return [
             "height": _height_num_handler(height: localReadKeyValue(key: HEIGHT) as! String),
-            //"hometown":localReadKeyValue(key: HOMETOWN)!,
-            "school":localReadKeyValue(key: SCHOOL)!,
-            "degree":localReadKeyValue(key: DEGREE)!,
-            "job_title":localReadKeyValue(key: JOBTITLE)!,
-            "employer":localReadKeyValue(key: WORKPLACE)!,
-            "drink":localReadKeyValue(key: DRINK)!,
-            "smoke":localReadKeyValue(key: SMOKE)!,
+            "hometown":localReadKeyValue(key: HOMETOWN) ?? UNKNOWN,
+            "school":localReadKeyValue(key: SCHOOL) ?? UNKNOWN,
+            "degree":localReadKeyValue(key: DEGREE) ?? UNKNOWN,
+            "job_title":localReadKeyValue(key: JOBTITLE) ?? UNKNOWN,
+            "employer":localReadKeyValue(key: WORKPLACE) ?? UNKNOWN,
+            "drink":localReadKeyValue(key: DRINK) ?? UNKNOWN,
+            "smoke":localReadKeyValue(key: SMOKE) ?? UNKNOWN,
         ]
     }
     

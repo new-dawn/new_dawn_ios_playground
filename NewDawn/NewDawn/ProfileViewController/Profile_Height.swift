@@ -49,6 +49,16 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view.
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool{
+        if (heightTextField.text?.isEmpty)! {
+            self.displayMessage(userMessage: "Cannot have empty field")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     func loadStoredFields() {
         if let height = localReadKeyValue(key: HEIGHT) as? String {
             heightTextField.text = height
@@ -76,10 +86,10 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     
     @IBAction func nextButtonAction(_ sender: Any) {
-        if (heightTextField.text?.isEmpty)!  {
-            displayMessage(userMessage: "Cannot have empty field")
+        if shouldPerformSegue(withIdentifier: "height_continue", sender: self){
+            performSegue(withIdentifier: "height_continue", sender: self)
+            localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
         }
-        localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
