@@ -88,8 +88,8 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func nextButtonAction(_ sender: Any) {
         if shouldPerformSegue(withIdentifier: "height_continue", sender: self){
             performSegue(withIdentifier: "height_continue", sender: self)
+            localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
         }
-        localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

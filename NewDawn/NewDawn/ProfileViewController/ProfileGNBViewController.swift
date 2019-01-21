@@ -89,17 +89,11 @@ class ProfileGNBViewController: UIViewController {
         
         if shouldPerformSegue(withIdentifier: "profileGNG_continue", sender: self){
             performSegue(withIdentifier: "profileGNG_continue", sender: self)
+            // Store Name, Birthday locally
+            localStoreKeyValue(key: FIRSTNAME, value: firstnameTextField.text!)
+            localStoreKeyValue(key: LASTNAME, value: lastnameTextField.text!)
+            localStoreKeyValue(key: BIRTHDAY, value: birthdayTextField.text!)
             }
-        
-        if (firstnameTextField.text?.isEmpty)!
-            || (lastnameTextField.text?.isEmpty)!
-            || (birthdayTextField.text?.isEmpty)! {
-            displayMessage(userMessage: "Cannot have empty field")
-        }
-        // Store Name, Birthday locally
-        localStoreKeyValue(key: FIRSTNAME, value: firstnameTextField.text!)
-        localStoreKeyValue(key: LASTNAME, value: lastnameTextField.text!)
-        localStoreKeyValue(key: BIRTHDAY, value: birthdayTextField.text!)
     }
     
     // A helper function to show date picker
