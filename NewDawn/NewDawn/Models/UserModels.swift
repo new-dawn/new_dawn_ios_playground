@@ -77,7 +77,7 @@ let USER_DUMMY_DATA_2: NSDictionary = [
     ]
 ]
 
-var USER_DUMMY_DATA = [USER_DUMMY_DATA_1, USER_DUMMY_DATA_2]
+let USER_DUMMY_DATA = [USER_DUMMY_DATA_1, USER_DUMMY_DATA_2]
 
 // Question and answer structures
 struct Question: Codable {
