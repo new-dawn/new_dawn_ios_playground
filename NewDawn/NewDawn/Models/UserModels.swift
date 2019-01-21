@@ -202,7 +202,7 @@ class UserProfileBuilder{
         // TODO: get username and api_key from keychain/local storage
         let psudo_params = [
             "username":"testadmin",
-            "api_key":"617db2192d5f696b20f6309011a29e1be97aec29"
+            "api_key":"06035bc9ecadac65eef46aef44e5000b1ab3eb56"
         ]
         let request = UserProfileBuilder.createGetProfileRequest(input_params: psudo_params)
         HttpUtil.processSessionTasks(request: request!, callback: callback)
