@@ -58,6 +58,10 @@ class MainPageViewModel: NSObject {
                     fetchMainImage(userProfile: userProfile, index: index))
             }
         }
+        // Append basic info
+        items.append(fetchBasicInfo(userProfile: userProfile))
+        
+        // Append question answers
         if !userProfile.questionAnswers.isEmpty {
             for index in 0...userProfile.questionAnswers.count-1 {
                 items.append(
@@ -68,7 +72,13 @@ class MainPageViewModel: NSObject {
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
         let basicInfo = BasicInfoViewModelItem(
-            smoke: userProfile.smoke, school: userProfile.school, degree: userProfile.degree)
+            degree: userProfile.degree,
+            drink: userProfile.drink,
+            height: userProfile.height,
+            location: userProfile.hometown,
+            school: userProfile.school,
+            smoke: userProfile.smoke
+        )
         // Populate basic info field with existed data in user profile
         return basicInfo
     }
@@ -142,18 +152,24 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
         return 1
     }
     var rowHeight: Int {
-        return 80
+        return 130
     }
     
     // Customized Attributes
-    var smoke: String
-    var school: String
     var degree: String
+    var drink: String
+    var height: Int
+    var location: String
+    var school: String
+    var smoke: String
     
-    init(smoke: String, school: String, degree: String) {
-        self.smoke = smoke
-        self.school = school
+    init(degree: String, drink: String, height: Int, location: String, school: String, smoke: String) {
         self.degree = degree
+        self.drink = drink
+        self.height = height
+        self.location = location
+        self.school = school
+        self.smoke = smoke
     }
     
 }

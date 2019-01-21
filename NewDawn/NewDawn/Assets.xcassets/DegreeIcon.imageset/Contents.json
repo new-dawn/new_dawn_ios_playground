@@ -2,17 +2,14 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "messageSquare.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "messageSquare@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "messageSquare@3x.png",
       "scale" : "3x"
     }
   ],

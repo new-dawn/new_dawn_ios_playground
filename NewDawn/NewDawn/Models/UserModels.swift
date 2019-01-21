@@ -21,7 +21,11 @@ let USER_DUMMY_DATA_1: NSDictionary = [
     "firstname": "Test",
     "lastname": "User",
     "degree": "Undergrad",
+    "height": 175,
     "school": "NYU",
+    "smoke": "socially",
+    "drink": "a little",
+    "hometown": "Beijing",
     "images": [
         [
             "media": "media/images/testcat.JPG",
@@ -51,7 +55,11 @@ let USER_DUMMY_DATA_2: NSDictionary = [
     "firstname": "Ziyi",
     "lastname": "Tang",
     "degree": "Undergrad",
+    "height": 120,
     "school": "NYU",
+    "smoke": "never",
+    "drink": "a lot",
+    "hometown": "Shenzhen",
     "images": [
         [
             "media": "media/images/testnyu.jpg",
@@ -123,6 +131,7 @@ struct UserProfile: Codable {
     var hometown: String = UNKNOWN
     var school: String = UNKNOWN
     var degree: String = UNKNOWN
+    var drink: String = UNKNOWN
     var smoke: String = UNKNOWN
     var questionAnswers: Array<QuestionAnswer> = [QuestionAnswer]()
     var mainImages: Array<MainImage> = [MainImage]()
@@ -138,6 +147,9 @@ struct UserProfile: Codable {
             self.height = height
         }
         if let hometown = data[HOMETOWN] as? String {
+            self.hometown = hometown
+        }
+        if let hometown = data[HOMETOWN] as? String {
             self.lastname = hometown
         }
         if let school = data[SCHOOL] as? String {
@@ -148,6 +160,9 @@ struct UserProfile: Codable {
         }
         if let smoke = data[SMOKE] as? String {
             self.smoke = smoke
+        }
+        if let drink = data[DRINK] as? String {
+            self.drink = drink
         }
         if let question_answers = data[QUESTION_ANSWERS] as? Array<NSDictionary> {
             for dict in question_answers {

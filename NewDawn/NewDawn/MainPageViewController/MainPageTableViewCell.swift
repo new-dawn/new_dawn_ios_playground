@@ -8,6 +8,8 @@
 
 import UIKit
 
+let CM = " cm"
+
 class MainPageTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -23,10 +25,19 @@ class MainPageTableViewCell: UITableViewCell {
 }
 
 class BasicInfoViewCell: UITableViewCell {
-    // TODO: Add IBOutlet for Basic Info Entries
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var smokeLabel: UILabel!
+    @IBOutlet weak var drinkLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    
     var item: MainPageViewModellItem? {
         didSet {
-            guard let _ = item as? BasicInfoViewModelItem else { return }
+            guard let item = item as? BasicInfoViewModelItem else { return }
+            locationLabel?.text = item.location
+            smokeLabel?.text = item.smoke
+            drinkLabel?.text = item.drink
+            heightLabel?.text = String(item.height) + CM
         }
     }
 }
