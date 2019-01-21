@@ -62,16 +62,6 @@ class Profile_Smoke: UIViewController {
         loadStoredFields()
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String,
-                                          sender: Any?) -> Bool{
-        if smoke_pref == nil{
-            self.displayMessage(userMessage: "Cannot have empty field")
-            return false
-        }else{
-            return true
-        }
-    }
-    
     @IBAction func visibleButtonTapped(_ sender: Any) {
         if visible_state == true {
             deselectButton(button: visibleButton, text: "Invisible")
@@ -116,9 +106,6 @@ class Profile_Smoke: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
-        if (shouldPerformSegue(withIdentifier: "smoke_continue", sender: self)){
-                performSegue(withIdentifier: "smoke_continue", sender: self)
-            }
         if smoke_pref != nil{
             localStoreKeyValue(key: SMOKE, value: smoke_pref!)
         }else{
