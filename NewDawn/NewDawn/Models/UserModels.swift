@@ -198,14 +198,14 @@ class UserProfileBuilder{
     }
     
     // Usage for user to other users' profiles information from backend
-    static func fetchAndStoreUserProfiles(){
-        // // TODO: get username and api_key from keychain/local storage
+    static func fetchAndStoreUserProfiles(callback: @escaping (NSDictionary) -> Void){
+        // TODO: get username and api_key from keychain/local storage
         let psudo_params = [
-            "username":"duckmoll",
-            "api_key":"f1c085c2ed2196cb029827c80f879a2ef3ce2189"
+            "username":"testadmin",
+            "api_key":"617db2192d5f696b20f6309011a29e1be97aec29"
         ]
         let request = UserProfileBuilder.createGetProfileRequest(input_params: psudo_params)
-        HttpUtil.processSessionTasks(request: request!, callback: fetchAndStoreInLocalStorage)
+        HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
     static func parseProfileInfo(profile_data: [String: Any])-> [String: Any]{
@@ -237,7 +237,7 @@ class UserProfileBuilder{
     }
     
     // Store all retrieved users' information to a list of dictionary and into local storage
-    static func fetchAndStoreInLocalStorage(response: NSDictionary)-> Void{
+    static func parseAndStoreInLocalStorage(response: NSDictionary)-> Void{
         var fetched_users = [UserProfile]()
         let profile_responses = response["objects"] as? [[String: Any]]
         for profile in profile_responses!{

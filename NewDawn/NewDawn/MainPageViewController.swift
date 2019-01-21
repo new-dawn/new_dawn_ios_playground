@@ -16,21 +16,20 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if TimerUtil.isOutdated(){
-            UserProfileBuilder.fetchAndStoreUserProfiles()
-        }
         var user_profiles:[UserProfile] = UserProfileBuilder.getUserProfileListFromLocalStorage()
-        if ProfileIndexUtil.loadProfileIndex() >= user_profiles.count {
-            // TODO: When the user has seen all profiles, we go back to the first profile.
-            // In the future, we should go to an ending page
-            self.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
+        if user_profiles.count == 0 || TimerUtil.isOutdated() {
+            // Go to the ending page if no profile is available in local storage or is outdated
+            // The ending page will handle profile fetch and refresh the main page automatically
+            self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
+        } else {
+            // Prepare the current profile view
+            viewModel = MainPageViewModel(userProfile: user_profiles[ProfileIndexUtil.loadProfileIndex()])
+            tableView.dataSource = viewModel
+            tableView.delegate = viewModel
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = UITableView.automaticDimension
+            navigationItem.hidesBackButton = true
         }
-        viewModel = MainPageViewModel(userProfile: user_profiles[ProfileIndexUtil.loadProfileIndex()])
-        tableView.dataSource = viewModel
-        tableView.delegate = viewModel
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        navigationItem.hidesBackButton = true
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
