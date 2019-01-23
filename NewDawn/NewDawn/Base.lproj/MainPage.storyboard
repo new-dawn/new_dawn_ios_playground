@@ -239,8 +239,19 @@
                                                     <rect key="frame" x="133" y="31" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DegreeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CSG-9y-yOx">
+                                                    <rect key="frame" x="143" y="85" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smoke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-gV-Mc6">
                                                     <rect key="frame" x="181" y="43" width="75" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Degree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-PU-XHb">
+                                                    <rect key="frame" x="181" y="85" width="131" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -253,6 +264,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="degreeLabel" destination="5Sn-PU-XHb" id="ojE-Dl-mcV"/>
                                             <outlet property="drinkLabel" destination="CLf-UA-xP6" id="rvZ-kV-bUs"/>
                                             <outlet property="heightLabel" destination="ujF-yK-KyA" id="ztg-Sk-m5h"/>
                                             <outlet property="locationLabel" destination="cUE-PA-Tqv" id="HVS-gW-GG2"/>
@@ -458,6 +470,7 @@
     </scenes>
     <resources>
         <image name="ChatTab" width="24" height="24"/>
+        <image name="DegreeIcon" width="20" height="20"/>
         <image name="DrinkIcon" width="26" height="39"/>
         <image name="HeightIcon" width="13" height="26"/>
         <image name="HomeTab" width="24" height="24"/>
