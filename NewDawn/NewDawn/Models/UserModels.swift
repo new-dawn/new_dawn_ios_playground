@@ -186,8 +186,7 @@ struct UserProfile: Codable {
 
 class UserProfileBuilder{
     
-    static func createGetProfileRequest(input_params: [String:String])-> URLRequest?{
-        
+    static func createGetProfileRequest(input_params: [String:String] = [:])-> URLRequest?{
         let params = HttpUtil.encodeParams(raw_params: input_params)
         let url = HttpUtil.getURL(path: "profile/" + params)
         var request = URLRequest(url:url)
@@ -200,11 +199,12 @@ class UserProfileBuilder{
     // Usage for user to other users' profiles information from backend
     static func fetchAndStoreUserProfiles(callback: @escaping (NSDictionary) -> Void){
         // TODO: get username and api_key from keychain/local storage
-        let psudo_params = [
-            "username":"testadmin",
-            "api_key":"06035bc9ecadac65eef46aef44e5000b1ab3eb56"
-        ]
-        let request = UserProfileBuilder.createGetProfileRequest(input_params: psudo_params)
+
+//        let psudo_params = [
+//            "username":"testadmin",
+//            "api_key":"14f08e5e6f1bd7e2e8c80d8111feb82cc5a7f98c"
+//        ]
+        let request = UserProfileBuilder.createGetProfileRequest()
         HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
