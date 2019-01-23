@@ -30,6 +30,7 @@ class BasicInfoViewCell: UITableViewCell {
     @IBOutlet weak var smokeLabel: UILabel!
     @IBOutlet weak var drinkLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
     
     var item: MainPageViewModellItem? {
         didSet {
@@ -38,6 +39,7 @@ class BasicInfoViewCell: UITableViewCell {
             smokeLabel?.text = item.smoke
             drinkLabel?.text = item.drink
             heightLabel?.text = String(item.height) + CM
+            degreeLabel?.text = item.degree
         }
     }
 }
