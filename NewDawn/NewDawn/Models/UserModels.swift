@@ -186,8 +186,7 @@ struct UserProfile: Codable {
 
 class UserProfileBuilder{
     
-    static func createGetProfileRequest(input_params: [String:String])-> URLRequest?{
-        
+    static func createGetProfileRequest(input_params: [String:String] = [:])-> URLRequest?{
         let params = HttpUtil.encodeParams(raw_params: input_params)
         let url = HttpUtil.getURL(path: "profile/" + params)
         var request = URLRequest(url:url)
@@ -200,21 +199,22 @@ class UserProfileBuilder{
     // Usage for user to other users' profiles information from backend
     static func fetchAndStoreUserProfiles(callback: @escaping (NSDictionary) -> Void){
         // TODO: get username and api_key from keychain/local storage
-        let psudo_params = [
-            "username":"testadmin",
-            "api_key":"06035bc9ecadac65eef46aef44e5000b1ab3eb56"
-        ]
-        let request = UserProfileBuilder.createGetProfileRequest(input_params: psudo_params)
+
+//        let psudo_params = [
+//            "username":"testadmin",
+//            "api_key":"14f08e5e6f1bd7e2e8c80d8111feb82cc5a7f98c"
+//        ]
+        let request = UserProfileBuilder.createGetProfileRequest()
         HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
     static func parseProfileInfo(profile_data: [String: Any])-> [String: Any]{
-        let user_data = profile_data["user"]! as? [String: Any]
+        let user_data = profile_data["user"] as? [String: Any]
         var info = [
-            FIRSTNAME: user_data![FIRSTNAME]! as! String,
-            LASTNAME: user_data![LASTNAME]! as! String,
-            DEGREE: profile_data[DEGREE]! as! String,
-            SCHOOL: profile_data[SCHOOL]! as! String,
+            FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
+            LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
+            DEGREE: profile_data[DEGREE] as? String ?? UNKNOWN,
+            SCHOOL: profile_data[SCHOOL] as? String ?? UNKNOWN,
             "images": [
                 [
                     "media": "media/images/testcat.JPG",
@@ -223,15 +223,17 @@ class UserProfileBuilder{
             ],
             "question_answers":[String]()
             ] as [String : Any]
-        for answer_question in (profile_data["answer_question"] as? [[String: Any]])!{
-            let answer_question_dict = [
-                "id": answer_question["order"]!,
-                QUESTION: answer_question[QUESTION]!,
-                ANSWER: answer_question[ANSWER]!
-                ] as [String : Any]
-            var q_a_temp = info["question_answers"] as? [[String: Any]] ?? [[String: Any]]()
-            q_a_temp.append(answer_question_dict)
-            info["question_answers"] = q_a_temp
+        if let answer_questions = profile_data["answer_question"] as? [[String: Any]]{
+            for answer_question in answer_questions{
+                let answer_question_dict = [
+                    "id": answer_question["order"] ?? UNKNOWN,
+                    QUESTION: answer_question[QUESTION] ?? UNKNOWN,
+                    ANSWER: answer_question[ANSWER] ?? UNKNOWN
+                    ] as [String : Any]
+                var q_a_temp = info["question_answers"] as? [[String: Any]] ?? [[String: Any]]()
+                q_a_temp.append(answer_question_dict)
+                info["question_answers"] = q_a_temp
+            }
         }
         return info
     }
