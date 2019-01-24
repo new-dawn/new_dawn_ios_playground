@@ -56,6 +56,9 @@ class QuestionAnswerViewCell: UITableViewCell {
             answerLabel?.text = item.answer
         }
     }
+    
+    @IBAction func likeButtonTapped(_ sender: Any) {
+    }
 }
 
 class MainImageViewCell: UITableViewCell {
@@ -67,5 +70,9 @@ class MainImageViewCell: UITableViewCell {
             guard let item = item as? MainImageViewModelItem else { return }
             mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
         }
+    }
+
+
+    @IBAction func likeButtonTapped(_ sender: Any) {
     }
 }
