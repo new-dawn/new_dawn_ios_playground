@@ -187,7 +187,7 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
         return 1
     }
     var rowHeight: Int {
-        return 100
+        return 150
     }
     
     // Customized Attributes
