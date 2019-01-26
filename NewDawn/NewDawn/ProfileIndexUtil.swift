@@ -19,8 +19,8 @@ class ProfileIndexUtil {
         return 0
     }
     
-    static func reachLastProfile() -> Bool {
-        return loadProfileIndex() == USER_DUMMY_DATA.count - 1
+    static func reachLastProfile(profiles: Array<UserProfile>) -> Bool {
+        return loadProfileIndex() == profiles.count - 1
     }
     
     static func updateProfileIndex() -> Void {
@@ -29,5 +29,9 @@ class ProfileIndexUtil {
     
     static func refreshProfileIndex() -> Void {
         LocalStorageUtil.localStoreKeyValue(key: MAIN_PAGE_PROFILE_INDEX, value: 0)
+    }
+    
+    static func noMoreProfile(profiles: Array<UserProfile>) -> Bool {
+        return loadProfileIndex() >= profiles.count
     }
 }

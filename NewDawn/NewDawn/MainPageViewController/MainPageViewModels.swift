@@ -13,7 +13,7 @@ import UIKit
 
 // The main page has different type of sections
 // image, basic info, question answers, instagram/linkedin etc.
-enum MainPageViewModelItemType {
+enum MainPageViewModelItemType: String {
     case MAIN_IMAGE
     case BASIC_INFO
     case QUESTION_ANSWER
@@ -23,7 +23,7 @@ enum MainPageViewModelItemType {
 
 
 // Standardize the requirement for each section
-protocol MainPageViewModellItem {
+protocol MainPageViewModellItem: Codable {
     var type: MainPageViewModelItemType { get }
     var rowCount: Int { get }
     var sectionTitle: String { get }

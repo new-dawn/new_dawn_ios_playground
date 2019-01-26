@@ -9,6 +9,7 @@
 import UIKit
 
 let CM = " cm"
+let LATEST_LIKED_ITEM = "latest_liked_item"
 
 class MainPageTableViewCell: UITableViewCell {
 
@@ -57,14 +58,20 @@ class QuestionAnswerViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func likeButtonTapped(_ sender: Any) {
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        let castItem = item as! QuestionAnswerViewModelItem
+        LocalStorageUtil.localStoreKeyValue(
+            key: LATEST_LIKED_ITEM, value: [
+                QUESTION: castItem.question,
+                ANSWER: castItem.answer,
+            ])
     }
 }
 
 class MainImageViewCell: UITableViewCell {
     
     @IBOutlet weak var mainImageView: UIImageView!
-
+    
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? MainImageViewModelItem else { return }
@@ -72,7 +79,11 @@ class MainImageViewCell: UITableViewCell {
         }
     }
 
-
-    @IBAction func likeButtonTapped(_ sender: Any) {
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        let castItem = item as! MainImageViewModelItem
+        LocalStorageUtil.localStoreKeyValue(
+            key: LATEST_LIKED_ITEM, value: [
+                IMAGE_URL: castItem.mainImageURL,
+            ])
     }
 }
