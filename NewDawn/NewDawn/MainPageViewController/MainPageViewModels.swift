@@ -68,6 +68,7 @@ class MainPageViewModel: NSObject {
                     fetchQuestionAnswer(userProfile: userProfile, index: index))
             }
         }
+        
     }
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {

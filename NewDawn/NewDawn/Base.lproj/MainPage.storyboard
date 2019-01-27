@@ -150,7 +150,7 @@
         <!--MainPageViewController-->
         <scene sceneID="ojW-Lt-AvB">
             <objects>
-                <viewController storyboardIdentifier="MainPageViewController" title="MainPageViewController" modalTransitionStyle="flipHorizontal" id="yas-rO-B8O" customClass="MainPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageViewController" title="MainPageViewController" modalTransitionStyle="crossDissolve" id="yas-rO-B8O" customClass="MainPageViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iyV-4B-CqF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,7 +442,7 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Zx2-7d-lxA"/>
-                                    <segue destination="fTa-64-NDo" kind="show" id="k6e-s0-fgR"/>
+                                    <segue destination="Fk6-UT-HuI" kind="show" id="re4-fX-zdW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -508,7 +508,7 @@
         <!--MainTabViewController-->
         <scene sceneID="XDc-Vt-PhA">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabViewController" title="MainTabViewController" id="Fk6-UT-HuI" customClass="MainPageTabBarViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabViewController" title="MainTabViewController" modalTransitionStyle="partialCurl" id="Fk6-UT-HuI" customClass="MainPageTabBarViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Blv-JF-0Zk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -619,14 +619,14 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Answers" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wo5-2C-Vwr">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Answers" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo5-2C-Vwr">
                                         <rect key="frame" x="25" y="121" width="259" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Question" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1uf-vf-Ahb">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Question" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uf-vf-Ahb">
                                         <rect key="frame" x="25" y="67" width="193" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -662,7 +662,7 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="iwK-Lf-bTg"/>
-                                    <segue destination="fTa-64-NDo" kind="show" id="gox-0b-S0e"/>
+                                    <segue destination="Fk6-UT-HuI" kind="show" id="2J0-g4-Yk4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -700,6 +700,6 @@
         <image name="SmokeIcon" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gox-0b-S0e"/>
+        <segue reference="re4-fX-zdW"/>
     </inferredMetricsTieBreakers>
 </document>
