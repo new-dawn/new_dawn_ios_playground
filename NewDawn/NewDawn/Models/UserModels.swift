@@ -15,6 +15,7 @@ let ID = "id"
 let IMAGES = "images"
 let CAPTION = "caption"
 let MEDIA = "media"
+let IMAGE_URL = "image_url"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
