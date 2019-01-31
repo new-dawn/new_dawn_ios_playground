@@ -87,7 +87,8 @@ class MainPageViewModel: NSObject {
     func fetchQuestionAnswer(userProfile: UserProfile, index: Int) -> QuestionAnswerViewModelItem {
         let questionAnswer = QuestionAnswerViewModelItem(
             question: userProfile.questionAnswers[index].question.question,
-            answer: userProfile.questionAnswers[index].answer
+            answer: userProfile.questionAnswers[index].answer,
+            name: userProfile.firstname + " " + userProfile.lastname
         )
         return questionAnswer
     }
@@ -95,7 +96,8 @@ class MainPageViewModel: NSObject {
     func fetchMainImage(userProfile: UserProfile, index: Int) -> MainImageViewModelItem {
         let mainImage = MainImageViewModelItem(
             mainImageURL: userProfile.mainImages[index].image_url,
-            caption: userProfile.mainImages[index].caption
+            caption: userProfile.mainImages[index].caption,
+            name: userProfile.firstname + " " + userProfile.lastname
         )
         return mainImage
     }
@@ -194,10 +196,12 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     // Customized Attributes
     var question: String
     var answer: String
+    var name: String
     
-    init(question: String, answer: String) {
+    init(question: String, answer: String, name: String) {
         self.question = question
         self.answer = answer
+        self.name = name
     }
     
 }
@@ -221,10 +225,12 @@ class MainImageViewModelItem: MainPageViewModellItem {
     // Customized Attributes
     var mainImageURL: String
     var caption: String
+    var name: String
     
-    init(mainImageURL: String, caption: String) {
+    init(mainImageURL: String, caption: String, name: String) {
         self.mainImageURL = mainImageURL
         self.caption = caption
+        self.name = name
     }
     
 }

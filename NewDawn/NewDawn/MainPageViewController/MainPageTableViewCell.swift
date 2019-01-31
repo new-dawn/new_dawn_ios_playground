@@ -10,6 +10,7 @@ import UIKit
 
 let CM = " cm"
 let LATEST_LIKED_ITEM = "latest_liked_item"
+let LATEST_LIKED_USER_NAME = "latest_liked_user_name"
 
 class MainPageTableViewCell: UITableViewCell {
 
@@ -49,12 +50,14 @@ class QuestionAnswerViewCell: UITableViewCell {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    var name: String!
     
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? QuestionAnswerViewModelItem else { return }
             questionLabel?.text = item.question
             answerLabel?.text = item.answer
+            name = item.name
         }
     }
     
@@ -65,17 +68,20 @@ class QuestionAnswerViewCell: UITableViewCell {
                 QUESTION: castItem.question,
                 ANSWER: castItem.answer,
             ])
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
     }
 }
 
 class MainImageViewCell: UITableViewCell {
     
     @IBOutlet weak var mainImageView: UIImageView!
+    var name: String!
     
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? MainImageViewModelItem else { return }
             mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
+            name = item.name
         }
     }
 
@@ -85,5 +91,6 @@ class MainImageViewCell: UITableViewCell {
             key: LATEST_LIKED_ITEM, value: [
                 IMAGE_URL: castItem.mainImageURL,
             ])
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
     }
 }

@@ -19,8 +19,8 @@ let IMAGE_URL = "image_url"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
-    "firstname": "Test",
-    "lastname": "User",
+    "first_name": "Test",
+    "last_name": "User",
     "degree": "Undergrad",
     "height": 175,
     "school": "NYU",
@@ -53,8 +53,8 @@ let USER_DUMMY_DATA_1: NSDictionary = [
 ]
 
 let USER_DUMMY_DATA_2: NSDictionary = [
-    "firstname": "Ziyi",
-    "lastname": "Tang",
+    "first_name": "Ziyi",
+    "last_name": "Tang",
     "degree": "Undergrad",
     "height": 120,
     "school": "NYU",
@@ -149,9 +149,6 @@ struct UserProfile: Codable {
         }
         if let hometown = data[HOMETOWN] as? String {
             self.hometown = hometown
-        }
-        if let hometown = data[HOMETOWN] as? String {
-            self.lastname = hometown
         }
         if let school = data[SCHOOL] as? String {
             self.school = school
