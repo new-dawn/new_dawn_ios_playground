@@ -119,16 +119,19 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
         case .QUESTION_ANSWER:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "questionAnswerCell", for: indexPath) as? QuestionAnswerViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .MAIN_IMAGE:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "mainImageViewCell", for: indexPath) as? MainImageViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .BASIC_INFO:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "basicInfoCell", for: indexPath) as? BasicInfoViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .INSTAGRAM:
