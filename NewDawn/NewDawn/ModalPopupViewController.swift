@@ -68,6 +68,7 @@ class ModalImageLikedViewController: ModalPopupViewController {
         if let image = getLikedItem() as? NSDictionary {
             imageView!.downloaded(from: imageView!.getURL(path: image[IMAGE_URL] as! String))
         }
+        imageView.clipsToBounds = true
     }
     
     override func getKeyboardOffsetFactor() -> CGFloat {

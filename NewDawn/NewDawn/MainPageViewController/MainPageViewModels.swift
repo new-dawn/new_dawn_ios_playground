@@ -97,7 +97,10 @@ class MainPageViewModel: NSObject {
         let mainImage = MainImageViewModelItem(
             mainImageURL: userProfile.mainImages[index].image_url,
             caption: userProfile.mainImages[index].caption,
-            name: userProfile.firstname + " " + userProfile.lastname
+            name: userProfile.firstname + " " + userProfile.lastname,
+            age: userProfile.age,
+            jobTitle: userProfile.jobTitle,
+            employer: userProfile.employer
         )
         return mainImage
     }
@@ -226,11 +229,17 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var mainImageURL: String
     var caption: String
     var name: String
+    var age: Int
+    var jobTitle: String
+    var employer: String
     
-    init(mainImageURL: String, caption: String, name: String) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
+        self.age = age
+        self.jobTitle = jobTitle
+        self.employer = employer
     }
     
 }
