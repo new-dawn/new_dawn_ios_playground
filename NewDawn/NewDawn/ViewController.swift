@@ -143,6 +143,7 @@ extension UIViewController {
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
         textField.layer.masksToBounds = true
+        textField.addDoneButtonOnKeyboard()
     }
     
     // A helper function to make text view fancier
@@ -155,6 +156,7 @@ extension UIViewController {
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
         textView.layer.masksToBounds = true
+        textView.addDoneButtonOnKeyboard()
     }
     
     // A helper function to make button fancier
