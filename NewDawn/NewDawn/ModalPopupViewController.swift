@@ -20,6 +20,9 @@ class ModalPopupViewController: UIViewController {
         // Make keyboard show/hide dynamically moves the view
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        if let name = getLikedUserName() {
+            titleLabel?.text = name
+        }
     }
 
     @IBAction func likeButtonTapped(_ sender: Any) {
@@ -36,6 +39,10 @@ class ModalPopupViewController: UIViewController {
     
     func getLikedItem() -> Optional<Any> {
         return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_ITEM)
+    }
+    
+    func getLikedUserName() -> String? {
+        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_NAME) as? String
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -61,6 +68,7 @@ class ModalImageLikedViewController: ModalPopupViewController {
         if let image = getLikedItem() as? NSDictionary {
             imageView!.downloaded(from: imageView!.getURL(path: image[IMAGE_URL] as! String))
         }
+        imageView.clipsToBounds = true
     }
     
     override func getKeyboardOffsetFactor() -> CGFloat {

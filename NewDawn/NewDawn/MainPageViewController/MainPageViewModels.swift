@@ -87,7 +87,8 @@ class MainPageViewModel: NSObject {
     func fetchQuestionAnswer(userProfile: UserProfile, index: Int) -> QuestionAnswerViewModelItem {
         let questionAnswer = QuestionAnswerViewModelItem(
             question: userProfile.questionAnswers[index].question.question,
-            answer: userProfile.questionAnswers[index].answer
+            answer: userProfile.questionAnswers[index].answer,
+            name: userProfile.firstname + " " + userProfile.lastname
         )
         return questionAnswer
     }
@@ -95,7 +96,11 @@ class MainPageViewModel: NSObject {
     func fetchMainImage(userProfile: UserProfile, index: Int) -> MainImageViewModelItem {
         let mainImage = MainImageViewModelItem(
             mainImageURL: userProfile.mainImages[index].image_url,
-            caption: userProfile.mainImages[index].caption
+            caption: userProfile.mainImages[index].caption,
+            name: userProfile.firstname + " " + userProfile.lastname,
+            age: userProfile.age,
+            jobTitle: userProfile.jobTitle,
+            employer: userProfile.employer
         )
         return mainImage
     }
@@ -114,16 +119,19 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
         case .QUESTION_ANSWER:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "questionAnswerCell", for: indexPath) as? QuestionAnswerViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .MAIN_IMAGE:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "mainImageViewCell", for: indexPath) as? MainImageViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .BASIC_INFO:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "basicInfoCell", for: indexPath) as? BasicInfoViewCell {
                 cell.item = item
+                cell.selectionStyle = .none
                 return cell
             }
         case .INSTAGRAM:
@@ -194,10 +202,12 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     // Customized Attributes
     var question: String
     var answer: String
+    var name: String
     
-    init(question: String, answer: String) {
+    init(question: String, answer: String, name: String) {
         self.question = question
         self.answer = answer
+        self.name = name
     }
     
 }
@@ -221,10 +231,18 @@ class MainImageViewModelItem: MainPageViewModellItem {
     // Customized Attributes
     var mainImageURL: String
     var caption: String
+    var name: String
+    var age: Int
+    var jobTitle: String
+    var employer: String
     
-    init(mainImageURL: String, caption: String) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String) {
         self.mainImageURL = mainImageURL
         self.caption = caption
+        self.name = name
+        self.age = age
+        self.jobTitle = jobTitle
+        self.employer = employer
     }
     
 }
