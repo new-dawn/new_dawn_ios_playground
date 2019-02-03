@@ -68,7 +68,8 @@ class MainPageViewModel: NSObject {
                     fetchQuestionAnswer(userProfile: userProfile, index: index))
             }
         }
-        
+        // Apply some order on all items
+        self.sectionSort()
     }
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
@@ -104,6 +105,10 @@ class MainPageViewModel: NSObject {
             isFirst: index == 0
         )
         return mainImage
+    }
+    
+    func sectionSort() -> Void {
+        
     }
 }
 
