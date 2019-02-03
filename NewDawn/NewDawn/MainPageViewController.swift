@@ -17,11 +17,11 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var user_profiles:[UserProfile] = UserProfileBuilder.getUserProfileListFromLocalStorage()
-        user_profiles = [
-            UserProfile(data: USER_DUMMY_DATA[0]),
-            UserProfile(data: USER_DUMMY_DATA[1])
-        ]
+        user_profiles = UserProfileBuilder.getUserProfileListFromLocalStorage()
+//        user_profiles = [
+//            UserProfile(data: USER_DUMMY_DATA[0]),
+//            UserProfile(data: USER_DUMMY_DATA[1])
+//        ]
         if ProfileIndexUtil.noMoreProfile(profiles: user_profiles) || TimerUtil.isOutdated() {
             // Go to the ending page if no profile is available in local storage or is outdated
             // The ending page will handle profile fetch and refresh the main page automatically

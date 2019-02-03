@@ -11,10 +11,14 @@ extension UIImageView {
     // A helper function to get URL based on prod/test
     // TODO: Figure out a better way to configure it
     func getURL(path:String, prod:Bool = false) -> URL {
+        var final_path = path
+        if final_path.hasPrefix("/") == false {
+            final_path = "/" + path
+        }
         if prod {
-            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com/" + path)!
+            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com" + final_path)!
         } else {
-            return URL(string: "http://localhost:8000/" + path)!
+            return URL(string: "http://localhost:8000" + final_path)!
         }
     }
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
@@ -75,10 +79,14 @@ class HttpUtil{
     }
     
     static func getURL(path:String, prod:Bool = false) -> URL {
+        var final_path = path
+        if final_path.hasPrefix("/") == false {
+            final_path = "/" + path
+        }
         if prod {
-            return URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
+            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com" + final_path)!
         } else {
-            return URL(string: "http://localhost:8000/api/v1/" + path)!
+            return URL(string: "http://localhost:8000" + final_path)!
         }
     }
 }
