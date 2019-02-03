@@ -84,9 +84,9 @@ class HttpUtil{
             final_path = "/" + path
         }
         if prod {
-            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com" + final_path)!
+            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com/api/v1" + final_path)!
         } else {
-            return URL(string: "http://localhost:8000" + final_path)!
+            return URL(string: "http://localhost:8000/api/v1" + final_path)!
         }
     }
 }
