@@ -236,6 +236,7 @@ class UserProfileBuilder{
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
             AGE: profile_data[AGE] as? Int ?? UNKNOWN,
             HEIGHT: profile_data[HEIGHT] as? Int ?? UNKNOWN,
+            HOMETOWN: profile_data[HOMETOWN] as? String ?? UNKNOWN,
             WORKPLACE: profile_data[WORKPLACE] as? String ?? UNKNOWN,
             JOBTITLE: profile_data[JOBTITLE] as? String ?? UNKNOWN,
             DEGREE: profile_data[DEGREE] as? String ?? UNKNOWN,
