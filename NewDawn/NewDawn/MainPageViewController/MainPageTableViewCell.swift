@@ -89,7 +89,6 @@ class MainImageViewCell: UITableViewCell {
             
             // Populate the profile name
             name = item.name
-            
             if item.isFirst == true {
                 // Display the gradient
                 mainImageView.layer.sublayers = nil
@@ -103,6 +102,11 @@ class MainImageViewCell: UITableViewCell {
                 // Populate Jobs
                 jobTitle?.text = item.jobTitle
                 employer?.text = item.employer
+            } else {
+                mainImageView.layer.sublayers = nil
+                firstNameAndAge?.text = ""
+                jobTitle?.text = ""
+                employer?.text = ""
             }
         }
     }

@@ -48,23 +48,26 @@ extension MainPageViewModellItem {
 
 class MainPageViewModel: NSObject {
     var items = [MainPageViewModellItem]()
+    var image_items = [MainImageViewModelItem]()
+    var basic_info_item = [BasicInfoViewModelItem]()
+    var question_answer_items = [QuestionAnswerViewModelItem]()
     
     init(userProfile: UserProfile) {
         super.init()
         // Append all items in order
         if !userProfile.mainImages.isEmpty {
             for index in 0...userProfile.mainImages.count-1 {
-                items.append(
+                image_items.append(
                     fetchMainImage(userProfile: userProfile, index: index))
             }
         }
         // Append basic info
-        items.append(fetchBasicInfo(userProfile: userProfile))
+        basic_info_item.append(fetchBasicInfo(userProfile: userProfile))
         
         // Append question answers
         if !userProfile.questionAnswers.isEmpty {
             for index in 0...userProfile.questionAnswers.count-1 {
-                items.append(
+                question_answer_items.append(
                     fetchQuestionAnswer(userProfile: userProfile, index: index))
             }
         }
@@ -108,7 +111,28 @@ class MainPageViewModel: NSObject {
     }
     
     func sectionSort() -> Void {
-        
+        // The first image
+        if image_items.count > 0 {
+            items.append(image_items[0])
+            image_items.removeFirst()
+        }
+        // The first question answer
+        if question_answer_items.count > 0 {
+            items.append(question_answer_items[0])
+            question_answer_items.removeFirst()
+        }
+        for qa_item in question_answer_items {
+            if image_items.count > 0 {
+                items.append(image_items[0])
+                image_items.removeFirst()
+            }
+            if basic_info_item.count > 0 {
+                items.append(basic_info_item[0])
+                basic_info_item.removeFirst()
+                continue
+            }
+            items.append(qa_item)
+        }
     }
 }
 
