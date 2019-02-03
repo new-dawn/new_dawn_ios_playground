@@ -8,7 +8,7 @@
 
 import UIKit
 
-let QUESTION_ANSWERS = "question_answers"
+let QUESTION_ANSWERS = "answer_questions"
 
 class AnswerQuestionViewController: UIViewController {
     

@@ -100,7 +100,8 @@ class MainPageViewModel: NSObject {
             name: userProfile.firstname + " " + userProfile.lastname,
             age: userProfile.age,
             jobTitle: userProfile.jobTitle,
-            employer: userProfile.employer
+            employer: userProfile.employer,
+            isFirst: index == 0
         )
         return mainImage
     }
@@ -235,14 +236,16 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var age: Int
     var jobTitle: String
     var employer: String
+    var isFirst: Bool
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
         self.age = age
         self.jobTitle = jobTitle
         self.employer = employer
+        self.isFirst = isFirst
     }
     
 }
