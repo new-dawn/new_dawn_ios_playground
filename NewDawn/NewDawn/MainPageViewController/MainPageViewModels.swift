@@ -116,22 +116,31 @@ class MainPageViewModel: NSObject {
             items.append(image_items[0])
             image_items.removeFirst()
         }
-        // The first question answer
-        if question_answer_items.count > 0 {
-            items.append(question_answer_items[0])
-            question_answer_items.removeFirst()
-        }
-        for qa_item in question_answer_items {
+        while true {
+            var hasNext = 0
+            if question_answer_items.count > 0 {
+                items.append(question_answer_items[0])
+                question_answer_items.removeFirst()
+                hasNext = 1
+            }
             if image_items.count > 0 {
                 items.append(image_items[0])
                 image_items.removeFirst()
+                hasNext = 1
             }
             if basic_info_item.count > 0 {
                 items.append(basic_info_item[0])
                 basic_info_item.removeFirst()
-                continue
+                hasNext = 1
             }
-            items.append(qa_item)
+            if image_items.count > 0 {
+                items.append(image_items[0])
+                image_items.removeFirst()
+                hasNext = 1
+            }
+            if hasNext == 0 {
+                break
+            }
         }
     }
 }
