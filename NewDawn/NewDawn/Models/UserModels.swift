@@ -184,7 +184,10 @@ struct UserProfile: Codable {
         }
         if let question_answers = data[QUESTION_ANSWERS] as? Array<NSDictionary> {
             for dict in question_answers {
-                if let id = dict[ID] as? Int, let question = dict[QUESTION] as? String, let answer = dict[ANSWER] as? String {
+                if let id = dict[ID] as? Int,
+                    let question_dict = dict[QUESTION] as? NSDictionary,
+                    let question = question_dict[QUESTION] as? String,
+                    let answer = dict[ANSWER] as? String {
                     questionAnswers.append(
                         QuestionAnswer(question: Question(id: id, question: question), answer: answer))
                 }
