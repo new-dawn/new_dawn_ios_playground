@@ -48,27 +48,31 @@ extension MainPageViewModellItem {
 
 class MainPageViewModel: NSObject {
     var items = [MainPageViewModellItem]()
+    var image_items = [MainImageViewModelItem]()
+    var basic_info_item = [BasicInfoViewModelItem]()
+    var question_answer_items = [QuestionAnswerViewModelItem]()
     
     init(userProfile: UserProfile) {
         super.init()
         // Append all items in order
         if !userProfile.mainImages.isEmpty {
             for index in 0...userProfile.mainImages.count-1 {
-                items.append(
+                image_items.append(
                     fetchMainImage(userProfile: userProfile, index: index))
             }
         }
         // Append basic info
-        items.append(fetchBasicInfo(userProfile: userProfile))
+        basic_info_item.append(fetchBasicInfo(userProfile: userProfile))
         
         // Append question answers
         if !userProfile.questionAnswers.isEmpty {
             for index in 0...userProfile.questionAnswers.count-1 {
-                items.append(
+                question_answer_items.append(
                     fetchQuestionAnswer(userProfile: userProfile, index: index))
             }
         }
-        
+        // Apply some order on all items
+        self.sectionSort()
     }
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
@@ -100,9 +104,44 @@ class MainPageViewModel: NSObject {
             name: userProfile.firstname + " " + userProfile.lastname,
             age: userProfile.age,
             jobTitle: userProfile.jobTitle,
-            employer: userProfile.employer
+            employer: userProfile.employer,
+            isFirst: index == 0
         )
         return mainImage
+    }
+    
+    func sectionSort() -> Void {
+        // The first image
+        if image_items.count > 0 {
+            items.append(image_items[0])
+            image_items.removeFirst()
+        }
+        while true {
+            var hasNext = 0
+            if question_answer_items.count > 0 {
+                items.append(question_answer_items[0])
+                question_answer_items.removeFirst()
+                hasNext = 1
+            }
+            if image_items.count > 0 {
+                items.append(image_items[0])
+                image_items.removeFirst()
+                hasNext = 1
+            }
+            if basic_info_item.count > 0 {
+                items.append(basic_info_item[0])
+                basic_info_item.removeFirst()
+                hasNext = 1
+            }
+            if image_items.count > 0 {
+                items.append(image_items[0])
+                image_items.removeFirst()
+                hasNext = 1
+            }
+            if hasNext == 0 {
+                break
+            }
+        }
     }
 }
 
@@ -235,14 +274,16 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var age: Int
     var jobTitle: String
     var employer: String
+    var isFirst: Bool
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
         self.age = age
         self.jobTitle = jobTitle
         self.employer = employer
+        self.isFirst = isFirst
     }
     
 }

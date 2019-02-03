@@ -87,20 +87,27 @@ class MainImageViewCell: UITableViewCell {
             mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
             mainImageView!.clipsToBounds = true
             
-            // Display the gradient
-            mainImageView.layer.addSublayer(createGradientLayer())
-            
             // Populate the profile name
             name = item.name
-            
-            // Populate the profile first name
-            if let nameArr = name?.components(separatedBy: " ") {
-                firstNameAndAge?.text = nameArr[0] + ". " + String(item.age)
+            if item.isFirst == true {
+                // Display the gradient
+                mainImageView.layer.sublayers = nil
+                mainImageView.layer.addSublayer(createGradientLayer())
+                
+                // Populate the profile first name
+                if let nameArr = name?.components(separatedBy: " ") {
+                    firstNameAndAge?.text = nameArr[0] + ". " + String(item.age)
+                }
+                
+                // Populate Jobs
+                jobTitle?.text = item.jobTitle
+                employer?.text = item.employer
+            } else {
+                mainImageView.layer.sublayers = nil
+                firstNameAndAge?.text = ""
+                jobTitle?.text = ""
+                employer?.text = ""
             }
-            
-            // Populate Jobs
-            jobTitle?.text = item.jobTitle
-            employer?.text = item.employer
         }
     }
     

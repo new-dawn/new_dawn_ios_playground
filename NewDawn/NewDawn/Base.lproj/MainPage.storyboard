@@ -193,7 +193,7 @@
                                                         <segue destination="S6b-YK-8lb" kind="presentation" identifier="likeImage" id="icl-sU-NSv"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname. Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDM-nz-COl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDM-nz-COl">
                                                     <rect key="frame" x="30" y="307" width="258" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="258" id="9uQ-xZ-DAp"/>
@@ -203,7 +203,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-re-e1R">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-re-e1R">
                                                     <rect key="frame" x="30" y="346" width="231" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="9SB-MI-95D"/>
@@ -213,7 +213,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ics-Vm-bR1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ics-Vm-bR1">
                                                     <rect key="frame" x="30" y="366" width="173" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="WT1-cn-ZlP"/>
@@ -254,13 +254,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-of-WwC">
-                                                    <rect key="frame" x="15" y="11" width="60" height="20"/>
+                                                    <rect key="frame" x="20" y="11" width="60" height="20"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1u-10-QgG">
-                                                    <rect key="frame" x="15" y="46" width="95" height="38"/>
+                                                    <rect key="frame" x="20" y="46" width="95" height="38"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -286,9 +286,9 @@
                                                 <constraint firstItem="y1u-10-QgG" firstAttribute="top" secondItem="vBF-of-WwC" secondAttribute="bottom" constant="15" id="T5G-Fv-Dhh"/>
                                                 <constraint firstItem="4eB-wF-FSX" firstAttribute="bottom" secondItem="w5h-qs-5pf" secondAttribute="bottomMargin" constant="7" id="Xim-2W-z22"/>
                                                 <constraint firstItem="4eB-wF-FSX" firstAttribute="trailing" secondItem="w5h-qs-5pf" secondAttribute="trailingMargin" constant="-10" id="gf8-sq-FDI"/>
-                                                <constraint firstItem="vBF-of-WwC" firstAttribute="leading" secondItem="w5h-qs-5pf" secondAttribute="leadingMargin" id="grI-4t-7gY"/>
+                                                <constraint firstItem="vBF-of-WwC" firstAttribute="leading" secondItem="w5h-qs-5pf" secondAttribute="leadingMargin" constant="5" id="grI-4t-7gY"/>
                                                 <constraint firstItem="vBF-of-WwC" firstAttribute="top" secondItem="w5h-qs-5pf" secondAttribute="topMargin" id="oHs-5p-yst"/>
-                                                <constraint firstItem="y1u-10-QgG" firstAttribute="leading" secondItem="w5h-qs-5pf" secondAttribute="leadingMargin" id="wdi-D2-9qv"/>
+                                                <constraint firstItem="y1u-10-QgG" firstAttribute="leading" secondItem="w5h-qs-5pf" secondAttribute="leadingMargin" constant="5" id="wdi-D2-9qv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -300,11 +300,11 @@
                                         <rect key="frame" x="0.0" y="604" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b35-SD-ntx" id="uKN-U5-igC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3r-gg-z9h">
-                                                    <rect key="frame" x="8" y="8" width="65" height="20"/>
+                                                    <rect key="frame" x="13" y="8" width="65" height="20"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -366,7 +366,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="H3r-gg-z9h" firstAttribute="leading" secondItem="uKN-U5-igC" secondAttribute="leadingMargin" id="OnM-mE-bLB"/>
+                                                <constraint firstItem="H3r-gg-z9h" firstAttribute="leading" secondItem="uKN-U5-igC" secondAttribute="leadingMargin" constant="5" id="OnM-mE-bLB"/>
                                                 <constraint firstItem="H3r-gg-z9h" firstAttribute="top" secondItem="uKN-U5-igC" secondAttribute="topMargin" id="REo-o3-3G2"/>
                                             </constraints>
                                         </tableViewCellContentView>

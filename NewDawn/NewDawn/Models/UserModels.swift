@@ -17,6 +17,7 @@ let CAPTION = "caption"
 let MEDIA = "media"
 let IMAGE_URL = "image_url"
 let AGE = "age"
+let CANDIDATE_PROFILES = "user_profiles"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
@@ -183,7 +184,10 @@ struct UserProfile: Codable {
         }
         if let question_answers = data[QUESTION_ANSWERS] as? Array<NSDictionary> {
             for dict in question_answers {
-                if let id = dict[ID] as? Int, let question = dict[QUESTION] as? String, let answer = dict[ANSWER] as? String {
+                if let id = dict[ID] as? Int,
+                    let question_dict = dict[QUESTION] as? NSDictionary,
+                    let question = question_dict[QUESTION] as? String,
+                    let answer = dict[ANSWER] as? String {
                     questionAnswers.append(
                         QuestionAnswer(question: Question(id: id, question: question), answer: answer))
                 }
@@ -205,7 +209,7 @@ class UserProfileBuilder{
     
     static func createGetProfileRequest(input_params: [String:String] = [:])-> URLRequest?{
         let params = HttpUtil.encodeParams(raw_params: input_params)
-        let url = HttpUtil.getURL(path: "profile/" + params)
+        let url = HttpUtil.getURL(path: "/profile/" + params)
         var request = URLRequest(url:url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -225,33 +229,23 @@ class UserProfileBuilder{
         HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
-    static func parseProfileInfo(profile_data: [String: Any])-> [String: Any]{
-        let user_data = profile_data["user"] as? [String: Any]
-        var info = [
+    static func parseProfileInfo(profile_data: [String: Any]) -> NSDictionary {
+        let user_data = profile_data["user"] as? NSDictionary
+        let info: NSMutableDictionary = [
             FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
+            AGE: profile_data[AGE] as? Int ?? UNKNOWN,
+            HEIGHT: profile_data[HEIGHT] as? Int ?? UNKNOWN,
+            HOMETOWN: profile_data[HOMETOWN] as? String ?? UNKNOWN,
+            WORKPLACE: profile_data[WORKPLACE] as? String ?? UNKNOWN,
+            JOBTITLE: profile_data[JOBTITLE] as? String ?? UNKNOWN,
             DEGREE: profile_data[DEGREE] as? String ?? UNKNOWN,
             SCHOOL: profile_data[SCHOOL] as? String ?? UNKNOWN,
-            "images": [
-                [
-                    "media": "media/images/testcat.JPG",
-                    "caption": "First image"
-                ],
-            ],
-            "question_answers":[String]()
-            ] as [String : Any]
-        if let answer_questions = profile_data["answer_question"] as? [[String: Any]]{
-            for answer_question in answer_questions{
-                let answer_question_dict = [
-                    "id": answer_question["order"] ?? UNKNOWN,
-                    QUESTION: answer_question[QUESTION] ?? UNKNOWN,
-                    ANSWER: answer_question[ANSWER] ?? UNKNOWN
-                    ] as [String : Any]
-                var q_a_temp = info["question_answers"] as? [[String: Any]] ?? [[String: Any]]()
-                q_a_temp.append(answer_question_dict)
-                info["question_answers"] = q_a_temp
-            }
-        }
+            SMOKE: profile_data[SMOKE] as? String ?? UNKNOWN,
+            DRINK: profile_data[DRINK] as? String ?? UNKNOWN,
+            IMAGES: profile_data[IMAGES] as? Array<NSDictionary> ?? Array<NSDictionary>(),
+            QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>()
+        ]
         return info
     }
     
@@ -264,12 +258,12 @@ class UserProfileBuilder{
             let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
             fetched_users.append(dummy_user_profile)
         }
-        LocalStorageUtil.localStoreKeyValueStruct(key: "UserProfiles", value: fetched_users)
+        LocalStorageUtil.localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: fetched_users)
     }
     
     
     static func getUserProfileListFromLocalStorage()->[UserProfile]{
-        let profilesData: [UserProfile]? = LocalStorageUtil.localReadKeyValueStruct(key: "UserProfiles")
+        let profilesData: [UserProfile]? = LocalStorageUtil.localReadKeyValueStruct(key: CANDIDATE_PROFILES)
         if profilesData == nil{
             return [UserProfile]()
         }else{
