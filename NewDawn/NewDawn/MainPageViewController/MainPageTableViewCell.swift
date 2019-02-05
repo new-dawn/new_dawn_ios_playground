@@ -81,6 +81,9 @@ class MainImageViewCell: UITableViewCell {
     var name: String!
     var item: MainPageViewModellItem? {
         didSet {
+            // Remove current image
+            mainImageView!.image = nil
+            
             guard let item = item as? MainImageViewModelItem else { return }
             
             // Display the image
