@@ -90,15 +90,15 @@ class HttpUtil{
         }
     }
     
-    static func sendAction(user_account_from: String, user_account_to: String, action_type: Int, entity_type: Int, entity_id: Int){
+    static func sendAction(user_from: String, user_to: String, action_type: Int, entity_type: Int, entity_id: Int){
         let url = getURL(path: "user_action/")
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let action_body: [String: Any] = [
-            "user_account_from": user_account_from,
-            "user_account_to": user_account_to,
+            "user_from": user_from,
+            "user_to": user_to,
             "action_type": action_type,
             "entity_type": entity_type,
             "entity_id": entity_id

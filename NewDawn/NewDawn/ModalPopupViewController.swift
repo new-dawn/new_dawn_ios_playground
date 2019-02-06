@@ -30,9 +30,9 @@ class ModalPopupViewController: UIViewController {
 
     @IBAction func likeButtonTapped(_ sender: Any) {
         let lastest_liked_item = getLikedItem() as! [String: Any]
-        let lastest_liked_account_id = getLikedAccountID()!
-        HttpUtil.sendAction(user_account_from: psudo_from_id,
-                            user_account_to: lastest_liked_account_id,
+        let lastest_liked_user_id = getLikedUserID()!
+        HttpUtil.sendAction(user_from: psudo_from_id,
+                            user_to: lastest_liked_user_id,
                             action_type: UserActionType.LIKE.rawValue,
                             entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,
                             entity_id: lastest_liked_item[ENTITY_ID] as! Int)
@@ -55,8 +55,8 @@ class ModalPopupViewController: UIViewController {
         return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_NAME) as? String
     }
     
-    func getLikedAccountID() -> String? {
-        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_ACCOUNT_ID) as? String
+    func getLikedUserID() -> String? {
+        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_ID) as? String
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

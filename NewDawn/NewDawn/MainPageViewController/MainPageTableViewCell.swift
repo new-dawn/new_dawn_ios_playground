@@ -11,7 +11,7 @@ import UIKit
 let CM = " cm"
 let LATEST_LIKED_ITEM = "latest_liked_item"
 let LATEST_LIKED_USER_NAME = "latest_liked_user_name"
-let LATEST_LIKED_ACCOUNT_ID = "latest_liked_account_id"
+let LATEST_LIKED_USER_ID = "latest_liked_user_id"
 let ENTITY_TYPE = "entity_type"
 let ENTITY_ID = "entity_id"
 let ACTION_TYPE = "action_type"
@@ -55,7 +55,7 @@ class QuestionAnswerViewCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     var name: String!
-    var account_id: String!
+    var user_id: String!
     var id: Int!
     
     var item: MainPageViewModellItem? {
@@ -64,7 +64,7 @@ class QuestionAnswerViewCell: UITableViewCell {
             questionLabel?.text = item.question
             answerLabel?.text = item.answer
             name = item.name
-            account_id = item.account_id
+            user_id = item.user_id
             id = item.id
         }
     }
@@ -80,7 +80,7 @@ class QuestionAnswerViewCell: UITableViewCell {
                 ENTITY_TYPE: MainPageViewModelItemType.QUESTION_ANSWER.rawValue
             ])
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_ACCOUNT_ID, value: account_id)
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
     }
 }
 
@@ -91,7 +91,7 @@ class MainImageViewCell: UITableViewCell {
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var employer: UILabel!
     var name: String!
-    var account_id: String!
+    var user_id: String!
     var id: Int!
     var item: MainPageViewModellItem? {
         didSet {
@@ -106,7 +106,7 @@ class MainImageViewCell: UITableViewCell {
             
             // Populate the profile name
             name = item.name
-            account_id = item.account_id
+            user_id = item.user_id
             id = item.id
             if item.isFirst == true {
                 // Display the gradient
@@ -149,8 +149,9 @@ class MainImageViewCell: UITableViewCell {
                 ACTION_TYPE: UserActionType.LIKE.rawValue,
                 ENTITY_TYPE: MainPageViewModelItemType.MAIN_IMAGE.rawValue
             ])
+        print(user_id)
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_ACCOUNT_ID, value: account_id)
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
     }
     
 }
