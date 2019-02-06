@@ -18,7 +18,7 @@ let MEDIA = "media"
 let IMAGE_URL = "image_url"
 let AGE = "age"
 let CANDIDATE_PROFILES = "user_profiles"
-
+let ACCOUNTID = "account_id"
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
     "first_name": "Teddy",
@@ -134,6 +134,7 @@ struct MainImage: Codable {
 
 // A user profile class instantiated by json dictionary sent from backend
 struct UserProfile: Codable {
+    var account_id: String = UNKNOWN
     var firstname: String = UNKNOWN
     var lastname: String = UNKNOWN
     var age: Int = -1
@@ -149,6 +150,9 @@ struct UserProfile: Codable {
     var mainImages: Array<MainImage> = [MainImage]()
     
     init(data: NSDictionary) {
+        if let account_id = data[ACCOUNTID] as? String {
+            self.account_id = account_id
+        }
         if let firstname = data[FIRSTNAME] as? String {
             self.firstname = firstname
         }
@@ -231,7 +235,10 @@ class UserProfileBuilder{
     
     static func parseProfileInfo(profile_data: [String: Any]) -> NSDictionary {
         let user_data = profile_data["user"] as? NSDictionary
+        let account_data = profile_data["account"] as? NSDictionary
+        let account_id_int = account_data?["id"] as? Int ?? -1
         let info: NSMutableDictionary = [
+            ACCOUNTID: String(account_id_int),
             FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
             AGE: profile_data[AGE] as? Int ?? UNKNOWN,

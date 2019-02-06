@@ -99,6 +99,7 @@ class MainPageViewModel: NSObject {
             question: userProfile.questionAnswers[index].question.question,
             answer: userProfile.questionAnswers[index].answer,
             name: userProfile.firstname + " " + userProfile.lastname,
+            account_id: userProfile.account_id,
             id: index
         )
         return questionAnswer
@@ -113,6 +114,7 @@ class MainPageViewModel: NSObject {
             jobTitle: userProfile.jobTitle,
             employer: userProfile.employer,
             isFirst: index == 0,
+            account_id: userProfile.account_id,
             id: index
         )
         return mainImage
@@ -251,12 +253,14 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     var question: String
     var answer: String
     var name: String
+    var account_id: String
     var id: Int
     
-    init(question: String, answer: String, name: String, id: Int) {
+    init(question: String, answer: String, name: String, account_id: String, id: Int) {
         self.question = question
         self.answer = answer
         self.name = name
+        self.account_id = account_id
         self.id = id
     }
     
@@ -286,9 +290,10 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var jobTitle: String
     var employer: String
     var isFirst: Bool
+    var account_id: String
     var id: Int
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, id: Int) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, account_id: String, id: Int) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
@@ -296,6 +301,7 @@ class MainImageViewModelItem: MainPageViewModellItem {
         self.jobTitle = jobTitle
         self.employer = employer
         self.isFirst = isFirst
+        self.account_id = account_id
         self.id = id
     }
     

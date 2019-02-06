@@ -11,10 +11,10 @@ import UIKit
 let CM = " cm"
 let LATEST_LIKED_ITEM = "latest_liked_item"
 let LATEST_LIKED_USER_NAME = "latest_liked_user_name"
-
-// Need to be replaced by real user id passed from backend or localstorage
-let psudo_from_id = "1"
-let psudo_to_id = "2"
+let LATEST_LIKED_ACCOUNT_ID = "latest_liked_account_id"
+let ENTITY_TYPE = "entity_type"
+let ENTITY_ID = "entity_id"
+let ACTION_TYPE = "action_type"
 
 class MainPageTableViewCell: UITableViewCell {
 
@@ -55,6 +55,7 @@ class QuestionAnswerViewCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     var name: String!
+    var account_id: String!
     var id: Int!
     
     var item: MainPageViewModellItem? {
@@ -63,6 +64,7 @@ class QuestionAnswerViewCell: UITableViewCell {
             questionLabel?.text = item.question
             answerLabel?.text = item.answer
             name = item.name
+            account_id = item.account_id
             id = item.id
         }
     }
@@ -73,13 +75,12 @@ class QuestionAnswerViewCell: UITableViewCell {
             key: LATEST_LIKED_ITEM, value: [
                 QUESTION: castItem.question,
                 ANSWER: castItem.answer,
+                ENTITY_ID: castItem.id,
+                ACTION_TYPE: UserActionType.LIKE.rawValue,
+                ENTITY_TYPE: MainPageViewModelItemType.QUESTION_ANSWER.rawValue
             ])
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        HttpUtil.sendAction(user_account_from: psudo_from_id,
-                            user_account_to: psudo_to_id,
-                            action_type: UserActionType.LIKE.rawValue,
-                            entity_type: MainPageViewModelItemType.QUESTION_ANSWER.rawValue,
-                            entity_id: id)
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_ACCOUNT_ID, value: account_id)
     }
 }
 
@@ -90,6 +91,7 @@ class MainImageViewCell: UITableViewCell {
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var employer: UILabel!
     var name: String!
+    var account_id: String!
     var id: Int!
     var item: MainPageViewModellItem? {
         didSet {
@@ -104,6 +106,7 @@ class MainImageViewCell: UITableViewCell {
             
             // Populate the profile name
             name = item.name
+            account_id = item.account_id
             id = item.id
             if item.isFirst == true {
                 // Display the gradient
@@ -143,14 +146,12 @@ class MainImageViewCell: UITableViewCell {
         LocalStorageUtil.localStoreKeyValue(
             key: LATEST_LIKED_ITEM, value: [
                 IMAGE_URL: castItem.mainImageURL,
+                ENTITY_ID: castItem.id,
+                ACTION_TYPE: UserActionType.LIKE.rawValue,
+                ENTITY_TYPE: MainPageViewModelItemType.MAIN_IMAGE.rawValue
             ])
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        HttpUtil.sendAction(user_account_from: psudo_from_id,
-                            user_account_to: psudo_to_id,
-                            action_type: UserActionType.LIKE.rawValue,
-                            entity_type: MainPageViewModelItemType.MAIN_IMAGE.rawValue,
-                            entity_id: id)
-        
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_ACCOUNT_ID, value: account_id)
     }
     
 }

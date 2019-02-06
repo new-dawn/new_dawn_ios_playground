@@ -8,6 +8,9 @@
 
 import UIKit
 
+// This later should be retrieved from local storage
+let psudo_from_id = "1"
+
 class ModalPopupViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,6 +29,13 @@ class ModalPopupViewController: UIViewController {
     }
 
     @IBAction func likeButtonTapped(_ sender: Any) {
+        let lastest_liked_item = getLikedItem() as! [String: Any]
+        let lastest_liked_account_id = getLikedAccountID()!
+        HttpUtil.sendAction(user_account_from: psudo_from_id,
+                            user_account_to: lastest_liked_account_id,
+                            action_type: UserActionType.LIKE.rawValue,
+                            entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,
+                            entity_id: lastest_liked_item[ENTITY_ID] as! Int)
         ProfileIndexUtil.updateProfileIndex()
         dismiss(animated: true)
     }
@@ -43,6 +53,10 @@ class ModalPopupViewController: UIViewController {
     
     func getLikedUserName() -> String? {
         return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_NAME) as? String
+    }
+    
+    func getLikedAccountID() -> String? {
+        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_ACCOUNT_ID) as? String
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
