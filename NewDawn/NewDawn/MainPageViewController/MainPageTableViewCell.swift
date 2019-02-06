@@ -141,7 +141,6 @@ class MainImageViewCell: UITableViewCell {
     }
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        // TODO: should be retrieved from localstorage in the future
         let castItem = item as! MainImageViewModelItem
         LocalStorageUtil.localStoreKeyValue(
             key: LATEST_LIKED_ITEM, value: [
