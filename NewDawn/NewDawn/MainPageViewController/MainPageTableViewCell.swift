@@ -149,7 +149,6 @@ class MainImageViewCell: UITableViewCell {
                 ACTION_TYPE: UserActionType.LIKE.rawValue,
                 ENTITY_TYPE: MainPageViewModelItemType.MAIN_IMAGE.rawValue
             ])
-        print(user_id)
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
     }
