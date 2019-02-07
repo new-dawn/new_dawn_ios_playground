@@ -13,14 +13,20 @@ import UIKit
 
 // The main page has different type of sections
 // image, basic info, question answers, instagram/linkedin etc.
-enum MainPageViewModelItemType: String {
-    case MAIN_IMAGE
-    case BASIC_INFO
-    case QUESTION_ANSWER
-    case INSTAGRAM
-    case LINKEDIN
+enum MainPageViewModelItemType: Int {
+    case MAIN_IMAGE = 1
+    case BASIC_INFO = 2
+    case QUESTION_ANSWER = 3
+    case INSTAGRAM = 4
+    case LINKEDIN = 5
 }
 
+enum UserActionType: Int{
+    case LIKE = 1
+    case BLOCK = 2
+    case MATCH = 3
+    case RELATIONSHIP = 4
+}
 
 // Standardize the requirement for each section
 protocol MainPageViewModellItem: Codable {
@@ -92,7 +98,9 @@ class MainPageViewModel: NSObject {
         let questionAnswer = QuestionAnswerViewModelItem(
             question: userProfile.questionAnswers[index].question.question,
             answer: userProfile.questionAnswers[index].answer,
-            name: userProfile.firstname + " " + userProfile.lastname
+            name: userProfile.firstname + " " + userProfile.lastname,
+            user_id: userProfile.user_id,
+            id: index
         )
         return questionAnswer
     }
@@ -105,7 +113,9 @@ class MainPageViewModel: NSObject {
             age: userProfile.age,
             jobTitle: userProfile.jobTitle,
             employer: userProfile.employer,
-            isFirst: index == 0
+            isFirst: index == 0,
+            user_id: userProfile.user_id,
+            id: index
         )
         return mainImage
     }
@@ -116,6 +126,7 @@ class MainPageViewModel: NSObject {
             items.append(image_items[0])
             image_items.removeFirst()
         }
+        // Ordering of items
         while true {
             var hasNext = 0
             if question_answer_items.count > 0 {
@@ -242,11 +253,15 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     var question: String
     var answer: String
     var name: String
+    var user_id: String
+    var id: Int
     
-    init(question: String, answer: String, name: String) {
+    init(question: String, answer: String, name: String, user_id: String, id: Int) {
         self.question = question
         self.answer = answer
         self.name = name
+        self.user_id = user_id
+        self.id = id
     }
     
 }
@@ -275,8 +290,10 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var jobTitle: String
     var employer: String
     var isFirst: Bool
+    var user_id: String
+    var id: Int
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, user_id: String, id: Int) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
@@ -284,6 +301,8 @@ class MainImageViewModelItem: MainPageViewModellItem {
         self.jobTitle = jobTitle
         self.employer = employer
         self.isFirst = isFirst
+        self.user_id = user_id
+        self.id = id
     }
     
 }

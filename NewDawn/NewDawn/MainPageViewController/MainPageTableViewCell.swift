@@ -11,6 +11,10 @@ import UIKit
 let CM = " cm"
 let LATEST_LIKED_ITEM = "latest_liked_item"
 let LATEST_LIKED_USER_NAME = "latest_liked_user_name"
+let LATEST_LIKED_USER_ID = "latest_liked_user_id"
+let ENTITY_TYPE = "entity_type"
+let ENTITY_ID = "entity_id"
+let ACTION_TYPE = "action_type"
 
 class MainPageTableViewCell: UITableViewCell {
 
@@ -51,6 +55,8 @@ class QuestionAnswerViewCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     var name: String!
+    var user_id: String!
+    var id: Int!
     
     var item: MainPageViewModellItem? {
         didSet {
@@ -58,6 +64,8 @@ class QuestionAnswerViewCell: UITableViewCell {
             questionLabel?.text = item.question
             answerLabel?.text = item.answer
             name = item.name
+            user_id = item.user_id
+            id = item.id
         }
     }
     
@@ -67,8 +75,12 @@ class QuestionAnswerViewCell: UITableViewCell {
             key: LATEST_LIKED_ITEM, value: [
                 QUESTION: castItem.question,
                 ANSWER: castItem.answer,
+                ENTITY_ID: castItem.id,
+                ACTION_TYPE: UserActionType.LIKE.rawValue,
+                ENTITY_TYPE: MainPageViewModelItemType.QUESTION_ANSWER.rawValue
             ])
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
     }
 }
 
@@ -79,6 +91,8 @@ class MainImageViewCell: UITableViewCell {
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var employer: UILabel!
     var name: String!
+    var user_id: String!
+    var id: Int!
     var item: MainPageViewModellItem? {
         didSet {
             // Remove current image
@@ -92,6 +106,8 @@ class MainImageViewCell: UITableViewCell {
             
             // Populate the profile name
             name = item.name
+            user_id = item.user_id
+            id = item.id
             if item.isFirst == true {
                 // Display the gradient
                 mainImageView.layer.sublayers = nil
@@ -129,7 +145,12 @@ class MainImageViewCell: UITableViewCell {
         LocalStorageUtil.localStoreKeyValue(
             key: LATEST_LIKED_ITEM, value: [
                 IMAGE_URL: castItem.mainImageURL,
+                ENTITY_ID: castItem.id,
+                ACTION_TYPE: UserActionType.LIKE.rawValue,
+                ENTITY_TYPE: MainPageViewModelItemType.MAIN_IMAGE.rawValue
             ])
         LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
+        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
     }
+    
 }
