@@ -19,7 +19,7 @@ class SettingPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishCircularImage(image: profileImage)
+        ImageUtil.polishCircularImageView(imageView: profileImage)
         polishUIButton(button: preferenceButton)
         polishUIButton(button: accountButton)
         polishUIButton(button: helpButton)
