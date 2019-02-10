@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06628A492210BE1E0082D81A /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */; };
 		0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */; };
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
 		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				24B8850121E8283900AD2786 /* MainPageTabBarViewController.swift */,
 				24B8850521E82DE800AD2786 /* HttpUtil.swift */,
 				24B8850821EBA73000AD2786 /* SettingPageViewController.swift */,
+				06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */,
 				24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */,
 				24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */,
 				24B8850E21F02C1900AD2786 /* TimerUtil.swift */,
@@ -559,6 +562,7 @@
 				24B884FE21E463A100AD2786 /* UserModels.swift in Sources */,
 				24B884EF21D6BBE100AD2786 /* AnswerQuestionViewController.swift in Sources */,
 				24F6582A21B325D300DB2547 /* SignInViewController.swift in Sources */,
+				06628A492210BE1E0082D81A /* ProfileSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
