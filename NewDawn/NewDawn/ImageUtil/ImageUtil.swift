@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ImageUtil {
-    static func roundImageView(imageView: UIImageView) -> Void {
+    static func polishCircularImageView(imageView: UIImageView) -> Void {
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.layer.borderWidth = 1

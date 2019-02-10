@@ -45,7 +45,7 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
         // TODO: Get UserProfile from backend and use the object to get the info
         cell.chatNameLabel?.text = "\(String(describing: userProfile.firstname)) \(String(describing: userProfile.lastname))"
         if userProfile.mainImages.count > 0 {
-            ImageUtil.roundImageView(imageView: cell.chatImageView!)
+            ImageUtil.polishCircularImageView(imageView: cell.chatImageView!)
             cell.chatImageView.downloaded(from: cell.chatImageView.getURL(path: userProfile.mainImages[0].image_url))
         }
         return cell
