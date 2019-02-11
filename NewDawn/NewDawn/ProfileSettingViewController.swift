@@ -66,12 +66,12 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         mySwitch.isOn = true
         mySwitch.onTintColor = UIColor(red:193/255, green:199/255, blue:208/255, alpha:1)
         mySwitch.tintColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1)
-        mySwitch.addTarget(self, action: #selector(toggel(_:)), for: .valueChanged)
+        mySwitch.addTarget(self, action: #selector(toggle(_:)), for: .valueChanged)
         cell.accessoryView = mySwitch
         return cell
     }
     
-    @objc func toggel(_ sender: UISwitch) {
+    @objc func toggle(_ sender: UISwitch) {
         // Add action for different switches accordingly
     }
     
