@@ -10,6 +10,8 @@
 		06628A492210BE1E0082D81A /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */; };
 		0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */; };
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
+		2480015A2213DBA900BA708C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 248001592213DBA800BA708C /* GoogleService-Info.plist */; };
+		2480015C2213DDBD00BA708C /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2480015B2213DDBD00BA708C /* ChatRoomViewController.swift */; };
 		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
 		248AE7FC220BD18C00042168 /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AE7FB220BD18C00042168 /* ChatUtil.swift */; };
 		248AE7FE2210984400042168 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AE7FD2210984400042168 /* ImageUtil.swift */; };
@@ -81,6 +83,8 @@
 		0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
+		248001592213DBA800BA708C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2480015B2213DDBD00BA708C /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoomViewController.swift; path = ChatPageViewController/ChatRoomViewController.swift; sourceTree = "<group>"; };
 		2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DraftFinal.swift; sourceTree = "<group>"; };
 		248AE7FB220BD18C00042168 /* ChatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatUtil.swift; path = ChatUtil/ChatUtil.swift; sourceTree = "<group>"; };
 		248AE7FD2210984400042168 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUtil.swift; path = ImageUtil/ImageUtil.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 		24F657FA21B31C1300DB2547 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
+				248001592213DBA800BA708C /* GoogleService-Info.plist */,
 				54C278B421CFFAB600917F16 /* ProfileViewController */,
 				24F657FB21B31C1300DB2547 /* AppDelegate.swift */,
 				24F657FD21B31C1300DB2547 /* ViewController.swift */,
@@ -239,6 +244,7 @@
 				24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */,
 				24B8851621FAA2C100AD2786 /* ModalPopupViewController.swift */,
 				248AE7FD2210984400042168 /* ImageUtil.swift */,
+				2480015B2213DDBD00BA708C /* ChatRoomViewController.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				24F6580621B31C1300DB2547 /* LaunchScreen.storyboard in Resources */,
 				24F6580321B31C1300DB2547 /* Assets.xcassets in Resources */,
 				24F6580121B31C1300DB2547 /* Main.storyboard in Resources */,
+				2480015A2213DBA900BA708C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,13 +446,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,6 +547,7 @@
 				24F6582C21B327F200DB2547 /* RegisterUserViewController.swift in Sources */,
 				24B884FC21E302EC00AD2786 /* MainPageTableViewCell.swift in Sources */,
 				24B8850621E82DE800AD2786 /* HttpUtil.swift in Sources */,
+				2480015C2213DDBD00BA708C /* ChatRoomViewController.swift in Sources */,
 				54C278BA21CFFB9200917F16 /* Profile_Height.swift in Sources */,
 				54C278C021CFFBFD00917F16 /* Profile_Smoke.swift in Sources */,
 				24B884F821E1900000AD2786 /* MainPageViewModels.swift in Sources */,

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>400340032402-0mhnckp45hbn89esj4f648vmg5g3vp7k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.400340032402-0mhnckp45hbn89esj4f648vmg5g3vp7k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBHNf52JlmY8dAUGdYw1J11sCjLgtwSKmM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>400340032402</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.new-dawn.NewDawn.10000</string>
+	<key>PROJECT_ID</key>
+	<string>newdawn-9cc3c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>newdawn-9cc3c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:400340032402:ios:f4a0b9a93053fefe</string>
+	<key>DATABASE_URL</key>
+	<string>https://newdawn-9cc3c.firebaseio.com</string>
+</dict>
+</plist>
