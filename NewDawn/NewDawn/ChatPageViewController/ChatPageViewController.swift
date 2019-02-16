@@ -27,6 +27,15 @@ class ChatPageViewController: UIViewController {
         chatTableView.rowHeight = UITableView.automaticDimension
         chatTableView.estimatedRowHeight = UITableView.automaticDimension
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openChat" {
+            if let destination = segue.destination as? ChatRoomViewController, let chatIndex = chatTableView.indexPathForSelectedRow?.row {
+                let firstname = userProfiles[chatIndex].firstname
+                let lastname = userProfiles[chatIndex].lastname
+                destination.userName = "\(firstname) \(lastname)"
+            }
+        }
+    }
 }
 
 class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSource {

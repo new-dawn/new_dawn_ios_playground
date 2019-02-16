@@ -61,6 +61,7 @@
                                         <connections>
                                             <outlet property="chatImageView" destination="M9u-Gx-JM1" id="rBt-tA-lmp"/>
                                             <outlet property="chatNameLabel" destination="kO7-CJ-hxm" id="dk8-VD-dt1"/>
+                                            <segue destination="uWK-ge-vNo" kind="show" identifier="openChat" id="yO4-ZJ-BKw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="293.70314842578711"/>
         </scene>
-        <!--ChatRoomViewController-->
+        <!--Chat-->
         <scene sceneID="lgK-AF-eSm">
             <objects>
-                <viewController storyboardIdentifier="ChatRoomViewController" title="ChatRoomViewController" id="uWK-ge-vNo" customClass="ChatRoomViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatRoomViewController" title="Chat" id="uWK-ge-vNo" customClass="ChatRoomViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LiP-5g-NRf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

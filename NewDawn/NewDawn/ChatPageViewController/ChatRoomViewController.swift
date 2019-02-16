@@ -15,12 +15,17 @@ let sender = Sender(id: "any_unique_id", displayName: "Ziyi")
 let messages: [MessageType] = []
 
 class ChatRoomViewController: MessagesViewController {
+    var userName: String = "Chat"
     private var messages: [Message] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = userName
     }
 }
 
