@@ -1,16 +1,24 @@
 PODS:
+  - MessageInputBar/Core (0.4.1)
+  - MessageKit (2.0.0):
+    - MessageInputBar/Core
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
+  - MessageKit
   - SwiftKeychainWrapper (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MessageInputBar
+    - MessageKit
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
+  MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
+  MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 8605073a274148736d35ad16e9e15c27ca8b8480
+PODFILE CHECKSUM: 2fd4ee04de6ff8ca41f713027815efc93dc1671e
 
 COCOAPODS: 1.5.3

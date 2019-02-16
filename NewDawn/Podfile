@@ -4,6 +4,7 @@ use_frameworks!
 target 'NewDawn' do
   # Pods for NewDawn
   pod 'SwiftKeychainWrapper', '~> 3.0'
+  pod 'MessageKit'
   target 'NewDawnTests' do
     inherit! :search_paths
     # Pods for testing
