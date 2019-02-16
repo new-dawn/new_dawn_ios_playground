@@ -7,25 +7,35 @@
 //
 
 import UIKit
-import FirebaseAuth
+import MessageKit
 
-class ChatRoomViewController: UIViewController {
+// TODO: The data below are just samples
+// Need to get from backend
+let sender = Sender(id: "any_unique_id", displayName: "Ziyi")
+let messages: [MessageType] = []
 
+class ChatRoomViewController: MessagesViewController {
+    private var messages: [Message] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().signInAnonymously(completion: nil)
-        // Do any additional setup after loading the view.
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension ChatRoomViewController: MessagesDataSource {
+    func currentSender() -> Sender {
+        return sender
+    }
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return messages.count
+    }
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
+    }
+}
+
+extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {}
+
+
