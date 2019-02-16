@@ -9,29 +9,40 @@
 import UIKit
 import MessageKit
 
-// TODO: The data below are just samples
-// Need to get from backend
-let sender = Sender(id: "any_unique_id", displayName: "Ziyi")
-let messages: [MessageType] = []
-
 class ChatRoomViewController: MessagesViewController {
-    var userName: String = "Chat"
-    private var messages: [Message] = []
+    // Display as view title
+    // To be changed by Chat page segue
+    // when a cell is clicked
+    var userNameMe: String = "Me"
+    var userNameYou: String = "You"
+    var senderA: Sender?
+    var senderB: Sender?
+    var messages: [MessageType] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        
+        // TODO: The data below are just samples
+        // Need to get from backend
+        senderA = Sender(id: "Test A", displayName: userNameMe)
+        senderB = Sender(id: "Test B", displayName: userNameYou)
+        messages = [
+            Message(sender: senderA!, content: "Nice to meet you! My name is Teddy and I'd like to grab a coffee with you"),
+            Message(sender: senderB!, content: "Of course! When are you available this week?")
+        ]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = userName
+        self.title = userNameYou
     }
 }
 
 extension ChatRoomViewController: MessagesDataSource {
     func currentSender() -> Sender {
-        return sender
+        return senderA!
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count

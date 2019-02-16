@@ -32,7 +32,7 @@ class ChatPageViewController: UIViewController {
             if let destination = segue.destination as? ChatRoomViewController, let chatIndex = chatTableView.indexPathForSelectedRow?.row {
                 let firstname = userProfiles[chatIndex].firstname
                 let lastname = userProfiles[chatIndex].lastname
-                destination.userName = "\(firstname) \(lastname)"
+                destination.userNameYou = "\(firstname) \(lastname)"
             }
         }
     }

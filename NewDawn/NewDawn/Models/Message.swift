@@ -16,8 +16,8 @@ struct Message: MessageType {
     var sender: Sender
     var messageId: String
 
-    init(userId: String, userName: String, content: String) {
-        self.sender = Sender(id: userId, displayName: userName)
+    init(sender: Sender, content: String) {
+        self.sender = sender
         self.sentDate = Date()
         self.kind = .text(content)
         self.messageId = UUID().uuidString
