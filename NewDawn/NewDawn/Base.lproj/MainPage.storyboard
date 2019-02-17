@@ -728,7 +728,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qdR-4H-XMa">
-                                <rect key="frame" x="9" y="150" width="357" height="248"/>
+                                <rect key="frame" x="9" y="106" width="357" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="248" id="vck-nI-Gjk"/>
@@ -775,6 +775,9 @@
                                 <state key="normal" title="Privacy &amp; Terms of Service       &gt;">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="5Yk-J5-18E" kind="presentation" id="rOV-G9-hdM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -802,6 +805,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23v-Ae-Vqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="2760.2698650674665"/>
+        </scene>
+        <!--Privacy & Terms-->
+        <scene sceneID="6Dg-I6-tz7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j7b-9X-Zvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="MTh-Su-G29" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rbs-r7-0JY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="20z-lM-t15">
+                                <rect key="frame" x="44" y="64" width="287" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="20z-lM-t15" firstAttribute="centerY" secondItem="Rbs-r7-0JY" secondAttribute="centerY" id="7Wd-0j-9QJ"/>
+                            <constraint firstItem="20z-lM-t15" firstAttribute="leading" secondItem="04q-er-tDr" secondAttribute="leading" constant="44" id="LEV-l1-8yo"/>
+                            <constraint firstItem="20z-lM-t15" firstAttribute="top" secondItem="04q-er-tDr" secondAttribute="top" id="MQT-rD-oKv"/>
+                            <constraint firstItem="20z-lM-t15" firstAttribute="centerX" secondItem="Rbs-r7-0JY" secondAttribute="centerX" id="QWr-E2-CV1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="04q-er-tDr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Privacy &amp; Terms" id="vbH-eE-0JV">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="cN1-KS-lOt">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="r3Z-WH-1Wp" kind="presentation" id="lnj-70-22v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-7.2000000000000002" y="4294.9025487256376"/>
         </scene>
         <!--ModalImageQuestionAnswerViewController-->
         <scene sceneID="TXP-Mb-4VI">
@@ -918,6 +959,24 @@
             </objects>
             <point key="canvasLocation" x="-10.4" y="1843.6281859070466"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qcw-6u-hTu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Yk-J5-18E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j9I-cb-ulU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MTh-Su-G29" kind="relationship" relationship="rootViewController" id="S92-32-jgV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pm0-c2-1W3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2000000000000002" y="3563.5682158920545"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ChatTab" width="24" height="24"/>
@@ -932,6 +991,8 @@
         <image name="SmokeIcon" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="rOV-G9-hdM"/>
+        <segue reference="lnj-70-22v"/>
         <segue reference="2J0-g4-Yk4"/>
     </inferredMetricsTieBreakers>
 </document>

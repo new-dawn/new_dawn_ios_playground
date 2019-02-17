@@ -17,7 +17,18 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var popOutView: UIView!
     @IBOutlet weak var privacyButton: UIButton!
     @IBAction func logOutButton(_ sender: Any) {
-        
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alertController.setValue(NSAttributedString(string: alertController.message!,
+                                                    attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
+        let confirmAction = UIAlertAction(title: "Log Out Now      ", style: .default) { (_) in
+            // Add confirm action
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in}
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+        confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -66,13 +77,49 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         mySwitch.isOn = true
         mySwitch.onTintColor = UIColor(red:193/255, green:199/255, blue:208/255, alpha:1)
         mySwitch.tintColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1)
+        mySwitch.tag = indexPath.section
         mySwitch.addTarget(self, action: #selector(toggle(_:)), for: .valueChanged)
         cell.accessoryView = mySwitch
         return cell
     }
     
+    
     @objc func toggle(_ sender: UISwitch) {
         // Add action for different switches accordingly
+        let cell = switch_cells[sender.tag]
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in sender.isOn = true}
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+        
+        if cell == "Account" && sender.isOn == false {
+            let alertController = UIAlertController(title: nil, message: "You won’t show up on MM’s feed anymore, while you can still chat with connected people.", preferredStyle: .alert)
+            alertController.setValue(NSAttributedString(string: alertController.message!,
+                                                        attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
+            let confirmAction = UIAlertAction(title: "Turn off Account", style: .default) { (_) in
+                // Add confirm action
+            }
+            confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        if cell == "Chat Notification" && sender.isOn == false{
+            let alertController = UIAlertController(title: nil, message: "You can turn on nitification in Phone Settings ", preferredStyle: .alert)
+            alertController.setValue(NSAttributedString(string: alertController.message!,
+                                                        attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
+            let confirmAction = UIAlertAction(title: "Go to Phone Settings", style: .default) { (_) in
+                // Navigate to this app's notification center
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (_) in})
+                }
+            }
+            confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
 }
