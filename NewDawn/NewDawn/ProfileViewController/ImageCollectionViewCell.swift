@@ -11,4 +11,7 @@ import UIKit
 class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var myImage: UIImageView!
+    @IBOutlet weak var deleteButtonBackgroundView: UIVisualEffectView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
 }

@@ -19,16 +19,38 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
         cell.backgroundColor = UIColor.gray
+        cell.deleteButtonBackgroundView.layer.cornerRadius = 15
+        cell.deleteButtonBackgroundView.clipsToBounds = true
+        cell.deleteButtonBackgroundView.backgroundColor = UIColor.white
         cell.myImage.image = imagesArray[indexPath.row] as? UIImage
-
+        let delete_button = cell.deleteButton
+        delete_button!.tag = indexPath.row
+        delete_button?.addTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
+        
         return cell
+    }
+    
+    @objc func tap(_ sender: UIButton){
+        clicked_image = sender.tag
+        let alert = UIAlertController(title: "Delete this Image", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            self.imagesArray.removeObject(at: self.clicked_image)
+            self.imagesArray.insert(self.default_button!, at: self.clicked_image)
+            self.collectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in}))
+        present(alert,animated: true,completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         clicked_image = indexPath.row
         let alert = UIAlertController(title: "Photo", message: "Choose Photo", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in}))
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            self.camera()
+        }))
         
         alert.addAction(UIAlertAction(title: "Gallary", style: .default, handler: { (action) in
             
@@ -38,6 +60,13 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in}))
         
         present(alert,animated: true,completion: nil)
+    }
+    
+    func camera() {
+        picker.allowsEditing = true
+        picker.sourceType = .camera
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+        present(picker,animated: true ,completion: nil)
     }
     
     
@@ -55,7 +84,6 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
         let editedView = info[.editedImage] as! UIImage
         imagesArray.removeObject(at: clicked_image)
         imagesArray.insert(editedView, at: clicked_image)
-//        imagesArray.add(editedView)
         dismiss(animated: true, completion: nil)
         
         
@@ -73,13 +101,13 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
     
     let picker = UIImagePickerController()
     var clicked_image = 0
-    var button = UIImage(named: "LikeButton")
+    var default_button = UIImage(named: "MeTab")
     var imagesArray = NSMutableArray()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagesArray = [button!, button!, button!, button!, button!, button!]
+        imagesArray = [default_button!, default_button!, default_button!, default_button!, default_button!, default_button!]
         collectionView.dataSource = self
         collectionView.delegate = self
         picker.delegate = self
