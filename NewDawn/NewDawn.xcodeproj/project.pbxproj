@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060CDFDF2219164E004A9C6D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CDFDE2219164E004A9C6D /* ImageCollectionViewCell.swift */; };
 		06628A492210BE1E0082D81A /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */; };
 		0683201721D5B4DF00CFA3D4 /* Profile_Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */; };
 		243CEEBE21CDE8BB00BB3481 /* ProfileGNB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		060CDFDE2219164E004A9C6D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
 				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
 				8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */,
+				060CDFDE2219164E004A9C6D /* ImageCollectionViewCell.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				24F657FE21B31C1300DB2547 /* ViewController.swift in Sources */,
 				24B8851321F0429200AD2786 /* ProfileIndexUtil.swift in Sources */,
 				54C278C421CFFC2E00917F16 /* Profile_Notificatioin.swift in Sources */,
+				060CDFDF2219164E004A9C6D /* ImageCollectionViewCell.swift in Sources */,
 				54C278B821CFFB4300917F16 /* Profile_HomeTown.swift in Sources */,
 				24B8850D21F02A0200AD2786 /* MainPageEndViewController.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
