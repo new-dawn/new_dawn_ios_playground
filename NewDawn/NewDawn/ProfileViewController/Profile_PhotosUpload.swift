@@ -107,15 +107,21 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Default images
         imagesArray = [default_button!, default_button!, default_button!, default_button!, default_button!, default_button!]
+        
+        // Delegate
         collectionView.dataSource = self
         collectionView.delegate = self
         picker.delegate = self
         
+        // Layout
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20) / 3, height: 100)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        // square spacing
+        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 40) / 3, height: (self.collectionView.frame.size.width - 40) / 3)
         
         
     }
