@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageKit
+import MessageInputBar
 
 class ChatRoomViewController: MessagesViewController {
     // Display as view title
@@ -54,4 +55,24 @@ extension ChatRoomViewController: MessagesDataSource {
 
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {}
 
-
+// MARK: - MessageInputBarDelegate
+extension ChatRoomViewController: MessageInputBarDelegate {
+    
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+//        
+//        for component in inputBar.inputTextView.components {
+//            
+//            if let str = component as? String {
+//                let message = MockMessage(text: str, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+//                insertMessage(message)
+//            } else if let img = component as? UIImage {
+//                let message = MockMessage(image: img, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+//                insertMessage(message)
+//            }
+//            
+//        }
+//        inputBar.inputTextView.text = String()
+//        messagesCollectionView.scrollToBottom(animated: true)
+    }
+    
+}
