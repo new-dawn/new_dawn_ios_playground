@@ -11,6 +11,13 @@ import MessageKit
 import MessageInputBar
 import PusherSwift
 
+// Chat history of the user to another user
+struct SingleChatHistory: Codable {
+    var id: String
+    var displayName: String
+    var message: String
+}
+
 class ChatRoomViewController: MessagesViewController {
     
     let PUSHER_APP_KEY = "6cc619d64bfad1da062a"
@@ -18,17 +25,62 @@ class ChatRoomViewController: MessagesViewController {
     let CHAT_EVENT = "chat_event"
     let MESSAGE = "message"
     let CLUSTER = "us2"
+    let CHAT_LOCAL_STORAGE = "chat_local_storage"
+    let MESSAGE_USER_ID = "user_id"
 
-    // Display as view title
+    // Meta-info about this chat room
     // To be changed by Chat page segue
-    // when a cell is clicked
+    // when a chat cell is clicked
+    var userIdMe: String = "-1"
+    var userIdYou: String = "-1"
     var userNameMe: String = "Me"
     var userNameYou: String = "You"
-    var senderA: Sender?
-    var senderB: Sender?
+    // Senders and messages
+    // To be configured when this view is loaded
+    var senderMe: Sender?
     var messages: [MessageType] = []
     var pusher: Pusher!
     
+    func configureSenders() -> Void {
+        senderMe = Sender(id: userIdMe, displayName: userNameMe)
+    }
+    
+    func constructChannelName() -> String {
+        // TODO: A channel name should be unique for this pair of users
+        // Should get a hash string from Backend
+        if userIdMe < userIdYou {
+            return "\(TEST_CHANNEL)_\(userIdMe)_\(userIdYou)"
+        } else {
+            return "\(TEST_CHANNEL)_\(userIdYou)_\(userIdMe)"
+        }
+    }
+    
+    func chatLocalStorageKey() -> String {
+        // A concatenation of chat constant and the user id
+        return "\(CHAT_LOCAL_STORAGE)_\(userIdYou)"
+    }
+    
+    func buildMessagesFromHistory() -> Void {
+        let chat_history: Array<SingleChatHistory> = LocalStorageUtil.localReadKeyValueStruct(key: chatLocalStorageKey()) ?? []
+        for chat_record in chat_history {
+            messages.append(
+                TextMessage(
+                    sender: Sender(id: chat_record.id, displayName: chat_record.displayName),
+                    content: chat_record.message
+                )
+            )
+        }
+    }
+    
+    func storeNewMessageToHistory(_ newMessageType: MessageType) -> Void {
+        var chat_history: Array<SingleChatHistory> = LocalStorageUtil.localReadKeyValueStruct(key: chatLocalStorageKey()) ?? []
+        if let newMessage = newMessageType as? TextMessage {
+            chat_history.append(SingleChatHistory(id: newMessage.sender.id, displayName: newMessage.sender.displayName, message: newMessage.getText()))
+        }
+        LocalStorageUtil.localStoreKeyValueStruct(
+            key: chatLocalStorageKey(), value: chat_history)
+    }
+
     func subscribeToChat() -> Void {
         let options = PusherClientOptions(
             host: .cluster(CLUSTER)
@@ -38,13 +90,19 @@ class ChatRoomViewController: MessagesViewController {
             options: options
         )
         // subscribe to channel and bind to event
-        let channel = pusher.subscribe(TEST_CHANNEL)
+        let channel = pusher.subscribe(constructChannelName())
         let _ = channel.bind(eventName: CHAT_EVENT, callback: { (data: Any?) -> Void in
             if let data = data as? [String : AnyObject] {
-                if let message = data[self.MESSAGE] as? String, let user_id = data[ID] as? String {
-                    print(message)
-                    let sender = Sender(id: user_id, displayName: user_id)
-                    self.insertMessage(Message(sender: sender, content: message))
+                if let message = data[self.MESSAGE] as? String, let user_id = data[self.MESSAGE_USER_ID] as? String {
+                    var displayName = UNKNOWN
+                    if user_id == self.userIdYou {
+                        displayName = self.userNameYou
+                    }
+                    if user_id == self.userIdMe {
+                        displayName = self.userNameMe
+                    }
+                    let sender = Sender(id: user_id, displayName: displayName)
+                    self.insertMessage(TextMessage(sender: sender, content: message))
                 }
             }
         })
@@ -53,18 +111,12 @@ class ChatRoomViewController: MessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSenders()
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
-        // TODO: The data below are just samples
-        // Need to get from backend
-        senderA = Sender(id: "Test A", displayName: userNameMe)
-        senderB = Sender(id: "Test B", displayName: userNameYou)
-        messages = [
-            Message(sender: senderA!, content: "Nice to meet you! My name is Teddy and I'd like to grab a coffee with you"),
-            Message(sender: senderB!, content: "Of course! When are you available this week?")
-        ]
+        messageInputBar.delegate = self
+        buildMessagesFromHistory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +142,8 @@ class ChatRoomViewController: MessagesViewController {
     
     func insertMessage(_ message: MessageType) {
         messages.append(message)
+        // Store in local storage
+        storeNewMessageToHistory(message)
         // Reload last section to update header/footer labels and insert a new one
         messagesCollectionView.performBatchUpdates({
             messagesCollectionView.insertSections([messages.count - 1])
@@ -106,7 +160,7 @@ class ChatRoomViewController: MessagesViewController {
 
 extension ChatRoomViewController: MessagesDataSource {
     func currentSender() -> Sender {
-        return senderA!
+        return senderMe!
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
@@ -120,22 +174,14 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
 
 // MARK: - MessageInputBarDelegate
 extension ChatRoomViewController: MessageInputBarDelegate {
-    
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-//
-//        for component in inputBar.inputTextView.components {
-//
-//            if let str = component as? String {
-//                let message = MockMessage(text: str, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-//                insertMessage(message)
-//            } else if let img = component as? UIImage {
-//                let message = MockMessage(image: img, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-//                insertMessage(message)
-//            }
-//
-//        }
-//        inputBar.inputTextView.text = String()
-//        messagesCollectionView.scrollToBottom(animated: true)
+        for component in inputBar.inputTextView.components {
+            if let str = component as? String {
+                let message = TextMessage(sender: Sender(id: userIdMe, displayName: userNameMe), content: str)
+                insertMessage(message)
+            }
+        }
+        inputBar.inputTextView.text = String()
+        messagesCollectionView.scrollToBottom(animated: true)
     }
-    
 }

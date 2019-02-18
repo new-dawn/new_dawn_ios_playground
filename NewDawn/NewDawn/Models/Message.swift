@@ -8,9 +8,9 @@
 
 import MessageKit
 
-// A Message struct conforming to MessageType protocal
+// A Text Message struct conforming to MessageType protocal
 // from MessageKit
-struct Message: MessageType {
+struct TextMessage: MessageType {
     var kind: MessageKind
     var sentDate: Date
     var sender: Sender
@@ -22,15 +22,24 @@ struct Message: MessageType {
         self.kind = .text(content)
         self.messageId = UUID().uuidString
     }
+    
+    func getText() -> String {
+        switch kind {
+        case .text(let text):
+            return text
+        default:
+            return "N/A"
+        }
+    }
 }
 
-extension Message: Comparable {
+extension TextMessage: Comparable {
   
-  static func == (lhs: Message, rhs: Message) -> Bool {
+  static func == (lhs: TextMessage, rhs: TextMessage) -> Bool {
     return lhs.messageId == rhs.messageId
   }
   
-  static func < (lhs: Message, rhs: Message) -> Bool {
+  static func < (lhs: TextMessage, rhs: TextMessage) -> Bool {
     return lhs.sentDate < rhs.sentDate
   }
 }
