@@ -26,7 +26,8 @@ class ChatRoomViewController: MessagesViewController {
     let MESSAGE = "message"
     let CLUSTER = "us2"
     let CHAT_LOCAL_STORAGE = "chat_local_storage"
-    let MESSAGE_USER_ID = "user_id"
+    let MESSAGE_USER_FROM_ID = "user_from_id"
+    let MESSAGE_USER_TO_ID = "user_to_id"
 
     // Meta-info about this chat room
     // To be changed by Chat page segue
@@ -93,7 +94,7 @@ class ChatRoomViewController: MessagesViewController {
         let channel = pusher.subscribe(constructChannelName())
         let _ = channel.bind(eventName: CHAT_EVENT, callback: { (data: Any?) -> Void in
             if let data = data as? [String : AnyObject] {
-                if let message = data[self.MESSAGE] as? String, let user_id = data[self.MESSAGE_USER_ID] as? String {
+                if let message = data[self.MESSAGE] as? String, let user_id = data[self.MESSAGE_USER_FROM_ID] as? String {
                     var displayName = UNKNOWN
                     if user_id == self.userIdYou {
                         displayName = self.userNameYou
