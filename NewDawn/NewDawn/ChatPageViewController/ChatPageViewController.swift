@@ -32,7 +32,12 @@ class ChatPageViewController: UIViewController {
             if let destination = segue.destination as? ChatRoomViewController, let chatIndex = chatTableView.indexPathForSelectedRow?.row {
                 let firstname = userProfiles[chatIndex].firstname
                 let lastname = userProfiles[chatIndex].lastname
+                let id = userProfiles[chatIndex].user_id
+                // Should be the ID of the real user
+                destination.userNameMe = "Test"
+                destination.userIdMe = "0"
                 destination.userNameYou = "\(firstname) \(lastname)"
+                destination.userIdYou = id
             }
         }
     }

@@ -22,6 +22,7 @@ let USERID = "user_id"
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
     "first_name": "Teddy",
+    "user_id": "1",
     "last_name": "C",
     "age": 18,
     "degree": "Undergrad",
@@ -60,6 +61,7 @@ let USER_DUMMY_DATA_1: NSDictionary = [
 let USER_DUMMY_DATA_2: NSDictionary = [
     "first_name": "Ziyi",
     "last_name": "Tang",
+    "user_id": "2",
     "age": 28,
     "degree": "Undergrad",
     "height": 120,

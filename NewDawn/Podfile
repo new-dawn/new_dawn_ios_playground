@@ -5,6 +5,7 @@ target 'NewDawn' do
   # Pods for NewDawn
   pod 'SwiftKeychainWrapper', '~> 3.0'
   pod 'MessageKit'
+  pod 'PusherSwift'
   target 'NewDawnTests' do
     inherit! :search_paths
     # Pods for testing
