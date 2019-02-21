@@ -148,7 +148,8 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
             collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
             
         case .changed: collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
-            
+        
+        // TODO: weired flashes after end interactive movement
         case .ended:
             collectionView.endInteractiveMovement()
             
