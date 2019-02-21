@@ -19,7 +19,7 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
         cell.backgroundColor = UIColor.gray
-        cell.deleteButtonBackgroundView.layer.cornerRadius = 15
+        cell.deleteButtonBackgroundView.layer.cornerRadius = 0.5 * cell.deleteButtonBackgroundView.bounds.size.width
         cell.deleteButtonBackgroundView.clipsToBounds = true
         cell.deleteButtonBackgroundView.backgroundColor = UIColor.white
         cell.myImage.image = imagesArray[indexPath.row] as? UIImage
@@ -98,9 +98,12 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
 
     
     @IBOutlet weak var collectionView: UICollectionView!
+    fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
     let picker = UIImagePickerController()
+    // Use this variable to track which image to replace with
     var clicked_image = 0
+    // This image can be replaced by other default images
     var default_button = UIImage(named: "MeTab")
     var imagesArray = NSMutableArray()
     
@@ -123,11 +126,51 @@ class Profile_PhotosUpload: UIViewController, UICollectionViewDataSource, UIColl
         // square spacing
         layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 40) / 3, height: (self.collectionView.frame.size.width - 40) / 3)
         
-        
+        // Handle long press gesture
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        collectionView.addGestureRecognizer(longPressGesture)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Control of gestures
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch(gesture.state){
+            
+        case .began:
+            
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                break
+            }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            
+        case .changed: collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            
+        case .ended:
+            collectionView.endInteractiveMovement()
+            
+        default:
+            collectionView.cancelInteractiveMovement()
+            
+        }
+    }
+    
+    // Enable drag and drop
+     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        
+        return true
+        
+    }
+    
+    // Define start and destination object
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let item = imagesArray[sourceIndexPath.item]
+        imagesArray.removeObject(at: sourceIndexPath.item)
+        imagesArray.insert(item, at: destinationIndexPath.item)
     }
 
 }
