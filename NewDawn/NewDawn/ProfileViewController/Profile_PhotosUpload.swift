@@ -69,8 +69,49 @@ class Profile_PhotosUpload: UIViewController {
         }
     }
     
+    // Save saves images in collection view to document directory
     @IBAction func continueUploadImageTapped(_ sender: Any) {
         
+        // Get documents folder
+        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
+        
+        //Check is folder available or not, if not create
+        if !FileManager.default.fileExists(atPath: dataPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Couldn't create document directory")
+            }
+        }
+        
+        for (index,img) in imagesArray.enumerated() {
+            var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(index))
+            if let imagedata = (img as! UIImage).pngData() {
+                if imagedata != UIImage(named: "MeTab")!.pngData(){
+                    fileURL = fileURL.appendingPathExtension("png")
+                    do{
+                        try imagedata.write(to: fileURL, options: .atomic)
+                    }catch{
+                        print ("error", error)
+                    }
+                }
+                
+            } else if let imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
+                
+                if imagedata != UIImage(named: "MeTab")!.jpegData(compressionQuality: 1.0){
+                    fileURL = fileURL.appendingPathExtension("jpeg")
+                    do{
+                        try imagedata.write(to: fileURL, options: .atomic)
+                    }catch{
+                        print ("error", error)
+                    }
+                }
+            }
+            print (fileURL)
+        }
+        var stored_files = try?FileManager.default.contentsOfDirectory(atPath: dataPath)
+        stored_files = stored_files?.filter{$0 != ".DS_Store"}
+        print(stored_files!)
     }
 }
 
