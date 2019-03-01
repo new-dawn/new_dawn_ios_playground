@@ -1120,9 +1120,13 @@
                                     <constraint firstAttribute="width" constant="270" id="PMR-Qh-nNJ"/>
                                     <constraint firstAttribute="height" constant="41" id="cAa-cN-GOG"/>
                                 </constraints>
-                                <state key="normal" title="Add Photos ">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="continueUploadImageTapped:" destination="cKV-BN-cTX" eventType="touchUpInside" id="ino-ss-0b2"/>
+                                    <segue destination="GWg-yl-rvs" kind="presentation" id="Ewt-Pj-4Ll"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-c6-mmc">
                                 <rect key="frame" x="28" y="214" width="319" height="220"/>
@@ -1151,7 +1155,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3K-H6-z4t">
-                                                    <rect key="frame" x="78" y="0.0" width="30" height="30"/>
+                                                    <rect key="frame" x="62" y="0.0" width="30" height="30"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="To5-Es-5eb">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1161,7 +1165,7 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="9a8-t2-KdL" secondAttribute="height" multiplier="1:1" id="8zG-bz-aii"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="azz-S6-kA1"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="azz-S6-kA1"/>
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="mIN-IR-3CV"/>
                                                                 </constraints>
                                                                 <state key="normal" image="SkipButton">
@@ -1197,9 +1201,9 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="top" secondItem="8nn-Di-Jdw" secondAttribute="top" id="0pg-WJ-Ri3"/>
+                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="leading" secondItem="xsg-WM-7yh" secondAttribute="leadingMargin" constant="54" id="0Ww-l3-PYE"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerX" secondItem="xsg-WM-7yh" secondAttribute="centerX" id="9Bb-VZ-lpD"/>
-                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="trailing" secondItem="8nn-Di-Jdw" secondAttribute="trailing" id="sa4-ZZ-6Xp"/>
+                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="top" secondItem="8nn-Di-Jdw" secondAttribute="top" id="HKL-zB-suC"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="top" secondItem="xsg-WM-7yh" secondAttribute="top" id="wlW-KR-vAP"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerY" secondItem="xsg-WM-7yh" secondAttribute="centerY" id="x1d-uY-8cM"/>
                                         </constraints>
@@ -1461,8 +1465,9 @@
         <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-FJ-ORZ"/>
-        <segue reference="9eK-Ra-S3u"/>
+        <segue reference="iHz-cU-Dm1"/>
+        <segue reference="Ewt-Pj-4Ll"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="6m0-PK-7Bw"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="7PI-cb-EZr"/>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LocalStorageUtil {
     // A helper function to store key value pair locally
