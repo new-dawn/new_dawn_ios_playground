@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class Profile_DraftFinal: UIViewController {
 
@@ -25,6 +26,15 @@ class Profile_DraftFinal: UIViewController {
     @IBAction func getStartedButtonTapped(_ sender: Any) {
         // TODO: Send all info to backend and go to profile page
         let activityIndicator = self.prepareActivityIndicator()
+        
+        let test_img = UIImage(named: "MeTab")
+        let parameters = [
+            "caption": "good",
+            "order": 1,
+            "user": "/api/v1/user/1/",
+            ] as [String : Any]
+        
+        photoUploader(photo: test_img!, filename: "testwow", parameters: parameters, completion: readUploadImage)
         
         let request = createRegistrationRequest()
         
@@ -152,4 +162,48 @@ class Profile_DraftFinal: UIViewController {
         }
         return ["answer_question": [[String: Any]]()]
     }
+    
+    // A helper function to upload image
+    func photoUploader(photo: UIImage, filename: String, parameters: [String: Any], completion: @escaping (Bool) -> Void) {
+        
+        let imageData = photo.pngData()
+        
+//        guard let authToken = Locksmith.loadDataForUserAccount(userAccount: "userToken")?["token"] as? String else {
+//            return
+//        }
+        
+//        let headers: HTTPHeaders = ["Authorization": authToken]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        ]
+        var url: URLRequest?
+        
+        let image_upload_url = getURL(path: "image/")
+        
+        do {
+            url = try URLRequest(url: image_upload_url, method: .post, headers: headers)
+        } catch {
+            print("Error")
+        }
+
+        let data = try! JSONSerialization.data(withJSONObject: parameters)
+
+        
+        if let url = url {
+            upload(multipartFormData: { (mpd) in
+                mpd.append(imageData!, withName: "media", fileName: filename, mimeType: "image/png")
+                mpd.append(data, withName: "data")
+            }, with: url, encodingCompletion: { (success) in
+                debugPrint(success)
+            })
+        }
+    }
+    
+    // Enhance http request reponse logic
+    func readUploadImage(success: Bool) -> Void{
+        print(success)
+        return
+    }
+    
 }
