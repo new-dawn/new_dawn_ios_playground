@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.0)
   - CryptoSwift (0.9.0)
   - MessageInputBar/Core (0.4.1)
   - MessageKit (2.0.0):
@@ -14,12 +15,14 @@ PODS:
   - TaskQueue (1.1.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - MessageKit
   - PusherSwift
   - SwiftKeychainWrapper (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - CryptoSwift
     - MessageInputBar
     - MessageKit
@@ -30,6 +33,7 @@ SPEC REPOS:
     - TaskQueue
 
 SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
   MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: 0d859468fa277a0b500c00b4851b782e060af327
+PODFILE CHECKSUM: f108e756ab63b5bc8340aff073af9dbe4db4910c
 
 COCOAPODS: 1.5.3
