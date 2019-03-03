@@ -25,9 +25,10 @@ class ChatRoomViewController: MessagesViewController {
     let CHAT_EVENT = "chat_event"
     let MESSAGE = "message"
     let CLUSTER = "us2"
-    let CHAT_LOCAL_STORAGE = "chat_local_storage"
     let MESSAGE_USER_FROM_ID = "user_from_id"
     let MESSAGE_USER_TO_ID = "user_to_id"
+    let MESSAGE_USER_FROM = "user_from"
+    let MESSAGE_USER_TO = "user_to"
 
     // Meta-info about this chat room
     // To be changed by Chat page segue
@@ -56,30 +57,28 @@ class ChatRoomViewController: MessagesViewController {
         }
     }
     
-    func chatLocalStorageKey() -> String {
-        // A concatenation of chat constant and the user id
-        return "\(CHAT_LOCAL_STORAGE)_\(userIdYou)"
-    }
-    
-    func buildMessagesFromHistory() -> Void {
-        let chat_history: Array<SingleChatHistory> = LocalStorageUtil.localReadKeyValueStruct(key: chatLocalStorageKey()) ?? []
-        for chat_record in chat_history {
-            messages.append(
-                TextMessage(
-                    sender: Sender(id: chat_record.id, displayName: chat_record.displayName),
-                    content: chat_record.message
-                )
-            )
+    func fetchMessagesFromHistory() -> Void {
+        DispatchQueue.global(qos: .userInitiated).async {
+            HttpUtil.getMessageAction(user_from: self.userIdMe, user_to: self.userIdYou, callback: {
+                response in
+                DispatchQueue.main.async {
+                    if let chat_history = response["objects"] as? [[String:Any]] {
+                        for chat_record in chat_history {
+                            if let user_from_id = chat_record[self.MESSAGE_USER_FROM] as? Int, let _ = chat_record[self.MESSAGE_USER_TO] as? Int, let message = chat_record[self.MESSAGE] as? String {
+                                self.messages.append(
+                                    TextMessage(
+                                        sender: Sender(id: String(user_from_id), displayName: String(user_from_id)),
+                                        content: message
+                                    )
+                                )
+                            }
+                        }
+                        self.messagesCollectionView.reloadData()
+                        self.messagesCollectionView.scrollToBottom()
+                    }
+                }
+            })
         }
-    }
-    
-    func storeNewMessageToHistory(_ newMessageType: MessageType) -> Void {
-        var chat_history: Array<SingleChatHistory> = LocalStorageUtil.localReadKeyValueStruct(key: chatLocalStorageKey()) ?? []
-        if let newMessage = newMessageType as? TextMessage {
-            chat_history.append(SingleChatHistory(id: newMessage.sender.id, displayName: newMessage.sender.displayName, message: newMessage.getText()))
-        }
-        LocalStorageUtil.localStoreKeyValueStruct(
-            key: chatLocalStorageKey(), value: chat_history)
     }
 
     func subscribeToChat() -> Void {
@@ -117,7 +116,7 @@ class ChatRoomViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        buildMessagesFromHistory()
+        fetchMessagesFromHistory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,8 +142,6 @@ class ChatRoomViewController: MessagesViewController {
     
     func insertMessage(_ message: MessageType) {
         messages.append(message)
-        // Store in local storage
-        storeNewMessageToHistory(message)
         // Reload last section to update header/footer labels and insert a new one
         messagesCollectionView.performBatchUpdates({
             messagesCollectionView.insertSections([messages.count - 1])
@@ -156,6 +153,20 @@ class ChatRoomViewController: MessagesViewController {
                 self?.messagesCollectionView.scrollToBottom(animated: true)
             }
         })
+    }
+    
+    func storeMessage(_ message: MessageType) {
+        // Send to server
+        if case let MessageKind.text(message_text) = message.kind {
+            HttpUtil.sendMessageAction(
+                user_from: self.userIdMe,
+                user_to: self.userIdYou,
+                action_type: UserActionType.MESSAGE.rawValue,
+                entity_type: 0,
+                entity_id: 0,
+                message: message_text
+            )
+        }
     }
 }
 
@@ -179,7 +190,7 @@ extension ChatRoomViewController: MessageInputBarDelegate {
         for component in inputBar.inputTextView.components {
             if let str = component as? String {
                 let message = TextMessage(sender: Sender(id: userIdMe, displayName: userNameMe), content: str)
-                insertMessage(message)
+                storeMessage(message)
             }
         }
         inputBar.inputTextView.text = String()
