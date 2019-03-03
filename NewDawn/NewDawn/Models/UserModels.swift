@@ -210,6 +210,9 @@ struct UserProfile: Codable {
     }
 }
 
+enum UserProfileType {
+    
+}
 
 class UserProfileBuilder{
     
