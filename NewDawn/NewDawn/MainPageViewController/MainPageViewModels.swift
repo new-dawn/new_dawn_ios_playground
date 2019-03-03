@@ -26,6 +26,7 @@ enum UserActionType: Int{
     case BLOCK = 2
     case MATCH = 3
     case RELATIONSHIP = 4
+    case MESSAGE = 5
 }
 
 // Standardize the requirement for each section

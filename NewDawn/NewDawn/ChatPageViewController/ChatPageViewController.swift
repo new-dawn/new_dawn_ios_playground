@@ -35,7 +35,8 @@ class ChatPageViewController: UIViewController {
                 let id = userProfiles[chatIndex].user_id
                 // Should be the ID of the real user
                 destination.userNameMe = "Test"
-                destination.userIdMe = "0"
+                // TODO: This should come from the local Login Profile
+                destination.userIdMe = "1"
                 destination.userNameYou = "\(firstname) \(lastname)"
                 destination.userIdYou = id
             }
