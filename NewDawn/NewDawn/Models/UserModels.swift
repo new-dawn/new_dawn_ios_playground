@@ -210,10 +210,6 @@ struct UserProfile: Codable {
     }
 }
 
-enum UserProfileType {
-    
-}
-
 class UserProfileBuilder{
     
     static func createGetProfileRequest(input_params: [String:String] = [:])-> URLRequest?{
