@@ -122,4 +122,10 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    @IBAction func backTabBarTapped(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
+        self.present (vc, animated: true, completion: nil)
+        vc.selectedIndex = 2
+    }
 }
