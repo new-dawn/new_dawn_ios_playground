@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class Profile_DraftFinal: UIViewController {
 
@@ -26,6 +27,21 @@ class Profile_DraftFinal: UIViewController {
         // TODO: Send all info to backend and go to profile page
         let activityIndicator = self.prepareActivityIndicator()
         
+        // Upload Images with Image Information
+        let images = getPersonalImagesWithData()
+        let psu_do_id = "1"
+        for single_image in images{
+            let single_img = single_image["img"]
+            let single_params = [
+                "order": single_image["order"]!,
+                "caption": single_image["caption"]!,
+                "user": single_image["user"]!
+            ] as [String: Any]
+            let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
+            photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params, completion: readUploadImage)
+        }
+        
+        
         let request = createRegistrationRequest()
         
         if request == nil {
@@ -33,7 +49,6 @@ class Profile_DraftFinal: UIViewController {
         }
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         //self.processSessionTasks(request: request!, callback: readRegistrationResponse)
-        
     }
     
     func createRegistrationRequest() -> URLRequest? {
@@ -152,4 +167,75 @@ class Profile_DraftFinal: UIViewController {
         }
         return ["answer_question": [[String: Any]]()]
     }
+    
+    // A helper function to upload image
+    func photoUploader(photo: UIImage, filename: String, parameters: [String: Any], completion: @escaping (Bool) -> Void) {
+        
+        let imageData = photo.pngData()
+        
+//        guard let authToken = Locksmith.loadDataForUserAccount(userAccount: "userToken")?["token"] as? String else {
+//            return
+//        }
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        ]
+        var url: URLRequest?
+        
+        let image_upload_url = getURL(path: "image/")
+        
+        do {
+            url = try URLRequest(url: image_upload_url, method: .post, headers: headers)
+        } catch {
+            print("Error")
+        }
+
+        let data = try! JSONSerialization.data(withJSONObject: parameters)
+
+        
+        if let url = url {
+            upload(multipartFormData: { (mpd) in
+                mpd.append(imageData!, withName: "media", fileName: filename, mimeType: "image/png")
+                mpd.append(data, withName: "data")
+            }, with: url, encodingCompletion: { (success) in
+                debugPrint(success)
+            })
+        }
+    }
+    
+    // TODO: Enhance http request reponse logic
+    func readUploadImage(success: Bool) -> Void{
+        print(success)
+        return
+    }
+    
+    // Get Personal Images with data from Document Directory
+    func getPersonalImagesWithData() -> Array<[String: Any]>{
+        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
+        let datapath_url = NSURL(string: dataPath)
+        var images_data = [[String: Any]]()
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: datapath_url! as URL, includingPropertiesForKeys: nil)
+            for fileurl in fileURLs{
+                if String(fileurl.lastPathComponent) == ".DS_Store"{
+                    continue
+                }
+                let img = UIImage(contentsOfFile: fileurl.path)
+                let order = Int(String(fileurl.lastPathComponent).prefix(1))!
+                let caption = "good"
+                let user = "/api/v1/user/1/"
+                images_data.append([
+                    "img": img!,
+                    "order": order,
+                    "caption": caption,
+                    "user": user
+                    ])
+            }
+        } catch {
+            print("Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
+        }
+        return images_data
+    }
+    
 }
