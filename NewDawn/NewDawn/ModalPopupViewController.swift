@@ -35,7 +35,7 @@ class ModalPopupViewController: UIViewController {
                             user_to: lastest_liked_user_id,
                             action_type: UserActionType.LIKE.rawValue,
                             entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,
-                            entity_id: lastest_liked_item[ENTITY_ID] as! Int)
+                            entity_id: lastest_liked_item[ENTITY_ID] as! Int, message: "")
         ProfileIndexUtil.updateProfileIndex()
         dismiss(animated: true)
     }
