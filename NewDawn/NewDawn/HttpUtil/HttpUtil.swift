@@ -128,4 +128,28 @@ class HttpUtil{
         request.httpMethod = "GET"
         self.processSessionTasks(request: request, callback: callback)
     }
+    
+    static func sendMessageAction(user_from: String, user_to: String, action_type: Int, entity_type: Int, entity_id: Int, message: String){
+        let url = getURL(path: "user_action/send_message/")
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let action_body: [String: Any] = [
+            "user_from": user_from,
+            "user_to": user_to,
+            "action_type": action_type,
+            "entity_type": entity_type,
+            "entity_id": entity_id,
+            "message": message
+            ] as [String : Any]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: action_body, options: .prettyPrinted)
+        } catch let error {
+            // TODO: Sepearte error messages into engineer's and user's
+            print(error.localizedDescription)
+            return
+        }
+        self.processSessionTasks(request: request, callback: readActionResponse)
+    }
 }

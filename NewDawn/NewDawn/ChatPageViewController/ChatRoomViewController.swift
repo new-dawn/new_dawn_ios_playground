@@ -158,7 +158,7 @@ class ChatRoomViewController: MessagesViewController {
     func storeMessage(_ message: MessageType) {
         // Send to server
         if case let MessageKind.text(message_text) = message.kind {
-            HttpUtil.sendAction(
+            HttpUtil.sendMessageAction(
                 user_from: self.userIdMe,
                 user_to: self.userIdYou,
                 action_type: UserActionType.MESSAGE.rawValue,
@@ -190,7 +190,6 @@ extension ChatRoomViewController: MessageInputBarDelegate {
         for component in inputBar.inputTextView.components {
             if let str = component as? String {
                 let message = TextMessage(sender: Sender(id: userIdMe, displayName: userNameMe), content: str)
-                insertMessage(message)
                 storeMessage(message)
             }
         }
