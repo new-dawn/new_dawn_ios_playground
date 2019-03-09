@@ -35,12 +35,12 @@ class Profile_DraftFinal: UIViewController {
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         self.processSessionTasks(request: request!, callback: readRegistrationResponse)
         
-        // Make it Asyn
+        // TODO: Make it Asyn
         sleep(4)
         
         // Upload Images with Image Information
         let images = getPersonalImagesWithData()
-        // Get Id from local storage
+        // TODO: Get Id from local storage
         let psu_do_id = "4"
         for single_image in images{
             let single_img = single_image["img"]
@@ -49,7 +49,7 @@ class Profile_DraftFinal: UIViewController {
                 "caption": single_image["caption"]!,
                 "user": single_image["user"]!
                 ] as [String: Any]
-            // Hash image name
+            // TODO: Hash image name
             let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
             photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params, completion: readUploadImage)
         }
@@ -228,7 +228,7 @@ class Profile_DraftFinal: UIViewController {
                 let img = UIImage(contentsOfFile: fileurl.path)
                 let order = Int(String(fileurl.lastPathComponent).prefix(1))!
                 let caption = "good"
-                // Get User id from local storage
+                // TODO: Get User id from local storage
                 let user = "/api/v1/user/4/"
                 images_data.append([
                     "img": img!,
