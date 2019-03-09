@@ -27,28 +27,32 @@ class Profile_DraftFinal: UIViewController {
         // TODO: Send all info to backend and go to profile page
         let activityIndicator = self.prepareActivityIndicator()
         
-        // Upload Images with Image Information
-        let images = getPersonalImagesWithData()
-        let psu_do_id = "1"
-        for single_image in images{
-            let single_img = single_image["img"]
-            let single_params = [
-                "order": single_image["order"]!,
-                "caption": single_image["caption"]!,
-                "user": single_image["user"]!
-            ] as [String: Any]
-            let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
-            photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params, completion: readUploadImage)
-        }
-        
-        
         let request = createRegistrationRequest()
         
         if request == nil {
             return
         }
         self.removeActivityIndicator(activityIndicator: activityIndicator)
-        //self.processSessionTasks(request: request!, callback: readRegistrationResponse)
+        self.processSessionTasks(request: request!, callback: readRegistrationResponse)
+        
+        // Make it Asyn
+        sleep(4)
+        
+        // Upload Images with Image Information
+        let images = getPersonalImagesWithData()
+        // Get Id from local storage
+        let psu_do_id = "4"
+        for single_image in images{
+            let single_img = single_image["img"]
+            let single_params = [
+                "order": single_image["order"]!,
+                "caption": single_image["caption"]!,
+                "user": single_image["user"]!
+                ] as [String: Any]
+            // Hash image name
+            let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
+            photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params, completion: readUploadImage)
+        }
     }
     
     func createRegistrationRequest() -> URLRequest? {
@@ -224,7 +228,8 @@ class Profile_DraftFinal: UIViewController {
                 let img = UIImage(contentsOfFile: fileurl.path)
                 let order = Int(String(fileurl.lastPathComponent).prefix(1))!
                 let caption = "good"
-                let user = "/api/v1/user/1/"
+                // Get User id from local storage
+                let user = "/api/v1/user/4/"
                 images_data.append([
                     "img": img!,
                     "order": order,
