@@ -62,7 +62,7 @@ class RegisterUserViewController: UIViewController {
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
         // Process Request & Rmove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readRegisterResponse)
+//        self.processSessionTasks(request: request!, callback: readRegisterResponse)
 
     }
     

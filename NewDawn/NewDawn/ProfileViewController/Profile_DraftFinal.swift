@@ -33,26 +33,35 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         self.removeActivityIndicator(activityIndicator: activityIndicator)
-        self.processSessionTasks(request: request!, callback: readRegistrationResponse)
         
-        // TODO: Make it Asyn
-        sleep(4)
-        
-        // Upload Images with Image Information
-        let images = getPersonalImagesWithData()
-        // TODO: Get Id from local storage
-        let psu_do_id = "4"
-        for single_image in images{
-            let single_img = single_image["img"]
-            let single_params = [
-                "order": single_image["order"]!,
-                "caption": single_image["caption"]!,
-                "user": single_image["user"]!
-                ] as [String: Any]
-            // TODO: Hash image name
-            let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
-            photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params, completion: readUploadImage)
+        self.processSessionTasks(request: request!){jsonResponse, error in
+            
+            if (error != nil){
+                print("noooooo good registration")
+            }
+            
+            if let register_response = jsonResponse{
+                print("Register Success")
+                // TODO: Store user id, apikey from response
+                
+                let images = self.getPersonalImagesWithData()
+                // TODO: Get Id from local storage
+                let psu_do_id = "4"
+                for single_image in images{
+                    let single_img = single_image["img"]
+                    let single_params = [
+                        "order": single_image["order"]!,
+                        "caption": single_image["caption"]!,
+                        "user": single_image["user"]!
+                        ] as [String: Any]
+                    // TODO:Hash image name
+                    let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
+                    self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                        print("image upload \(success)")}
+                }
+            }
         }
+        
     }
     
     func createRegistrationRequest() -> URLRequest? {
@@ -206,12 +215,6 @@ class Profile_DraftFinal: UIViewController {
                 debugPrint(success)
             })
         }
-    }
-    
-    // TODO: Enhance http request reponse logic
-    func readUploadImage(success: Bool) -> Void{
-        print(success)
-        return
     }
     
     // Get Personal Images with data from Document Directory

@@ -76,7 +76,7 @@ extension UIViewController {
     
     // A helper function to handle HTTP request with a callback function
     func processSessionTasks(
-        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
+        request: URLRequest, callback: @escaping (NSDictionary?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
             
@@ -91,10 +91,11 @@ extension UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = json {
-                    callback(parseJSON)
+                    callback(parseJSON, nil)
                 }
                 print("Session Task Processed")
             } catch {
+                callback(nil, error)
                 print("Error processing response")
                 self.displayMessage(userMessage: "Error processing response", dismiss: false)
             }

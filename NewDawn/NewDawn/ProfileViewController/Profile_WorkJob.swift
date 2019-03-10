@@ -58,9 +58,6 @@ class Profile_WorkJob: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if (workplaceTextField.text?.isEmpty)! || (jobtitleTextField.text?.isEmpty)! {
-            displayMessage(userMessage: "Cannot have empty field")
-        }
         localStoreKeyValue(key: WORKPLACE, value: workplaceTextField.text!)
         localStoreKeyValue(key: JOBTITLE, value: jobtitleTextField.text!)
     }

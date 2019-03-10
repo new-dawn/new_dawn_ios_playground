@@ -74,9 +74,6 @@ class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if (schoolTextField.text?.isEmpty)! || (degreeTextField.text?.isEmpty)! {
-            displayMessage(userMessage: "Cannot have empty field")
-        }
         localStoreKeyValue(key: SCHOOL, value: schoolTextField.text!)
         localStoreKeyValue(key: DEGREE, value: degreeTextField.text!)
     }
@@ -100,15 +97,5 @@ class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @objc func donePicker() {
         degreeTextField.resignFirstResponder()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
