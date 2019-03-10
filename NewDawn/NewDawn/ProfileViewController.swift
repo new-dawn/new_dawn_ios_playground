@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
         // Process Request & Remove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readProfileResponse)
+//        self.processSessionTasks(request: request!, callback: readProfileResponse)
     }
 
     override func didReceiveMemoryWarning() {

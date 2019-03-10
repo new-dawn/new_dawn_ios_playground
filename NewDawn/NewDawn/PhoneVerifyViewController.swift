@@ -43,7 +43,7 @@ class PhoneVerifyViewController: UIViewController {
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
         // Process Request
-        self.processSessionTasks(request: request!, callback: readPhoneVerifyResponse)
+//        self.processSessionTasks(request: request!, callback: readPhoneVerifyResponse)
         
         // Pass country code and phone number to next view
         performSegue(withIdentifier: "phoneVerify", sender: self)

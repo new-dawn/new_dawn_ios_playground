@@ -51,7 +51,7 @@ class SignInViewController: UIViewController {
         self.removeActivityIndicator(activityIndicator: activityIndicator)
         
         // Process Request & Remove Activity Indicator
-        self.processSessionTasks(request: request!, callback: readLoginResponse)
+//        self.processSessionTasks(request: request!, callback: readLoginResponse)
     }
 
     @IBAction func registerButtonTapped(_ sender: Any) {

@@ -63,21 +63,7 @@ class Profile_HomeTown: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if (hometownTextField.text?.isEmpty)!  {
-            displayMessage(userMessage: "Cannot have empty field")
-        }
         localStoreKeyValue(key: HOMETOWN, value: hometownTextField.text!)
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
