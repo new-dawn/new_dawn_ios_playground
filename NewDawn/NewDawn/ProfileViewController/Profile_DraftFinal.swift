@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import CommonCrypto
 
 class Profile_DraftFinal: UIViewController {
 
@@ -42,20 +43,18 @@ class Profile_DraftFinal: UIViewController {
             
             if let register_response = jsonResponse{
                 print("Register Success")
-                // TODO: Store user id, apikey from response
+                self.storeCertification(register_response: register_response)
                 
                 let images = self.getPersonalImagesWithData()
-                // TODO: Get Id from local storage
-                let psu_do_id = "4"
+                
                 for single_image in images{
                     let single_img = single_image["img"]
                     let single_params = [
                         "order": single_image["order"]!,
                         "caption": single_image["caption"]!,
-                        "user": single_image["user"]!
+                        "user": single_image["user_uri"]!
                         ] as [String: Any]
-                    // TODO:Hash image name
-                    let img_name = psu_do_id + "_" + String(single_image["order"] as! Int) + ".png"
+                    let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".png"
                     self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
                         print("image upload \(success)")}
                 }
@@ -232,18 +231,43 @@ class Profile_DraftFinal: UIViewController {
                 let order = Int(String(fileurl.lastPathComponent).prefix(1))!
                 let caption = "good"
                 // TODO: Get User id from local storage
-                let user = "/api/v1/user/4/"
+                let user_id = String(LocalStorageUtil.localReadKeyValue(key: "user_id") as! Int)
+                let user_uri = "/api/v1/user/\(user_id)/"
                 images_data.append([
                     "img": img!,
                     "order": order,
                     "caption": caption,
-                    "user": user
+                    "user_uri": user_uri,
+                    "user_id": user_id
                     ])
             }
         } catch {
             print("Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
         }
         return images_data
+    }
+    
+    // A helper function to store user id and apikey
+    func storeCertification(register_response:NSDictionary) -> Void{
+        if let user_id = register_response["id"], let token = register_response["token"]{
+            LocalStorageUtil.localStoreKeyValue(key: "user_id", value: user_id)
+            LocalStorageUtil.localStoreKeyValue(key: "api_key", value: token)
+        }
+    }
+    
+    func MD5(_ string: String) -> String? {
+        let length = Int(CC_MD5_DIGEST_LENGTH)
+        var digest = [UInt8](repeating: 0, count: length)
+        
+        if let d = string.data(using: String.Encoding.utf8) {
+            _ = d.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
+                CC_MD5(body, CC_LONG(d.count), &digest)
+            }
+        }
+        
+        return (0..<length).reduce("") {
+            $0 + String(format: "%02x", digest[$1])
+        }
     }
     
 }
