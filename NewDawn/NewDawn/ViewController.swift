@@ -229,7 +229,7 @@ extension UIViewController {
         if force || TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
-            UserProfileBuilder.fetchUserProfiles(input_params: [:]) {
+            UserProfileBuilder.fetchAndStoreUserProfiles() {
                 (data) in
                 UserProfileBuilder.parseAndStoreInLocalStorage(response: data)
                 DispatchQueue.main.async {
