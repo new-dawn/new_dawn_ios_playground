@@ -13,6 +13,7 @@ class ChatPageViewController: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     var userProfiles: Array<UserProfile>!
     var chatTableViewModel: ChatPageTableViewModel!
+    var allMessages: [[String:Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: Get user data from backend
@@ -27,18 +28,33 @@ class ChatPageViewController: UIViewController {
         chatTableView.rowHeight = UITableView.automaticDimension
         chatTableView.estimatedRowHeight = UITableView.automaticDimension
     }
+    func fetchMessagesFromHistory() -> Void {
+        DispatchQueue.global(qos: .userInitiated).async {
+            // TODO: replace it by login user id in local storage
+            HttpUtil.getAllMessagesAction(user_from: "1", callback: {
+                response in
+                DispatchQueue.main.async {
+                    if let chat_history = response["objects"] as? [[String:Any]] {
+                        self.allMessages = chat_history
+                    }
+                }
+            })
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openChat" {
             if let destination = segue.destination as? ChatRoomViewController, let chatIndex = chatTableView.indexPathForSelectedRow?.row {
-                let firstname = userProfiles[chatIndex].firstname
-                let lastname = userProfiles[chatIndex].lastname
-                let id = userProfiles[chatIndex].user_id
-                // Should be the ID of the real user
+                // Fetch all messages for a certain end user
+                let message_response = allMessages[chatIndex]
+                let end_user_id = message_response["end_user_id"] as! String
+                let end_user_firstname = message_response["end_user_firstname"] as? String
+                let end_user_messages = message_response["messages"] as? [[String: Any]]
+                // TODO: Should be the info of the login user
                 destination.userNameMe = "Test"
-                // TODO: This should come from the local Login Profile
                 destination.userIdMe = "3"
-                destination.userNameYou = "\(firstname) \(lastname)"
-                destination.userIdYou = id
+                destination.userNameYou = "\(String(describing: end_user_firstname))"
+                destination.userIdYou = end_user_id
+                destination.raw_messages = end_user_messages
             }
         }
     }

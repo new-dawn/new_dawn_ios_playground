@@ -122,8 +122,9 @@ class HttpUtil{
         }
     }
     
-    static func getMessageAction(user_from: String, user_to: String, callback: @escaping (NSDictionary) -> Void){
-        let url = getURL(path: "user_action/get_messages/?user_from=\(user_from)&user_to=\(user_to)")
+    static func getAllMessagesAction(user_from: String, callback: @escaping (NSDictionary) -> Void) {
+        // Get a dictionary mapped from matched users to past messages
+        let url = getURL(path: "user_action/get_messages/?user_from=\(user_from)")
         var request = URLRequest(url:url)
         request.httpMethod = "GET"
         self.processSessionTasks(request: request, callback: callback)

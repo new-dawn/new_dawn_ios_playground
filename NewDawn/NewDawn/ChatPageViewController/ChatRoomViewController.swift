@@ -27,8 +27,6 @@ class ChatRoomViewController: MessagesViewController {
     let CLUSTER = "us2"
     let MESSAGE_USER_FROM_ID = "user_from_id"
     let MESSAGE_USER_TO_ID = "user_to_id"
-    let MESSAGE_USER_FROM = "user_from"
-    let MESSAGE_USER_TO = "user_to"
 
     // Meta-info about this chat room
     // To be changed by Chat page segue
@@ -37,6 +35,7 @@ class ChatRoomViewController: MessagesViewController {
     var userIdYou: String = "-1"
     var userNameMe: String = "Me"
     var userNameYou: String = "You"
+    var raw_messages: [[String: Any]] = []
     // Senders and messages
     // To be configured when this view is loaded
     var senderMe: Sender?
@@ -58,27 +57,19 @@ class ChatRoomViewController: MessagesViewController {
     }
     
     func fetchMessagesFromHistory() -> Void {
-        DispatchQueue.global(qos: .userInitiated).async {
-            HttpUtil.getMessageAction(user_from: self.userIdMe, user_to: self.userIdYou, callback: {
-                response in
-                DispatchQueue.main.async {
-                    if let chat_history = response["objects"] as? [[String:Any]] {
-                        for chat_record in chat_history {
-                            if let user_from_id = chat_record[self.MESSAGE_USER_FROM] as? Int, let _ = chat_record[self.MESSAGE_USER_TO] as? Int, let message = chat_record[self.MESSAGE] as? String {
-                                self.messages.append(
-                                    TextMessage(
-                                        sender: Sender(id: String(user_from_id), displayName: String(user_from_id)),
-                                        content: message
-                                    )
-                                )
-                            }
-                        }
-                        self.messagesCollectionView.reloadData()
-                        self.messagesCollectionView.scrollToBottom()
-                    }
-                }
-            })
+        for chat_record in self.raw_messages {
+            if let user_from_id = chat_record[MESSAGE_USER_FROM_ID] as? Int,
+            let message = chat_record[MESSAGE] as? String {
+                self.messages.append(
+                    TextMessage(
+                        sender: Sender(id: String(user_from_id), displayName: String(user_from_id)),
+                        content: message
+                    )
+                )
+            }
         }
+        self.messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToBottom()
     }
 
     func subscribeToChat() -> Void {
