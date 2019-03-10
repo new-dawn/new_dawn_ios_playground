@@ -8,8 +8,6 @@
 
 import UIKit
 
-// This later should be retrieved from local storage
-let psudo_from_id = "1"
 
 class ModalPopupViewController: UIViewController {
 
@@ -31,7 +29,8 @@ class ModalPopupViewController: UIViewController {
     @IBAction func likeButtonTapped(_ sender: Any) {
         let lastest_liked_item = getLikedItem() as! [String: Any]
         let lastest_liked_user_id = getLikedUserID()!
-        HttpUtil.sendAction(user_from: psudo_from_id,
+        let local_user_id = String(LocalStorageUtil.localReadKeyValue(key: "user_id") as! Int)
+        HttpUtil.sendAction(user_from: local_user_id,
                             user_to: lastest_liked_user_id,
                             action_type: UserActionType.LIKE.rawValue,
                             entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,

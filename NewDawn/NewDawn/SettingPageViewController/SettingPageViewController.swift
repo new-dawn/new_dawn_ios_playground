@@ -24,6 +24,9 @@ class SettingPageViewController: UIViewController {
         polishUIButton(button: accountButton)
         polishUIButton(button: helpButton)
         polishUIButton(button: settingButton)
+        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages/0.png")
+        let img = UIImage(contentsOfFile: dataPath)
+        profileImage.image = img
     }
     
 
