@@ -230,7 +230,6 @@ class Profile_DraftFinal: UIViewController {
                 let img = UIImage(contentsOfFile: fileurl.path)
                 let order = Int(String(fileurl.lastPathComponent).prefix(1))!
                 let caption = "good"
-                // TODO: Get User id from local storage
                 let user_id = String(LocalStorageUtil.localReadKeyValue(key: "user_id") as! Int)
                 let user_uri = "/api/v1/user/\(user_id)/"
                 images_data.append([
