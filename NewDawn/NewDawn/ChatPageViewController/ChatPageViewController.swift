@@ -12,6 +12,7 @@ let END_USER_ID = "end_user_id"
 let END_USER_FIRSTNAME = "end_user_first_name"
 let END_USER_LASTNAME = "end_user_last_name"
 let END_USER_IMAGE_URL = "end_user_image_url"
+let MESSAGES = "messages"
 
 class ChatPageViewController: UIViewController {
     
@@ -20,6 +21,10 @@ class ChatPageViewController: UIViewController {
     var allMessages: [[String:Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchEndUsersAndMessages()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchEndUsersAndMessages()
     }
     func fetchEndUsersAndMessages() -> Void {
@@ -46,7 +51,7 @@ class ChatPageViewController: UIViewController {
                 let message_response = allMessages[chatIndex]
                 let end_user_id = message_response[END_USER_ID] as! Int
                 let end_user_firstname = message_response[END_USER_FIRSTNAME] as! String
-                let end_user_messages = message_response["messages"] as! [[String: Any]]
+                let end_user_messages = message_response[MESSAGES] as! [[String: Any]]
                 // TODO: Should be the info of the login user
                 destination.userNameMe = "Test"
                 destination.userIdMe = "1"
@@ -75,6 +80,12 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
             cell.chatNameLabel?.text = "\(String(describing: firstName)) \(String(describing: lastName))"
                 ImageUtil.polishCircularImageView(imageView: cell.chatImageView!)
                 cell.chatImageView.downloaded(from: cell.chatImageView.getURL(path: imageURL))
+            // Fetch last message from chat history, if any
+            if let messageTuples = currentMessageResponse[MESSAGES] as? [[String: Any]] {
+                if let lastMessageTuple = messageTuples.last {
+                    cell.lastMessageText?.text = lastMessageTuple["message"] as? String
+                }
+            }
         }
         return cell
     }
@@ -88,5 +99,5 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
 class ChatCell: UITableViewCell {
     @IBOutlet weak var chatImageView: UIImageView!
     @IBOutlet weak var chatNameLabel: UILabel!
-    
+    @IBOutlet weak var lastMessageText: UILabel!
 }

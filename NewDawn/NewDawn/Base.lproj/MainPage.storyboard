@@ -61,6 +61,7 @@
                                         <connections>
                                             <outlet property="chatImageView" destination="M9u-Gx-JM1" id="rBt-tA-lmp"/>
                                             <outlet property="chatNameLabel" destination="kO7-CJ-hxm" id="dk8-VD-dt1"/>
+                                            <outlet property="lastMessageText" destination="f3p-Hx-CK5" id="eYM-du-6qa"/>
                                             <segue destination="uWK-ge-vNo" kind="show" identifier="openChat" id="yO4-ZJ-BKw"/>
                                         </connections>
                                     </tableViewCell>
