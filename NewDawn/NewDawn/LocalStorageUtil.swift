@@ -38,3 +38,13 @@ class LocalStorageUtil {
         return nil
     }
 }
+
+class LoginUserUtil {
+    static let USER_ID = "user_id"
+    static func getLoginUserId() -> Int {
+        if let user_id = LocalStorageUtil.localReadKeyValue(key: USER_ID) as? Int {
+            return user_id
+        }
+        return 1
+    }
+}
