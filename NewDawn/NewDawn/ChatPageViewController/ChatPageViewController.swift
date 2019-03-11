@@ -29,7 +29,7 @@ class ChatPageViewController: UIViewController {
     }
     func fetchEndUsersAndMessages() -> Void {
         // TODO: replace it by login user id in local storage
-        HttpUtil.getAllMessagesAction(user_from: "1", callback: {
+        HttpUtil.getAllMessagesAction(user_from: String(LoginUserUtil.getLoginUserId()), callback: {
             response in
                 DispatchQueue.main.async {
                     if let chat_history = response["objects"] as? [[String:Any]] {
@@ -54,7 +54,7 @@ class ChatPageViewController: UIViewController {
                 let end_user_messages = message_response[MESSAGES] as! [[String: Any]]
                 // TODO: Should be the info of the login user
                 destination.userNameMe = "Test"
-                destination.userIdMe = "1"
+                destination.userIdMe = String(LoginUserUtil.getLoginUserId())
                 destination.userNameYou = "\(end_user_firstname)"
                 destination.userIdYou = String(end_user_id)
                 destination.raw_messages = end_user_messages

@@ -26,11 +26,15 @@ extension UIViewController {
     
     // A helper function to get URL based on prod/test
     // TODO: Figure out a better way to configure it
-    func getURL(path:String, prod:Bool = false) -> URL {
+    func getURL(path:String, prod:Bool = true) -> URL {
+        var final_path = path
+        if final_path.hasPrefix("/") == false {
+            final_path = "/" + path
+        }
         if prod {
-            return URL(string: "http://django-env.w8iffghn9z.us-west-2.elasticbeanstalk.com/api/v1/" + path)!
+            return URL(string: "http://new-dawn.us-west-2.elasticbeanstalk.com/api/v1" + final_path)!
         } else {
-            return URL(string: "http://localhost:8000/api/v1/" + path)!
+            return URL(string: "http://localhost:8000/api/v1" + final_path)!
         }
     }
     
