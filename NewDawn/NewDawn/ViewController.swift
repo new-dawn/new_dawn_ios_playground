@@ -26,7 +26,7 @@ extension UIViewController {
     
     // A helper function to get URL based on prod/test
     // TODO: Figure out a better way to configure it
-    func getURL(path:String, prod:Bool = true) -> URL {
+    func getURL(path:String, prod:Bool = CONNECT_TO_PROD) -> URL {
         var final_path = path
         if final_path.hasPrefix("/") == false {
             final_path = "/" + path
