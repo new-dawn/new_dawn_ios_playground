@@ -7,6 +7,12 @@
 //
 
 import UIKit
+
+// A image cache strong url -> UIImage pair
+let imageCache = NSCache<AnyObject, AnyObject>()
+
+let CONNECT_TO_PROD = false
+
 extension UIImageView {
     // A helper function to get URL based on prod/test
     // TODO: Figure out a better way to configure it
@@ -23,6 +29,10 @@ extension UIImageView {
     }
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
+        if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
+            self.image = imageFromCache
+            return
+        }
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -31,9 +41,10 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() {
+                imageCache.setObject(image, forKey: url as AnyObject)
                 self.image = image
             }
-            }.resume()
+        }.resume()
     }
 }
 
