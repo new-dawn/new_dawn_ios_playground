@@ -69,6 +69,28 @@ class Profile_PhotosUpload: UIViewController {
         }
     }
     
+    //A helper function to get a file between a maximum and minimum size of "maxSize" and "minSize", but only try "times" times. If it fails within that time, it will return nil.
+    func compressJPEG(image: UIImage, maxSize: Int, minSize: Int, times: Int) -> Data? {
+        var maxQuality: CGFloat = 1.0
+        var minQuality: CGFloat = 0.0
+        var rightData: Data?
+        for _ in 1...times {
+            let thisQuality = (maxQuality + minQuality) / 2
+            guard let data = image.jpegData(compressionQuality: thisQuality) else { return nil }
+            let thisSize = data.count
+            if thisSize > maxSize {
+                maxQuality = thisQuality
+            } else {
+                minQuality = thisQuality
+                rightData = data
+                if thisSize > minSize {
+                    return rightData
+                }
+            }
+        }
+        return rightData
+    }
+    
     // Save saves images in collection view to document directory
     @IBAction func continueUploadImageTapped(_ sender: Any) {
         
@@ -86,18 +108,11 @@ class Profile_PhotosUpload: UIViewController {
         
         for (index,img) in imagesArray.enumerated() {
             var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(index))
-            if let imagedata = (img as! UIImage).pngData() {
-                if imagedata != UIImage(named: "MeTab")!.pngData(){
-                    fileURL = fileURL.appendingPathExtension("png")
-                    do{
-                        try imagedata.write(to: fileURL, options: .atomic)
-                    }catch{
-                        print ("error", error)
-                    }
+            if var imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
+                // Make image size <250kb, compress to 125kb - 250kb
+                if (imagedata.count > 256000){
+                    imagedata = compressJPEG(image: img as! UIImage, maxSize: 256000, minSize: 128000, times: 3)!
                 }
-                
-            } else if let imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
-                
                 if imagedata != UIImage(named: "MeTab")!.jpegData(compressionQuality: 1.0){
                     fileURL = fileURL.appendingPathExtension("jpeg")
                     do{
@@ -106,6 +121,8 @@ class Profile_PhotosUpload: UIViewController {
                         print ("error", error)
                     }
                 }
+            }else{
+                self.displayMessage(userMessage: "cannot save the image", dismiss: false)
             }
             print (fileURL)
         }
