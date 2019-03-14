@@ -62,7 +62,11 @@ class QuestionAnswerViewCell: UITableViewCell {
         didSet {
             guard let item = item as? QuestionAnswerViewModelItem else { return }
             questionLabel?.text = item.question
+            answerLabel?.numberOfLines = 0
+            answerLabel?.lineBreakMode = .byWordWrapping
             answerLabel?.text = item.answer
+            answerLabel?.frame.size.width = 300
+            answerLabel?.sizeToFit()
             name = item.name
             user_id = item.user_id
             id = item.id

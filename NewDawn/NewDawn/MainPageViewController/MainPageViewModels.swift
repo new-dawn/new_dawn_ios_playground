@@ -247,7 +247,7 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
         return 1
     }
     var rowHeight: Int {
-        return 150
+        return Int(UITableView.automaticDimension)
     }
     
     // Customized Attributes

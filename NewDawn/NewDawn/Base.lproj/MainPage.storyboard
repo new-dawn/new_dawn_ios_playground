@@ -324,7 +324,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1u-10-QgG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="y1u-10-QgG">
                                                     <rect key="frame" x="20" y="46" width="95" height="38"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
                                                     <nil key="textColor"/>
@@ -348,6 +348,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="y1u-10-QgG" secondAttribute="bottom" constant="48" id="8W5-J5-zEf"/>
                                                 <constraint firstItem="y1u-10-QgG" firstAttribute="top" secondItem="vBF-of-WwC" secondAttribute="bottom" constant="15" id="T5G-Fv-Dhh"/>
                                                 <constraint firstItem="4eB-wF-FSX" firstAttribute="bottom" secondItem="w5h-qs-5pf" secondAttribute="bottomMargin" constant="7" id="Xim-2W-z22"/>
                                                 <constraint firstItem="4eB-wF-FSX" firstAttribute="trailing" secondItem="w5h-qs-5pf" secondAttribute="trailingMargin" constant="-10" id="gf8-sq-FDI"/>
@@ -365,7 +366,7 @@
                                         <rect key="frame" x="0.0" y="604" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b35-SD-ntx" id="uKN-U5-igC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3r-gg-z9h">
