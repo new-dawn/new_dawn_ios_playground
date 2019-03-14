@@ -110,7 +110,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-h9-g87">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-h9-g87">
                                 <rect key="frame" x="109.5" y="87" width="156" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="06o-n1-lBA"/>
@@ -179,6 +179,7 @@
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="KVt-mo-oFP"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="v1a-bQ-2LW" secondAttribute="bottom" constant="13" id="Nc1-eB-94Q"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JgF-5v-hzk" secondAttribute="trailing" id="We4-zk-pbt"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="-185" id="arX-BY-bws"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" id="bLK-y3-HhN"/>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="c7s-AM-xSL"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="cEv-xR-Enn"/>
