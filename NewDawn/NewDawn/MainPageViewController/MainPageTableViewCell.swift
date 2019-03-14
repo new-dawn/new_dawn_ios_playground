@@ -61,7 +61,11 @@ class QuestionAnswerViewCell: UITableViewCell {
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? QuestionAnswerViewModelItem else { return }
+            questionLabel?.numberOfLines = 0
+            questionLabel?.lineBreakMode = .byWordWrapping
             questionLabel?.text = item.question
+            questionLabel?.frame.size.width = 300
+            questionLabel?.sizeToFit()
             answerLabel?.numberOfLines = 0
             answerLabel?.lineBreakMode = .byWordWrapping
             answerLabel?.text = item.answer
