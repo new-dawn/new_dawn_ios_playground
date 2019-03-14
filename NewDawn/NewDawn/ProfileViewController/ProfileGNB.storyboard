@@ -21,19 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let us know more  about you" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
-                                <rect key="frame" x="52.5" y="72" width="270" height="80"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let us know more  about you" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
+                                <rect key="frame" x="52.5" y="72" width="270" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Pog-x6-XXW"/>
+                                    <constraint firstAttribute="height" constant="90" id="Pog-x6-XXW"/>
                                     <constraint firstAttribute="width" constant="270" id="myI-JZ-gFS"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Fill out details to get you a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
-                                <rect key="frame" x="51" y="157" width="273" height="25"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Fill out details to get you a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
+                                <rect key="frame" x="51" y="167" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Zb9-Dp-yqB"/>
                                     <constraint firstAttribute="width" constant="273" id="mS0-eN-OcQ"/>
@@ -42,8 +42,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I identify as a..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-FW-C7I">
-                                <rect key="frame" x="51" y="219" width="273" height="25"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I identify as a..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-FW-C7I">
+                                <rect key="frame" x="51" y="229" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="lXg-9i-O5B"/>
                                     <constraint firstAttribute="height" constant="25" id="lk6-uV-Aut"/>
@@ -52,8 +52,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Name" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdI-d3-yco">
-                                <rect key="frame" x="51" y="305" width="273" height="25"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Name" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdI-d3-yco">
+                                <rect key="frame" x="51" y="315" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2h9-Dc-GL6"/>
                                     <constraint firstAttribute="width" constant="273" id="wKd-XL-0l2"/>
@@ -62,8 +62,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Birthday" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-qb-e8g">
-                                <rect key="frame" x="51" y="382" width="273" height="25"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Birthday" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-qb-e8g">
+                                <rect key="frame" x="51" y="392" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="BYI-yD-VQG"/>
                                     <constraint firstAttribute="height" constant="25" id="JrV-8a-oou"/>
@@ -73,7 +73,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-wE-cfg">
-                                <rect key="frame" x="56.5" y="336" width="122" height="40"/>
+                                <rect key="frame" x="56.5" y="346" width="122" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="dA9-6R-y7P"/>
                                     <constraint firstAttribute="height" constant="40" id="oLw-4Y-Sfc"/>
@@ -86,7 +86,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zB-gA-YW1">
-                                <rect key="frame" x="56.5" y="413" width="262" height="40"/>
+                                <rect key="frame" x="56.5" y="423" width="262" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="7Zt-b2-ZTT"/>
                                     <constraint firstAttribute="height" constant="40" id="YdS-mo-TYN"/>
@@ -96,7 +96,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28d-s8-GDJ">
-                                <rect key="frame" x="57.5" y="259" width="120" height="40"/>
+                                <rect key="frame" x="57.5" y="269" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TFQ-E2-Smg"/>
                                     <constraint firstAttribute="width" constant="120" id="mnn-bf-dMz"/>
@@ -111,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-us-cso">
-                                <rect key="frame" x="197.5" y="259" width="120" height="40"/>
+                                <rect key="frame" x="197.5" y="269" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jnp-GH-1Gc"/>
                                     <constraint firstAttribute="width" constant="120" id="cnx-ff-SKe"/>
@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6j-AI-NKa">
-                                <rect key="frame" x="51" y="492" width="273" height="41"/>
+                                <rect key="frame" x="51" y="502" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="TkD-Qf-9PM"/>
@@ -141,7 +141,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-9f-LEa">
-                                <rect key="frame" x="196.5" y="336" width="122" height="40"/>
+                                <rect key="frame" x="196.5" y="346" width="122" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="S1H-Wl-2BS"/>
                                     <constraint firstAttribute="width" constant="122" id="V67-P7-vsZ"/>
@@ -236,7 +236,7 @@
                                     <segue destination="IvN-LX-e3l" kind="presentation" id="uGv-Bl-E4M"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="How tall are you?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W4-B8-ZSE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How tall are you?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W4-B8-ZSE">
                                 <rect key="frame" x="52.5" y="89" width="270" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -247,7 +247,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's measure it out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-L4-zrY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's measure it out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-L4-zrY">
                                 <rect key="frame" x="51" y="138" width="273" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="091-3J-dAh"/>
@@ -257,7 +257,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What’s your height?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXi-62-Zps">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What’s your height?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXi-62-Zps">
                                 <rect key="frame" x="51" y="180" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="MnI-8p-eyt"/>
@@ -359,7 +359,7 @@
                                     <segue destination="zK3-2z-MPV" kind="presentation" id="G4q-1k-jVJ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Woo~ Let's see" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="986-xy-CDd">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Woo~ Let's see" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="986-xy-CDd">
                                 <rect key="frame" x="36" y="150" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Joi-hx-Tfu"/>
@@ -368,7 +368,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Home town" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wru-zd-Nj8">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hometown" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wru-zd-Nj8">
                                 <rect key="frame" x="51" y="191" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="1Ib-Tl-Nn0"/>
@@ -377,7 +377,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Where are you from?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Where are you from?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
                                 <rect key="frame" x="19" y="100" width="334" height="53"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -457,7 +457,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-2a-Pjr">
-                                <rect key="frame" x="158" y="591" width="59" height="30"/>
+                                <rect key="frame" x="158" y="556" width="59" height="30"/>
                                 <state key="normal" title="Previous">
                                     <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -465,7 +465,7 @@
                                     <segue destination="SsO-BG-9ZC" kind="presentation" id="kpz-4v-05O"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Education?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-iI-Qqo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Education?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-iI-Qqo">
                                 <rect key="frame" x="52.5" y="117" width="270" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -476,18 +476,18 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Highest Degree attained?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJU-lQ-ggN">
-                                <rect key="frame" x="52.5" y="293" width="270" height="80"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Highest Degree attained?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJU-lQ-ggN">
+                                <rect key="frame" x="52.5" y="293" width="270" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="SWH-1l-UKn"/>
+                                    <constraint firstAttribute="height" constant="45" id="SWH-1l-UKn"/>
                                     <constraint firstAttribute="width" constant="270" id="op5-9C-iwO"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fc-2H-E0A">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fc-2H-E0A">
                                 <rect key="frame" x="51" y="165" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="48J-YI-hne"/>
@@ -497,8 +497,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-S0-g97">
-                                <rect key="frame" x="51" y="381" width="273" height="33"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-S0-g97">
+                                <rect key="frame" x="51" y="346" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="76m-Ef-j6D"/>
                                     <constraint firstAttribute="height" constant="33" id="OX6-ye-FwF"/>
@@ -521,7 +521,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please select a degree" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kqs-ZE-N7C">
-                                <rect key="frame" x="56.5" y="439" width="262" height="40"/>
+                                <rect key="frame" x="56.5" y="404" width="262" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rTI-oc-LZ2"/>
                                     <constraint firstAttribute="width" constant="262" id="ygH-YB-IxT"/>
@@ -531,7 +531,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB2-DE-TsQ">
-                                <rect key="frame" x="127.5" y="487" width="120" height="40"/>
+                                <rect key="frame" x="127.5" y="452" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="5Yp-Mt-gQc"/>
                                     <constraint firstAttribute="height" constant="40" id="BFb-vx-Mo8"/>
@@ -546,7 +546,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnY-7K-EZD">
-                                <rect key="frame" x="51" y="542" width="273" height="41"/>
+                                <rect key="frame" x="51" y="507" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="M9e-HD-GCq"/>
@@ -621,7 +621,7 @@
                                     <segue destination="Y6c-YO-xpe" kind="presentation" id="cLz-FJ-ORZ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Work?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Hw-dqC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Work?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Hw-dqC">
                                 <rect key="frame" x="53" y="117" width="270" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -632,7 +632,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inc-9W-qYR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inc-9W-qYR">
                                 <rect key="frame" x="53" y="168" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="KJB-eu-Ae5"/>
@@ -655,7 +655,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Job?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-Ka-uas">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Job?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-Ka-uas">
                                 <rect key="frame" x="53" y="289" width="270" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -666,7 +666,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPL-2K-W0a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPL-2K-W0a">
                                 <rect key="frame" x="53" y="340" width="273" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="UKb-7m-985"/>
@@ -848,7 +848,7 @@
                                     <segue destination="gIN-sC-2GR" kind="presentation" identifier="smoke_continue" id="Khe-Ut-PaY"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Do you smoke?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-cL-mxY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Do you smoke?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-cL-mxY">
                                 <rect key="frame" x="56" y="80" width="263" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -858,7 +858,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qja-3Z-qqY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qja-3Z-qqY">
                                 <rect key="frame" x="56" y="141" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="AXo-t4-L1Q"/>
@@ -927,8 +927,8 @@
                                     <segue destination="GWg-yl-rvs" kind="presentation" id="Pgd-b9-6Ew"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
-                                <rect key="frame" x="58" y="91" width="263" height="125"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
+                                <rect key="frame" x="58" y="90" width="263" height="126"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Use your best photos &amp; videos to shine!
 
@@ -937,7 +937,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Yes! Let’s do it!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Yes! Let’s do it!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
                                 <rect key="frame" x="58" y="259" width="124" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="jjt-CG-Ddb"/>
@@ -987,7 +987,7 @@
                             <constraint firstItem="MbO-EJ-brt" firstAttribute="top" secondItem="Cfc-nG-lnu" secondAttribute="bottom" constant="68" id="SR3-Sc-qyd"/>
                             <constraint firstItem="cDX-nM-D9l" firstAttribute="centerX" secondItem="MbO-EJ-brt" secondAttribute="centerX" id="X4L-0a-wu3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MbO-EJ-brt" secondAttribute="trailing" constant="33" id="d4y-dD-BdF"/>
-                            <constraint firstItem="cDX-nM-D9l" firstAttribute="top" secondItem="YI4-RN-GnN" secondAttribute="bottom" constant="71" id="gOT-D5-yTq"/>
+                            <constraint firstItem="cDX-nM-D9l" firstAttribute="top" secondItem="YI4-RN-GnN" secondAttribute="bottom" constant="70" id="gOT-D5-yTq"/>
                             <constraint firstItem="lMQ-z4-m38" firstAttribute="top" secondItem="MbO-EJ-brt" secondAttribute="bottom" constant="97" id="nD1-Ac-Zjg"/>
                             <constraint firstItem="xdk-k2-Y5g" firstAttribute="top" secondItem="lMQ-z4-m38" secondAttribute="bottom" constant="19" id="nmS-a1-Ydn"/>
                             <constraint firstItem="MbO-EJ-brt" firstAttribute="leading" secondItem="lMQ-z4-m38" secondAttribute="leading" id="raB-7u-oFw"/>
@@ -1012,7 +1012,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-bj-vH2">
-                                <rect key="frame" x="51" y="503" width="273" height="41"/>
+                                <rect key="frame" x="51" y="495" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Inc-Ge-0NM"/>
@@ -1026,7 +1026,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuL-65-CAT">
-                                <rect key="frame" x="51" y="564" width="273" height="41"/>
+                                <rect key="frame" x="51" y="556" width="273" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Crh-wf-ZMP"/>
@@ -1040,19 +1040,19 @@
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="Gin-xT-bC7"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="To boost efficiency, let us notify you!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obx-vS-3M0">
-                                <rect key="frame" x="37.5" y="193" width="300" height="80"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="To boost efficiency, let us notify you!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obx-vS-3M0">
+                                <rect key="frame" x="37.5" y="175" width="300" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Aai-Sz-CzQ"/>
-                                    <constraint firstAttribute="height" constant="80" id="uRC-N3-DdK"/>
+                                    <constraint firstAttribute="height" constant="90" id="uRC-N3-DdK"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Get notified with your match!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkZ-eO-vKO">
-                                <rect key="frame" x="87.5" y="283" width="200" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Get notified with your match!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkZ-eO-vKO">
+                                <rect key="frame" x="87.5" y="275" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Fyv-hn-LJz"/>
                                     <constraint firstAttribute="width" constant="200" id="JE9-BN-Kzo"/>
@@ -1071,7 +1071,7 @@
                             <constraint firstItem="obx-vS-3M0" firstAttribute="centerX" secondItem="emh-RW-0p1" secondAttribute="centerX" id="UeS-YC-uZe"/>
                             <constraint firstItem="zuL-65-CAT" firstAttribute="centerX" secondItem="emh-RW-0p1" secondAttribute="centerX" id="g2y-LE-iyZ"/>
                             <constraint firstItem="zuL-65-CAT" firstAttribute="top" secondItem="uCG-bj-vH2" secondAttribute="bottom" constant="20" id="rmT-Jd-AO0"/>
-                            <constraint firstItem="obx-vS-3M0" firstAttribute="top" secondItem="eEr-eZ-2P6" secondAttribute="bottom" constant="173" id="uPr-QV-qKH"/>
+                            <constraint firstItem="obx-vS-3M0" firstAttribute="top" secondItem="eEr-eZ-2P6" secondAttribute="bottom" constant="155" id="uPr-QV-qKH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1264,7 +1264,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome! Enjoy!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjW-5U-yGh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Welcome! Enjoy!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjW-5U-yGh">
                                 <rect key="frame" x="37.5" y="290" width="300" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1354,7 +1354,7 @@
                                     <segue destination="rCc-Xe-gYN" kind="presentation" id="Sib-rs-igN"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Do you drink?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwA-Ju-ZuK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Do you drink?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwA-Ju-ZuK">
                                 <rect key="frame" x="56" y="80" width="263" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1364,7 +1364,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-4a-rFD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's find out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-4a-rFD">
                                 <rect key="frame" x="56" y="141" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="0ra-Nv-rgS"/>
@@ -1466,12 +1466,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iHz-cU-Dm1"/>
-        <segue reference="Ewt-Pj-4Ll"/>
-        <segue reference="Khe-Ut-PaY"/>
-        <segue reference="6m0-PK-7Bw"/>
+        <segue reference="Pgd-b9-6Ew"/>
+        <segue reference="Gin-xT-bC7"/>
+        <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="7PI-cb-EZr"/>
-        <segue reference="xAU-WT-A6c"/>
-        <segue reference="jxh-C2-kWy"/>
+        <segue reference="kpz-4v-05O"/>
+        <segue reference="G4q-1k-jVJ"/>
     </inferredMetricsTieBreakers>
 </document>
