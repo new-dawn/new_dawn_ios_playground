@@ -8,7 +8,7 @@
 
 import UIKit
 
-// A image cache strong url -> UIImage pair
+// A image cache storing url -> UIImage pair
 let imageCache = NSCache<AnyObject, AnyObject>()
 
 let CONNECT_TO_PROD = false
