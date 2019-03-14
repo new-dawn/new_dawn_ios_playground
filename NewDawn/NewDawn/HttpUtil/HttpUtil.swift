@@ -9,10 +9,9 @@
 import UIKit
 
 // A image cache storing url -> UIImage pair
-
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-let CONNECT_TO_PROD = true
+let CONNECT_TO_PROD = false
 
 extension UIImageView {
     // A helper function to get URL based on prod/test
