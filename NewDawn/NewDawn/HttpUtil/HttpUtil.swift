@@ -8,7 +8,7 @@
 
 import UIKit
 
-let CONNECT_TO_PROD = true
+let CONNECT_TO_PROD = false
 
 extension UIImageView {
     // A helper function to get URL based on prod/test
