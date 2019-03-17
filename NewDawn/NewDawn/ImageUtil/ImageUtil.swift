@@ -44,4 +44,25 @@ class ImageUtil {
         }
         return rightData
     }
+    
+    static func downLoadImage(url: String, callback: @escaping (UIImage) -> Void) -> Void {
+        let url = HttpUtil.getURL(path: url, isMedia: true)
+        if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
+            DispatchQueue.main.async() {
+                callback(imageFromCache)
+            }
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                imageCache.setObject(image, forKey: url as AnyObject)
+                callback(image)
+            }
+        }.resume()
+    }
 }

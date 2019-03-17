@@ -213,7 +213,7 @@ struct UserProfile: Codable {
 
 class UserProfileBuilder{
     
-    static func createGetProfileRequest(input_params: [String:String] = [:])-> URLRequest?{
+    static func createGetProfileRequest(_ input_params: [String:String] = [:])-> URLRequest?{
         let params = HttpUtil.encodeParams(raw_params: input_params)
         let url = HttpUtil.getURL(path: "/profile/" + params)
         var request = URLRequest(url:url)
@@ -224,14 +224,9 @@ class UserProfileBuilder{
     }
     
     // Usage for user to other users' profiles information from backend
-    static func fetchAndStoreUserProfiles(callback: @escaping (NSDictionary) -> Void){
+    static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary) -> Void){
         // TODO: get username and api_key from keychain/local storage
-
-//        let psudo_params = [
-//            "username":"testadmin",
-//            "api_key":"14f08e5e6f1bd7e2e8c80d8111feb82cc5a7f98c"
-//        ]
-        let request = UserProfileBuilder.createGetProfileRequest()
+        let request = UserProfileBuilder.createGetProfileRequest(params)
         HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
@@ -255,6 +250,17 @@ class UserProfileBuilder{
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>()
         ]
         return info
+    }
+    
+    static func parseAndReturn(response: NSDictionary)-> [UserProfile] {
+        var fetched_users = [UserProfile]()
+        let profile_responses = response["objects"] as? [[String: Any]]
+        for profile in profile_responses!{
+            let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
+            let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
+            fetched_users.append(dummy_user_profile)
+        }
+        return fetched_users
     }
     
     // Store all retrieved users' information to a list of dictionary and into local storage

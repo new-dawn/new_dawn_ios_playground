@@ -35,12 +35,18 @@ class ChatRoomViewController: MessagesViewController {
     var userIdYou: String = "-1"
     var userNameMe: String = "Me"
     var userNameYou: String = "You"
+//    var userImageMe: UIImage
+//    var userImageYou: UIImage
     var raw_messages: [[String: Any]] = []
     // Senders and messages
     // To be configured when this view is loaded
     var senderMe: Sender?
     var messages: [MessageType] = []
     var pusher: Pusher!
+    
+    // User profile object
+    var userProfileMe: UserProfile?
+    var userProfileYou: UserProfile?
     
     func configureSenders() -> Void {
         senderMe = Sender(id: userIdMe, displayName: userNameMe)
@@ -99,6 +105,29 @@ class ChatRoomViewController: MessagesViewController {
         })
         pusher.connect()
     }
+    
+    func fetchUserProfiles() -> Void {
+        UserProfileBuilder.fetchUserProfiles(params: ["user__id": userIdYou]) {
+            (data) in
+            let profiles = UserProfileBuilder.parseAndReturn(response: data)
+            if !profiles.isEmpty {
+                self.userProfileYou = UserProfileBuilder.parseAndReturn(response: data)[0]
+                DispatchQueue.main.async {
+                    self.messagesCollectionView.reloadData()
+                }
+            }
+        }
+        UserProfileBuilder.fetchUserProfiles(params: ["user__id": self.userIdMe]) {
+            (data) in
+            let profiles = UserProfileBuilder.parseAndReturn(response: data)
+            if !profiles.isEmpty {
+                self.userProfileMe = UserProfileBuilder.parseAndReturn(response: data)[0]
+                DispatchQueue.main.async {
+                    self.messagesCollectionView.reloadData()
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +151,7 @@ class ChatRoomViewController: MessagesViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchUserProfiles()
         self.title = userNameYou
     }
     
@@ -173,7 +203,29 @@ extension ChatRoomViewController: MessagesDataSource {
     }
 }
 
-extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {}
+extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let userId = message.sender.id
+        if userId == self.userIdMe {
+            setAvatarForUser(url: userProfileMe?.mainImages[0].image_url, view: avatarView)
+        }
+        if userId == self.userIdYou {
+            setAvatarForUser(url: userProfileYou?.mainImages[0].image_url, view: avatarView)
+        }
+    }
+    func setAvatarForUser(url: String?, view: AvatarView) -> Void {
+        if (url == nil) {
+            let avatar = Avatar(image: nil, initials: "NA")
+            view.set(avatar: avatar)
+        } else {
+            ImageUtil.downLoadImage(url: url!) {
+                image in
+                let avatar = Avatar(image: image, initials: "NA")
+                view.set(avatar: avatar)
+            }
+        }
+    }
+}
 
 // MARK: - MessageInputBarDelegate
 extension ChatRoomViewController: MessageInputBarDelegate {
