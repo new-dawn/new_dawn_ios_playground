@@ -18,7 +18,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     /* Constrains */
     
     var visibleField = false
-    let heightPickerData = ["<140 cm", "140 cm", "141 cm"]
+    let heightPickerData = Profile_Height.heightGenerator(minHeight: 140, maxHeight: 250)
     
     @IBOutlet weak var heightTextField: UITextField!
     
@@ -113,4 +113,10 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         heightTextField.resignFirstResponder()
     }
     
+    class func heightGenerator(minHeight: Int, maxHeight: Int) -> [String]{
+        let heights_int = [Int](minHeight...maxHeight)
+        var heightStringArray = heights_int.map { String($0) + " cm"}
+        heightStringArray.insert("<140 cm", at: 0)
+        return heightStringArray
+    }
 }
