@@ -17,15 +17,13 @@ class Profile_PhotosUpload: UIViewController {
     let picker = UIImagePickerController()
     // Use this variable to track which image to replace with
     var clicked_image = 0
-    // This image can be replaced by other default images
-    var default_button = UIImage(named: "MeTab")
     var imagesArray = NSMutableArray()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Default images
-        imagesArray = [default_button!, default_button!, default_button!, default_button!, default_button!, default_button!]
+        imagesArray = [BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG]
         
         // Delegate
         collectionView.dataSource = self
@@ -86,19 +84,11 @@ class Profile_PhotosUpload: UIViewController {
         
         for (index,img) in imagesArray.enumerated() {
             var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(index))
-            if let imagedata = (img as! UIImage).pngData() {
-                if imagedata != UIImage(named: "MeTab")!.pngData(){
-                    fileURL = fileURL.appendingPathExtension("png")
-                    do{
-                        try imagedata.write(to: fileURL, options: .atomic)
-                    }catch{
-                        print ("error", error)
-                    }
+            if var imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
+                if (imagedata.count > MAX_IMG_SIZE){
+                    imagedata = ImageUtil.compressJPEG(image: img as! UIImage)!
                 }
-                
-            } else if let imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
-                
-                if imagedata != UIImage(named: "MeTab")!.jpegData(compressionQuality: 1.0){
+                if imagedata != BLANK_IMG.jpegData(compressionQuality: 1.0){
                     fileURL = fileURL.appendingPathExtension("jpeg")
                     do{
                         try imagedata.write(to: fileURL, options: .atomic)
@@ -106,6 +96,8 @@ class Profile_PhotosUpload: UIViewController {
                         print ("error", error)
                     }
                 }
+            }else{
+                self.displayMessage(userMessage: "cannot save the image", dismiss: false)
             }
             print (fileURL)
         }
@@ -177,7 +169,7 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             self.imagesArray.removeObject(at: self.clicked_image)
-            self.imagesArray.insert(self.default_button!, at: self.clicked_image)
+            self.imagesArray.insert(BLANK_IMG, at: self.clicked_image)
             self.collectionView.reloadData()
         }))
         
