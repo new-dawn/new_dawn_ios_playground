@@ -69,7 +69,7 @@ class Profile_PhotosUpload: UIViewController {
         }
     }
     
-    //A helper function to get a file between a maximum and minimum size of "maxSize" and "minSize", but only try "times" times. If it fails within that time, it will return nil.
+    //A Binary helper function to compress a file between a maximum and minimum size of "maxSize" and "minSize", but only try "times" times. If it fails within that time, it will return nil.
     func compressJPEG(image: UIImage, maxSize: Int, minSize: Int, times: Int) -> Data? {
         var maxQuality: CGFloat = 1.0
         var minQuality: CGFloat = 0.0

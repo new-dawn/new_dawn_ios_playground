@@ -54,7 +54,7 @@ class Profile_DraftFinal: UIViewController {
                         "caption": single_image["caption"]!,
                         "user": single_image["user_uri"]!
                         ] as [String: Any]
-                    let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".png"
+                    let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".jpeg"
                     self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
                         print("image upload \(success)")}
                 }
@@ -183,7 +183,7 @@ class Profile_DraftFinal: UIViewController {
     // A helper function to upload image
     func photoUploader(photo: UIImage, filename: String, parameters: [String: Any], completion: @escaping (Bool) -> Void) {
         
-        let imageData = photo.pngData()
+        let imageData = photo.jpegData(compressionQuality: 1)
         
 //        guard let authToken = Locksmith.loadDataForUserAccount(userAccount: "userToken")?["token"] as? String else {
 //            return
@@ -208,7 +208,7 @@ class Profile_DraftFinal: UIViewController {
         
         if let url = url {
             upload(multipartFormData: { (mpd) in
-                mpd.append(imageData!, withName: "media", fileName: filename, mimeType: "image/png")
+                mpd.append(imageData!, withName: "media", fileName: filename, mimeType: "image/jpeg")
                 mpd.append(data, withName: "data")
             }, with: url, encodingCompletion: { (success) in
                 debugPrint(success)
