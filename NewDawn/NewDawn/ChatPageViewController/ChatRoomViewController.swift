@@ -42,6 +42,9 @@ class ChatRoomViewController: MessagesViewController {
     var messages: [MessageType] = []
     var pusher: Pusher!
     
+    // User profile object
+    var userProfileYou: UserProfile?
+    
     func configureSenders() -> Void {
         senderMe = Sender(id: userIdMe, displayName: userNameMe)
     }
@@ -98,6 +101,25 @@ class ChatRoomViewController: MessagesViewController {
             }
         })
         pusher.connect()
+    }
+    
+    func fetchEndUserProfile(callback: @escaping (UserProfile) -> Void) -> Void {
+        if self.userProfileYou != nil {
+            DispatchQueue.main.async {
+                callback(self.userProfileYou!)
+            }
+            return
+        }
+        UserProfileBuilder.fetchUserProfiles(params: ["user__id": userIdYou]) {
+            (data) in
+            let profiles = UserProfileBuilder.parseAndReturn(response: data)
+            if !profiles.isEmpty {
+                self.userProfileYou = profiles[0]
+                DispatchQueue.main.async {
+                    callback(profiles[0])
+                }
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -173,7 +195,29 @@ extension ChatRoomViewController: MessagesDataSource {
     }
 }
 
-extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {}
+extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let userId = message.sender.id
+        if userId == self.userIdYou {
+            fetchEndUserProfile() {
+                profile in
+                self.setAvatarForUser(url: profile.mainImages[0].image_url, view: avatarView)
+            }
+        }
+    }
+    func setAvatarForUser(url: String?, view: AvatarView) -> Void {
+        if (url == nil) {
+            let avatar = Avatar(image: nil, initials: "NA")
+            view.set(avatar: avatar)
+        } else {
+            ImageUtil.downLoadImage(url: url!) {
+                image in
+                let avatar = Avatar(image: image, initials: "NA")
+                view.set(avatar: avatar)
+            }
+        }
+    }
+}
 
 // MARK: - MessageInputBarDelegate
 extension ChatRoomViewController: MessageInputBarDelegate {
