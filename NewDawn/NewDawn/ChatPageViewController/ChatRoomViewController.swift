@@ -43,7 +43,6 @@ class ChatRoomViewController: MessagesViewController {
     var pusher: Pusher!
     
     // User profile object
-    var userProfileMe: UserProfile?
     var userProfileYou: UserProfile?
     
     func configureSenders() -> Void {
@@ -104,24 +103,20 @@ class ChatRoomViewController: MessagesViewController {
         pusher.connect()
     }
     
-    func fetchUserProfiles() -> Void {
+    func fetchEndUserProfile(callback: @escaping (UserProfile) -> Void) -> Void {
+        if self.userProfileYou != nil {
+            DispatchQueue.main.async {
+                callback(self.userProfileYou!)
+            }
+            return
+        }
         UserProfileBuilder.fetchUserProfiles(params: ["user__id": userIdYou]) {
             (data) in
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
-                self.userProfileYou = UserProfileBuilder.parseAndReturn(response: data)[0]
+                self.userProfileYou = profiles[0]
                 DispatchQueue.main.async {
-                    self.messagesCollectionView.reloadData()
-                }
-            }
-        }
-        UserProfileBuilder.fetchUserProfiles(params: ["user__id": self.userIdMe]) {
-            (data) in
-            let profiles = UserProfileBuilder.parseAndReturn(response: data)
-            if !profiles.isEmpty {
-                self.userProfileMe = UserProfileBuilder.parseAndReturn(response: data)[0]
-                DispatchQueue.main.async {
-                    self.messagesCollectionView.reloadData()
+                    callback(profiles[0])
                 }
             }
         }
@@ -130,7 +125,6 @@ class ChatRoomViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSenders()
-        fetchUserProfiles()
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -204,11 +198,11 @@ extension ChatRoomViewController: MessagesDataSource {
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.id
-        if userId == self.userIdMe {
-            setAvatarForUser(url: userProfileMe?.mainImages[0].image_url, view: avatarView)
-        }
         if userId == self.userIdYou {
-            setAvatarForUser(url: userProfileYou?.mainImages[0].image_url, view: avatarView)
+            fetchEndUserProfile() {
+                profile in
+                self.setAvatarForUser(url: profile.mainImages[0].image_url, view: avatarView)
+            }
         }
     }
     func setAvatarForUser(url: String?, view: AvatarView) -> Void {
