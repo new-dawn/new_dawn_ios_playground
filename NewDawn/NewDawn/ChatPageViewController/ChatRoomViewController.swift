@@ -35,8 +35,6 @@ class ChatRoomViewController: MessagesViewController {
     var userIdYou: String = "-1"
     var userNameMe: String = "Me"
     var userNameYou: String = "You"
-//    var userImageMe: UIImage
-//    var userImageYou: UIImage
     var raw_messages: [[String: Any]] = []
     // Senders and messages
     // To be configured when this view is loaded
