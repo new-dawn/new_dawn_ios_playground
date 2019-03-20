@@ -234,7 +234,7 @@ extension UIViewController {
         if force || TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
-            UserProfileBuilder.fetchUserProfiles(["viewer_id": LoginUserUtil.getLoginUserId()]) {
+            UserProfileBuilder.fetchUserProfiles(params: ["viewer_id": String(LoginUserUtil.getLoginUserId())]) {
                 (data) in
                 UserProfileBuilder.parseAndStoreInLocalStorage(response: data)
                 DispatchQueue.main.async {

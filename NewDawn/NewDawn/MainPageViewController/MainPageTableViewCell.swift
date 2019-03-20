@@ -38,7 +38,7 @@ class LikeImageViewCell: UITableViewCell {
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? LikeImageViewModelItem else { return }
-            likeLabel?.text = item.likerFirstName + "likes you"
+            likeLabel?.text = item.likerFirstName + " likes you"
             likeMessage?.text = item.likedMessage
             likeImageView!.downloaded(from: likeImageView!.getURL(path: item.likedImageURL))
         }
@@ -53,7 +53,7 @@ class LikeAnswerViewCell: UITableViewCell {
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? LikeAnswerViewModelItem else { return }
-            likeLabel?.text = item.likerFirstName + "likes you"
+            likeLabel?.text = item.likerFirstName + " likes you"
             likeMessage?.text = item.likedMessage
             likeAnswer?.text = item.likedAnswer
         }
