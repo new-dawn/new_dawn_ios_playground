@@ -19,6 +19,8 @@ enum MainPageViewModelItemType: Int {
     case QUESTION_ANSWER = 3
     case INSTAGRAM = 4
     case LINKEDIN = 5
+    case LIKE_IMAGE = 6
+    case LIKE_ANSWER = 7
 }
 
 enum UserActionType: Int{
@@ -27,6 +29,13 @@ enum UserActionType: Int{
     case MATCH = 3
     case RELATIONSHIP = 4
     case MESSAGE = 5
+}
+
+enum EntityType: Int{
+    case NONE = 0
+    case MAIN_IMAGE = 1
+    case BASIC_INFO = 2
+    case QUESTION_ANSWER = 3
 }
 
 // Standardize the requirement for each section
@@ -61,7 +70,19 @@ class MainPageViewModel: NSObject {
     
     init(userProfile: UserProfile) {
         super.init()
-        // Append all items in order
+
+        // Append liked banner on top of the view
+        let likedInfo = userProfile.likedInfo
+        if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+            items.append(
+                LikeImageViewModelItem(likerFirstName: userProfile.firstname, likedImageURL: likedInfo.liked_image_url, likedMessage: likedInfo.liked_message))
+        }
+        if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+            items.append(
+                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_answer, likedMessage: likedInfo.liked_message))
+        }
+
+        // Append image items
         if !userProfile.mainImages.isEmpty {
             for index in 0...userProfile.mainImages.count-1 {
                 image_items.append(
@@ -189,7 +210,19 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
         case .LINKEDIN:
         return UITableViewCell()
-        }
+        case .LIKE_IMAGE:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "likeImageCell", for: indexPath) as? LikeImageViewCell {
+                cell.item = item
+                cell.selectionStyle = .none
+                return cell
+            }
+        case .LIKE_ANSWER:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "likeAnswerCell", for: indexPath) as? LikeAnswerViewCell {
+                cell.item = item
+                cell.selectionStyle = .none
+                return cell
+            }
+    }
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -198,6 +231,62 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
 }
 
 // ---------- View Model Item Definitions ----------
+
+class LikeImageViewModelItem: MainPageViewModellItem {
+    
+    // Required Attributes
+    var type: MainPageViewModelItemType {
+        return .LIKE_IMAGE
+    }
+    var sectionTitle: String {
+        return "Like Image"
+    }
+    var rowCount: Int {
+        return 1
+    }
+    var rowHeight: Int {
+        return 150
+    }
+    
+    // Customized Attributes
+    var likerFirstName: String
+    var likedImageURL: String
+    var likedMessage: String
+    
+    init(likerFirstName: String, likedImageURL: String, likedMessage: String) {
+        self.likerFirstName = likerFirstName
+        self.likedImageURL = likedImageURL
+        self.likedMessage = likedMessage
+    }
+}
+
+class LikeAnswerViewModelItem: MainPageViewModellItem {
+    
+    // Required Attributes
+    var type: MainPageViewModelItemType {
+        return .LIKE_ANSWER
+    }
+    var sectionTitle: String {
+        return "Like Answer"
+    }
+    var rowCount: Int {
+        return 1
+    }
+    var rowHeight: Int {
+        return 150
+    }
+    
+    // Customized Attributes
+    var likerFirstName: String
+    var likedAnswer: String
+    var likedMessage: String
+    
+    init(likerFirstName: String, likedAnswer: String, likedMessage: String) {
+        self.likerFirstName = likerFirstName
+        self.likedAnswer = likedAnswer
+        self.likedMessage = likedMessage
+    }
+}
 
 class BasicInfoViewModelItem: MainPageViewModellItem {
     

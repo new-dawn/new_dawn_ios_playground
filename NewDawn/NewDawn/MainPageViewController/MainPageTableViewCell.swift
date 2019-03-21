@@ -30,6 +30,36 @@ class MainPageTableViewCell: UITableViewCell {
     }
 }
 
+class LikeImageViewCell: UITableViewCell {
+    @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var likeMessage: UITextView!
+    @IBOutlet weak var likeImageView: UIImageView!
+    
+    var item: MainPageViewModellItem? {
+        didSet {
+            guard let item = item as? LikeImageViewModelItem else { return }
+            likeLabel?.text = item.likerFirstName + " likes your photo!"
+            likeMessage?.text = item.likedMessage
+            likeImageView!.downloaded(from: likeImageView!.getURL(path: item.likedImageURL))
+        }
+    }
+}
+
+class LikeAnswerViewCell: UITableViewCell {
+    @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var likeAnswer: UITextView!
+    @IBOutlet weak var likeMessage: UITextView!
+    
+    var item: MainPageViewModellItem? {
+        didSet {
+            guard let item = item as? LikeAnswerViewModelItem else { return }
+            likeLabel?.text = item.likerFirstName + " likes your answer!"
+            likeMessage?.text = item.likedMessage
+            likeAnswer?.text = item.likedAnswer
+        }
+    }
+}
+
 class BasicInfoViewCell: UITableViewCell {
     
     @IBOutlet weak var locationLabel: UILabel!
