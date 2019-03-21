@@ -51,6 +51,7 @@ class ImageUtil {
             DispatchQueue.main.async() {
                 callback(imageFromCache)
             }
+            return
         }
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
