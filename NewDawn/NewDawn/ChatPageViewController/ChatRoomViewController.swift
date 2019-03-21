@@ -59,10 +59,43 @@ class ChatRoomViewController: MessagesViewController {
         }
     }
     
-    func fetchMessagesFromHistory() -> Void {
+    func fetchLikeMessage(profile: UserProfile) -> Void {
+        let likeInfo = profile.likedInfo
+        let sender = Sender(id: String(userIdYou), displayName: String(userNameYou))
+        if likeInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+            ImageUtil.downLoadImage(url: likeInfo.liked_image_url) {
+                image in
+                // Append a image
+                self.messages.append(
+                    ImageMessage(sender: sender, image: image)
+                )
+                // Append message
+                self.messages.append(
+                    TextMessage(sender: sender, content: likeInfo.liked_message)
+                )
+                self.fetchRegularMessage()
+            }
+        }
+        else if likeInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+            // Append a answer
+            self.messages.append(
+                TextMessage(sender: sender, content: likeInfo.liked_answer)
+            )
+            // Append message
+            self.messages.append(
+                TextMessage(sender: sender, content: likeInfo.liked_message)
+            )
+            fetchRegularMessage()
+        }
+        else {
+            fetchRegularMessage()
+        }
+    }
+    
+    func fetchRegularMessage() -> Void {
         for chat_record in self.raw_messages {
-            if let user_from_id = chat_record[MESSAGE_USER_FROM_ID] as? Int,
-            let message = chat_record[MESSAGE] as? String {
+            if let user_from_id = chat_record[self.MESSAGE_USER_FROM_ID] as? Int,
+                let message = chat_record[self.MESSAGE] as? String {
                 self.messages.append(
                     TextMessage(
                         sender: Sender(id: String(user_from_id), displayName: String(user_from_id)),
@@ -73,6 +106,13 @@ class ChatRoomViewController: MessagesViewController {
         }
         self.messagesCollectionView.reloadData()
         self.messagesCollectionView.scrollToBottom()
+    }
+    
+    func fetchMessagesFromHistory() -> Void {
+        fetchEndUserProfile() {
+            profile in
+            self.fetchLikeMessage(profile: profile)
+        }
     }
 
     func subscribeToChat() -> Void {
@@ -110,7 +150,7 @@ class ChatRoomViewController: MessagesViewController {
             }
             return
         }
-        UserProfileBuilder.fetchUserProfiles(params: ["user__id": userIdYou]) {
+        UserProfileBuilder.fetchUserProfiles(params: ["viewer_id": userIdMe,"user__id": userIdYou]) {
             (data) in
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
@@ -198,6 +238,9 @@ extension ChatRoomViewController: MessagesDataSource {
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.id
+        if userId == self.userIdMe {
+            self.setAvatarForUser(url: nil, view: avatarView)
+        }
         if userId == self.userIdYou {
             fetchEndUserProfile() {
                 profile in
@@ -207,7 +250,7 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
     }
     func setAvatarForUser(url: String?, view: AvatarView) -> Void {
         if (url == nil) {
-            let avatar = Avatar(image: nil, initials: "NA")
+            let avatar = Avatar(image: BLANK_IMG, initials: "NA")
             view.set(avatar: avatar)
         } else {
             ImageUtil.downLoadImage(url: url!) {
