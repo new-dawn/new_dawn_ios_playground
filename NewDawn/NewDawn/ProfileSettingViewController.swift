@@ -18,10 +18,19 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var privacyButton: UIButton!
     @IBAction func logOutButton(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
-        alertController.setValue(NSAttributedString(string: alertController.message!,
-                                                    attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
+        alertController.setValue(NSAttributedString(string: alertController.message!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
         let confirmAction = UIAlertAction(title: "Log Out Now      ", style: .default) { (_) in
-            // Add confirm action
+            if LoginUserUtil.logout() {
+                // Take user to login page
+                let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                // Go to profile page
+                DispatchQueue.main.async {
+                    let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController")
+                        as! PhoneVerifyViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = loginPage
+                }
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in}
         cancelAction.setValue(UIColor.black, forKey: "titleTextColor")

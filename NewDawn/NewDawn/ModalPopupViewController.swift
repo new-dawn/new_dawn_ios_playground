@@ -29,7 +29,7 @@ class ModalPopupViewController: UIViewController {
     @IBAction func likeButtonTapped(_ sender: Any) {
         let lastest_liked_item = getLikedItem() as! [String: Any]
         let lastest_liked_user_id = getLikedUserID()!
-        let local_user_id = String(LoginUserUtil.getLoginUserId())
+        let local_user_id = String(LoginUserUtil.getLoginUserId()!)
         HttpUtil.sendAction(user_from: local_user_id,
                             user_to: lastest_liked_user_id,
                             action_type: UserActionType.LIKE.rawValue,
