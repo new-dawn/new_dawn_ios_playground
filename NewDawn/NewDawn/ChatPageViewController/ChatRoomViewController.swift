@@ -168,6 +168,7 @@ class ChatRoomViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
         messageInputBar.delegate = self
         fetchMessagesFromHistory()
     }
@@ -273,5 +274,25 @@ extension ChatRoomViewController: MessageInputBarDelegate {
         }
         inputBar.inputTextView.text = String()
         messagesCollectionView.scrollToBottom(animated: true)
+    }
+}
+
+// MARK: - MessageCellDelegate
+extension ChatRoomViewController: MessageCellDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Prepare fields sent to next page
+        let chatProfileController = segue.destination as! ChatProfileViewController
+        if let sender = sender as? UserProfile {
+            chatProfileController.user_profile = sender
+        }
+    }
+    func didTapAvatar(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else { return }
+        guard let messagesDataSource = messagesCollectionView.messagesDataSource else { return }
+        let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
+        let sender = message.sender
+        if sender.id == self.userIdYou {
+            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
+        }
     }
 }
