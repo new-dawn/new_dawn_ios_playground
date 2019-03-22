@@ -68,8 +68,8 @@ class Profile_DraftFinal: UIViewController {
         var url = getURL(path: "register/")
         var httpMethod: String;
         let register_info: [String: Any] = getUserInputInfo()
-        if let user_id = LocalStorageUtil.localReadKeyValue(key: "user_id"){
-            let user_id_url = String(describing: user_id) + "/"
+        if let user_id = LoginUserUtil.getLoginUserId(){
+            let user_id_url = String(user_id) + "/"
             httpMethod = "PUT"
             url = url.appendingPathComponent(user_id_url)
         }else{
