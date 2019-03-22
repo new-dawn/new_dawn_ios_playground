@@ -29,6 +29,21 @@ class PhoneVerifyViewController: UIViewController {
             return
         }
         
+        if (phoneNumber == "testomni") {
+            // WARNING: This is for testing only
+            // When phone number field is set to this secret word
+            // viewer will automatically login as a super user
+            // Notice that super user doesn't have a profile
+            DispatchQueue.main.async {
+                _ = LoginUserUtil.saveLoginUserId(user_id: 1)
+                let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homePage
+            }
+            return
+        }
+        
         // Create Activity Indicator
         let activityIndicator = self.prepareActivityIndicator()
         
@@ -39,14 +54,13 @@ class PhoneVerifyViewController: UIViewController {
             return
         }
         
-        // Remove activity indicator
-        self.removeActivityIndicator(activityIndicator: activityIndicator)
-        
         // Process Request
-//        self.processSessionTasks(request: request!, callback: readPhoneVerifyResponse)
-        
-        // Pass country code and phone number to next view
-        performSegue(withIdentifier: "phoneVerify", sender: self)
+        HttpUtil.processSessionTasks(request: request!) {
+            response in
+            // Remove activity indicator
+            self.removeActivityIndicator(activityIndicator: activityIndicator)
+            self.readPhoneVerifyResponse(parseJSON: response)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,7 +72,7 @@ class PhoneVerifyViewController: UIViewController {
     
     // Create Phoen Verify request according to API spec
     func createPhoneVerifyRequest() -> URLRequest? {
-        let url = getURL(path: "user/phone_verify/request/")
+        let url = HttpUtil.getURL(path: "user/phone_verify/request/")
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -83,6 +97,10 @@ class PhoneVerifyViewController: UIViewController {
         if msg == false {
             self.displayMessage(userMessage: "Phone Number Verification Failed to Send")
             return
+        }
+        DispatchQueue.main.async {
+            // Pass country code and phone number to next view
+            self.performSegue(withIdentifier: "phoneVerify", sender: self)
         }
     }
 

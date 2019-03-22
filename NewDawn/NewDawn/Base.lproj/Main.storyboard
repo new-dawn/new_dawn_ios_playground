@@ -423,7 +423,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="W2h-ud-Kx5" eventType="touchUpInside" id="RIk-eZ-W8f"/>
-                                    <segue destination="6wi-dA-koT" kind="show" identifier="phoneVerify" id="fy0-bA-rjO"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please use your phone number to either create an account or sign back in" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-I1-FIZ">
@@ -446,6 +445,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxL-wb-f4W">
                                 <rect key="frame" x="77.666666666666671" y="322" width="19" height="21"/>
@@ -475,6 +477,7 @@
                     </view>
                     <connections>
                         <outlet property="phoneNumberTextField" destination="EVo-Ee-8rk" id="Dgo-EJ-FkD"/>
+                        <segue destination="6wi-dA-koT" kind="show" identifier="phoneVerify" id="Xde-FY-Wcc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-O5-k01" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -502,6 +505,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EG-OY-pMQ">
                                 <rect key="frame" x="71.666666666666686" y="148" width="271" height="36"/>

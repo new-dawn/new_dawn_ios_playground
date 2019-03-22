@@ -18,17 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-        if accessToken != nil {
+        if LoginUserUtil.isLogin() {
+            LoginUserUtil.fetchLoginUserProfile() {
+                user_profile in
+                // Wait for user profile to be available
+                if user_profile != nil {
+                    let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                    let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                    self.window?.rootViewController = homePage
+                }
+            }
+        } else {
             // Take user to home page
-            let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homePage = mainStoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homePage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
             self.window?.rootViewController = homePage
         }
-        let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-        let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-        self.window?.rootViewController = homePage
         return true
     }
 
