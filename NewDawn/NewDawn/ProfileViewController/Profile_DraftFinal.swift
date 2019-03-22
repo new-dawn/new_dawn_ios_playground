@@ -65,12 +65,21 @@ class Profile_DraftFinal: UIViewController {
     
     func createRegistrationRequest() -> URLRequest? {
         
-        let url = getURL(path: "register/")
+        var url = getURL(path: "register/")
+        var httpMethod: String;
+        let register_info: [String: Any] = getUserInputInfo()
+        let user_id = LoginUserUtil.getLoginUserId()
+        if user_id != 1{
+            let user_id_url = String(user_id) + "/"
+            httpMethod = "PUT"
+            url = url.appendingPathComponent(user_id_url)
+        }else{
+            httpMethod = "POST"
+        }
         var request = URLRequest(url:url)
-        request.httpMethod = "POST"
+        request.httpMethod = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let register_info: [String: Any] = getUserInputInfo()
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
         } catch let error {
@@ -91,9 +100,11 @@ class Profile_DraftFinal: UIViewController {
         
         let question_answer_data = getQuestionAnswersData()
         
+        // TODO: better handle username and password
+        let random_id = UUID().uuidString
         let pesudo_data = [
-            "username":user_data[FIRSTNAME],
-            "password":user_data[LASTNAME]
+            "username":random_id,
+            "password":random_id
         ]
         
         var register_data = [String: Any]()
@@ -101,7 +112,7 @@ class Profile_DraftFinal: UIViewController {
         register_data += account_data as! Dictionary<String, String>
         register_data += profile_data
         register_data += question_answer_data
-        register_data += pesudo_data as! Dictionary<String, String>
+        register_data += pesudo_data
         return register_data
     }
     
