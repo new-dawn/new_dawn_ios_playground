@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         } else {
-            // Take user to home page
+            // Take user to login page
             let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let homePage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
             self.window?.rootViewController = homePage
