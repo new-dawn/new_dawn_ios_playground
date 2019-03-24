@@ -45,18 +45,18 @@ class Profile_DraftFinal: UIViewController {
                 print("Register Success")
                 self.storeCertification(register_response: register_response)
                 
-                let images = self.getPersonalImagesWithData()
-                
-                for single_image in images{
-                    let single_img = single_image["img"]
-                    let single_params = [
-                        "order": single_image["order"]!,
-                        "caption": single_image["caption"]!,
-                        "user": single_image["user_uri"]!
-                        ] as [String: Any]
-                    let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".jpeg"
-                    self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                        print("image upload \(success)")}
+                if let images = ImageUtil.getPersonalImagesWithData(){
+                    for single_image in images{
+                        let single_img = single_image["img"]
+                        let single_params = [
+                            "order": single_image["order"]!,
+                            "caption": single_image["caption"]!,
+                            "user": single_image["user_uri"]!
+                            ] as [String: Any]
+                        let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".jpeg"
+                        self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                            print("image upload \(success)")}
+                    }
                 }
             }
         }
@@ -227,35 +227,6 @@ class Profile_DraftFinal: UIViewController {
         }
     }
     
-    // Get Personal Images with data from Document Directory
-    func getPersonalImagesWithData() -> Array<[String: Any]>{
-        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
-        let datapath_url = NSURL(string: dataPath)
-        var images_data = [[String: Any]]()
-        do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: datapath_url! as URL, includingPropertiesForKeys: nil)
-            for fileurl in fileURLs{
-                if String(fileurl.lastPathComponent) == ".DS_Store"{
-                    continue
-                }
-                let img = UIImage(contentsOfFile: fileurl.path)
-                let order = Int(String(fileurl.lastPathComponent).prefix(1))!
-                let caption = "good"
-                let user_id = String(LocalStorageUtil.localReadKeyValue(key: "user_id") as! Int)
-                let user_uri = "/api/v1/user/\(user_id)/"
-                images_data.append([
-                    "img": img!,
-                    "order": order,
-                    "caption": caption,
-                    "user_uri": user_uri,
-                    "user_id": user_id
-                    ])
-            }
-        } catch {
-            print("Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
-        }
-        return images_data
-    }
     
     // A helper function to store user id and apikey
     func storeCertification(register_response:NSDictionary) -> Void{

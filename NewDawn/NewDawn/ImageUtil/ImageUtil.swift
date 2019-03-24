@@ -66,4 +66,35 @@ class ImageUtil {
             }
         }.resume()
     }
+    
+    // Get Personal Images with data from Document Directory
+    static func getPersonalImagesWithData() -> Array<[String: Any]>?{
+        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
+        let datapath_url = NSURL(string: dataPath)
+        var images_data = [[String: Any]]()
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: datapath_url! as URL, includingPropertiesForKeys: nil)
+            for fileurl in fileURLs{
+                if String(fileurl.lastPathComponent) == ".DS_Store"{
+                    continue
+                }
+                let img = UIImage(contentsOfFile: fileurl.path)
+                let order = Int(String(fileurl.lastPathComponent).prefix(1))!
+                let caption = "good"
+                let user_id = LoginUserUtil.getLoginUserId()
+                let user_uri = "/api/v1/user/\(user_id ?? 1)/"
+                images_data.append([
+                    "img": img!,
+                    "order": order,
+                    "caption": caption,
+                    "user_uri": user_uri,
+                    "user_id": user_id ?? 1
+                    ])
+            }
+        } catch {
+            print("Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
+            return nil
+        }
+        return images_data
+    }
 }
