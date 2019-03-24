@@ -53,7 +53,7 @@ class Profile_DraftFinal: UIViewController {
                             "caption": single_image["caption"]!,
                             "user": single_image["user_uri"]!
                             ] as [String: Any]
-                        let img_name = self.MD5(single_image["user_id"] as! String + String(single_image["order"] as! Int))! + ".jpeg"
+                        let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
                         self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
                             print("image upload \(success)")}
                     }
@@ -69,7 +69,7 @@ class Profile_DraftFinal: UIViewController {
         var httpMethod: String;
         let register_info: [String: Any] = getUserInputInfo()
         let user_id = LoginUserUtil.getLoginUserId()
-        if user_id != nil {
+        if user_id != nil && user_id != 1{
             let user_id_url = String(user_id!) + "/"
             httpMethod = "PUT"
             url = url.appendingPathComponent(user_id_url)
@@ -231,6 +231,7 @@ class Profile_DraftFinal: UIViewController {
     // A helper function to store user id and apikey
     func storeCertification(register_response:NSDictionary) -> Void{
         if let user_id = register_response["id"], let token = register_response["token"]{
+            _ = LoginUserUtil.saveLoginUserId(user_id: user_id as! Int)
             LocalStorageUtil.localStoreKeyValue(key: "user_id", value: user_id)
             LocalStorageUtil.localStoreKeyValue(key: "api_key", value: token)
         }
