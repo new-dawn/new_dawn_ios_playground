@@ -69,8 +69,8 @@ class Profile_DraftFinal: UIViewController {
         var httpMethod: String;
         let register_info: [String: Any] = getUserInputInfo()
         let user_id = LoginUserUtil.getLoginUserId()
-        if user_id != 1{
-            let user_id_url = String(user_id) + "/"
+        if user_id != nil {
+            let user_id_url = String(user_id!) + "/"
             httpMethod = "PUT"
             url = url.appendingPathComponent(user_id_url)
         }else{
