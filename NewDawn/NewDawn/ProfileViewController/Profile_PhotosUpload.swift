@@ -25,6 +25,14 @@ class Profile_PhotosUpload: UIViewController {
         // Default images
         imagesArray = [BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG]
         
+        if let local_images = ImageUtil.getPersonalImagesWithData(){
+            for local_image in local_images{
+                let order = local_image["order"] as! Int
+                let single_img = local_image["img"]
+                imagesArray[order] = single_img as! UIImage
+            }
+        }
+        
         // Delegate
         collectionView.dataSource = self
         collectionView.delegate = self
