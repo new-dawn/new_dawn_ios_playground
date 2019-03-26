@@ -103,7 +103,7 @@ class Profile_DraftFinal: UIViewController {
         // TODO: better handle username and password
         let random_id = UUID().uuidString
         let pesudo_data = [
-            "username":random_id,
+            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? random_id,
             "password":random_id
         ]
         
@@ -230,10 +230,9 @@ class Profile_DraftFinal: UIViewController {
     
     // A helper function to store user id and apikey
     func storeCertification(register_response:NSDictionary) -> Void{
-        if let user_id = register_response["id"], let token = register_response["token"]{
-            _ = LoginUserUtil.saveLoginUserId(user_id: user_id as! Int)
-            LocalStorageUtil.localStoreKeyValue(key: "user_id", value: user_id)
-            LocalStorageUtil.localStoreKeyValue(key: "api_key", value: token)
+        if let user_id = register_response["id"] as? Int, let token = register_response["token"] as? String {
+            _ = LoginUserUtil.saveLoginUserId(user_id: user_id)
+            _ = LoginUserUtil.saveAccessToken(token: token)
         }
     }
     
