@@ -8,6 +8,8 @@
 
 import UIKit
 
+let PHONE_NUMBER = "phone_number"
+
 class PhoneAuthenticateViewController: UIViewController {
     
     
@@ -82,13 +84,28 @@ class PhoneAuthenticateViewController: UIViewController {
     func readPhoneAuthenticateResponse(parseJSON: NSDictionary) -> Void {
         let success = parseJSON["success"] as? Bool
         let message = parseJSON["message"] as? String
+        let exist = parseJSON["exist"] as? Bool
+        let user_id = parseJSON["user_id"] as? Int
         if success == false {
             self.displayMessage(userMessage: message!)
             return
         }
         
         // Store phone number locally
-        localStoreKeyValue(key: "phoneNumber", value: userPhoneNumber)
+        LocalStorageUtil.localStoreKeyValue(key: PHONE_NUMBER, value: userPhoneNumber)
+        
+        if exist != nil && exist == true && user_id != nil {
+            _ = LoginUserUtil.saveLoginUserId(user_id: user_id!)
+            // Phone verification success. Go to main registration page
+            // Go to profile gender/name/birthday fill page
+            DispatchQueue.main.async {
+                let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homePage
+            }
+            return
+        }
         
         // Phone verification success. Go to main registration page
         // Go to profile gender/name/birthday fill page
