@@ -79,7 +79,7 @@ class MainPageViewModel: NSObject {
         }
         if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             items.append(
-                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_answer, likedMessage: likedInfo.liked_message))
+                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_question, likedMessage: likedInfo.liked_message))
         }
 
         // Append image items

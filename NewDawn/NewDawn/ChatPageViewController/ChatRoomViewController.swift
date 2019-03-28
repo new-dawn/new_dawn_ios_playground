@@ -79,7 +79,10 @@ class ChatRoomViewController: MessagesViewController {
         else if likeInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             // Append a answer
             self.messages.append(
-                TextMessage(sender: sender, content: likeInfo.liked_answer)
+                TextMessage(
+                    sender: sender,
+                    content: "I like your answer \"\(likeInfo.liked_answer)\" for question \"\(likeInfo.liked_question)\""
+                )
             )
             // Append message
             self.messages.append(
