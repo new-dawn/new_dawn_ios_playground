@@ -13,6 +13,7 @@ let END_USER_FIRSTNAME = "end_user_first_name"
 let END_USER_LASTNAME = "end_user_last_name"
 let END_USER_IMAGE_URL = "end_user_image_url"
 let MESSAGES = "messages"
+let MATCHED_USER_ID = "matched_user_id"
 
 class ChatPageViewController: UIViewController {
     
