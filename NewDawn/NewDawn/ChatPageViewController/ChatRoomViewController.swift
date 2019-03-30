@@ -107,6 +107,13 @@ class ChatRoomViewController: MessagesViewController {
                 )
             }
         }
+        let last_message = self.raw_messages.last
+        if last_message != nil {
+            // Record last seen message
+            if let message_id = last_message![MESSAGE_ID] as? Int {
+                LocalStorageUtil.localStoreKeyValue(key: VIEWED_MESSAGES + String(userIdYou), value: message_id)
+            }
+        }
         self.messagesCollectionView.reloadData()
         self.messagesCollectionView.scrollToBottom()
     }
