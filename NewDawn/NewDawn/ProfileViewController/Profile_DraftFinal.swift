@@ -269,8 +269,8 @@ class Profile_DraftFinal: UIViewController {
             let queryParams: [String: String] = [:] // URL query params your auth endpoint needs
             return AuthData(headers: headers, queryParams: queryParams)
         }
-        // TODO: change user id
-        pushNotifications.setUserId("1", tokenProvider: tokenProvider, completion: { error in
+        let user_id = String(LoginUserUtil.getLoginUserId() ?? 1)
+        pushNotifications.setUserId(user_id, tokenProvider: tokenProvider, completion: { error in
             guard error == nil else {
                 print(error.debugDescription)
                 return
