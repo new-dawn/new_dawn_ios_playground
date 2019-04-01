@@ -260,7 +260,7 @@ class Profile_DraftFinal: UIViewController {
         // Push notification with instance id and connect to "interest"
         pushNotifications.start(instanceId: "466cb5de-0fd2-40c7-ad45-802b6c79550e")
         pushNotifications.registerForRemoteNotifications()
-//        try? pushNotifications.addDeviceInterest(interest: "hello")
+        try? pushNotifications.addDeviceInterest(interest: "daily_recommendation")
         
         // Authenticate
         
