@@ -120,22 +120,27 @@ struct Question: Codable {
 }
 
 struct QuestionAnswer: Codable {
+    var id: Int
     var question: Question
     var answer: String
     init() {
+        self.id = 0
         self.question = Question()
         self.answer = UNKNOWN
     }
-    init(question: Question, answer: String) {
+    init(id: Int, question: Question, answer: String) {
+        self.id = id
         self.question = question
         self.answer = answer
     }
 }
 
 struct MainImage: Codable {
+    var id: Int
     var image_url: String
     var caption: String
-    init(image_url: String, caption: String) {
+    init(id: Int, image_url: String, caption: String) {
+        self.id = id
         self.image_url = image_url
         self.caption = caption
     }
@@ -224,17 +229,18 @@ struct UserProfile: Codable {
                 if let id = dict[ID] as? Int,
                     let question_dict = dict[QUESTION] as? NSDictionary,
                     let question = question_dict[QUESTION] as? String,
+                    let question_id = question_dict[ID] as? Int,
                     let answer = dict[ANSWER] as? String {
                     questionAnswers.append(
-                        QuestionAnswer(question: Question(id: id, question: question), answer: answer))
+                        QuestionAnswer(id: id, question: Question(id: question_id, question: question), answer: answer))
                 }
             }
         }
         if let images = data[IMAGES] as? Array<NSDictionary> {
             for dict in images {
-                if let image_url = dict[MEDIA] as? String, let caption = dict[CAPTION] as? String {
+                if let image_url = dict[MEDIA] as? String, let caption = dict[CAPTION] as? String, let id = dict[ID] as? Int {
                     mainImages.append(
-                        MainImage(image_url: image_url, caption: caption))
+                        MainImage(id: id, image_url: image_url, caption: caption))
                 }
             }
         }
@@ -289,11 +295,12 @@ class UserProfileBuilder{
     
     static func parseAndReturn(response: NSDictionary)-> [UserProfile] {
         var fetched_users = [UserProfile]()
-        let profile_responses = response["objects"] as? [[String: Any]]
-        for profile in profile_responses!{
-            let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
-            let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
-            fetched_users.append(dummy_user_profile)
+        if let profile_responses = response["objects"] as? [[String: Any]] {
+            for profile in profile_responses {
+                let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
+                let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
+                fetched_users.append(dummy_user_profile)
+            }
         }
         return fetched_users
     }
@@ -301,13 +308,14 @@ class UserProfileBuilder{
     // Store all retrieved users' information to a list of dictionary and into local storage
     static func parseAndStoreInLocalStorage(response: NSDictionary)-> Void{
         var fetched_users = [UserProfile]()
-        let profile_responses = response["objects"] as? [[String: Any]]
-        for profile in profile_responses!{
-            let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
-            let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
-            fetched_users.append(dummy_user_profile)
+        if let profile_responses = response["objects"] as? [[String: Any]] {
+            for profile in profile_responses {
+                let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
+                let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
+                fetched_users.append(dummy_user_profile)
+            }
+            LocalStorageUtil.localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: fetched_users)
         }
-        LocalStorageUtil.localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: fetched_users)
     }
     
     

@@ -25,14 +25,16 @@ class AnswerQuestionViewController: UIViewController {
     }
     
     func createQuestionAnswer() -> QuestionAnswer {
-        return QuestionAnswer(question: question, answer: answerTextField.text!)
+        // ID is just a placeholder. The real question answer id will be assigned in backend
+        return QuestionAnswer(id: 0, question: question, answer: answerTextField.text!)
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
         if (answerTextField.text?.isEmpty)! {
             displayMessage(userMessage: "Answer cannot be empty")
         }
-        let question_answer = QuestionAnswer(question: question, answer: answerTextField.text!)
+        // ID is just a placeholder. The real question answer id will be assigned in backend
+        let question_answer = QuestionAnswer(id: 0, question: question, answer: answerTextField.text!)
         var question_answers = [QuestionAnswer]()
         // Check if local storage already has question answers
         if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
