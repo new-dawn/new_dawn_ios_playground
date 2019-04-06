@@ -295,11 +295,12 @@ class UserProfileBuilder{
     
     static func parseAndReturn(response: NSDictionary)-> [UserProfile] {
         var fetched_users = [UserProfile]()
-        let profile_responses = response["objects"] as? [[String: Any]]
-        for profile in profile_responses!{
-            let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
-            let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
-            fetched_users.append(dummy_user_profile)
+        if let profile_responses = response["objects"] as? [[String: Any]] {
+            for profile in profile_responses {
+                let dummy_user = UserProfileBuilder.parseProfileInfo(profile_data: profile)
+                let dummy_user_profile = UserProfile(data: dummy_user as NSDictionary)
+                fetched_users.append(dummy_user_profile)
+            }
         }
         return fetched_users
     }
