@@ -50,8 +50,9 @@ class Profile_Education: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         // Picker Toolbar
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_Education.donePicker))
-        toolbar.setItems([doneButton], animated: false)
+        toolbar.setItems([flexSpace, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
         // Degree Picker
