@@ -23,7 +23,6 @@ class AppLandingViewController: UIViewController {
                 appDelegate?.window??.rootViewController = homePage
             }
         } else {
-            sleep(3)
             // Take user to login page
             let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
