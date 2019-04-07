@@ -61,7 +61,7 @@ class PhoneAuthenticateViewController: UIViewController {
     @IBAction func reVerifyButtonTapped(_ sender: Any) {
         // Popup menu for re-verification
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Change Phone Number", style: .default) { _ in
+        alert.addAction(UIAlertAction(title: "Retype Phone Number", style: .default) { _ in
             self.performSegue(withIdentifier: "reVerify", sender: self.userPhoneNumber)
         })
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
