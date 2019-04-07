@@ -54,12 +54,13 @@ class ChatPageViewController: UIViewController {
                 let message_response = allMessages[chatIndex]
                 let end_user_id = message_response[END_USER_ID] as! Int
                 let end_user_firstname = message_response[END_USER_FIRSTNAME] as! String
+                let end_user_lastname = message_response[END_USER_LASTNAME] as! String
                 let end_user_messages = message_response[MESSAGES] as! [[String: Any]]
                 
                 // TODO: Should be the info of the login user
                 destination.userNameMe = "Test"
                 destination.userIdMe = String(LoginUserUtil.getLoginUserId()!)
-                destination.userNameYou = "\(end_user_firstname)"
+                destination.userNameYou = "\(end_user_firstname) \(end_user_lastname)"
                 destination.userIdYou = String(end_user_id)
                 destination.raw_messages = end_user_messages
             }

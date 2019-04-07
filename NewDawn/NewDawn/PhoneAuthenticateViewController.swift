@@ -106,6 +106,8 @@ class PhoneAuthenticateViewController: UIViewController {
         
         if exist != nil && exist == true && user_id != nil {
             _ = LoginUserUtil.saveLoginUserId(user_id: user_id!)
+            // TODO: Let server return access token after login and store them in local storage
+            _ = LoginUserUtil.saveAccessToken(token: "N/A")
             // Phone verification success. Go to main registration page
             // Go to profile gender/name/birthday fill page
             DispatchQueue.main.async {

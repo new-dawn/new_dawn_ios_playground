@@ -16,21 +16,23 @@ class AppLandingViewController: UIViewController {
         if LoginUserUtil.isLogin() {
             LoginUserUtil.fetchLoginUserProfile() {
                 user_profile in
-                DispatchQueue.main.async {
-                    // Wait for user profile to be available
-                    let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                    let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                    let appDelegate = UIApplication.shared.delegate
-                    appDelegate?.window??.rootViewController = homePage
+                if user_profile != nil {
+                    DispatchQueue.main.async {
+                        // Wait for user profile to be available
+                        let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                        let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                        let appDelegate = UIApplication.shared.delegate
+                        appDelegate?.window??.rootViewController = homePage
+                    }
+                    return
                 }
             }
-        } else {
-            // Take user to login page
-            let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
-            let appDelegate = UIApplication.shared.delegate
-            appDelegate?.window??.rootViewController = loginPage
         }
+        // Take user to login page
+        let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
+        let appDelegate = UIApplication.shared.delegate
+        appDelegate?.window??.rootViewController = loginPage
     }
     
 

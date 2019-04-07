@@ -75,7 +75,7 @@ class LoginUserUtil {
         return KeychainWrapper.standard.removeAllKeys()
     }
 
-    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile) -> Void) -> Void {
+    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile?) -> Void) -> Void {
         // TODO: Send username and access token to get user profile
         UserProfileBuilder.fetchUserProfiles(params: ["user__id": String(user_id), "apikey": accessToken]) {
             (data) in
@@ -83,6 +83,7 @@ class LoginUserUtil {
             if !profiles.isEmpty {
                 callback(profiles[0])
             }
+            callback(nil)
         }
     }
     
