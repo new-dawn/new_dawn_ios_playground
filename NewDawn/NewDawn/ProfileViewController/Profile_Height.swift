@@ -117,8 +117,10 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     class func heightGenerator(minHeight: Int, maxHeight: Int) -> [String]{
         let heights_int = [Int](minHeight...maxHeight)
         var heightStringArray = heights_int.map { String($0) + " cm"}
-        let min_value = "<" + heightStringArray[0]
+        let min_value = "<" + String(minHeight) + " cm"
+        let max_value = ">" + String(maxHeight) + " cm"
         heightStringArray.insert(min_value, at: 0)
+        heightStringArray.insert(max_value, at: heightStringArray.count)
         return heightStringArray
     }
 }
