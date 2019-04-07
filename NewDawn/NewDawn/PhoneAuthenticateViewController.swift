@@ -58,6 +58,16 @@ class PhoneAuthenticateViewController: UIViewController {
         }
     }
     
+    @IBAction func reVerifyButtonTapped(_ sender: Any) {
+        // Popup menu for re-verification
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Change Phone Number", style: .default) { _ in
+            self.performSegue(withIdentifier: "reVerify", sender: self.userPhoneNumber)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        present(alert, animated: true)
+    }
+
     // Create Phoen Verify request according to API spec
     func createPhoneAuthenticateRequest() -> URLRequest? {
         let url = getURL(path: "user/phone_verify/authenticate/")

@@ -595,7 +595,7 @@
                                     <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="W2h-ud-Kx5" kind="show" id="kfa-Iz-l8V"/>
+                                    <action selector="reVerifyButtonTapped:" destination="6wi-dA-koT" eventType="touchUpInside" id="6iA-4u-Ihb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -615,6 +615,7 @@
                     </view>
                     <connections>
                         <outlet property="verificationCodeTextField" destination="3qY-mt-ejf" id="yPg-af-8KQ"/>
+                        <segue destination="W2h-ud-Kx5" kind="show" identifier="reVerify" id="sDy-Zp-GUl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaI-LV-BEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,6 +632,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xde-FY-Wcc"/>
+        <segue reference="sDy-Zp-GUl"/>
     </inferredMetricsTieBreakers>
 </document>
