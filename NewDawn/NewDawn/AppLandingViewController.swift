@@ -16,11 +16,13 @@ class AppLandingViewController: UIViewController {
         if LoginUserUtil.isLogin() {
             LoginUserUtil.fetchLoginUserProfile() {
                 user_profile in
-                // Wait for user profile to be available
-                let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                let appDelegate = UIApplication.shared.delegate
-                appDelegate?.window??.rootViewController = homePage
+                DispatchQueue.main.async {
+                    // Wait for user profile to be available
+                    let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                    let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = homePage
+                }
             }
         } else {
             // Take user to login page

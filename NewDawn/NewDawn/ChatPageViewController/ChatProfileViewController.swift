@@ -18,7 +18,7 @@ class ChatProfileViewController: UIViewController {
         super.viewDidLoad()
         // Prepare the current profile view
         if user_profile != nil {
-            viewModel = MainPageViewModel(userProfile: user_profile!)
+            viewModel = MainPageViewModel(userProfile: user_profile!, include_liked_info: false)
             chatProfileTableView.dataSource = viewModel
             chatProfileTableView.delegate = viewModel
             chatProfileTableView.rowHeight = UITableView.automaticDimension
