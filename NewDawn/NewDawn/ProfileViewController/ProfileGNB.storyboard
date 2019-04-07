@@ -1035,8 +1035,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="MmY-Qp-7a6"/>
-                                    <segue destination="gIN-sC-2GR" kind="presentation" id="Gin-xT-bC7"/>
+                                    <segue destination="cKV-BN-cTX" kind="presentation" id="Os6-NZ-WLV"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="To boost efficiency, let us notify you!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obx-vS-3M0">
@@ -1109,6 +1108,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueUploadImageTapped:" destination="cKV-BN-cTX" eventType="touchUpInside" id="kVm-BI-u0Y"/>
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="9eK-Ra-S3u"/>
                                 </connections>
                             </button>
@@ -1464,9 +1464,10 @@
         <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-FJ-ORZ"/>
+        <segue reference="iHz-cU-Dm1"/>
+        <segue reference="Os6-NZ-WLV"/>
         <segue reference="Ewt-Pj-4Ll"/>
-        <segue reference="Gin-xT-bC7"/>
+        <segue reference="9eK-Ra-S3u"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>

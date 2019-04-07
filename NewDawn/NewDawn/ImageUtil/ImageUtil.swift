@@ -69,7 +69,7 @@ class ImageUtil {
     
     // Get Personal Images with data from Document Directory
     static func getPersonalImagesWithData() -> Array<[String: Any]>?{
-        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
         let datapath_url = NSURL(string: dataPath)
         var images_data = [[String: Any]]()
         do {
@@ -96,5 +96,10 @@ class ImageUtil {
             return nil
         }
         return images_data
+    }
+    
+    static func getPersonalImagesDirectory() -> String{
+         let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
+        return dataPath
     }
 }

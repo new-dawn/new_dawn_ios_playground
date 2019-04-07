@@ -25,6 +25,19 @@ class Profile_PhotosUpload: UIViewController {
         // Default images
         imagesArray = [BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG]
         
+        // Get documents folder
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
+        
+        //Check is folder available or not, if not create
+        if !FileManager.default.fileExists(atPath: dataPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Couldn't create document directory")
+            }
+        }
+        
+        // Fill in cells with existing images
         if let local_images = ImageUtil.getPersonalImagesWithData(){
             for local_image in local_images{
                 let order = local_image["order"] as! Int
@@ -90,37 +103,8 @@ class Profile_PhotosUpload: UIViewController {
     // Save saves images in collection view to document directory
     @IBAction func continueUploadImageTapped(_ sender: Any) {
         
-        // Get documents folder
-        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
-        
-        //Check is folder available or not, if not create
-        if !FileManager.default.fileExists(atPath: dataPath) {
-            do {
-                try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print("Couldn't create document directory")
-            }
-        }
-        
-        for (index,img) in imagesArray.enumerated() {
-            var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(index))
-            if var imagedata = (img as! UIImage).jpegData(compressionQuality: 1.0) {
-                if (imagedata.count > MAX_IMG_SIZE){
-                    imagedata = ImageUtil.compressJPEG(image: img as! UIImage)!
-                }
-                if imagedata != BLANK_IMG.jpegData(compressionQuality: 1.0){
-                    fileURL = fileURL.appendingPathExtension("jpeg")
-                    do{
-                        try imagedata.write(to: fileURL, options: .atomic)
-                    }catch{
-                        print ("error", error)
-                    }
-                }
-            }else{
-                self.displayMessage(userMessage: "cannot save the image", dismiss: false)
-            }
-            print (fileURL)
-        }
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
+        print(dataPath)
         var stored_files = try?FileManager.default.contentsOfDirectory(atPath: dataPath)
         stored_files = stored_files?.filter{$0 != ".DS_Store"}
         print(stored_files!)
@@ -194,6 +178,15 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             self.imagesArray.removeObject(at: self.clicked_image)
             self.imagesArray.insert(BLANK_IMG, at: self.clicked_image)
+            
+            let dataPath = ImageUtil.getPersonalImagesDirectory()
+            var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(self.clicked_image))
+            fileURL = fileURL.appendingPathExtension("jpeg")
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+            }catch{
+                print(error.localizedDescription)
+            }
             self.collectionView.reloadData()
         }))
         
@@ -220,6 +213,25 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         let editedView = info[.editedImage] as! UIImage
         imagesArray.removeObject(at: clicked_image)
         imagesArray.insert(editedView, at: clicked_image)
+        
+        // Compress and save images
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
+        var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(clicked_image))
+        if var imagedata = editedView.jpegData(compressionQuality: 1.0) {
+            if (imagedata.count > MAX_IMG_SIZE){
+                imagedata = ImageUtil.compressJPEG(image: editedView)!
+            }
+            fileURL = fileURL.appendingPathExtension("jpeg")
+            do{
+                try imagedata.write(to: fileURL, options: .atomic)
+            }catch{
+                print ("error", error)
+            }
+            
+        }else{
+            self.displayMessage(userMessage: "cannot compress the image", dismiss: false)
+        }
+        
         dismiss(animated: true, completion: nil)
         
         collectionView.reloadData()
