@@ -9,6 +9,10 @@
 import UIKit
 import Alamofire
 import CommonCrypto
+import PushNotifications
+import PusherSwift
+
+let pushNotifications = PushNotifications.shared
 
 class Profile_DraftFinal: UIViewController {
 
@@ -44,6 +48,7 @@ class Profile_DraftFinal: UIViewController {
             if let register_response = jsonResponse{
                 print("Register Success")
                 self.storeCertification(register_response: register_response)
+                self.notificationSetUp()
                 
                 if let images = ImageUtil.getPersonalImagesWithData(){
                     for single_image in images{
@@ -103,7 +108,7 @@ class Profile_DraftFinal: UIViewController {
         // TODO: better handle username and password
         let random_id = UUID().uuidString
         let pesudo_data = [
-            "username":random_id,
+            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? random_id,
             "password":random_id
         ]
         
@@ -230,10 +235,9 @@ class Profile_DraftFinal: UIViewController {
     
     // A helper function to store user id and apikey
     func storeCertification(register_response:NSDictionary) -> Void{
-        if let user_id = register_response["id"], let token = register_response["token"]{
-            _ = LoginUserUtil.saveLoginUserId(user_id: user_id as! Int)
-            LocalStorageUtil.localStoreKeyValue(key: "user_id", value: user_id)
-            LocalStorageUtil.localStoreKeyValue(key: "api_key", value: token)
+        if let user_id = register_response["id"] as? Int, let token = register_response["token"] as? String {
+            _ = LoginUserUtil.saveLoginUserId(user_id: user_id)
+            _ = LoginUserUtil.saveAccessToken(token: token)
         }
     }
     
@@ -250,6 +254,30 @@ class Profile_DraftFinal: UIViewController {
         return (0..<length).reduce("") {
             $0 + String(format: "%02x", digest[$1])
         }
+    }
+    
+    func notificationSetUp() -> Void{
+        // Push notification with instance id and connect to "interest"
+        pushNotifications.start(instanceId: "466cb5de-0fd2-40c7-ad45-802b6c79550e")
+        pushNotifications.registerForRemoteNotifications()
+        try? pushNotifications.addDeviceInterest(interest: "daily_recommendation")
+        
+        // Authenticate
+        
+        let tokenProvider = BeamsTokenProvider(authURL: getURL(path: "user/notification/authenticate/").absoluteString) { () -> AuthData in
+            let headers: [String: String] = [:] // Headers your auth endpoint needs
+            let queryParams: [String: String] = [:] // URL query params your auth endpoint needs
+            return AuthData(headers: headers, queryParams: queryParams)
+        }
+        let user_id = String(LoginUserUtil.getLoginUserId() ?? 1)
+        pushNotifications.setUserId(user_id, tokenProvider: tokenProvider, completion: { error in
+            guard error == nil else {
+                print(error.debugDescription)
+                return
+            }
+            
+            print("Successfully authenticated with Pusher Beams")
+        })
     }
     
 }

@@ -79,7 +79,10 @@ class ChatRoomViewController: MessagesViewController {
         else if likeInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             // Append a answer
             self.messages.append(
-                TextMessage(sender: sender, content: likeInfo.liked_answer)
+                TextMessage(
+                    sender: sender,
+                    content: "I like your answer \"\(likeInfo.liked_answer)\" for question \"\(likeInfo.liked_question)\""
+                )
             )
             // Append message
             self.messages.append(
@@ -102,6 +105,13 @@ class ChatRoomViewController: MessagesViewController {
                         content: message
                     )
                 )
+            }
+        }
+        let last_message = self.raw_messages.last
+        if last_message != nil {
+            // Record last seen message
+            if let message_id = last_message![MESSAGE_ID] as? Int {
+                LocalStorageUtil.localStoreKeyValue(key: VIEWED_MESSAGES + String(userIdYou), value: message_id)
             }
         }
         self.messagesCollectionView.reloadData()

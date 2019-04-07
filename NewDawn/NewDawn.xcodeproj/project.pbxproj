@@ -17,6 +17,7 @@
 		2486AB2B21D4230B003CB062 /* Profile_DraftFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */; };
 		248AE7FC220BD18C00042168 /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AE7FB220BD18C00042168 /* ChatUtil.swift */; };
 		248AE7FE2210984400042168 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AE7FD2210984400042168 /* ImageUtil.swift */; };
+		24A6D4D32251ABAD00F886CA /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6D4D22251ABAD00F886CA /* AppLandingViewController.swift */; };
 		24B884E921D54F2000AD2786 /* QuestionAnswer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */; };
 		24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */; };
 		24B884ED21D55E0C00AD2786 /* SelectQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B884EC21D55E0C00AD2786 /* SelectQuestionViewController.swift */; };
@@ -84,6 +85,7 @@
 		060CDFDE2219164E004A9C6D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
+		068F957B224DBDF5003200DD /* NewDawn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewDawn.entitlements; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileGNB.storyboard; sourceTree = "<group>"; };
 		246620C4224462AC0077034F /* ChatProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatProfileViewController.swift; path = ChatPageViewController/ChatProfileViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_DraftFinal.swift; sourceTree = "<group>"; };
 		248AE7FB220BD18C00042168 /* ChatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatUtil.swift; path = ChatUtil/ChatUtil.swift; sourceTree = "<group>"; };
 		248AE7FD2210984400042168 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUtil.swift; path = ImageUtil/ImageUtil.swift; sourceTree = "<group>"; };
+		24A6D4D22251ABAD00F886CA /* AppLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		24B884E821D54F2000AD2786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QuestionAnswer.storyboard; sourceTree = "<group>"; };
 		24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionViewController.swift; path = QuestionAnswerViewController/QuestionViewController.swift; sourceTree = "<group>"; };
 		24B884EC21D55E0C00AD2786 /* SelectQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectQuestionViewController.swift; path = QuestionAnswerViewController/SelectQuestionViewController.swift; sourceTree = "<group>"; };
@@ -221,11 +224,13 @@
 		24F657FA21B31C1300DB2547 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
+				068F957B224DBDF5003200DD /* NewDawn.entitlements */,
 				248001692217AB3400BA708C /* Models */,
 				54C278B421CFFAB600917F16 /* ProfileViewController */,
 				24F657FB21B31C1300DB2547 /* AppDelegate.swift */,
 				24F657FD21B31C1300DB2547 /* ViewController.swift */,
 				24F657FF21B31C1300DB2547 /* Main.storyboard */,
+				24A6D4D22251ABAD00F886CA /* AppLandingViewController.swift */,
 				24F6580221B31C1300DB2547 /* Assets.xcassets */,
 				24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */,
 				24F6580721B31C1300DB2547 /* Info.plist */,
@@ -384,6 +389,11 @@
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					24F6580B21B31C1300DB2547 = {
 						CreatedOnToolsVersion = 8.1;
@@ -458,11 +468,12 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PushNotifications/PushNotifications.framework",
 				"${BUILT_PRODUCTS_DIR}/PusherSwift/PusherSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -477,6 +488,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PushNotifications.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PusherSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -485,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D4C1F1D198EEF699726E859 /* [CP] Check Pods Manifest.lock */ = {
@@ -583,6 +595,7 @@
 				24B8850D21F02A0200AD2786 /* MainPageEndViewController.swift in Sources */,
 				2480016F2217AB3400BA708C /* Message.swift in Sources */,
 				24F6582E21B32C3700DB2547 /* ProfileViewController.swift in Sources */,
+				24A6D4D32251ABAD00F886CA /* AppLandingViewController.swift in Sources */,
 				24B884EB21D54F8E00AD2786 /* QuestionViewController.swift in Sources */,
 				24B8851721FAA2C100AD2786 /* ModalPopupViewController.swift in Sources */,
 				24B8850221E8283900AD2786 /* MainPageTabBarViewController.swift in Sources */,
@@ -772,7 +785,8 @@
 			baseConfigurationReference = FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5M2WD33Q6U;
+				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -791,7 +805,8 @@
 			baseConfigurationReference = D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5M2WD33Q6U;
+				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

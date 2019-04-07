@@ -88,6 +88,18 @@ class Profile_PhotosUpload: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool{
+        let images = imagesArray as NSArray as! [UIImage]
+        let used_images = images.filter{$0 != BLANK_IMG}
+        if (used_images.count < 3) {
+            self.displayMessage(userMessage: "Need to upload at least 3 images")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     // Save saves images in collection view to document directory
     @IBAction func continueUploadImageTapped(_ sender: Any) {
         
@@ -96,6 +108,10 @@ class Profile_PhotosUpload: UIViewController {
         var stored_files = try?FileManager.default.contentsOfDirectory(atPath: dataPath)
         stored_files = stored_files?.filter{$0 != ".DS_Store"}
         print(stored_files!)
+        
+        if shouldPerformSegue(withIdentifier: "image_continue", sender: self){
+            performSegue(withIdentifier: "image_continue", sender: self)
+        }
     }
 }
 

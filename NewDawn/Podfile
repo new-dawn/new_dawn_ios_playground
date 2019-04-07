@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 target 'NewDawn' do
   # Pods for NewDawn
@@ -7,6 +7,7 @@ target 'NewDawn' do
   pod 'MessageKit'
   pod 'PusherSwift'
   pod 'Alamofire', '~> 4.0'
+  pod 'PushNotifications', '~> 1.2.0'
   target 'NewDawnTests' do
     inherit! :search_paths
     # Pods for testing

@@ -79,7 +79,7 @@ class MainPageViewModel: NSObject {
         }
         if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             items.append(
-                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_answer, likedMessage: likedInfo.liked_message))
+                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_question, likedMessage: likedInfo.liked_message))
         }
 
         // Append image items
@@ -122,7 +122,7 @@ class MainPageViewModel: NSObject {
             answer: userProfile.questionAnswers[index].answer,
             name: userProfile.firstname + " " + userProfile.lastname,
             user_id: userProfile.user_id,
-            id: index
+            id: userProfile.questionAnswers[index].id
         )
         return questionAnswer
     }
@@ -137,7 +137,7 @@ class MainPageViewModel: NSObject {
             employer: userProfile.employer,
             isFirst: index == 0,
             user_id: userProfile.user_id,
-            id: index
+            id:  userProfile.mainImages[index].id
         )
         return mainImage
     }
