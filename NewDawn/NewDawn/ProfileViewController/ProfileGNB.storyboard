@@ -1108,7 +1108,6 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueUploadImageTapped:" destination="cKV-BN-cTX" eventType="touchUpInside" id="kVm-BI-u0Y"/>
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="OJW-vV-kwk"/>
                                 </connections>
                             </button>
@@ -1465,7 +1464,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iHz-cU-Dm1"/>
-        <segue reference="Os6-NZ-WLV"/>
+        <segue reference="Ljg-P9-Kyv"/>
         <segue reference="Ewt-Pj-4Ll"/>
         <segue reference="OJW-vV-kwk"/>
         <segue reference="vCo-NW-E29"/>
