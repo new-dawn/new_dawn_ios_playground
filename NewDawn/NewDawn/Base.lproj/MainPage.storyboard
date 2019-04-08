@@ -56,11 +56,16 @@
                                                     <color key="textColor" red="0.70553351679999998" green="0.70553351679999998" blue="0.70553351679999998" alpha="0.91873899650000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChatNotification" translatesAutoresizingMaskIntoConstraints="NO" id="jSH-F2-axd">
+                                                    <rect key="frame" x="341" y="45" width="11" height="11"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatImageView" destination="M9u-Gx-JM1" id="rBt-tA-lmp"/>
                                             <outlet property="chatNameLabel" destination="kO7-CJ-hxm" id="dk8-VD-dt1"/>
+                                            <outlet property="chatNotifImageView" destination="jSH-F2-axd" id="T79-Yt-tT3"/>
                                             <outlet property="lastMessageText" destination="f3p-Hx-CK5" id="eYM-du-6qa"/>
                                             <segue destination="uWK-ge-vNo" kind="show" identifier="openChat" id="yO4-ZJ-BKw"/>
                                         </connections>
@@ -113,9 +118,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q3v-xW-GaX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q3v-xW-GaX">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusableCell" rowHeight="29" id="mkQ-fb-XqF">
@@ -417,6 +421,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q3v-xW-GaX" firstAttribute="top" secondItem="bQp-of-ynr" secondAttribute="top" id="Dim-AW-Ls9"/>
+                            <constraint firstItem="Q3v-xW-GaX" firstAttribute="bottom" secondItem="bQp-of-ynr" secondAttribute="bottom" id="YIB-10-vji"/>
+                            <constraint firstItem="Q3v-xW-GaX" firstAttribute="leading" secondItem="bQp-of-ynr" secondAttribute="leading" id="ZRB-R3-drR"/>
+                            <constraint firstItem="Q3v-xW-GaX" firstAttribute="trailing" secondItem="bQp-of-ynr" secondAttribute="trailing" id="gyQ-Hs-xvW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bQp-of-ynr"/>
                     </view>
                     <connections>
@@ -1366,6 +1376,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ChatNotification" width="12" height="12"/>
         <image name="ChatTab" width="24" height="24"/>
         <image name="DegreeIcon" width="20" height="20"/>
         <image name="DrinkIcon" width="26" height="39"/>

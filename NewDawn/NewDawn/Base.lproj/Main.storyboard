@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="W2h-ud-Kx5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -393,6 +393,44 @@
             </objects>
             <point key="canvasLocation" x="1372" y="52.623688155922046"/>
         </scene>
+        <!--App Landing View Controller-->
+        <scene sceneID="5sy-WB-0cH">
+            <objects>
+                <viewController storyboardIdentifier="AppLandingViewController" id="ijP-AI-M46" customClass="AppLandingViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8C2-YW-XoQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="a31-7f-hCW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uja-ay-PoS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="慢慢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-hG-r9k">
+                                <rect key="frame" x="167" y="271" width="80" height="56"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="连接你我的心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-1F-Tqa">
+                                <rect key="frame" x="165" y="347" width="84" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9TJ-hG-r9k" firstAttribute="top" secondItem="8C2-YW-XoQ" secondAttribute="bottom" constant="251" id="F0g-eS-pMx"/>
+                            <constraint firstItem="9TJ-hG-r9k" firstAttribute="centerX" secondItem="Uja-ay-PoS" secondAttribute="centerX" id="Gy0-8t-zFL"/>
+                            <constraint firstItem="ThB-1F-Tqa" firstAttribute="top" secondItem="9TJ-hG-r9k" secondAttribute="bottom" constant="20" id="Jip-iO-DIY"/>
+                            <constraint firstItem="ThB-1F-Tqa" firstAttribute="centerX" secondItem="Uja-ay-PoS" secondAttribute="centerX" id="ZKM-CZ-WBi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKk-eT-dyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-728" y="836"/>
+        </scene>
         <!--Phone Verify View Controller-->
         <scene sceneID="XCd-pt-qbv">
             <objects>
@@ -444,7 +482,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -504,7 +542,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -557,7 +595,7 @@
                                     <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="W2h-ud-Kx5" kind="show" id="kfa-Iz-l8V"/>
+                                    <action selector="reVerifyButtonTapped:" destination="6wi-dA-koT" eventType="touchUpInside" id="6iA-4u-Ihb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -577,6 +615,7 @@
                     </view>
                     <connections>
                         <outlet property="verificationCodeTextField" destination="3qY-mt-ejf" id="yPg-af-8KQ"/>
+                        <segue destination="W2h-ud-Kx5" kind="show" identifier="reVerify" id="sDy-Zp-GUl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaI-LV-BEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,4 +631,7 @@
             <point key="canvasLocation" x="1576.8115942028987" y="835.59782608695662"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sDy-Zp-GUl"/>
+    </inferredMetricsTieBreakers>
 </document>

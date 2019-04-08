@@ -15,26 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        if LoginUserUtil.isLogin() {
-            LoginUserUtil.fetchLoginUserProfile() {
-                user_profile in
-                // Wait for user profile to be available
-                if user_profile != nil {
-                    let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                    let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                    self.window?.rootViewController = homePage
-                }
-            }
-        } else {
-            // Take user to login page
-            let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homePage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
-            self.window?.rootViewController = homePage
-        }
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        pushNotifications.registerDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        pushNotifications.handleNotification(userInfo: userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

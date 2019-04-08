@@ -36,8 +36,9 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Picker Toolbar
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_Education.donePicker))
-        toolbar.setItems([doneButton], animated: false)
+        toolbar.setItems([flexSpace, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
         // Degree Picker
@@ -116,8 +117,10 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     class func heightGenerator(minHeight: Int, maxHeight: Int) -> [String]{
         let heights_int = [Int](minHeight...maxHeight)
         var heightStringArray = heights_int.map { String($0) + " cm"}
-        let min_value = "<" + heightStringArray[0]
+        let min_value = "<" + String(minHeight) + " cm"
+        let max_value = ">" + String(maxHeight) + " cm"
         heightStringArray.insert(min_value, at: 0)
+        heightStringArray.insert(max_value, at: heightStringArray.count)
         return heightStringArray
     }
 }

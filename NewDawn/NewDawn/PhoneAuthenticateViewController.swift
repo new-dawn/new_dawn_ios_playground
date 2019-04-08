@@ -8,6 +8,8 @@
 
 import UIKit
 
+let PHONE_NUMBER = "phone_number"
+
 class PhoneAuthenticateViewController: UIViewController {
     
     
@@ -56,6 +58,16 @@ class PhoneAuthenticateViewController: UIViewController {
         }
     }
     
+    @IBAction func reVerifyButtonTapped(_ sender: Any) {
+        // Popup menu for re-verification
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Retype Phone Number", style: .default) { _ in
+            self.performSegue(withIdentifier: "reVerify", sender: self.userPhoneNumber)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        present(alert, animated: true)
+    }
+
     // Create Phoen Verify request according to API spec
     func createPhoneAuthenticateRequest() -> URLRequest? {
         let url = getURL(path: "user/phone_verify/authenticate/")
@@ -82,13 +94,30 @@ class PhoneAuthenticateViewController: UIViewController {
     func readPhoneAuthenticateResponse(parseJSON: NSDictionary) -> Void {
         let success = parseJSON["success"] as? Bool
         let message = parseJSON["message"] as? String
+        let exist = parseJSON["exist"] as? Bool
+        let user_id = parseJSON["user_id"] as? Int
         if success == false {
             self.displayMessage(userMessage: message!)
             return
         }
         
         // Store phone number locally
-        localStoreKeyValue(key: "phoneNumber", value: userPhoneNumber)
+        LocalStorageUtil.localStoreKeyValue(key: PHONE_NUMBER, value: userPhoneNumber)
+        
+        if exist != nil && exist == true && user_id != nil {
+            _ = LoginUserUtil.saveLoginUserId(user_id: user_id!)
+            // TODO: Let server return access token after login and store them in local storage
+            _ = LoginUserUtil.saveAccessToken(token: "N/A")
+            // Phone verification success. Go to main registration page
+            // Go to profile gender/name/birthday fill page
+            DispatchQueue.main.async {
+                let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homePage
+            }
+            return
+        }
         
         // Phone verification success. Go to main registration page
         // Go to profile gender/name/birthday fill page

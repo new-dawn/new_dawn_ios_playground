@@ -75,16 +75,15 @@ class LoginUserUtil {
         return KeychainWrapper.standard.removeAllKeys()
     }
 
-    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile) -> Void) -> Void {
+    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile?) -> Void) -> Void {
         // TODO: Send username and access token to get user profile
         UserProfileBuilder.fetchUserProfiles(params: ["user__id": String(user_id), "apikey": accessToken]) {
             (data) in
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
-                DispatchQueue.main.async {
-                    callback(profiles[0])
-                }
+                callback(profiles[0])
             }
+            callback(nil)
         }
     }
     
@@ -95,24 +94,18 @@ class LoginUserUtil {
         if let user_id = getLoginUserId(), let accessToken = getAccessToken() {
             // Check if the user profile has already fetched and stored in local storage
             if let user_profile: UserProfile? = LocalStorageUtil.localReadKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE) {
-                DispatchQueue.main.async {
-                    callback(user_profile)
-                }
+                callback(user_profile)
             } else {
                 LoginUserUtil.fetchUserProfile(user_id: user_id, accessToken: accessToken) {
                     user_profile in
-                    LocalStorageUtil.localStoreKeyValue(key: LoginUserUtil.LOGIN_USER_PROFILE, value: user_profile)
-                    DispatchQueue.main.async {
-                        callback(user_profile)
-                    }
+                    LocalStorageUtil.localStoreKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE, value: user_profile)
+                    callback(user_profile)
                 }
             }
         } else {
             // There's no user id an access token found in local keychain
             LocalStorageUtil.localRemoveKey(key: LoginUserUtil.LOGIN_USER_PROFILE)
-            DispatchQueue.main.async {
-                callback(nil)
-            }
+            callback(nil)
         }
     }
 }

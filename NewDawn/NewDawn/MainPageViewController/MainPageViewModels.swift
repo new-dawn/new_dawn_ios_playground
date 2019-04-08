@@ -68,18 +68,19 @@ class MainPageViewModel: NSObject {
     var basic_info_item = [BasicInfoViewModelItem]()
     var question_answer_items = [QuestionAnswerViewModelItem]()
     
-    init(userProfile: UserProfile) {
+    init(userProfile: UserProfile, include_liked_info: Bool = true) {
         super.init()
-
-        // Append liked banner on top of the view
-        let likedInfo = userProfile.likedInfo
-        if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
-            items.append(
-                LikeImageViewModelItem(likerFirstName: userProfile.firstname, likedImageURL: likedInfo.liked_image_url, likedMessage: likedInfo.liked_message))
-        }
-        if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
-            items.append(
-                LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_answer, likedMessage: likedInfo.liked_message))
+        if include_liked_info == true {
+            // Append liked banner on top of the view
+            let likedInfo = userProfile.likedInfo
+            if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+                items.append(
+                    LikeImageViewModelItem(likerFirstName: userProfile.firstname, likedImageURL: likedInfo.liked_image_url, likedMessage: likedInfo.liked_message))
+            }
+            if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+                items.append(
+                    LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_question, likedMessage: likedInfo.liked_message))
+            }
         }
 
         // Append image items
@@ -122,7 +123,7 @@ class MainPageViewModel: NSObject {
             answer: userProfile.questionAnswers[index].answer,
             name: userProfile.firstname + " " + userProfile.lastname,
             user_id: userProfile.user_id,
-            id: index
+            id: userProfile.questionAnswers[index].id
         )
         return questionAnswer
     }
@@ -137,7 +138,7 @@ class MainPageViewModel: NSObject {
             employer: userProfile.employer,
             isFirst: index == 0,
             user_id: userProfile.user_id,
-            id: index
+            id:  userProfile.mainImages[index].id
         )
         return mainImage
     }

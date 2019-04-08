@@ -79,7 +79,10 @@ class ChatRoomViewController: MessagesViewController {
         else if likeInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             // Append a answer
             self.messages.append(
-                TextMessage(sender: sender, content: likeInfo.liked_answer)
+                TextMessage(
+                    sender: sender,
+                    content: "I like your answer \"\(likeInfo.liked_answer)\" for question \"\(likeInfo.liked_question)\""
+                )
             )
             // Append message
             self.messages.append(
@@ -102,6 +105,13 @@ class ChatRoomViewController: MessagesViewController {
                         content: message
                     )
                 )
+            }
+        }
+        let last_message = self.raw_messages.last
+        if last_message != nil {
+            // Record last seen message
+            if let message_id = last_message![MESSAGE_ID] as? Int {
+                LocalStorageUtil.localStoreKeyValue(key: VIEWED_MESSAGES + String(userIdYou), value: message_id)
             }
         }
         self.messagesCollectionView.reloadData()
@@ -240,7 +250,12 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.id
         if userId == self.userIdMe {
-            self.setAvatarForUser(url: nil, view: avatarView)
+            LoginUserUtil.fetchLoginUserProfile() {
+                my_profile in
+                if my_profile != nil && !my_profile!.mainImages.isEmpty {
+                    self.setAvatarForUser(url: my_profile!.mainImages[0].image_url, view: avatarView)
+                }
+            }
         }
         if userId == self.userIdYou {
             fetchEndUserProfile() {
@@ -293,6 +308,12 @@ extension ChatRoomViewController: MessageCellDelegate {
         let sender = message.sender
         if sender.id == self.userIdYou {
             self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
+        }
+        if sender.id == self.userIdMe {
+            LoginUserUtil.fetchLoginUserProfile() {
+                userProfileMe in
+                self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
+            }
         }
     }
 }
