@@ -312,7 +312,9 @@ extension ChatRoomViewController: MessageCellDelegate {
         if sender.id == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
                 userProfileMe in
-                self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
+                }
             }
         }
     }
