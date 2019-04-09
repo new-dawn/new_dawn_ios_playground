@@ -1285,7 +1285,7 @@
                                 </state>
                                 <connections>
                                     <action selector="getStartedButtonTapped:" destination="nuF-Ot-s92" eventType="touchUpInside" id="4Ry-79-kQI"/>
-                                    <segue destination="xSt-Rq-d95" kind="show" id="e7n-rx-fNW"/>
+                                    <segue destination="xSt-Rq-d95" kind="show" identifier="after_register" id="e7n-rx-fNW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1464,7 +1464,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iHz-cU-Dm1"/>
-        <segue reference="Ljg-P9-Kyv"/>
+        <segue reference="Os6-NZ-WLV"/>
         <segue reference="Ewt-Pj-4Ll"/>
         <segue reference="OJW-vV-kwk"/>
         <segue reference="vCo-NW-E29"/>
