@@ -49,22 +49,22 @@ class Profile_DraftFinal: UIViewController {
             
             if let register_response = jsonResponse{
                 print("Register Success")
-                    self.storeCertification(register_response: register_response)
-                    self.notificationSetUp()
-                    if let images = ImageUtil.getPersonalImagesWithData(){
-                        for single_image in images{
-                            let single_img = single_image["img"]
-                            let single_params = [
-                                "order": single_image["order"]!,
-                                "caption": single_image["caption"]!,
-                                "user": single_image["user_uri"]!
-                                ] as [String: Any]
-                            let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
-                            self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                                print("image upload \(success)")}
-                        }
+                self.storeCertification(register_response: register_response)
+                self.notificationSetUp()
+                if let images = ImageUtil.getPersonalImagesWithData(){
+                    for single_image in images{
+                        let single_img = single_image["img"]
+                        let single_params = [
+                            "order": single_image["order"]!,
+                            "caption": single_image["caption"]!,
+                            "user": single_image["user_uri"]!
+                            ] as [String: Any]
+                        let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
+                        self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                            print("image upload \(success)")}
                     }
-                    self.performSegue(withIdentifier: "after_register", sender: self)
+                }
+                self.performSegue(withIdentifier: "after_register", sender: self)
                 }
         }
         
