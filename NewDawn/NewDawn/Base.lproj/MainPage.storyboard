@@ -446,17 +446,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-h9-g87">
-                                <rect key="frame" x="109.5" y="87" width="156" height="162"/>
+                                <rect key="frame" x="110" y="93" width="155" height="155"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="06o-n1-lBA"/>
-                                    <constraint firstAttribute="width" constant="156" id="29K-tz-dJe"/>
+                                    <constraint firstAttribute="width" secondItem="Snv-h9-g87" secondAttribute="height" multiplier="1:1" id="8NQ-gh-gip"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-5v-hzk">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-5v-hzk">
                                 <rect key="frame" x="9" y="348" width="357" height="55"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="HvU-JR-Wfi"/>
+                                    <constraint firstAttribute="height" constant="55" id="HvU-JR-Wfi"/>
                                 </constraints>
                                 <state key="normal" title="Preferrence">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -495,9 +494,8 @@
                                     <segue destination="r3Z-WH-1Wp" kind="show" id="JkI-Ua-oBd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzj-GA-k9K">
-                                <rect key="frame" x="150" y="250" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzj-GA-k9K">
+                                <rect key="frame" x="150" y="249" width="75" height="30"/>
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
                                     <segue destination="8vw-nJ-uOU" kind="show" id="RJ6-gJ-bvz"/>
@@ -506,6 +504,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="68" id="1tk-Ct-Rt7"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="40" id="4Ak-Kw-eRb"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="bottom" secondItem="n9d-zn-2sT" secondAttribute="bottom" constant="26" id="5SF-R7-qmi"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="13" id="6o4-0l-RKb"/>
@@ -513,8 +512,8 @@
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="Jvq-1c-v10"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="KVt-mo-oFP"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="v1a-bQ-2LW" secondAttribute="bottom" constant="13" id="Nc1-eB-94Q"/>
+                            <constraint firstItem="Snv-h9-g87" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="110" id="PoP-8Q-pj0"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JgF-5v-hzk" secondAttribute="trailing" id="We4-zk-pbt"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="-185" id="arX-BY-bws"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" id="bLK-y3-HhN"/>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="c7s-AM-xSL"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="cEv-xR-Enn"/>
@@ -522,7 +521,10 @@
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n9d-zn-2sT" secondAttribute="trailing" id="fN8-ca-Zwf"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="hOl-6v-9mb"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="hhA-Qe-Ag0"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="centerX" secondItem="JgF-5v-hzk" secondAttribute="centerX" id="hkO-X9-R44"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="huE-Ao-Jui"/>
+                            <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="29" id="hxq-ur-6i2"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="1" id="otz-kC-7RM"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="s0N-Nz-dy9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>
