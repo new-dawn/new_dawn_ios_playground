@@ -12,7 +12,7 @@ import UIKit
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-let CONNECT_TO_PROD = false
+let CONNECT_TO_PROD = true
 
 extension UIImageView {
     // A helper function to get URL based on prod/test
