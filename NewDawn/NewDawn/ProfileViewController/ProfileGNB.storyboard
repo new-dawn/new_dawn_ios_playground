@@ -1285,7 +1285,6 @@
                                 </state>
                                 <connections>
                                     <action selector="getStartedButtonTapped:" destination="nuF-Ot-s92" eventType="touchUpInside" id="4Ry-79-kQI"/>
-                                    <segue destination="xSt-Rq-d95" kind="show" identifier="after_register" id="e7n-rx-fNW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1297,10 +1296,13 @@
                             <constraint firstItem="KjW-5U-yGh" firstAttribute="top" secondItem="wWw-fa-7le" secondAttribute="bottom" constant="270" id="Sd3-C0-qF7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="xSt-Rq-d95" kind="presentation" identifier="after_register" id="DS3-X5-0Y1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQF-Uf-iFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7778" y="841"/>
+            <point key="canvasLocation" x="7776.8000000000002" y="840.62968515742136"/>
         </scene>
         <!--MainTabViewController-->
         <scene sceneID="23E-Yu-gyK">
