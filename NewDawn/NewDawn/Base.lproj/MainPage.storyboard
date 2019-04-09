@@ -452,10 +452,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-5v-hzk">
-                                <rect key="frame" x="9" y="347" width="357" height="56"/>
+                                <rect key="frame" x="9" y="348" width="357" height="55"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="HvU-JR-Wfi"/>
+                                    <constraint firstAttribute="height" constant="55" id="HvU-JR-Wfi"/>
                                 </constraints>
                                 <state key="normal" title="Preferrence">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -504,7 +504,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="68" id="1tk-Ct-Rt7"/>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="68" id="1tk-Ct-Rt7"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="40" id="4Ak-Kw-eRb"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="bottom" secondItem="n9d-zn-2sT" secondAttribute="bottom" constant="26" id="5SF-R7-qmi"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="13" id="6o4-0l-RKb"/>
@@ -524,7 +524,7 @@
                             <constraint firstItem="Hzj-GA-k9K" firstAttribute="centerX" secondItem="JgF-5v-hzk" secondAttribute="centerX" id="hkO-X9-R44"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="huE-Ao-Jui"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="29" id="hxq-ur-6i2"/>
-                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="1" id="pb6-AT-we8"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="1" id="otz-kC-7RM"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="s0N-Nz-dy9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>

@@ -57,6 +57,7 @@ class ProfileGNBViewController: UIViewController {
         polishTextField(textField: birthdayTextField)
         loadStoredFields()
         showDatePicker()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,

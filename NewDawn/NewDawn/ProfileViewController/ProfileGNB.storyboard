@@ -912,22 +912,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMQ-z4-m38">
-                                <rect key="frame" x="53" y="494" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="SOa-U1-nU9"/>
-                                </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="7bf-5H-kFn"/>
-                                    <segue destination="GWg-yl-rvs" kind="presentation" id="Pgd-b9-6Ew"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
-                                <rect key="frame" x="58" y="90" width="263" height="126"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
+                                <rect key="frame" x="58" y="90" width="263" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Use your best photos &amp; videos to shine!
 
@@ -936,34 +923,18 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Yes! Let’s do it!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
-                                <rect key="frame" x="58" y="259" width="124" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="jjt-CG-Ddb"/>
-                                    <constraint firstAttribute="height" constant="29" id="lgO-BO-Ent"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Yes! Let’s do it!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
+                                <rect key="frame" x="58" y="248" width="101" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-EJ-brt">
-                                <rect key="frame" x="53" y="356" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="klA-VY-hIE"/>
-                                </constraints>
-                                <state key="normal" title="Add Photos ">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="cKV-BN-cTX" kind="presentation" id="Ljg-P9-Kyv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdk-k2-Y5g">
-                                <rect key="frame" x="53" y="554" width="273" height="41"/>
+                                <rect key="frame" x="51" y="555" width="273" height="40"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="RMr-fH-oN9"/>
+                                    <constraint firstAttribute="height" constant="40" id="Mdc-Ma-Saf"/>
                                 </constraints>
                                 <state key="normal" title="Previous">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -973,24 +944,30 @@
                                     <segue destination="b8r-oE-fGS" kind="presentation" id="vCo-NW-E29"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-EJ-brt">
+                                <rect key="frame" x="51" y="469" width="273" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kPi-Qy-5Mz"/>
+                                </constraints>
+                                <state key="normal" title="Add Photos ">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cKV-BN-cTX" kind="presentation" id="Ljg-P9-Kyv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lMQ-z4-m38" firstAttribute="trailing" secondItem="xdk-k2-Y5g" secondAttribute="trailing" id="0BS-pU-c4v"/>
-                            <constraint firstItem="cDX-nM-D9l" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="42" id="4Ud-Zf-q8v"/>
-                            <constraint firstItem="6vr-Mf-CTR" firstAttribute="top" secondItem="xdk-k2-Y5g" secondAttribute="bottom" constant="72" id="CD9-k5-S7y"/>
-                            <constraint firstItem="MbO-EJ-brt" firstAttribute="trailing" secondItem="lMQ-z4-m38" secondAttribute="trailing" id="LEs-hs-D43"/>
-                            <constraint firstItem="cDX-nM-D9l" firstAttribute="leading" secondItem="Cfc-nG-lnu" secondAttribute="leading" id="LLb-7R-bgS"/>
-                            <constraint firstItem="Cfc-nG-lnu" firstAttribute="top" secondItem="cDX-nM-D9l" secondAttribute="bottom" constant="43" id="LPr-w1-dRE"/>
-                            <constraint firstItem="lMQ-z4-m38" firstAttribute="leading" secondItem="xdk-k2-Y5g" secondAttribute="leading" id="RaE-UD-6FP"/>
-                            <constraint firstItem="MbO-EJ-brt" firstAttribute="top" secondItem="Cfc-nG-lnu" secondAttribute="bottom" constant="68" id="SR3-Sc-qyd"/>
-                            <constraint firstItem="cDX-nM-D9l" firstAttribute="centerX" secondItem="MbO-EJ-brt" secondAttribute="centerX" id="X4L-0a-wu3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MbO-EJ-brt" secondAttribute="trailing" constant="33" id="d4y-dD-BdF"/>
-                            <constraint firstItem="cDX-nM-D9l" firstAttribute="top" secondItem="YI4-RN-GnN" secondAttribute="bottom" constant="70" id="gOT-D5-yTq"/>
-                            <constraint firstItem="lMQ-z4-m38" firstAttribute="top" secondItem="MbO-EJ-brt" secondAttribute="bottom" constant="97" id="nD1-Ac-Zjg"/>
-                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="top" secondItem="lMQ-z4-m38" secondAttribute="bottom" constant="19" id="nmS-a1-Ydn"/>
-                            <constraint firstItem="MbO-EJ-brt" firstAttribute="leading" secondItem="lMQ-z4-m38" secondAttribute="leading" id="raB-7u-oFw"/>
-                            <constraint firstItem="MbO-EJ-brt" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="37" id="s6n-sg-kIW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MbO-EJ-brt" secondAttribute="trailing" constant="35" id="9Zf-SV-67i"/>
+                            <constraint firstItem="MbO-EJ-brt" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="IL7-li-Zio"/>
+                            <constraint firstItem="6vr-Mf-CTR" firstAttribute="top" secondItem="xdk-k2-Y5g" secondAttribute="bottom" constant="72" id="Ncw-XW-bqQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xdk-k2-Y5g" secondAttribute="trailing" constant="35" id="QO6-is-AMH"/>
+                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="top" secondItem="MbO-EJ-brt" secondAttribute="bottom" constant="46" id="ZfZ-M3-0uU"/>
+                            <constraint firstItem="MbO-EJ-brt" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="35" id="gpI-8I-uyQ"/>
+                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="35" id="m3z-4k-dGE"/>
+                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="z3T-I7-tcI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1466,9 +1443,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iHz-cU-Dm1"/>
-        <segue reference="Os6-NZ-WLV"/>
-        <segue reference="Ewt-Pj-4Ll"/>
-        <segue reference="OJW-vV-kwk"/>
+        <segue reference="Ljg-P9-Kyv"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>
