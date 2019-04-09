@@ -29,7 +29,7 @@ class PhoneVerifyViewController: UIViewController {
             return
         }
         
-        if (phoneNumber == "testomni") {
+        if (phoneNumber == "11") {
             // WARNING: This is for testing only
             // When phone number field is set to this secret word
             // viewer will automatically login as a super user

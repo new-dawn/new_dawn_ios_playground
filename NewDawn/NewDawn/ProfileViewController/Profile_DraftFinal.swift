@@ -28,6 +28,7 @@ class Profile_DraftFinal: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    
     @IBAction func getStartedButtonTapped(_ sender: Any) {
         // TODO: Send all info to backend and go to profile page
         let activityIndicator = self.prepareActivityIndicator()
@@ -43,13 +44,13 @@ class Profile_DraftFinal: UIViewController {
             
             if (error != nil){
                 print("noooooo good registration")
+                return
             }
             
             if let register_response = jsonResponse{
                 print("Register Success")
                 self.storeCertification(register_response: register_response)
                 self.notificationSetUp()
-                
                 if let images = ImageUtil.getPersonalImagesWithData(){
                     for single_image in images{
                         let single_img = single_image["img"]
@@ -63,7 +64,8 @@ class Profile_DraftFinal: UIViewController {
                             print("image upload \(success)")}
                     }
                 }
-            }
+                self.performSegue(withIdentifier: "after_register", sender: self)
+                }
         }
         
     }
