@@ -28,9 +28,6 @@ class Profile_DraftFinal: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return false
-    }
     
     @IBAction func getStartedButtonTapped(_ sender: Any) {
         // TODO: Send all info to backend and go to profile page
@@ -52,7 +49,6 @@ class Profile_DraftFinal: UIViewController {
             
             if let register_response = jsonResponse{
                 print("Register Success")
-                DispatchQueue.main.async {
                     self.storeCertification(register_response: register_response)
                     self.notificationSetUp()
                     if let images = ImageUtil.getPersonalImagesWithData(){
@@ -70,7 +66,6 @@ class Profile_DraftFinal: UIViewController {
                     }
                     self.performSegue(withIdentifier: "after_register", sender: self)
                 }
-            }
         }
         
     }
