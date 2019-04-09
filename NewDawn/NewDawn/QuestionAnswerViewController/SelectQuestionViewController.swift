@@ -27,17 +27,43 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         Question(id: 5, question: "What't your most recent trip?"),
     ]
     
-    func getQuestionByID(id: Int) -> Question {
+    func getSampleQuestions() -> Array<Question> {
+        let answered_questions = self.getQuestionAnswersFromLocalStore()
+        var unanswered_questions = [Question]()
+        // Check if the sample question has already been answered
         for question in sample_questions {
+            var already_answered = false
+            for answered_question in answered_questions {
+                if answered_question.question.question == question.question {
+                    already_answered = true
+                    break
+                }
+            }
+            if already_answered == false {
+                unanswered_questions.append(question)
+            }
+        }
+        return unanswered_questions
+    }
+    
+    func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
+        if let existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            return existed_question_answers
+        }
+        return [QuestionAnswer]()
+    }
+    
+    func getQuestionByID(id: Int) -> Question {
+        for question in self.getSampleQuestions() {
             if question.id == id {
                 return question
             }
         }
-        return sample_questions[0]
+        return self.getSampleQuestions()[0]
     }
     
     func getContentHeight() -> Int {
-        return QUESTION_BLOCK_HEIGHT * sample_questions.count + 100
+        return QUESTION_BLOCK_HEIGHT * self.getSampleQuestions().count + 100
     }
     
     @objc func buttonClicked(sender: UIButton) {
@@ -64,7 +90,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         // A dynamic offset to control the distance
         // between question blocks
         var buttonOffsetY: Int = Y_CENTER_OFFSET
-        for question in sample_questions {
+        for question in self.getSampleQuestions() {
             // Auto-generate a question button
             // Increment the offset for next button
             let questionButton = createQuestionButton(question: question, offsetY: buttonOffsetY)
