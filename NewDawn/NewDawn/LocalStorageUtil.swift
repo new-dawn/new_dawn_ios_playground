@@ -82,8 +82,9 @@ class LoginUserUtil {
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
                 callback(profiles[0])
+            } else {
+                callback(nil)
             }
-            callback(nil)
         }
     }
     
