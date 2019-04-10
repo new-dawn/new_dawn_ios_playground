@@ -967,7 +967,6 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Zx2-7d-lxA"/>
-                                    <segue destination="Fk6-UT-HuI" kind="show" id="re4-fX-zdW"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-CA-Fxf">
@@ -1352,7 +1351,6 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="iwK-Lf-bTg"/>
-                                    <segue destination="Fk6-UT-HuI" kind="show" id="2J0-g4-Yk4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1390,7 +1388,4 @@
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="40" height="40"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="2J0-g4-Yk4"/>
-    </inferredMetricsTieBreakers>
 </document>

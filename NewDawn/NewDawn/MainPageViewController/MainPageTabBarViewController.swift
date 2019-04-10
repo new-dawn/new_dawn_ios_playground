@@ -16,6 +16,10 @@ class MainPageTabBarViewController: UITabBarController, UITabBarControllerDelega
         // Do any additional setup after loading the view.
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return (viewController != tabBarController.selectedViewController);
+    }
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let params = ["user_from": String(LoginUserUtil.getLoginUserId()!),
                       "action_type": String(UserActionType.MATCH.rawValue)]
