@@ -36,7 +36,8 @@ class ModalPopupViewController: UIViewController {
                             entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,
                             entity_id: lastest_liked_item[ENTITY_ID] as! Int,
                             message: commentTextField.text)
-        ProfileIndexUtil.updateProfileIndex()
+        dismiss(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)

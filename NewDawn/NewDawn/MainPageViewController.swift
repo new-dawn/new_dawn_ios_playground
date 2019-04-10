@@ -17,6 +17,7 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
         user_profiles = UserProfileBuilder.getUserProfileListFromLocalStorage()
 //        user_profiles = [
 //            UserProfile(data: USER_DUMMY_DATA[0]),
@@ -38,12 +39,17 @@ class MainPageViewController: UIViewController {
     }
     
     func performSegueToNextProfile(_ sender: Any) {
+        NotificationCenter.default.removeObserver(self)
         if ProfileIndexUtil.reachLastProfile(profiles: user_profiles) {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
         } else {
             ProfileIndexUtil.updateProfileIndex()
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
         }
+    }
+    
+    @objc func likeButtonTappedOnPopupModal(notif: NSNotification) {
+        self.performSegueToNextProfile(notif)
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
