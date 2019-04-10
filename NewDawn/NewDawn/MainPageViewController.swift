@@ -36,15 +36,19 @@ class MainPageViewController: UIViewController {
             navigationItem.hidesBackButton = true
         }
     }
-
-    @IBAction func skipButtonTapped(_ sender: Any) {
-        // The profile is skipped
+    
+    func performSegueToNextProfile(_ sender: Any) {
         if ProfileIndexUtil.reachLastProfile(profiles: user_profiles) {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
         } else {
             ProfileIndexUtil.updateProfileIndex()
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
         }
+    }
+
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        // The profile is skipped
+        self.performSegueToNextProfile(sender)
     }
     
 }
