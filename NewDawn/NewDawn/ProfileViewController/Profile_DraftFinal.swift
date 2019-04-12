@@ -38,7 +38,6 @@ class Profile_DraftFinal: UIViewController {
         if request == nil {
             return
         }
-        self.removeActivityIndicator(activityIndicator: activityIndicator)
         
         self.processSessionTasks(request: request!){jsonResponse, error in
             
@@ -64,6 +63,7 @@ class Profile_DraftFinal: UIViewController {
                             print("image upload \(success)")}
                     }
                 }
+                self.removeActivityIndicator(activityIndicator: activityIndicator)
                 self.performSegue(withIdentifier: "after_register", sender: self)
                 }
         }
