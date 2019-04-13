@@ -63,8 +63,6 @@ class MainPageTabBarViewController: UITabBarController, UITabBarControllerDelega
             if upto_date_matched_users_id.count > stored_match_ids.count{
                 notifyNewMatch()
             }
-        }else{
-            notifyNewMatch()
         }
         LocalStorageUtil.localStoreKeyValue(key: MATCHED_USER_ID, value: upto_date_matched_users_id)
     }
