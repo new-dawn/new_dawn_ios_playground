@@ -133,8 +133,11 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
         cell.myImage.image = imagesArray[indexPath.row] as? UIImage
         let delete_button = cell.deleteButton
         delete_button!.tag = indexPath.row
-        delete_button?.addTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
-        
+        if imagesArray[indexPath.row] as! UIImage != BLANK_IMG{
+            delete_button?.addTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
+        } else {
+            delete_button?.removeTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
+        }
         return cell
     }
     
@@ -176,9 +179,8 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         let alert = UIAlertController(title: "Delete this Image", message: nil, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-            self.imagesArray.removeObject(at: self.clicked_image)
-            self.imagesArray.insert(BLANK_IMG, at: self.clicked_image)
             
+            self.imagesArray[self.clicked_image] = BLANK_IMG
             let dataPath = ImageUtil.getPersonalImagesDirectory()
             var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(self.clicked_image))
             fileURL = fileURL.appendingPathExtension("jpeg")
