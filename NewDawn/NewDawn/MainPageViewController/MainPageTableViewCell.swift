@@ -40,6 +40,7 @@ class LikeImageViewCell: UITableViewCell {
             guard let item = item as? LikeImageViewModelItem else { return }
             likeLabel?.text = item.likerFirstName + " likes your photo!"
             likeMessage?.text = item.likedMessage
+            likeImageView!.clipsToBounds = true
             likeImageView!.downloaded(from: likeImageView!.getURL(path: item.likedImageURL))
         }
     }

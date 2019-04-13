@@ -26,6 +26,7 @@ class AppLandingViewController: UIViewController {
                     }
                     return
                 }
+                _ = LoginUserUtil.logout()
             }
         }
         // Take user to login page
