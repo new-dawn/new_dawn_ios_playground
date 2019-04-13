@@ -72,15 +72,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People who matches with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-6N-SU6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People who matches with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-6N-SU6">
                                 <rect key="frame" x="11" y="75" width="231" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CW6-WA-kCa"/>
+                                    <constraint firstAttribute="width" constant="231" id="oZJ-jp-5Mu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <color key="textColor" red="0.70553351679999998" green="0.70553351679999998" blue="0.70553351679999998" alpha="0.91873899650000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Buo-6N-SU6" firstAttribute="leading" secondItem="zp2-gO-EXw" secondAttribute="leading" constant="11" id="jUW-4f-AOQ"/>
+                            <constraint firstItem="Buo-6N-SU6" firstAttribute="top" secondItem="zp2-gO-EXw" secondAttribute="top" constant="11" id="mUo-7o-Hm6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zp2-gO-EXw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="erX-xF-JYc"/>
