@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8e2-I1-Shc">
-                                <rect key="frame" x="0.0" y="109" width="375" height="509"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8e2-I1-Shc">
+                                <rect key="frame" x="0.0" y="106" width="375" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Z5-LP-rdp">
@@ -85,6 +84,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8e2-I1-Shc" firstAttribute="bottom" secondItem="zp2-gO-EXw" secondAttribute="bottom" id="3OX-tY-B4S"/>
+                            <constraint firstItem="8e2-I1-Shc" firstAttribute="top" secondItem="Buo-6N-SU6" secondAttribute="bottom" constant="10" id="5O5-WB-yRS"/>
+                            <constraint firstItem="8e2-I1-Shc" firstAttribute="trailing" secondItem="zp2-gO-EXw" secondAttribute="trailing" id="abw-by-oaK"/>
+                            <constraint firstItem="8e2-I1-Shc" firstAttribute="leading" secondItem="zp2-gO-EXw" secondAttribute="leading" id="f3s-gI-Z1K"/>
                             <constraint firstItem="Buo-6N-SU6" firstAttribute="leading" secondItem="zp2-gO-EXw" secondAttribute="leading" constant="11" id="jUW-4f-AOQ"/>
                             <constraint firstItem="Buo-6N-SU6" firstAttribute="top" secondItem="zp2-gO-EXw" secondAttribute="top" constant="11" id="mUo-7o-Hm6"/>
                         </constraints>
