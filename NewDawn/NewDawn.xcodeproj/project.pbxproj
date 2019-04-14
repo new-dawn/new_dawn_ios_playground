@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24C09F9F2263E99400302CEF /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F5D2263E99400302CEF /* RegisterUserViewController.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -41,7 +40,6 @@
 		24C09FBE2263E99400302CEF /* Profile_Smoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F872263E99400302CEF /* Profile_Smoke.swift */; };
 		24C09FBF2263E99400302CEF /* Profile_Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F882263E99400302CEF /* Profile_Drink.swift */; };
 		24C09FC02263E99400302CEF /* Profile_Notificatioin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F892263E99400302CEF /* Profile_Notificatioin.swift */; };
-		24C09FC12263E99400302CEF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F8A2263E99400302CEF /* SignInViewController.swift */; };
 		24C09FC22263E99400302CEF /* MainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F8C2263E99400302CEF /* MainPageTableViewCell.swift */; };
 		24C09FC32263E99400302CEF /* MainPageTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F8D2263E99400302CEF /* MainPageTabBarViewController.swift */; };
 		24C09FC42263E99400302CEF /* MainPageEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F8E2263E99400302CEF /* MainPageEndViewController.swift */; };
@@ -53,10 +51,7 @@
 		24C09FCA2263E99400302CEF /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F952263E99400302CEF /* AppLandingViewController.swift */; };
 		24C09FCB2263E99400302CEF /* PhoneAuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F972263E99400302CEF /* PhoneAuthenticateViewController.swift */; };
 		24C09FCC2263E99400302CEF /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F982263E99400302CEF /* PhoneVerifyViewController.swift */; };
-		24C09FCD2263E99400302CEF /* UserInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F9A2263E99400302CEF /* UserInfoModel.xcdatamodeld */; };
 		24C09FCE2263E99400302CEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F9C2263E99400302CEF /* AppDelegate.swift */; };
-		24C09FCF2263E99400302CEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F9D2263E99400302CEF /* ProfileViewController.swift */; };
-		24C09FD02263E99400302CEF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F9E2263E99400302CEF /* Info.plist */; };
 		24F6581121B31C1400DB2547 /* NewDawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6581021B31C1400DB2547 /* NewDawnTests.swift */; };
 		24F6581C21B31C1400DB2547 /* NewDawnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F6581B21B31C1400DB2547 /* NewDawnUITests.swift */; };
 		287289B5642A2F4B53258129 /* Pods_NewDawnUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */; };
@@ -84,7 +79,6 @@
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
-		24C09F5D2263E99400302CEF /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -118,7 +112,6 @@
 		24C09F872263E99400302CEF /* Profile_Smoke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Smoke.swift; sourceTree = "<group>"; };
 		24C09F882263E99400302CEF /* Profile_Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Drink.swift; sourceTree = "<group>"; };
 		24C09F892263E99400302CEF /* Profile_Notificatioin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Notificatioin.swift; sourceTree = "<group>"; };
-		24C09F8A2263E99400302CEF /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		24C09F8C2263E99400302CEF /* MainPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageTableViewCell.swift; sourceTree = "<group>"; };
 		24C09F8D2263E99400302CEF /* MainPageTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageTabBarViewController.swift; sourceTree = "<group>"; };
 		24C09F8E2263E99400302CEF /* MainPageEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageEndViewController.swift; sourceTree = "<group>"; };
@@ -131,9 +124,7 @@
 		24C09F972263E99400302CEF /* PhoneAuthenticateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticateViewController.swift; sourceTree = "<group>"; };
 		24C09F982263E99400302CEF /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		24C09F992263E99400302CEF /* NewDawn.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = NewDawn.entitlements; sourceTree = "<group>"; };
-		24C09F9B2263E99400302CEF /* UserInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoModel.xcdatamodel; sourceTree = "<group>"; };
 		24C09F9C2263E99400302CEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24C09F9D2263E99400302CEF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		24C09F9E2263E99400302CEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F657F821B31C1300DB2547 /* NewDawn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewDawn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6580C21B31C1300DB2547 /* NewDawnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewDawnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +186,6 @@
 		24C09F5C2263E99400302CEF /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
-				24C09F5D2263E99400302CEF /* RegisterUserViewController.swift */,
 				24C09F5E2263E99400302CEF /* Assets.xcassets */,
 				24C09F5F2263E99400302CEF /* Utils */,
 				24C09F662263E99400302CEF /* Models */,
@@ -206,9 +196,7 @@
 				24C09F712263E99400302CEF /* ProfileGNB.storyboard */,
 				24C09F732263E99400302CEF /* ViewControllers */,
 				24C09F992263E99400302CEF /* NewDawn.entitlements */,
-				24C09F9A2263E99400302CEF /* UserInfoModel.xcdatamodeld */,
 				24C09F9C2263E99400302CEF /* AppDelegate.swift */,
-				24C09F9D2263E99400302CEF /* ProfileViewController.swift */,
 				24C09F9E2263E99400302CEF /* Info.plist */,
 			);
 			path = NewDawn;
@@ -286,7 +274,6 @@
 				24C09F872263E99400302CEF /* Profile_Smoke.swift */,
 				24C09F882263E99400302CEF /* Profile_Drink.swift */,
 				24C09F892263E99400302CEF /* Profile_Notificatioin.swift */,
-				24C09F8A2263E99400302CEF /* SignInViewController.swift */,
 			);
 			path = RegistrationViewControllers;
 			sourceTree = "<group>";
@@ -498,7 +485,6 @@
 				24C09FA92263E99400302CEF /* LaunchScreen.storyboard in Resources */,
 				24C09FAD2263E99400302CEF /* ProfileGNB.storyboard in Resources */,
 				24C09FAB2263E99400302CEF /* Main.storyboard in Resources */,
-				24C09FD02263E99400302CEF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +623,6 @@
 				24C09FBE2263E99400302CEF /* Profile_Smoke.swift in Sources */,
 				24C09FCB2263E99400302CEF /* PhoneAuthenticateViewController.swift in Sources */,
 				24C09FA52263E99400302CEF /* ProfileIndexUtil.swift in Sources */,
-				24C09F9F2263E99400302CEF /* RegisterUserViewController.swift in Sources */,
 				24C09FB42263E99400302CEF /* ChatPageViewController.swift in Sources */,
 				24C09FB72263E99400302CEF /* Profile_WorkJob.swift in Sources */,
 				24C09FC92263E99400302CEF /* ProfileSettingViewController.swift in Sources */,
@@ -645,7 +630,6 @@
 				24C09FB12263E99400302CEF /* SelectQuestionViewController.swift in Sources */,
 				24C09FB02263E99400302CEF /* AnswerQuestionViewController.swift in Sources */,
 				24C09FA82263E99400302CEF /* Message.swift in Sources */,
-				24C09FC12263E99400302CEF /* SignInViewController.swift in Sources */,
 				24C09FC02263E99400302CEF /* Profile_Notificatioin.swift in Sources */,
 				24C09FBF2263E99400302CEF /* Profile_Drink.swift in Sources */,
 				24C09FB62263E99400302CEF /* Profile_Height.swift in Sources */,
@@ -667,12 +651,10 @@
 				24C09FA32263E99400302CEF /* LocalStorageUtil.swift in Sources */,
 				24C09FC82263E99400302CEF /* SettingPageViewController.swift in Sources */,
 				24C09FA72263E99400302CEF /* UserModels.swift in Sources */,
-				24C09FCD2263E99400302CEF /* UserInfoModel.xcdatamodeld in Sources */,
 				24C09FB32263E99400302CEF /* ChatProfileViewController.swift in Sources */,
 				24C09FB92263E99400302CEF /* Profile_Photos.swift in Sources */,
 				24C09FA42263E99400302CEF /* ImageUtil.swift in Sources */,
 				24C09FAF2263E99400302CEF /* QuestionViewController.swift in Sources */,
-				24C09FCF2263E99400302CEF /* ProfileViewController.swift in Sources */,
 				24C09FC62263E99400302CEF /* MainPageViewController.swift in Sources */,
 				24C09FBC2263E99400302CEF /* Profile_PhotosUpload.swift in Sources */,
 			);
@@ -1003,19 +985,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		24C09F9A2263E99400302CEF /* UserInfoModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				24C09F9B2263E99400302CEF /* UserInfoModel.xcdatamodel */,
-			);
-			currentVersion = 24C09F9B2263E99400302CEF /* UserInfoModel.xcdatamodel */;
-			path = UserInfoModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 24F657F021B31C1300DB2547 /* Project object */;
 }
