@@ -103,7 +103,7 @@
 		24B884F521E041BE00AD2786 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewController.swift; path = NewDawn/MainPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		24B884F721E1900000AD2786 /* MainPageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewModels.swift; path = MainPageViewController/MainPageViewModels.swift; sourceTree = "<group>"; };
 		24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageTableViewCell.swift; path = MainPageViewController/MainPageTableViewCell.swift; sourceTree = "<group>"; };
-		24B884FD21E463A100AD2786 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModels.swift; path = Models/UserModels.swift; sourceTree = "<group>"; };
+		24B884FD21E463A100AD2786 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModels.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		24B8850121E8283900AD2786 /* MainPageTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageTabBarViewController.swift; path = MainPageViewController/MainPageTabBarViewController.swift; sourceTree = "<group>"; };
 		24B8850521E82DE800AD2786 /* HttpUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUtil.swift; path = HttpUtil/HttpUtil.swift; sourceTree = "<group>"; };
 		24B8850821EBA73000AD2786 /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingPageViewController.swift; path = SettingPageViewController/SettingPageViewController.swift; sourceTree = "<group>"; };
@@ -202,12 +202,12 @@
 		24F657EF21B31C1300DB2547 = {
 			isa = PBXGroup;
 			children = (
+				D56257B6927956DFF08F74B6 /* Frameworks */,
 				24F657FA21B31C1300DB2547 /* NewDawn */,
 				24F6580F21B31C1300DB2547 /* NewDawnTests */,
 				24F6581A21B31C1400DB2547 /* NewDawnUITests */,
-				24F657F921B31C1300DB2547 /* Products */,
 				17165545D8163B7189F60507 /* Pods */,
-				D56257B6927956DFF08F74B6 /* Frameworks */,
+				24F657F921B31C1300DB2547 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,45 +224,45 @@
 		24F657FA21B31C1300DB2547 /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
-				068F957B224DBDF5003200DD /* NewDawn.entitlements */,
 				248001692217AB3400BA708C /* Models */,
 				54C278B421CFFAB600917F16 /* ProfileViewController */,
+				24B884EE21D6BBE100AD2786 /* AnswerQuestionViewController.swift */,
 				24F657FB21B31C1300DB2547 /* AppDelegate.swift */,
-				24F657FD21B31C1300DB2547 /* ViewController.swift */,
-				24F657FF21B31C1300DB2547 /* Main.storyboard */,
 				24A6D4D22251ABAD00F886CA /* AppLandingViewController.swift */,
 				24F6580221B31C1300DB2547 /* Assets.xcassets */,
-				24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */,
+				24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */,
+				246620C4224462AC0077034F /* ChatProfileViewController.swift */,
+				2480015B2213DDBD00BA708C /* ChatRoomViewController.swift */,
+				248AE7FB220BD18C00042168 /* ChatUtil.swift */,
+				24B8850521E82DE800AD2786 /* HttpUtil.swift */,
+				248AE7FD2210984400042168 /* ImageUtil.swift */,
 				24F6580721B31C1300DB2547 /* Info.plist */,
-				24F6582921B325D300DB2547 /* SignInViewController.swift */,
-				24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */,
-				24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */,
-				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
-				24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */,
+				24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */,
+				24B8851021F02E1600AD2786 /* LocalStorageUtil.swift */,
+				24F657FF21B31C1300DB2547 /* Main.storyboard */,
+				24B884F021E03ADF00AD2786 /* MainPage.storyboard */,
+				24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */,
+				24B8850121E8283900AD2786 /* MainPageTabBarViewController.swift */,
+				24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */,
+				24B884F521E041BE00AD2786 /* MainPageViewController.swift */,
+				24B884F721E1900000AD2786 /* MainPageViewModels.swift */,
+				24B8851621FAA2C100AD2786 /* ModalPopupViewController.swift */,
+				068F957B224DBDF5003200DD /* NewDawn.entitlements */,
 				24C0464121C54FE5006EC02E /* PhoneAuthenticateViewController.swift */,
+				24C0463F21C54F02006EC02E /* PhoneVerifyViewController.swift */,
+				24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */,
+				06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */,
+				24F6582D21B32C3700DB2547 /* ProfileViewController.swift */,
 				24B884E721D54F2000AD2786 /* QuestionAnswer.storyboard */,
 				24B884EA21D54F8E00AD2786 /* QuestionViewController.swift */,
-				24B884F021E03ADF00AD2786 /* MainPage.storyboard */,
-				246620C4224462AC0077034F /* ChatProfileViewController.swift */,
-				24B884F521E041BE00AD2786 /* MainPageViewController.swift */,
+				24F6582B21B327F200DB2547 /* RegisterUserViewController.swift */,
 				24B884EC21D55E0C00AD2786 /* SelectQuestionViewController.swift */,
-				24B884EE21D6BBE100AD2786 /* AnswerQuestionViewController.swift */,
-				24B884F721E1900000AD2786 /* MainPageViewModels.swift */,
-				24B884FB21E302EC00AD2786 /* MainPageTableViewCell.swift */,
-				248AE7FB220BD18C00042168 /* ChatUtil.swift */,
-				24B884FD21E463A100AD2786 /* UserModels.swift */,
-				24B8850121E8283900AD2786 /* MainPageTabBarViewController.swift */,
-				24B8850521E82DE800AD2786 /* HttpUtil.swift */,
 				24B8850821EBA73000AD2786 /* SettingPageViewController.swift */,
-				06628A482210BE1E0082D81A /* ProfileSettingViewController.swift */,
-				24B8850A21EBA75400AD2786 /* ChatPageViewController.swift */,
-				24B8850C21F02A0200AD2786 /* MainPageEndViewController.swift */,
+				24F6582921B325D300DB2547 /* SignInViewController.swift */,
 				24B8850E21F02C1900AD2786 /* TimerUtil.swift */,
-				24B8851021F02E1600AD2786 /* LocalStorageUtil.swift */,
-				24B8851221F0429200AD2786 /* ProfileIndexUtil.swift */,
-				24B8851621FAA2C100AD2786 /* ModalPopupViewController.swift */,
-				248AE7FD2210984400042168 /* ImageUtil.swift */,
-				2480015B2213DDBD00BA708C /* ChatRoomViewController.swift */,
+				24C0464321CD9BB0006EC02E /* UserInfoModel.xcdatamodeld */,
+				24B884FD21E463A100AD2786 /* UserModels.swift */,
+				24F657FD21B31C1300DB2547 /* ViewController.swift */,
 			);
 			path = NewDawn;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 		24F6580F21B31C1300DB2547 /* NewDawnTests */ = {
 			isa = PBXGroup;
 			children = (
-				24F6581021B31C1400DB2547 /* NewDawnTests.swift */,
 				24F6581221B31C1400DB2547 /* Info.plist */,
+				24F6581021B31C1400DB2547 /* NewDawnTests.swift */,
 			);
 			path = NewDawnTests;
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 		24F6581A21B31C1400DB2547 /* NewDawnUITests */ = {
 			isa = PBXGroup;
 			children = (
-				24F6581B21B31C1400DB2547 /* NewDawnUITests.swift */,
 				24F6581D21B31C1400DB2547 /* Info.plist */,
+				24F6581B21B31C1400DB2547 /* NewDawnUITests.swift */,
 			);
 			path = NewDawnUITests;
 			sourceTree = "<group>";
@@ -288,19 +288,19 @@
 		54C278B421CFFAB600917F16 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */,
-				24C0468321CDC84E006EC02E /* ProfileGNBViewController.swift */,
-				243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */,
-				54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */,
-				54C278B921CFFB9200917F16 /* Profile_Height.swift */,
-				54C278BB21CFFBAB00917F16 /* Profile_Education.swift */,
-				54C278BF21CFFBFD00917F16 /* Profile_Smoke.swift */,
-				54C278C121CFFC1600917F16 /* Profile_Photos.swift */,
-				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
-				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
-				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
-				8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */,
 				060CDFDE2219164E004A9C6D /* ImageCollectionViewCell.swift */,
+				243CEEBD21CDE70300BB3481 /* ProfileGNB.storyboard */,
+				24C0468321CDC84E006EC02E /* ProfileGNBViewController.swift */,
+				2486AB2A21D4230B003CB062 /* Profile_DraftFinal.swift */,
+				0683201621D5B4DF00CFA3D4 /* Profile_Drink.swift */,
+				54C278BB21CFFBAB00917F16 /* Profile_Education.swift */,
+				54C278B921CFFB9200917F16 /* Profile_Height.swift */,
+				54C278B721CFFB4300917F16 /* Profile_HomeTown.swift */,
+				54C278C321CFFC2E00917F16 /* Profile_Notificatioin.swift */,
+				54C278C121CFFC1600917F16 /* Profile_Photos.swift */,
+				8F2EF86D21D9119100FBF8E5 /* Profile_PhotosUpload.swift */,
+				54C278BF21CFFBFD00917F16 /* Profile_Smoke.swift */,
+				54C278C521D0003C00917F16 /* Profile_WorkJob.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -657,6 +657,7 @@
 				24B884E821D54F2000AD2786 /* Base */,
 			);
 			name = QuestionAnswer.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		24B884F021E03ADF00AD2786 /* MainPage.storyboard */ = {
@@ -665,6 +666,7 @@
 				24B884F121E03ADF00AD2786 /* Base */,
 			);
 			name = MainPage.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		24F657FF21B31C1300DB2547 /* Main.storyboard */ = {
@@ -673,6 +675,7 @@
 				24F6580021B31C1300DB2547 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		24F6580421B31C1300DB2547 /* LaunchScreen.storyboard */ = {
@@ -681,6 +684,7 @@
 				24F6580521B31C1300DB2547 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
