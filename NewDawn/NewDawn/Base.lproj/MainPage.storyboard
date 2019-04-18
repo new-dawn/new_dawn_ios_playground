@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -549,6 +549,7 @@
                         <outlet property="preferenceButton" destination="JgF-5v-hzk" id="pIZ-lX-NCt"/>
                         <outlet property="profileImage" destination="Snv-h9-g87" id="5rF-Vg-pxb"/>
                         <outlet property="settingButton" destination="n9d-zn-2sT" id="nBA-tw-3RV"/>
+                        <segue destination="LUr-sQ-HWE" kind="show" identifier="myProfile" id="nT2-HC-WHj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1530,4 +1531,7 @@
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nT2-HC-WHj"/>
+    </inferredMetricsTieBreakers>
 </document>

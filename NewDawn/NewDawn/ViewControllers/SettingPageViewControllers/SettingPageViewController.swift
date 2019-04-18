@@ -20,15 +20,48 @@ class SettingPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ImageUtil.polishCircularImageView(imageView: profileImage)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(gesture:)))// add it to the image view;
+        profileImage.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        profileImage.isUserInteractionEnabled = true
+    
         polishUIButton(button: preferenceButton)
         polishUIButton(button: accountButton)
         polishUIButton(button: helpButton)
         polishUIButton(button: settingButton)
-        let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages/0.jpeg")
-        let img = UIImage(contentsOfFile: dataPath)
-        profileImage.image = img
+        
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile in
+            if user_profile != nil {
+                if user_profile!.mainImages.isEmpty == false {
+                    self.profileImage.downloaded(from:
+                        self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
+                }
+            }
+        }
     }
     
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            LoginUserUtil.fetchLoginUserProfile() {
+                user_profile in
+                if user_profile != nil {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "myProfile", sender: user_profile)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Prepare fields sent to next page
+        let chatProfileController = segue.destination as! ChatProfileViewController
+        if let sender = sender as? UserProfile {
+            chatProfileController.user_profile = sender
+        }
+    }
 
     /*
     // MARK: - Navigation
