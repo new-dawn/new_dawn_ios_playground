@@ -33,7 +33,7 @@ class SettingPageViewController: UIViewController {
         LoginUserUtil.fetchLoginUserProfile() {
             user_profile in
             if user_profile != nil {
-                if user_profile?.mainImages.isEmpty ?? nil != nil {
+                if user_profile!.mainImages.isEmpty == false {
                     self.profileImage.downloaded(from:
                         self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                 }
