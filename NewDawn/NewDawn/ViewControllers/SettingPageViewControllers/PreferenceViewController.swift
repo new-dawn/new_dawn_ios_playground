@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-let gender_pref = "GENDER_PREF"
-let distance_pref = "DISTANCE_PREF"
-let age_pref = "AGE_PREF"
-let height_pref = "HEIGHT_PREF"
-let education_pref = "EDUCATION_PREF"
+let GENDER_PREF = "Gender_PREF"
+let DISTANCE_PREF = "Distance_PREF"
+let AGE_PREF = "Age_PREF"
+let HEIGHT_PREF = "Height_PREF"
+let EDUCATION_PREF = "Education_PREF"
 
 class PreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
