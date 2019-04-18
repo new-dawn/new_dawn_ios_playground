@@ -45,7 +45,6 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // UIButton for subsidiary view
         let pref_button = UIButton(frame: CGRect(x: 1, y: 1, width: 48, height: 20))
-        pref_button.tintColor = UIColor(red:193/255, green:199/255, blue:208/255, alpha:1)
         pref_button.tintColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1)
         
         // Get pref from local storage or default text
