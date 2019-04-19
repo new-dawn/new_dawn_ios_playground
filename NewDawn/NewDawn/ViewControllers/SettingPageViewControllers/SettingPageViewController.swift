@@ -56,10 +56,11 @@ class SettingPageViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Prepare fields sent to next page
-        let chatProfileController = segue.destination as! ChatProfileViewController
-        if let sender = sender as? UserProfile {
-            chatProfileController.user_profile = sender
+        if let chatProfileController = segue.destination as? ChatProfileViewController {
+            // Go to my profile
+            if let sender = sender as? UserProfile {
+                chatProfileController.user_profile = sender
+            }
         }
     }
 

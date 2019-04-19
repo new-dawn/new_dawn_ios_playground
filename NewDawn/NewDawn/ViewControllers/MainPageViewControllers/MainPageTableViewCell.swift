@@ -139,10 +139,6 @@ class MainImageViewCell: UITableViewCell {
             
             guard let item = item as? MainImageViewModelItem else { return }
             
-            // Display the image
-            mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
-            mainImageView!.clipsToBounds = true
-            
             // Populate the profile name
             name = item.name
             user_id = item.user_id
@@ -166,6 +162,10 @@ class MainImageViewCell: UITableViewCell {
                 jobTitle?.text = ""
                 employer?.text = ""
             }
+            
+            // Display the image
+            mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
+            mainImageView!.clipsToBounds = true
         }
     }
     
