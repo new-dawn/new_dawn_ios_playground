@@ -5,7 +5,7 @@ iOS repository for project New Dawn
 Take a look at this video to get familiar with iOS/Swift development
 
 ## Repository Setup
-1. Clone the repo to your local machine by running `git clone https://github.com/new-dawn/new_dawn_ios.git` in your terminal/command line. You can then add your changes in `new_dawn_ios/`. Run `git pull --rebase origin master` frequently so you can rebase your code to master branch.
+1. Clone the repo to your local machine by running `git clone https://github.com/new-dawn/new_dawn_ios_playground.git` in your terminal/command line. You can then open `new_dawn_ios_playground/NewDawn/NewDawn.xcworkspace` in Xcode to start development. Run `git pull --rebase origin master` frequently so you can rebase your code to master branch.
 2. In your local repo, run `git branch <feature_name>` and `git checkout <feature_name>` to create your own branch.
 3. Write code in your branch. 
 4. If you want to push your change, run `git add -A` to include all your local changes. Then run `git commit -m "<some message>"` to commit your changes locally.
