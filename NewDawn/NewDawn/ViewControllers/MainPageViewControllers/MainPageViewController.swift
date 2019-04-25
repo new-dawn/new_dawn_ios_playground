@@ -34,6 +34,7 @@ class MainPageViewController: UIViewController {
             tableView.delegate = viewModel
             tableView.rowHeight = UITableView.automaticDimension
             tableView.estimatedRowHeight = UITableView.automaticDimension
+            tableView.backgroundColor = UIColor.init(red: 251, green: 249, blue: 246, alpha: 1)
             navigationItem.hidesBackButton = true
         }
     }
