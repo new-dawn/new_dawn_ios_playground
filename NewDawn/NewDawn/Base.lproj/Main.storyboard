@@ -115,7 +115,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EVo-Ee-8rk" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="4C7-t2-BUb"/>
-                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" constant="5.5" id="9E6-Vg-cBA"/>
+                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="9E6-Vg-cBA"/>
                             <constraint firstItem="4tW-sO-R87" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="9SN-eX-gJB"/>
                             <constraint firstItem="Ds9-Ji-qBy" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="Ijj-tq-hta"/>
                             <constraint firstItem="IxL-wb-f4W" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" constant="-120" id="KQd-uJ-Cp6"/>
