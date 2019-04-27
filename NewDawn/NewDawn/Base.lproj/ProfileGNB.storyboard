@@ -21,167 +21,169 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let us know more  about you" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
-                                <rect key="frame" x="52.5" y="72" width="270" height="90"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-wE-cfg">
+                                <rect key="frame" x="169" y="268" width="121" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="dA9-6R-y7P"/>
+                                    <constraint firstAttribute="height" constant="40" id="oLw-4Y-Sfc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="姓" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-9f-LEa">
+                                <rect key="frame" x="96" y="268" width="53" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="S1H-Wl-2BS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="V67-P7-vsZ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="让我们更了解妳/你一点" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
+                                <rect key="frame" x="52.5" y="170" width="270" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Pog-x6-XXW"/>
                                     <constraint firstAttribute="width" constant="270" id="myI-JZ-gFS"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Fill out details to get you a better match" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-7y-F79">
-                                <rect key="frame" x="51" y="167" width="273" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-Qn-7m3">
+                                <rect key="frame" x="53" y="533" width="269" height="75"/>
+                                <rect key="contentStretch" x="0.0" y="0.050000000000000003" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Zb9-Dp-yqB"/>
-                                    <constraint firstAttribute="width" constant="273" id="mS0-eN-OcQ"/>
+                                    <constraint firstAttribute="height" constant="75" id="0Zg-Jw-bay"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Name" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdI-d3-yco">
-                                <rect key="frame" x="51" y="222" width="273" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="2h9-Dc-GL6"/>
-                                    <constraint firstAttribute="width" constant="273" id="wKd-XL-0l2"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-wE-cfg">
-                                <rect key="frame" x="56.5" y="251" width="122" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="dA9-6R-y7P"/>
-                                    <constraint firstAttribute="height" constant="40" id="oLw-4Y-Sfc"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-9f-LEa">
-                                <rect key="frame" x="196.5" y="251" width="122" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="S1H-Wl-2BS"/>
-                                    <constraint firstAttribute="width" constant="122" id="V67-P7-vsZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I identify as a..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-FW-C7I">
-                                <rect key="frame" x="51" y="316" width="273" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="273" id="lXg-9i-O5B"/>
-                                    <constraint firstAttribute="height" constant="25" id="lk6-uV-Aut"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28d-s8-GDJ">
-                                <rect key="frame" x="57.5" y="345" width="120" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TFQ-E2-Smg"/>
-                                    <constraint firstAttribute="width" constant="120" id="mnn-bf-dMz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Woman">
-                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="womanButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="bVP-Fw-G1x"/>
+                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="qhV-Xs-i9d"/>
+                                    <segue destination="zK3-2z-MPV" kind="presentation" identifier="profileGNG_continue" id="amX-Zs-ZQr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-us-cso">
-                                <rect key="frame" x="197.5" y="345" width="120" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="年/月/日" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zB-gA-YW1">
+                                <rect key="frame" x="96" y="331" width="194" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Jnp-GH-1Gc"/>
-                                    <constraint firstAttribute="width" constant="120" id="cnx-ff-SKe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Man">
-                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="manButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="Ynh-b1-pms"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zB-gA-YW1">
-                                <rect key="frame" x="56.5" y="436" width="262" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="262" id="7Zt-b2-ZTT"/>
                                     <constraint firstAttribute="height" constant="40" id="YdS-mo-TYN"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6j-AI-NKa">
-                                <rect key="frame" x="51" y="506" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28d-s8-GDJ">
+                                <rect key="frame" x="96" y="411" width="80" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="TkD-Qf-9PM"/>
-                                    <constraint firstAttribute="width" constant="273" id="leg-R0-ovc"/>
+                                    <constraint firstAttribute="width" constant="80" id="8i1-2g-7eT"/>
+                                    <constraint firstAttribute="height" constant="35" id="C74-wa-Qjy"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="女">
+                                            <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="14" name="PingFangTC-Semibold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="Q58-f5-BVS"/>
-                                    <segue destination="zK3-2z-MPV" kind="presentation" identifier="profileGNG_continue" id="jxh-C2-kWy"/>
+                                    <action selector="womanButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="bVP-Fw-G1x"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Birthday" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-qb-e8g">
-                                <rect key="frame" x="51" y="406" width="273" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-us-cso">
+                                <rect key="frame" x="210" y="411" width="80" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="273" id="BYI-yD-VQG"/>
-                                    <constraint firstAttribute="height" constant="25" id="JrV-8a-oou"/>
+                                    <constraint firstAttribute="width" constant="80" id="L19-Uv-YK7"/>
+                                    <constraint firstAttribute="height" constant="35" id="TLS-Ve-Ty4"/>
                                 </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="男">
+                                            <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="14" name="PingFangTC-Semibold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="manButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="Ynh-b1-pms"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA3-Mj-21C">
+                                <rect key="frame" x="50" y="256" width="21" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="jZG-c0-qg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生日" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6k-KO-Zwy">
+                                <rect key="frame" x="50" y="333" width="22" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-v0-R5i">
+                                <rect key="frame" x="50" y="411" width="21" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="ktu-Ml-fNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TdI-d3-yco" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="1cK-hR-bgh"/>
-                            <constraint firstItem="4zM-7y-F79" firstAttribute="top" secondItem="W2s-sC-0PV" secondAttribute="bottom" constant="5" id="77w-PY-MOi"/>
-                            <constraint firstItem="QeE-qb-e8g" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="65" id="9zQ-Kz-1ok"/>
-                            <constraint firstItem="CqV-wE-cfg" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="-70" id="Crf-BD-zPL"/>
-                            <constraint firstItem="Gf3-us-cso" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="4" id="DJu-pA-OZ9"/>
-                            <constraint firstItem="W2s-sC-0PV" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="52" id="JaB-dJ-uh6"/>
-                            <constraint firstItem="28d-s8-GDJ" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="-70" id="NQw-7L-OD9"/>
-                            <constraint firstItem="e6j-AI-NKa" firstAttribute="top" secondItem="2zB-gA-YW1" secondAttribute="bottom" constant="30" id="NZe-kj-VLI"/>
-                            <constraint firstItem="TdI-d3-yco" firstAttribute="top" secondItem="4zM-7y-F79" secondAttribute="bottom" constant="30" id="Nv3-q2-sDT"/>
-                            <constraint firstItem="Gf3-us-cso" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="70" id="Rvn-Mb-j5i"/>
-                            <constraint firstItem="uoN-FW-C7I" firstAttribute="top" secondItem="CqV-wE-cfg" secondAttribute="bottom" constant="25" id="TH9-63-2di"/>
-                            <constraint firstItem="e6j-AI-NKa" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="Y4f-kE-6Ww"/>
-                            <constraint firstItem="4zM-7y-F79" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="YJf-t1-8oW"/>
-                            <constraint firstItem="QeE-qb-e8g" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ZoH-v1-b3Y"/>
-                            <constraint firstItem="CqV-wE-cfg" firstAttribute="top" secondItem="TdI-d3-yco" secondAttribute="bottom" constant="4" id="bVU-GE-aNZ"/>
-                            <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="dKg-bJ-ea8"/>
-                            <constraint firstItem="kRU-9f-LEa" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="70" id="dXF-Uk-ZfO"/>
-                            <constraint firstItem="2zB-gA-YW1" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="eps-ap-i3R"/>
-                            <constraint firstItem="2zB-gA-YW1" firstAttribute="top" secondItem="QeE-qb-e8g" secondAttribute="bottom" constant="5" id="hc4-4o-OUz"/>
-                            <constraint firstItem="uoN-FW-C7I" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="ohv-nj-Bad"/>
-                            <constraint firstItem="28d-s8-GDJ" firstAttribute="top" secondItem="uoN-FW-C7I" secondAttribute="bottom" constant="4" id="tNy-25-PZ8"/>
-                            <constraint firstItem="kRU-9f-LEa" firstAttribute="top" secondItem="TdI-d3-yco" secondAttribute="bottom" constant="4" id="vJ1-FQ-Gzi"/>
+                            <constraint firstItem="Gf3-us-cso" firstAttribute="leading" secondItem="28d-s8-GDJ" secondAttribute="trailing" constant="34" id="2aU-AN-6Ct"/>
+                            <constraint firstItem="CGW-v0-R5i" firstAttribute="leading" secondItem="ZKy-hO-AYx" secondAttribute="leading" constant="50" id="9ZE-fL-yz5"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="leading" secondItem="CGW-v0-R5i" secondAttribute="leading" id="EpY-iu-x72"/>
+                            <constraint firstItem="g6k-KO-Zwy" firstAttribute="top" secondItem="YA3-Mj-21C" secondAttribute="bottom" constant="8" id="H0g-vD-BaB"/>
+                            <constraint firstItem="W2s-sC-0PV" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="150" id="Kch-22-dCf"/>
+                            <constraint firstItem="2zB-gA-YW1" firstAttribute="centerY" secondItem="ZKy-hO-AYx" secondAttribute="centerY" constant="17.5" id="LAw-2W-Shc"/>
+                            <constraint firstItem="5zn-Qn-7m3" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="LEx-Rt-gj9"/>
+                            <constraint firstItem="5zn-Qn-7m3" firstAttribute="leading" secondItem="ZKy-hO-AYx" secondAttribute="leadingMargin" constant="37" id="N9n-tW-UtT"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="236" id="PJh-9X-Qdz"/>
+                            <constraint firstItem="CqV-wE-cfg" firstAttribute="leading" secondItem="kRU-9f-LEa" secondAttribute="trailing" constant="20" id="PTO-f8-gcn"/>
+                            <constraint firstItem="Gf3-us-cso" firstAttribute="top" secondItem="2zB-gA-YW1" secondAttribute="bottom" constant="40" id="UEe-wb-apS"/>
+                            <constraint firstItem="CGW-v0-R5i" firstAttribute="top" secondItem="g6k-KO-Zwy" secondAttribute="bottom" constant="34" id="Uaf-br-lfp"/>
+                            <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="Ufd-qp-sX8"/>
+                            <constraint firstItem="2zB-gA-YW1" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="5.5" id="YqH-br-zrR"/>
+                            <constraint firstItem="28d-s8-GDJ" firstAttribute="leading" secondItem="CGW-v0-R5i" secondAttribute="trailing" constant="25" id="h3c-iP-FOh"/>
+                            <constraint firstItem="g6k-KO-Zwy" firstAttribute="centerY" secondItem="2zB-gA-YW1" secondAttribute="centerY" constant="4" id="hxL-jg-bmR"/>
+                            <constraint firstItem="kRU-9f-LEa" firstAttribute="top" secondItem="CqV-wE-cfg" secondAttribute="top" id="kTO-wg-9IT"/>
+                            <constraint firstItem="yH2-Zt-D3t" firstAttribute="top" secondItem="5zn-Qn-7m3" secondAttribute="bottom" constant="59" id="lpc-Mn-LqM"/>
+                            <constraint firstItem="28d-s8-GDJ" firstAttribute="centerY" secondItem="Gf3-us-cso" secondAttribute="centerY" id="mwt-oI-ys7"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="leading" secondItem="ZKy-hO-AYx" secondAttribute="leading" constant="50" id="oU1-fN-NWy"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="centerY" secondItem="CqV-wE-cfg" secondAttribute="centerY" constant="2.5" id="pkV-3O-6pj"/>
+                            <constraint firstItem="CqV-wE-cfg" firstAttribute="leading" secondItem="kRU-9f-LEa" secondAttribute="trailing" constant="20" id="qiN-4u-WcN"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="leading" secondItem="g6k-KO-Zwy" secondAttribute="leading" id="rMH-J7-PXw"/>
+                            <constraint firstItem="YA3-Mj-21C" firstAttribute="trailing" secondItem="g6k-KO-Zwy" secondAttribute="trailing" constant="-1" id="upC-Oy-sLU"/>
+                            <constraint firstItem="kRU-9f-LEa" firstAttribute="leading" secondItem="YA3-Mj-21C" secondAttribute="trailing" constant="25" id="wZC-Qh-eeU"/>
+                            <constraint firstItem="kRU-9f-LEa" firstAttribute="top" secondItem="W2s-sC-0PV" secondAttribute="bottom" constant="8" id="xUN-8E-iXt"/>
+                            <constraint firstItem="2zB-gA-YW1" firstAttribute="leading" secondItem="g6k-KO-Zwy" secondAttribute="trailing" constant="24" id="yiT-gp-Jvb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="birthdayTextField" destination="2zB-gA-YW1" id="1Wo-DU-bMC"/>
+                        <outlet property="continueButton" destination="5zn-Qn-7m3" id="qqb-n4-Ouu"/>
                         <outlet property="firstnameTextField" destination="CqV-wE-cfg" id="9SV-Uq-qSZ"/>
                         <outlet property="lastnameTextField" destination="kRU-9f-LEa" id="vOo-zm-8FK"/>
                         <outlet property="manButton" destination="Gf3-us-cso" id="n0W-5d-XJV"/>
@@ -190,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP3-S2-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="835.59782608695662"/>
+            <point key="canvasLocation" x="1576.8" y="834.33283358320841"/>
         </scene>
         <!--Profile Height-->
         <scene sceneID="BT1-VS-daF">
@@ -232,11 +234,11 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="onk-xV-vwz"/>
-                                    <segue destination="IvN-LX-e3l" kind="presentation" id="uGv-Bl-E4M"/>
+                                    <segue destination="IvN-LX-e3l" kind="show" id="uGv-Bl-E4M"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How tall are you?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W4-B8-ZSE">
-                                <rect key="frame" x="53" y="75" width="270" height="47"/>
+                                <rect key="frame" x="52.5" y="75" width="270" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="ZE9-F6-VYv"/>
@@ -1439,6 +1441,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
@@ -1449,6 +1452,6 @@
         <segue reference="Lg2-B7-aic"/>
         <segue reference="7PI-cb-EZr"/>
         <segue reference="xAU-WT-A6c"/>
-        <segue reference="G4q-1k-jVJ"/>
+        <segue reference="amX-Zs-ZQr"/>
     </inferredMetricsTieBreakers>
 </document>

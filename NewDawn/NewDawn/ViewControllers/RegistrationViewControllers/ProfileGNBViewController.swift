@@ -24,6 +24,7 @@ class ProfileGNBViewController: UIViewController {
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
     
     let datePicker = UIDatePicker()
     
@@ -41,23 +42,29 @@ class ProfileGNBViewController: UIViewController {
         if let stored_gender = localReadKeyValue(key: GENDER) as? String {
             gender = stored_gender
             if gender == MAN {
-                selectButton(button: manButton)
+                selectManButton(button: manButton)
             } else {
-                selectButton(button: womanButton)
+                selectWomanButton(button: womanButton)
             }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: womanButton)
-        polishUIButton(button: manButton)
-        polishTextField(textField: firstnameTextField)
-        polishTextField(textField: lastnameTextField)
-        polishTextField(textField: birthdayTextField)
+        polishGenderButton(button: womanButton)
+        polishGenderButton(button: manButton)
+
+        firstnameTextField.setBottomBorder()
+        lastnameTextField.setBottomBorder()
+        birthdayTextField.setBottomBorder()
+        //move text 20 pixels up
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         loadStoredFields()
         showDatePicker()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        let loc = Locale(identifier: "zh_Hans_CN")
+        self.datePicker.locale = loc
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,
@@ -74,13 +81,13 @@ class ProfileGNBViewController: UIViewController {
     }
     
     @IBAction func womanButtonTapped(_ sender: Any) {
-        selectButton(button: womanButton)
+        selectWomanButton(button: womanButton)
         deselectButton(button: manButton)
         gender = WOMAN
         localStoreKeyValue(key: GENDER, value: gender)
     }
     @IBAction func manButtonTapped(_ sender: Any) {
-        selectButton(button: manButton)
+        selectManButton(button: manButton)
         deselectButton(button: womanButton)
         gender = MAN
         localStoreKeyValue(key: GENDER, value: gender)
@@ -114,7 +121,7 @@ class ProfileGNBViewController: UIViewController {
     
     @objc func donedatePicker(dateField: UITextField){
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateFormat = "yyyy/MM/dd"
         birthdayTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -122,14 +129,29 @@ class ProfileGNBViewController: UIViewController {
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func selectWomanButton(button: UIButton){
+        let color = UIColor(red:241/255, green:78/255, blue:78/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
     }
-    */
+    
+    func selectManButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+    func polishGenderButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+
 
 }
