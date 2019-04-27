@@ -62,6 +62,9 @@ class ProfileGNBViewController: UIViewController {
         loadStoredFields()
         showDatePicker()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        let loc = Locale(identifier: "zh_Hans_CN")
+        self.datePicker.locale = loc
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,
