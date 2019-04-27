@@ -82,7 +82,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28d-s8-GDJ">
-                                <rect key="frame" x="96" y="450" width="80" height="35"/>
+                                <rect key="frame" x="96" y="411" width="80" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="8i1-2g-7eT"/>
                                     <constraint firstAttribute="height" constant="35" id="C74-wa-Qjy"/>
@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-us-cso">
-                                <rect key="frame" x="210" y="450" width="80" height="35"/>
+                                <rect key="frame" x="210" y="411" width="80" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="L19-Uv-YK7"/>
                                     <constraint firstAttribute="height" constant="35" id="TLS-Ve-Ty4"/>
@@ -141,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-v0-R5i">
-                                <rect key="frame" x="50" y="401" width="21" height="36"/>
+                                <rect key="frame" x="50" y="411" width="21" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="21" id="ktu-Ml-fNh"/>
                                 </constraints>
@@ -160,10 +160,10 @@
                             <constraint firstItem="2zB-gA-YW1" firstAttribute="centerY" secondItem="ZKy-hO-AYx" secondAttribute="centerY" constant="17.5" id="LAw-2W-Shc"/>
                             <constraint firstItem="5zn-Qn-7m3" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="LEx-Rt-gj9"/>
                             <constraint firstItem="5zn-Qn-7m3" firstAttribute="leading" secondItem="ZKy-hO-AYx" secondAttribute="leadingMargin" constant="37" id="N9n-tW-UtT"/>
-                            <constraint firstItem="5zn-Qn-7m3" firstAttribute="top" secondItem="Gf3-us-cso" secondAttribute="bottom" constant="48" id="P2g-RB-Dud"/>
                             <constraint firstItem="YA3-Mj-21C" firstAttribute="top" secondItem="iaC-Dy-Cff" secondAttribute="bottom" constant="236" id="PJh-9X-Qdz"/>
                             <constraint firstItem="CqV-wE-cfg" firstAttribute="leading" secondItem="kRU-9f-LEa" secondAttribute="trailing" constant="20" id="PTO-f8-gcn"/>
-                            <constraint firstItem="CGW-v0-R5i" firstAttribute="top" secondItem="g6k-KO-Zwy" secondAttribute="bottom" constant="24" id="Uaf-br-lfp"/>
+                            <constraint firstItem="Gf3-us-cso" firstAttribute="top" secondItem="2zB-gA-YW1" secondAttribute="bottom" constant="40" id="UEe-wb-apS"/>
+                            <constraint firstItem="CGW-v0-R5i" firstAttribute="top" secondItem="g6k-KO-Zwy" secondAttribute="bottom" constant="34" id="Uaf-br-lfp"/>
                             <constraint firstItem="W2s-sC-0PV" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" id="Ufd-qp-sX8"/>
                             <constraint firstItem="2zB-gA-YW1" firstAttribute="centerX" secondItem="ZKy-hO-AYx" secondAttribute="centerX" constant="5.5" id="YqH-br-zrR"/>
                             <constraint firstItem="28d-s8-GDJ" firstAttribute="leading" secondItem="CGW-v0-R5i" secondAttribute="trailing" constant="25" id="h3c-iP-FOh"/>
@@ -234,7 +234,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="onk-xV-vwz"/>
-                                    <segue destination="IvN-LX-e3l" kind="presentation" id="uGv-Bl-E4M"/>
+                                    <segue destination="IvN-LX-e3l" kind="show" id="uGv-Bl-E4M"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How tall are you?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W4-B8-ZSE">
