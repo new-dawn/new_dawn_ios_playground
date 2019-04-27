@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,39 +59,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your number?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-sO-R87">
-                                <rect key="frame" x="54" y="148" width="306" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入你的手机号码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-sO-R87">
+                                <rect key="frame" x="72" y="148" width="270" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-Ji-qBy">
-                                <rect key="frame" x="70.666666666666686" y="397" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="70.666666666666686" y="396" width="273" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="BRy-N1-I0G"/>
-                                    <constraint firstAttribute="height" constant="41" id="UWQ-Cn-ugy"/>
+                                    <constraint firstAttribute="height" constant="60" id="UWQ-Cn-ugy"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="W2h-ud-Kx5" eventType="touchUpInside" id="RIk-eZ-W8f"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please use your phone number to either create an account or sign back in" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-I1-FIZ">
-                                <rect key="frame" x="66.666666666666686" y="204" width="281" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="281" id="DXY-cq-PWr"/>
-                                    <constraint firstAttribute="height" constant="45" id="wmY-dt-8gC"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-Ee-8rk">
-                                <rect key="frame" x="69" y="314" width="276" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-Ee-8rk">
+                                <rect key="frame" x="69" y="313" width="276" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Lp0-70-Gvq"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="276" id="b2D-zy-Gmt"/>
@@ -104,7 +91,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxL-wb-f4W">
-                                <rect key="frame" x="77.666666666666671" y="322" width="19" height="21"/>
+                                <rect key="frame" x="77.666666666666671" y="321" width="19" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="Gyv-VO-1rc"/>
                                     <constraint firstAttribute="height" constant="21" id="wbr-me-hSz"/>
@@ -113,23 +100,35 @@
                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="目前只接受美国手机号码" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-I1-FIZ">
+                                <rect key="frame" x="72" y="202" width="281" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="281" id="DXY-cq-PWr"/>
+                                    <constraint firstAttribute="height" constant="45" id="wmY-dt-8gC"/>
+                                </constraints>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EVo-Ee-8rk" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="4C7-t2-BUb"/>
-                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="9E6-Vg-cBA"/>
+                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" constant="5.5" id="9E6-Vg-cBA"/>
                             <constraint firstItem="4tW-sO-R87" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="9SN-eX-gJB"/>
                             <constraint firstItem="Ds9-Ji-qBy" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="Ijj-tq-hta"/>
                             <constraint firstItem="IxL-wb-f4W" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" constant="-120" id="KQd-uJ-Cp6"/>
-                            <constraint firstItem="EVo-Ee-8rk" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="65" id="ZQw-S4-kdN"/>
-                            <constraint firstItem="IxL-wb-f4W" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="73" id="erf-1z-HK0"/>
+                            <constraint firstItem="EVo-Ee-8rk" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="66" id="ZQw-S4-kdN"/>
+                            <constraint firstItem="IxL-wb-f4W" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="74" id="erf-1z-HK0"/>
                             <constraint firstItem="Ds9-Ji-qBy" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="nmo-Tl-8Zw"/>
                             <constraint firstItem="4tW-sO-R87" firstAttribute="top" secondItem="cPO-34-C90" secondAttribute="bottom" constant="128" id="rAF-32-gCn"/>
-                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="top" secondItem="4tW-sO-R87" secondAttribute="bottom" constant="20" id="uxw-AU-ihV"/>
+                            <constraint firstItem="SVI-I1-FIZ" firstAttribute="top" secondItem="4tW-sO-R87" secondAttribute="bottom" constant="19" id="uxw-AU-ihV"/>
                             <constraint firstItem="Ds9-Ji-qBy" firstAttribute="top" secondItem="EVo-Ee-8rk" secondAttribute="bottom" constant="43" id="w1i-PC-AOa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="Ds9-Ji-qBy" id="jgZ-Tq-ed7"/>
                         <outlet property="phoneNumberTextField" destination="EVo-Ee-8rk" id="Dgo-EJ-FkD"/>
                         <segue destination="6wi-dA-koT" kind="show" identifier="phoneVerify" id="Xde-FY-Wcc"/>
                     </connections>
@@ -247,7 +246,10 @@
             <point key="canvasLocation" x="1576.8115942028987" y="835.59782608695662"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Register_continue_btn" width="765" height="198"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sDy-Zp-GUl"/>
+        <segue reference="Xde-FY-Wcc"/>
     </inferredMetricsTieBreakers>
 </document>
