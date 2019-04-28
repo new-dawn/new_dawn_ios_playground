@@ -519,7 +519,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
@@ -548,7 +548,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewDawn/Pods-NewDawn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D4C1F1D198EEF699726E859 /* [CP] Check Pods Manifest.lock */ = {
