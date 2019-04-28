@@ -11,11 +11,12 @@ import UIKit
 class PhoneVerifyViewController: UIViewController {
 
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishTextField(textField: phoneNumberTextField)
+        phoneNumberTextField.setBottomBorder()
         phoneNumberTextField.setLeftPaddingPoints(25)
-        // Do any additional setup after loading the view.
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
