@@ -63,11 +63,14 @@ class LikeAnswerViewCell: UITableViewCell {
 
 class BasicInfoViewCell: UITableViewCell {
     
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var smokeLabel: UILabel!
     @IBOutlet weak var drinkLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var workLabel: UILabel!
     
     var item: MainPageViewModellItem? {
         didSet {
@@ -75,8 +78,11 @@ class BasicInfoViewCell: UITableViewCell {
             locationLabel?.text = item.location
             smokeLabel?.text = item.smoke
             drinkLabel?.text = item.drink
-            heightLabel?.text = String(item.height) + CM
+            heightLabel?.text = String(item.height)
             degreeLabel?.text = item.degree
+            firstNameLabel?.text = item.firstName
+            workLabel?.text = item.jobTitle + ", " + item.employer
+            ageLabel?.text = String(item.age)
         }
     }
 }
