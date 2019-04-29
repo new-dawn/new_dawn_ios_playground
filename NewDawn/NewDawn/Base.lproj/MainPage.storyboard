@@ -310,7 +310,7 @@
                                         <rect key="frame" x="0.0" y="718" width="375" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dhq-he-bJu" id="ffM-PY-Wj3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="181.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TableCell" translatesAutoresizingMaskIntoConstraints="NO" id="3BL-si-Mdw">
@@ -356,7 +356,7 @@
                                         <rect key="frame" x="0.0" y="900" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OlQ-8a-iOv" id="fl6-5l-UtX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYy-AW-e8x">
@@ -967,86 +967,133 @@
                                             <outlet property="questionLabel" destination="vBF-of-WwC" id="UvW-Gx-dLQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicInfoCell" rowHeight="160" id="b35-SD-ntx" customClass="BasicInfoViewCell" customModule="NewDawn" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="906" width="375" height="160"/>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicInfoCell" rowHeight="273" id="b35-SD-ntx" customClass="BasicInfoViewCell" customModule="NewDawn" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="906" width="375" height="273"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b35-SD-ntx" id="uKN-U5-igC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3r-gg-z9h">
-                                                    <rect key="frame" x="13" y="8" width="65" height="20"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TableCell" translatesAutoresizingMaskIntoConstraints="NO" id="yXU-4q-WQz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="272.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="163" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujF-yK-KyA">
+                                                    <rect key="frame" x="266" y="25" width="71" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LocationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A83-P5-qQe">
-                                                    <rect key="frame" x="27" y="41" width="17" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCe-8f-Csw">
+                                                    <rect key="frame" x="167" y="25" width="41" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DegreeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CSG-9y-yOx">
+                                                    <rect key="frame" x="44" y="102" width="33" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HeightIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Edn-xR-gHe">
-                                                    <rect key="frame" x="28" y="82" width="13" height="26"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WorkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B79-OU-IZf" userLabel="WorkIcon">
+                                                    <rect key="frame" x="44" y="152" width="33" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LocationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A83-P5-qQe">
+                                                    <rect key="frame" x="189" y="102" width="23" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DrinkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="l9o-Yy-oba">
-                                                    <rect key="frame" x="264" y="31" width="21" height="33"/>
+                                                    <rect key="frame" x="52" y="192" width="15" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUE-PA-Tqv">
-                                                    <rect key="frame" x="52" y="43" width="73" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujF-yK-KyA">
-                                                    <rect key="frame" x="52" y="86" width="73" height="19"/>
+                                                    <rect key="frame" x="226" y="108" width="111" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLf-UA-xP6">
-                                                    <rect key="frame" x="293" y="43" width="67" height="19"/>
+                                                    <rect key="frame" x="89" y="202" width="67" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myR-Ib-4Pg">
+                                                    <rect key="frame" x="89" y="155" width="222" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SmokeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zC2-So-fMj">
-                                                    <rect key="frame" x="133" y="31" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DegreeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CSG-9y-yOx">
-                                                    <rect key="frame" x="143" y="85" width="20" height="20"/>
+                                                    <rect key="frame" x="185" y="200" width="33" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smoke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-gV-Mc6">
-                                                    <rect key="frame" x="181" y="43" width="75" height="19"/>
+                                                    <rect key="frame" x="226" y="202" width="111" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Degree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-PU-XHb">
-                                                    <rect key="frame" x="181" y="85" width="131" height="19"/>
+                                                    <rect key="frame" x="89" y="108" width="92" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="tj3-tl-yYJ">
+                                                    <rect key="frame" x="136" y="20" width="1" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="gtp-6n-lgc">
+                                                    <rect key="frame" x="242" y="20" width="1" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5e-st-r5d">
+                                                    <rect key="frame" x="176" y="57" width="23" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-Nz-Vbf">
+                                                    <rect key="frame" x="292" y="57" width="19" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="测试用户" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iN1-39-BqE">
+                                                    <rect key="frame" x="28" y="28" width="100" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="H3r-gg-z9h" firstAttribute="leading" secondItem="uKN-U5-igC" secondAttribute="leadingMargin" constant="5" id="OnM-mE-bLB"/>
-                                                <constraint firstItem="H3r-gg-z9h" firstAttribute="top" secondItem="uKN-U5-igC" secondAttribute="topMargin" id="REo-o3-3G2"/>
+                                                <constraint firstItem="yXU-4q-WQz" firstAttribute="leading" secondItem="uKN-U5-igC" secondAttribute="leading" id="MM7-Gy-Rhp"/>
+                                                <constraint firstItem="yXU-4q-WQz" firstAttribute="top" secondItem="uKN-U5-igC" secondAttribute="top" id="RhV-Cj-Jys"/>
+                                                <constraint firstAttribute="trailing" secondItem="yXU-4q-WQz" secondAttribute="trailing" id="XMa-ub-Xaq"/>
+                                                <constraint firstAttribute="bottom" secondItem="yXU-4q-WQz" secondAttribute="bottom" id="ihb-XB-4tE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ageLabel" destination="LCe-8f-Csw" id="qZJ-j8-l1Y"/>
                                             <outlet property="degreeLabel" destination="5Sn-PU-XHb" id="ojE-Dl-mcV"/>
                                             <outlet property="drinkLabel" destination="CLf-UA-xP6" id="rvZ-kV-bUs"/>
+                                            <outlet property="firstNameLabel" destination="iN1-39-BqE" id="s29-ld-xoJ"/>
                                             <outlet property="heightLabel" destination="ujF-yK-KyA" id="ztg-Sk-m5h"/>
                                             <outlet property="locationLabel" destination="cUE-PA-Tqv" id="HVS-gW-GG2"/>
                                             <outlet property="smokeLabel" destination="6Jf-gV-Mc6" id="f1p-tz-Wsa"/>
+                                            <outlet property="workLabel" destination="myR-Ib-4Pg" id="t4v-bY-OKQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1534,17 +1581,19 @@
     <resources>
         <image name="ChatNotification" width="12" height="12"/>
         <image name="ChatTab" width="24" height="24"/>
-        <image name="DegreeIcon" width="20" height="20"/>
-        <image name="DrinkIcon" width="26" height="39"/>
+        <image name="DegreeIcon" width="34" height="31"/>
+        <image name="DrinkIcon" width="15" height="35"/>
         <image name="HeightIcon" width="13" height="26"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
-        <image name="LocationIcon" width="15" height="20"/>
+        <image name="LocationIcon" width="21" height="26"/>
         <image name="MeTab" width="24" height="24"/>
         <image name="SkipButton" width="62" height="62"/>
-        <image name="SmokeIcon" width="40" height="40"/>
+        <image name="SmokeIcon" width="36" height="24"/>
         <image name="TableCell" width="367" height="306"/>
+        <image name="WorkIcon" width="33" height="26"/>
+        <image name="line" width="1" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qKH-fg-6se"/>

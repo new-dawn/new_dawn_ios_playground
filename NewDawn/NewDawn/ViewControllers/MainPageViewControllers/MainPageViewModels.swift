@@ -106,12 +106,16 @@ class MainPageViewModel: NSObject {
     
     func fetchBasicInfo(userProfile: UserProfile) -> BasicInfoViewModelItem {
         let basicInfo = BasicInfoViewModelItem(
+            firstName: userProfile.firstname,
             degree: userProfile.degree,
             drink: userProfile.drink,
             height: userProfile.height,
             location: userProfile.hometown,
             school: userProfile.school,
-            smoke: userProfile.smoke
+            smoke: userProfile.smoke,
+            employer: userProfile.employer,
+            jobTitle: userProfile.jobTitle,
+            age: userProfile.age
         )
         // Populate basic info field with existed data in user profile
         return basicInfo
@@ -152,9 +156,9 @@ class MainPageViewModel: NSObject {
         // Ordering of items
         while true {
             var hasNext = 0
-            if question_answer_items.count > 0 {
-                items.append(question_answer_items[0])
-                question_answer_items.removeFirst()
+            if basic_info_item.count > 0 {
+                items.append(basic_info_item[0])
+                basic_info_item.removeFirst()
                 hasNext = 1
             }
             if image_items.count > 0 {
@@ -162,9 +166,9 @@ class MainPageViewModel: NSObject {
                 image_items.removeFirst()
                 hasNext = 1
             }
-            if basic_info_item.count > 0 {
-                items.append(basic_info_item[0])
-                basic_info_item.removeFirst()
+            if question_answer_items.count > 0 {
+                items.append(question_answer_items[0])
+                question_answer_items.removeFirst()
                 hasNext = 1
             }
             if image_items.count > 0 {
@@ -302,24 +306,32 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
         return 1
     }
     var rowHeight: Int {
-        return 130
+        return 300
     }
     
     // Customized Attributes
+    var firstName: String
     var degree: String
     var drink: String
     var height: Int
     var location: String
     var school: String
     var smoke: String
+    var employer: String
+    var jobTitle: String
+    var age: Int
     
-    init(degree: String, drink: String, height: Int, location: String, school: String, smoke: String) {
+    init(firstName: String, degree: String, drink: String, height: Int, location: String, school: String, smoke: String, employer: String, jobTitle: String, age: Int) {
+        self.firstName = firstName
         self.degree = degree
         self.drink = drink
         self.height = height
         self.location = location
         self.school = school
         self.smoke = smoke
+        self.employer = employer
+        self.jobTitle = jobTitle
+        self.age = age
     }
     
 }
