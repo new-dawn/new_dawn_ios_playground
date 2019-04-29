@@ -143,28 +143,15 @@ class MainImageViewCell: UITableViewCell {
             name = item.name
             user_id = item.user_id
             id = item.id
-            if item.isFirst == true {
-                // Display the gradient
-                mainImageView.layer.sublayers = nil
-                mainImageView.layer.addSublayer(createGradientLayer())
-                
-                // Populate the profile first name
-                if let nameArr = name?.components(separatedBy: " ") {
-                    firstNameAndAge?.text = nameArr[0] + ". " + String(item.age)
-                }
-                
-                // Populate Jobs
-                jobTitle?.text = item.jobTitle
-                employer?.text = item.employer
-            } else {
-                mainImageView.layer.sublayers = nil
-                firstNameAndAge?.text = ""
-                jobTitle?.text = ""
-                employer?.text = ""
-            }
+            
+            mainImageView.layer.sublayers = nil
+            firstNameAndAge?.text = ""
+            jobTitle?.text = ""
+            employer?.text = ""
             
             // Display the image
             mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
+            mainImageView!.layer.cornerRadius = 26
             mainImageView!.clipsToBounds = true
         }
     }
