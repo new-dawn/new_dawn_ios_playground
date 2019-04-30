@@ -159,9 +159,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
         clicked_image = indexPath.row
         let alert = UIAlertController(title: "Photo", message: "Choose Photo", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            self.camera()
-        }))
+//        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+//            self.camera()
+//        }))
         
         alert.addAction(UIAlertAction(title: "Gallary", style: .default, handler: { (action) in
             self.gallary()
@@ -196,12 +196,12 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         present(alert,animated: true,completion: nil)
     }
     
-    func camera() {
-        picker.allowsEditing = true
-        picker.sourceType = .camera
-        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
-        present(picker,animated: true ,completion: nil)
-    }
+//    func camera() {
+//        picker.allowsEditing = true
+//        picker.sourceType = .camera
+//        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+//        present(picker,animated: true ,completion: nil)
+//    }
     
     func gallary() {
         picker.allowsEditing = true
