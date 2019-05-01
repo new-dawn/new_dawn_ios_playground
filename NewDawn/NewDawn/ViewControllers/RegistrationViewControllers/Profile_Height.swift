@@ -32,6 +32,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         polishTextField(textField: heightTextField)
         polishUIButton(button: visibleButton)
         loadStoredFields()
+        heightTextField.setBottomBorder()
         
         // Picker Toolbar
         let toolbar = UIToolbar();
