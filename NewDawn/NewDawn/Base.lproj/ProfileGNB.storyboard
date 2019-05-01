@@ -208,13 +208,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
                                 <rect key="frame" x="51" y="490" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Q0C-Mu-T2r"/>
                                     <constraint firstAttribute="width" constant="273" id="Y4o-tT-gct"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Continue" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="n1f-A5-6CP"/>
@@ -268,7 +267,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
                                 <rect key="frame" x="56.5" y="214" width="262" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="Slw-kF-IkE"/>
@@ -1452,6 +1451,6 @@
         <segue reference="Lg2-B7-aic"/>
         <segue reference="7PI-cb-EZr"/>
         <segue reference="xAU-WT-A6c"/>
-        <segue reference="amX-Zs-ZQr"/>
+        <segue reference="G4q-1k-jVJ"/>
     </inferredMetricsTieBreakers>
 </document>
