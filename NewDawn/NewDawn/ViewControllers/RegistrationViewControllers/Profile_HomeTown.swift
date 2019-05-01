@@ -18,29 +18,30 @@ class Profile_HomeTown: UIViewController {
     
     /* Constrains */
     
-    var visibleField = false
+//    var visibleField = false
 
     
     @IBOutlet weak var hometownTextField: UITextField!
-    @IBOutlet weak var visibleButton: UIButton!
+//    @IBOutlet weak var visibleButton: UIButton!
     
     func loadStoredFields() {
         if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
             hometownTextField.text = hometown
         }
-        if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
-            visibleField = visible
-            // Select the button if a user has already done so
-            if visibleField == true {
-                selectButton(button: visibleButton, text: "Visible")
-            }
-        }
+//        if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
+//            visibleField = visible
+//            // Select the button if a user has already done so
+//            if visibleField == true {
+//                selectButton(button: visibleButton, text: "Visible")
+//            }
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishTextField(textField: hometownTextField)
-        polishUIButton(button: visibleButton)
+//        polishTextField(textField: hometownTextField)
+//        polishUIButton(button: visibleButton)
+        hometownTextField.setBottomBorder()
         loadStoredFields()
         
     }
@@ -50,20 +51,21 @@ class Profile_HomeTown: UIViewController {
 //    }
     
     
-    @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visibleField == true {
-            deselectButton(button: visibleButton, text: "Invisible")
-            visibleField = false
-            localStoreKeyValue(key: VISIBLE, value: false)
-        } else {
-            selectButton(button: visibleButton, text: "Visible")
-            visibleField = true
-            localStoreKeyValue(key: VISIBLE, value: true)
-        }
-    }
-    
+//    @IBAction func visibleButtonTapped(_ sender: Any) {
+//        if visibleField == true {
+//            deselectButton(button: visibleButton, text: "Invisible")
+//            visibleField = false
+//            localStoreKeyValue(key: VISIBLE, value: false)
+//        } else {
+//            selectButton(button: visibleButton, text: "Visible")
+//            visibleField = true
+//            localStoreKeyValue(key: VISIBLE, value: true)
+//        }
+//    }
+//
     @IBAction func nextButtonTapped(_ sender: Any) {
         localStoreKeyValue(key: HOMETOWN, value: hometownTextField.text!)
+        localStoreKeyValue(key: VISIBLE, value: true)
     }
     
 }
