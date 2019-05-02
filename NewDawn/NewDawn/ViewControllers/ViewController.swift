@@ -144,9 +144,6 @@ extension UIViewController {
     // A helper function to make text field fancier
     func polishTextField(textField: UITextField) -> Void {
         textField.setLeftPaddingPoints(10)
-        textField.layer.cornerRadius = 20
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
         textField.layer.masksToBounds = true
         textField.addDoneButtonOnKeyboard()
     }

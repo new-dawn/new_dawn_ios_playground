@@ -310,6 +310,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="hJD-qP-weV" id="VEb-Lb-K2i"/>
                         <outlet property="heightTextField" destination="nyD-T8-OYf" id="qER-g4-Zcz"/>
                         <outlet property="visibleButton" destination="blv-Zt-JeO" id="SFC-v8-XCB"/>
                     </connections>
@@ -1451,6 +1452,6 @@
         <segue reference="Lg2-B7-aic"/>
         <segue reference="7PI-cb-EZr"/>
         <segue reference="xAU-WT-A6c"/>
-        <segue reference="G4q-1k-jVJ"/>
+        <segue reference="amX-Zs-ZQr"/>
     </inferredMetricsTieBreakers>
 </document>

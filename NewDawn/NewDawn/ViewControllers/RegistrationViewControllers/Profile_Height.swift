@@ -21,8 +21,8 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let heightPickerData = Profile_Height.heightGenerator(minHeight: 140, maxHeight: 250)
     
     @IBOutlet weak var heightTextField: UITextField!
-    
     @IBOutlet weak var visibleButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     
     
     
@@ -33,6 +33,9 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         polishUIButton(button: visibleButton)
         loadStoredFields()
         heightTextField.setBottomBorder()
+        
+        //move text 20 pixels up
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -13.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // Picker Toolbar
         let toolbar = UIToolbar();
