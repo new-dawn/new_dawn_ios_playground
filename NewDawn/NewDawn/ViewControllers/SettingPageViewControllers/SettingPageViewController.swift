@@ -20,6 +20,8 @@ class SettingPageViewController: UIViewController {
     @IBOutlet weak var NameAgeText: UILabel!
     @IBOutlet weak var HomeTownText: UILabel!
     
+    
+    // TODO: Display name, age and hometown
     override func viewDidLoad() {
         super.viewDidLoad()
         ImageUtil.polishCircularImageView(imageView: profileImage)

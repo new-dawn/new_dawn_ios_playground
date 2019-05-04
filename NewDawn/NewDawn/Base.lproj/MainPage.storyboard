@@ -533,13 +533,13 @@
                                 </constraints>
                                 <state key="normal" image="EditProfile_Preview"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-5F-xDC">
-                                <rect key="frame" x="122" y="263" width="132" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-5F-xDC">
+                                <rect key="frame" x="171.5" y="263" width="32" height="17"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLy-3f-JN8">
-                                <rect key="frame" x="122" y="234" width="132" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLy-3f-JN8">
+                                <rect key="frame" x="171.5" y="234" width="32" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -548,6 +548,7 @@
                         <constraints>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="76" id="0Me-yH-EQR"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="1Wd-cd-6nd"/>
+                            <constraint firstItem="JLy-3f-JN8" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Au9-fi-hzA"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="30" id="Bxe-B5-tx4"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="C9v-HG-fN1"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JLy-3f-JN8" secondAttribute="leading" id="Clx-fJ-w2V"/>
@@ -574,6 +575,7 @@
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="37" id="lt7-5F-bFt"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" constant="47.5" id="nOb-bq-bjN"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="-5" id="nfN-nF-NUx"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="oVb-D4-C6p"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="p8M-7J-hch"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="xJW-ke-L1P"/>
                         </constraints>
