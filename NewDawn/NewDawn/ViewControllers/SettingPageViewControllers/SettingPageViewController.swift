@@ -17,6 +17,9 @@ class SettingPageViewController: UIViewController {
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
+    @IBOutlet weak var NameAgeText: UILabel!
+    @IBOutlet weak var HomeTownText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ImageUtil.polishCircularImageView(imageView: profileImage)
@@ -24,11 +27,17 @@ class SettingPageViewController: UIViewController {
         profileImage.addGestureRecognizer(tapGesture)
         // make sure imageView can be interacted with by user
         profileImage.isUserInteractionEnabled = true
-    
-        polishUIButton(button: preferenceButton)
-        polishUIButton(button: accountButton)
-        polishUIButton(button: helpButton)
-        polishUIButton(button: settingButton)
+        
+        // Move text up to the middle
+        preferenceButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        accountButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        helpButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        settingButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        
+        // Draw Straight Line
+        let draw = DrawLine(frame: CGRect(x: 60, y: 370, width: 250, height: 1))
+        draw.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
+        view.addSubview(draw)
         
         LoginUserUtil.fetchLoginUserProfile() {
             user_profile in
@@ -64,14 +73,15 @@ class SettingPageViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+class DrawLine: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
-
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
