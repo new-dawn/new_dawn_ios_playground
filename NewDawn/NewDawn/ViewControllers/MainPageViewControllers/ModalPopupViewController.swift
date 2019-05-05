@@ -42,6 +42,9 @@ class ModalPopupViewController: UIViewController {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
     func getKeyboardOffsetFactor() -> CGFloat {
         return 0
