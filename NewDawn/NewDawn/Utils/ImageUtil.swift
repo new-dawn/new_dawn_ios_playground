@@ -17,8 +17,9 @@ class ImageUtil {
     static func polishCircularImageView(imageView: UIImageView) -> Void {
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = imageView.frame.height/2
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.borderWidth = 4
+        let lightblue = UIColor(red:204/255.0, green:229.5/255.0, blue:242.25/255.0, alpha:1)
+        imageView.layer.borderColor = lightblue.cgColor
         imageView.clipsToBounds = true
     }
     
