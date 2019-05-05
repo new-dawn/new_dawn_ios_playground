@@ -1242,6 +1242,14 @@
                                         <rect key="frame" x="0.0" y="50" width="310" height="310"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xA1-i5-BlO">
+                                        <rect key="frame" x="267" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton" backgroundImage="CloseButton"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="ln4-dz-ec3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1251,14 +1259,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xA1-i5-BlO">
-                                <rect key="frame" x="315" y="74" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="CloseButton"/>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="ln4-dz-ec3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70553351683937826" green="0.70553351683937826" blue="0.70553351683937826" alpha="0.91873899647887325" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1581,6 +1581,14 @@
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2A-M5-AEz">
+                                        <rect key="frame" x="267" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton" backgroundImage="CloseButton"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="44t-8w-cSC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1616,14 +1624,6 @@
                                 </state>
                                 <connections>
                                     <action selector="likeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="iwK-Lf-bTg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2A-M5-AEz">
-                                <rect key="frame" x="314" y="115" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="CloseButton"/>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="44t-8w-cSC"/>
                                 </connections>
                             </button>
                         </subviews>
