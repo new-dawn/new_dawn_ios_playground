@@ -1204,28 +1204,14 @@
                                     <action selector="cancelButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Z1W-bF-21q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57u-qk-OQT">
-                                <rect key="frame" x="201" y="513" width="141" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="Khb-Xf-zgg"/>
-                                    <constraint firstAttribute="width" constant="141" id="g5t-kQ-Wxr"/>
-                                </constraints>
-                                <state key="normal" title="Like">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="likeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Zx2-7d-lxA"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-CA-Fxf">
-                                <rect key="frame" x="32" y="82" width="310" height="410"/>
+                                <rect key="frame" x="32" y="82" width="310" height="390"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nice to meet you. I like your photo!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UfH-2w-L5a">
-                                        <rect key="frame" x="0.0" y="356" width="310" height="54"/>
+                                        <rect key="frame" x="8" y="322" width="227" height="67"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
@@ -1238,10 +1224,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCh-j7-mPk">
-                                        <rect key="frame" x="0.0" y="50" width="310" height="310"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCh-j7-mPk">
+                                        <rect key="frame" x="0.0" y="50" width="310" height="273"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57u-qk-OQT">
+                                        <rect key="frame" x="213" y="309" width="120" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="SendLikeButton">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="likeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Zx2-7d-lxA"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xA1-i5-BlO">
                                         <rect key="frame" x="267" y="8" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -1250,6 +1246,13 @@
                                             <action selector="closeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="ln4-dz-ec3"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-bo-ZW2">
+                                        <rect key="frame" x="258" y="350" width="30" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1262,10 +1265,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.70553351683937826" green="0.70553351683937826" blue="0.70553351683937826" alpha="0.91873899647887325" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sbf-Gm-reu" firstAttribute="bottom" secondItem="57u-qk-OQT" secondAttribute="bottom" constant="64" id="D0M-BC-mkw"/>
                             <constraint firstItem="Sbf-Gm-reu" firstAttribute="bottom" secondItem="cGa-xY-khI" secondAttribute="bottom" constant="64" id="RyR-Cm-iER"/>
                             <constraint firstItem="cGa-xY-khI" firstAttribute="leading" secondItem="Sbf-Gm-reu" secondAttribute="leading" constant="32" id="Y9I-PM-CVx"/>
-                            <constraint firstItem="Sbf-Gm-reu" firstAttribute="trailing" secondItem="57u-qk-OQT" secondAttribute="trailing" constant="33" id="ctu-bv-KfK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sbf-Gm-reu"/>
                     </view>
@@ -1559,7 +1560,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nice to meet you. I like your answer!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qrw-eS-Pzv">
-                                        <rect key="frame" x="0.0" y="316" width="310" height="54"/>
+                                        <rect key="frame" x="0.0" y="316" width="253" height="54"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1589,6 +1590,23 @@
                                             <action selector="closeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="44t-8w-cSC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1em-Go-ZE5">
+                                        <rect key="frame" x="231" y="316" width="91" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="发送" image="SendLikeButton">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="likeButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="ZDh-Vp-KYY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1O-fj-sQj">
+                                        <rect key="frame" x="261" y="337" width="30" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1612,26 +1630,10 @@
                                     <action selector="cancelButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="GKm-bP-NzK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3T-nu-SQO">
-                                <rect key="frame" x="201" y="513" width="141" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="OrZ-CO-AyC"/>
-                                    <constraint firstAttribute="height" constant="41" id="e6a-Hc-Sps"/>
-                                </constraints>
-                                <state key="normal" title="Like">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="likeButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="iwK-Lf-bTg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70553351679999998" green="0.70553351679999998" blue="0.70553351679999998" alpha="0.91873899650000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fve-yI-MfE" firstAttribute="leading" secondItem="NNL-ul-7Yr" secondAttribute="leading" constant="32" id="J5k-k0-AkQ"/>
-                            <constraint firstItem="NNL-ul-7Yr" firstAttribute="bottom" secondItem="n3T-nu-SQO" secondAttribute="bottom" constant="64" id="P3H-5I-o6l"/>
-                            <constraint firstItem="NNL-ul-7Yr" firstAttribute="trailing" secondItem="n3T-nu-SQO" secondAttribute="trailing" constant="33" id="tLd-Au-C9Y"/>
                             <constraint firstItem="NNL-ul-7Yr" firstAttribute="bottom" secondItem="fve-yI-MfE" secondAttribute="bottom" constant="64" id="uBh-cg-EVk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NNL-ul-7Yr"/>
@@ -1659,6 +1661,7 @@
         <image name="LikeButtonNew" width="88" height="77"/>
         <image name="LocationIcon" width="21" height="26"/>
         <image name="MeTab" width="24" height="24"/>
+        <image name="SendLikeButton" width="101" height="88"/>
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="36" height="24"/>
         <image name="TableCell" width="367" height="306"/>
