@@ -17,22 +17,25 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     /* Constrains */
     
+    // var visibleField = false
+    
     let heightPickerData = Profile_Height.heightGenerator(minHeight: 140, maxHeight: 250)
     
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+    // @IBOutlet weak var visibleButton: UIButton!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        polishTextField(textField: heightTextField)
+        // polishUIButton(button: visibleButton)
         loadStoredFields()
         heightTextField.setBottomBorder()
         
         //move text 20 pixels up
-        continueButton.titleEdgeInsets = UIEdgeInsets(top: -13.0, left: 0.0, bottom: 0.0, right: 0.0)
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // Picker Toolbar
         let toolbar = UIToolbar();
@@ -65,10 +68,27 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let height = localReadKeyValue(key: HEIGHT) as? String {
             heightTextField.text = height
         }
+        // if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
+            // visibleField = visible
+            // Select the button if a user has already done so
+            // if visibleField == true {
+                //selectButton(button: visibleButton, text: "Visible")
+            // }
+        // }
     }
     
+    // @IBAction func visibleBUttonTapped(_ sender: Any) {
+        // if visibleField == true {
+            // deselectButton(button: visibleButton, text: "Invisible")
+            // visibleField = false
+            // localStoreKeyValue(key: VISIBLE, value: false)
+        // } else {
+            // selectButton(button: visibleButton, text: "Visible")
+            // visibleField = true
+            // localStoreKeyValue(key: VISIBLE, value: true)
+        // }
+    // }
     
-
     
     @IBAction func nextButtonAction(_ sender: Any) {
         if shouldPerformSegue(withIdentifier: "height_continue", sender: self){
