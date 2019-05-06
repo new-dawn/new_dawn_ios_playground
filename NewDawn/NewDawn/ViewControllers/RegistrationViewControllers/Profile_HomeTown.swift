@@ -23,6 +23,7 @@ class Profile_HomeTown: UIViewController {
     
     @IBOutlet weak var hometownTextField: UITextField!
 //    @IBOutlet weak var visibleButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     
     func loadStoredFields() {
         if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
@@ -42,6 +43,7 @@ class Profile_HomeTown: UIViewController {
 //        polishTextField(textField: hometownTextField)
 //        polishUIButton(button: visibleButton)
         hometownTextField.setBottomBorder()
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         loadStoredFields()
         
     }

@@ -394,6 +394,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="enJ-ub-aeK" id="SHa-cm-9ui"/>
                         <outlet property="hometownTextField" destination="vKP-vy-PeF" id="vlP-Od-ecQ"/>
                     </connections>
                 </viewController>
