@@ -19,11 +19,14 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // var visibleField = false
     
+
     let heightPickerData = Profile_Height.heightGenerator(minHeight: 140, maxHeight: 250)
     
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+
     // @IBOutlet weak var visibleButton: UIButton!
+
     
     
     
@@ -31,11 +34,15 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         
         // polishUIButton(button: visibleButton)
+
+
         loadStoredFields()
         heightTextField.setBottomBorder()
         
         //move text 20 pixels up
+
         continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+
         
         // Picker Toolbar
         let toolbar = UIToolbar();
@@ -68,6 +75,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let height = localReadKeyValue(key: HEIGHT) as? String {
             heightTextField.text = height
         }
+
         // if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
             // visibleField = visible
             // Select the button if a user has already done so
@@ -89,6 +97,9 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // }
     // }
     
+    
+    
+
     
     @IBAction func nextButtonAction(_ sender: Any) {
         if shouldPerformSegue(withIdentifier: "height_continue", sender: self){
