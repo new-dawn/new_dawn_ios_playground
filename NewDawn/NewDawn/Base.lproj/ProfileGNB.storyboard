@@ -206,15 +206,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
-                                <rect key="frame" x="51" y="490" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
+                                <rect key="frame" x="53" y="533" width="269" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="Q0C-Mu-T2r"/>
-                                    <constraint firstAttribute="width" constant="273" id="Y4o-tT-gct"/>
+                                    <constraint firstAttribute="height" constant="75" id="Q0C-Mu-T2r"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="n1f-A5-6CP"/>
@@ -222,97 +220,56 @@
                                     <segue destination="SsO-BG-9ZC" kind="presentation" identifier="height_continue" id="xAU-WT-A6c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teM-R1-PBy">
-                                <rect key="frame" x="51" y="541" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="P8y-kV-SRo"/>
-                                    <constraint firstAttribute="width" constant="273" id="vR6-tb-yq8"/>
-                                </constraints>
-                                <state key="normal" title="Previous">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="onk-xV-vwz"/>
-                                    <segue destination="IvN-LX-e3l" kind="show" id="uGv-Bl-E4M"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="How tall are you?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W4-B8-ZSE">
-                                <rect key="frame" x="52.5" y="75" width="270" height="47"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="ZE9-F6-VYv"/>
-                                    <constraint firstAttribute="width" constant="270" id="sLi-D3-CVN"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Let's measure it out" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-L4-zrY">
-                                <rect key="frame" x="51" y="130" width="273" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="091-3J-dAh"/>
-                                    <constraint firstAttribute="width" constant="273" id="RxG-iQ-fAA"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="What’s your height?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXi-62-Zps">
-                                <rect key="frame" x="51" y="172" width="273" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="MnI-8p-eyt"/>
-                                    <constraint firstAttribute="width" constant="273" id="Zwk-1X-QcW"/>
-                                </constraints>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
-                                <rect key="frame" x="56.5" y="214" width="262" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
+                                <rect key="frame" x="98" y="295" width="175" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="Slw-kF-IkE"/>
                                     <constraint firstAttribute="height" constant="40" id="igA-xT-Wyp"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blv-Zt-JeO">
-                                <rect key="frame" x="127.5" y="295" width="120" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="身高" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhF-gB-JDx">
+                                <rect key="frame" x="69" y="290.5" width="21" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="11U-0Z-jS7"/>
-                                    <constraint firstAttribute="width" constant="120" id="gx5-le-2wT"/>
+                                    <constraint firstAttribute="width" constant="21" id="9sF-Rt-az6"/>
                                 </constraints>
-                                <state key="normal" title="Invisible">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="visibleBUttonTapped:" destination="zK3-2z-MPV" eventType="touchUpInside" id="cJe-63-6mc"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="请输入妳/你的身高" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1k-fz-d4Z">
+                                <rect key="frame" x="53" y="162" width="270" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="3Na-5D-jR8"/>
+                                    <constraint firstAttribute="height" constant="90" id="Nhw-vL-7kS"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="teM-R1-PBy" firstAttribute="top" secondItem="hJD-qP-weV" secondAttribute="bottom" constant="10" id="5y0-1w-dr6"/>
-                            <constraint firstItem="aXi-62-Zps" firstAttribute="top" secondItem="DZo-L4-zrY" secondAttribute="bottom" constant="17" id="7C1-Aq-0qW"/>
-                            <constraint firstItem="DZo-L4-zrY" firstAttribute="top" secondItem="2W4-B8-ZSE" secondAttribute="bottom" constant="8" id="Bu3-gC-jPG"/>
-                            <constraint firstItem="2W4-B8-ZSE" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="CwG-q2-7yg"/>
-                            <constraint firstItem="blv-Zt-JeO" firstAttribute="top" secondItem="nyD-T8-OYf" secondAttribute="bottom" constant="41" id="Ffj-kN-jci"/>
-                            <constraint firstItem="2W4-B8-ZSE" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="55" id="Fl9-oC-nfi"/>
-                            <constraint firstItem="aXi-62-Zps" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="HFG-VY-blk"/>
-                            <constraint firstItem="teM-R1-PBy" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="NJ4-di-hDl"/>
-                            <constraint firstItem="DZo-L4-zrY" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="Sgd-Dv-mED"/>
+                            <constraint firstItem="PhF-gB-JDx" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="277.5" id="GOy-Ax-fWJ"/>
+                            <constraint firstItem="nyD-T8-OYf" firstAttribute="firstBaseline" secondItem="v1k-fz-d4Z" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="Gr8-qR-Try"/>
+                            <constraint firstItem="hJD-qP-weV" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="37" id="S2l-nj-3zA"/>
+                            <constraint firstItem="PhF-gB-JDx" firstAttribute="firstBaseline" secondItem="v1k-fz-d4Z" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="Wej-ue-J8b"/>
                             <constraint firstItem="hJD-qP-weV" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="ZMG-h9-RvO"/>
-                            <constraint firstItem="nyD-T8-OYf" firstAttribute="top" secondItem="aXi-62-Zps" secondAttribute="bottom" constant="9" id="h6K-BB-CY9"/>
-                            <constraint firstItem="blv-Zt-JeO" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="pwH-Bv-67L"/>
+                            <constraint firstItem="nyD-T8-OYf" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="280" id="aPC-Qc-iBR"/>
+                            <constraint firstItem="nyD-T8-OYf" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="98" id="cEr-R3-xyW"/>
+                            <constraint firstItem="v1k-fz-d4Z" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="gz0-ag-fao"/>
+                            <constraint firstItem="lce-Ko-68M" firstAttribute="top" secondItem="hJD-qP-weV" secondAttribute="bottom" constant="59" id="hsx-o3-siy"/>
+                            <constraint firstItem="PhF-gB-JDx" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="69" id="q6z-Bk-XjO"/>
+                            <constraint firstItem="v1k-fz-d4Z" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="200" id="ryf-0P-Dde"/>
                             <constraint firstItem="nyD-T8-OYf" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="v8K-1u-Do9"/>
-                            <constraint firstItem="hJD-qP-weV" firstAttribute="top" secondItem="blv-Zt-JeO" secondAttribute="bottom" constant="155" id="wjH-7w-fBF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="hJD-qP-weV" id="VEb-Lb-K2i"/>
                         <outlet property="heightTextField" destination="nyD-T8-OYf" id="qER-g4-Zcz"/>
-                        <outlet property="visibleButton" destination="blv-Zt-JeO" id="SFC-v8-XCB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqN-pe-4Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
