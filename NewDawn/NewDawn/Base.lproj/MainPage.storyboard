@@ -1190,20 +1190,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGa-xY-khI">
-                                <rect key="frame" x="32" y="513" width="141" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="CCu-gq-jYN"/>
-                                    <constraint firstAttribute="width" constant="141" id="h4a-fg-kAm"/>
-                                </constraints>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonTapped:" destination="S6b-YK-8lb" eventType="touchUpInside" id="Z1W-bF-21q"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-CA-Fxf">
                                 <rect key="frame" x="32" y="82" width="310" height="390"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -1211,7 +1197,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nice to meet you. I like your photo!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UfH-2w-L5a">
                                         <rect key="frame" x="8" y="322" width="227" height="67"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
@@ -1229,9 +1215,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57u-qk-OQT">
-                                        <rect key="frame" x="213" y="309" width="120" height="108"/>
+                                        <rect key="frame" x="229" y="321" width="96" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="SendLikeButton">
+                                        <state key="normal" backgroundImage="SendLikeButton">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -1247,7 +1233,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-bo-ZW2">
-                                        <rect key="frame" x="258" y="350" width="30" height="21"/>
+                                        <rect key="frame" x="262" y="350" width="30" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -1264,10 +1250,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.70553351683937826" green="0.70553351683937826" blue="0.70553351683937826" alpha="0.91873899647887325" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Sbf-Gm-reu" firstAttribute="bottom" secondItem="cGa-xY-khI" secondAttribute="bottom" constant="64" id="RyR-Cm-iER"/>
-                            <constraint firstItem="cGa-xY-khI" firstAttribute="leading" secondItem="Sbf-Gm-reu" secondAttribute="leading" constant="32" id="Y9I-PM-CVx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Sbf-Gm-reu"/>
                     </view>
                     <connections>
@@ -1549,9 +1531,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zg-bt-q1l">
-                                <rect key="frame" x="32" y="122" width="310" height="370"/>
+                                <rect key="frame" x="32" y="122" width="310" height="307"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VUi-5x-HTO">
+                                        <rect key="frame" x="0.0" y="50" width="310" height="190"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ7-JC-bc8">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1560,30 +1547,28 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nice to meet you. I like your answer!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qrw-eS-Pzv">
-                                        <rect key="frame" x="0.0" y="316" width="253" height="54"/>
+                                        <rect key="frame" x="9" y="240" width="213" height="67"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Answers" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo5-2C-Vwr">
-                                        <rect key="frame" x="25" y="121" width="259" height="187"/>
+                                        <rect key="frame" x="25" y="100" width="259" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Question" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uf-vf-Ahb">
                                         <rect key="frame" x="25" y="67" width="259" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2A-M5-AEz">
-                                        <rect key="frame" x="267" y="8" width="35" height="35"/>
+                                        <rect key="frame" x="267" y="6" width="34" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="CloseButton" backgroundImage="CloseButton"/>
                                         <connections>
@@ -1591,9 +1576,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1em-Go-ZE5">
-                                        <rect key="frame" x="231" y="316" width="91" height="67"/>
+                                        <rect key="frame" x="225" y="236" width="100" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="发送" image="SendLikeButton">
+                                        <state key="normal" backgroundImage="SendLikeButton">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -1601,7 +1586,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1O-fj-sQj">
-                                        <rect key="frame" x="261" y="337" width="30" height="21"/>
+                                        <rect key="frame" x="259" y="269" width="30" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -1616,26 +1601,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-yI-MfE">
-                                <rect key="frame" x="32" y="513" width="141" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="Ji0-jJ-ThO"/>
-                                    <constraint firstAttribute="height" constant="41" id="sST-7K-AOb"/>
-                                </constraints>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonTapped:" destination="y15-Mj-UAa" eventType="touchUpInside" id="GKm-bP-NzK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70553351679999998" green="0.70553351679999998" blue="0.70553351679999998" alpha="0.91873899650000002" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="fve-yI-MfE" firstAttribute="leading" secondItem="NNL-ul-7Yr" secondAttribute="leading" constant="32" id="J5k-k0-AkQ"/>
-                            <constraint firstItem="NNL-ul-7Yr" firstAttribute="bottom" secondItem="fve-yI-MfE" secondAttribute="bottom" constant="64" id="uBh-cg-EVk"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NNL-ul-7Yr"/>
                     </view>
                     <connections>

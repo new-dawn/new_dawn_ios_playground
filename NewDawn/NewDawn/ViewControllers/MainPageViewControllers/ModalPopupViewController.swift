@@ -39,9 +39,6 @@ class ModalPopupViewController: UIViewController {
         dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
     }
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
-    }
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -89,7 +86,7 @@ class ModalImageLikedViewController: ModalPopupViewController {
     }
     
     override func getKeyboardOffsetFactor() -> CGFloat {
-        return 2
+        return 2.5
     }
 }
 
