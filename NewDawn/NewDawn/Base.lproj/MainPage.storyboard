@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -509,18 +509,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-h9-g87">
-                                <rect key="frame" x="110" y="93" width="155" height="155"/>
+                                <rect key="frame" x="121.5" y="94" width="132" height="132"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="2Nj-8f-L1Z"/>
                                     <constraint firstAttribute="width" secondItem="Snv-h9-g87" secondAttribute="height" multiplier="1:1" id="8NQ-gh-gip"/>
+                                    <constraint firstAttribute="height" constant="132" id="eII-AR-TsO"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-5v-hzk">
-                                <rect key="frame" x="9" y="348" width="357" height="55"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-5v-hzk">
+                                <rect key="frame" x="47.5" y="301" width="280" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="HvU-JR-Wfi"/>
+                                    <constraint firstAttribute="height" constant="70" id="HvU-JR-Wfi"/>
                                 </constraints>
-                                <state key="normal" title="Preferrence">
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="匹配偏好设置" backgroundImage="EditProfile_Button">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
@@ -528,75 +530,107 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdr-Fx-NQg">
-                                <rect key="frame" x="9" y="443" width="357" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="47.5" y="396" width="280" height="71"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="vi4-qJ-7uA"/>
+                                    <constraint firstAttribute="height" constant="71" id="vi4-qJ-7uA"/>
                                 </constraints>
-                                <state key="normal" title="Account">
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="账号" backgroundImage="EditProfile_Button">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-bQ-2LW">
-                                <rect key="frame" x="9" y="497" width="357" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="47.5" y="462" width="280" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="57L-vr-UTh"/>
+                                    <constraint firstAttribute="height" constant="70" id="ESD-ux-5Ez"/>
                                 </constraints>
-                                <state key="normal" title="Help &amp; Support">
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="帮助与反馈" backgroundImage="EditProfile_Button">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9d-zn-2sT">
-                                <rect key="frame" x="9" y="551" width="357" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="47.5" y="530" width="280" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="24e-2V-a0D"/>
+                                    <constraint firstAttribute="height" constant="70" id="24e-2V-a0D"/>
                                 </constraints>
-                                <state key="normal" title="Setting">
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="通用设置" backgroundImage="EditProfile_Button">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="r3Z-WH-1Wp" kind="show" id="JkI-Ua-oBd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzj-GA-k9K">
-                                <rect key="frame" x="150" y="249" width="75" height="30"/>
-                                <state key="normal" title="Edit Profile"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzj-GA-k9K">
+                                <rect key="frame" x="261" y="179" width="43" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hzj-GA-k9K" secondAttribute="height" multiplier="46:46" constant="-3" id="8DY-4N-qWt"/>
+                                </constraints>
+                                <state key="normal" image="EditProfile_Edit"/>
                                 <connections>
                                     <segue destination="8vw-nJ-uOU" kind="show" id="RJ6-gJ-bvz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qra-ng-JQW">
+                                <rect key="frame" x="261" y="128" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qra-ng-JQW" secondAttribute="height" multiplier="1:1" id="UEk-ro-WF3"/>
+                                </constraints>
+                                <state key="normal" image="EditProfile_Preview"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-5F-xDC">
+                                <rect key="frame" x="171.5" y="263" width="32" height="17"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLy-3f-JN8">
+                                <rect key="frame" x="171.5" y="234" width="32" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="68" id="1tk-Ct-Rt7"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="40" id="4Ak-Kw-eRb"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="bottom" secondItem="n9d-zn-2sT" secondAttribute="bottom" constant="26" id="5SF-R7-qmi"/>
-                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="13" id="6o4-0l-RKb"/>
-                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="88F-eJ-Ta9"/>
-                            <constraint firstItem="JgF-5v-hzk" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="Jvq-1c-v10"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="KVt-mo-oFP"/>
-                            <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="v1a-bQ-2LW" secondAttribute="bottom" constant="13" id="Nc1-eB-94Q"/>
-                            <constraint firstItem="Snv-h9-g87" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="110" id="PoP-8Q-pj0"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JgF-5v-hzk" secondAttribute="trailing" id="We4-zk-pbt"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" id="bLK-y3-HhN"/>
-                            <constraint firstItem="JgF-5v-hzk" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="c7s-AM-xSL"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="cEv-xR-Enn"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v1a-bQ-2LW" secondAttribute="trailing" id="f3c-aL-OZY"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n9d-zn-2sT" secondAttribute="trailing" id="fN8-ca-Zwf"/>
-                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="hOl-6v-9mb"/>
-                            <constraint firstItem="n9d-zn-2sT" firstAttribute="leading" secondItem="bvy-J3-sr9" secondAttribute="leading" constant="9" id="hhA-Qe-Ag0"/>
-                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="centerX" secondItem="JgF-5v-hzk" secondAttribute="centerX" id="hkO-X9-R44"/>
-                            <constraint firstItem="Snv-h9-g87" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="huE-Ao-Jui"/>
-                            <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="29" id="hxq-ur-6i2"/>
-                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="1" id="otz-kC-7RM"/>
-                            <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="s0N-Nz-dy9"/>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="76" id="0Me-yH-EQR"/>
+                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="1Wd-cd-6nd"/>
+                            <constraint firstItem="JLy-3f-JN8" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Au9-fi-hzA"/>
+                            <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="30" id="Bxe-B5-tx4"/>
+                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="C9v-HG-fN1"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JLy-3f-JN8" secondAttribute="leading" id="Clx-fJ-w2V"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="trailing" secondItem="JLy-3f-JN8" secondAttribute="trailing" id="ECP-MD-rLE"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="v1a-bQ-2LW" secondAttribute="centerX" id="FrH-8O-w7A"/>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="IAC-eC-T6t"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Hzj-GA-k9K" secondAttribute="trailing" constant="71" id="KRa-HF-NbG"/>
+                            <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PNc-y8-EKY"/>
+                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="25" id="Pb4-0X-dAJ"/>
+                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PpS-Uh-i2x"/>
+                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="RI7-zS-dbK"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="JgF-5v-hzk" secondAttribute="trailing" constant="47.5" id="Sut-t7-Cug"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="v1a-bQ-2LW" secondAttribute="trailing" constant="47.5" id="Yff-dR-s9h"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="leading" secondItem="qra-ng-JQW" secondAttribute="leading" id="ZC6-dD-hmi"/>
+                            <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="v1a-bQ-2LW" secondAttribute="bottom" constant="-2" id="ZZ4-DE-eQ7"/>
+                            <constraint firstItem="Snv-h9-g87" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Zss-Uc-nUu"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="n9d-zn-2sT" secondAttribute="trailing" constant="47.5" id="bFZ-UA-h9Z"/>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="75" id="bIB-nt-YDv"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="top" secondItem="qra-ng-JQW" secondAttribute="bottom" constant="5" id="bJd-eh-8Ad"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="leading" secondItem="Snv-h9-g87" secondAttribute="trailing" constant="7.5" id="f4F-DV-KRS"/>
+                            <constraint firstItem="JLy-3f-JN8" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="8" id="iPY-kc-xGh"/>
+                            <constraint firstItem="Hzj-GA-k9K" firstAttribute="trailing" secondItem="qra-ng-JQW" secondAttribute="trailing" constant="-3" id="ioY-wn-mUh"/>
+                            <constraint firstItem="JgF-5v-hzk" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="lf4-Yt-5yH"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="37" id="lt7-5F-bFt"/>
+                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" constant="47.5" id="nOb-bq-bjN"/>
+                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="-5" id="nfN-nF-NUx"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="oVb-D4-C6p"/>
+                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="p8M-7J-hch"/>
+                            <constraint firstItem="n9d-zn-2sT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="xJW-ke-L1P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="fik-Zp-lfL"/>
+                    <navigationItem key="navigationItem" title=" 个人资料" id="fik-Zp-lfL"/>
                     <connections>
+                        <outlet property="HomeTownText" destination="ZHM-5F-xDC" id="vqR-eZ-Zej"/>
+                        <outlet property="NameAgeText" destination="JLy-3f-JN8" id="yS5-aj-sDm"/>
                         <outlet property="accountButton" destination="Fdr-Fx-NQg" id="5c6-0S-VFy"/>
                         <outlet property="helpButton" destination="v1a-bQ-2LW" id="9in-f9-35q"/>
                         <outlet property="preferenceButton" destination="JgF-5v-hzk" id="pIZ-lX-NCt"/>
@@ -1623,6 +1657,10 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
+        <image name="EditProfile_Button" width="510" height="132"/>
+        <image name="EditProfile_Edit" width="88" height="88"/>
+        <image name="EditProfile_Preview" width="88" height="88"/>
+        <image name="HeightIcon" width="13" height="26"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
@@ -1636,6 +1674,6 @@
         <image name="line" width="1" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qKH-fg-6se"/>
+        <segue reference="nT2-HC-WHj"/>
     </inferredMetricsTieBreakers>
 </document>
