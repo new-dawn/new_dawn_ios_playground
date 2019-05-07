@@ -108,10 +108,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
         }
     }
-
     
-    @IBAction func backButtonAction(_ sender: Any) {
-    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

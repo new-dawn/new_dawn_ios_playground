@@ -245,8 +245,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="Bwe-N4-uWi"/>
-                                    <segue destination="IvN-LX-e3l" kind="show" id="mer-aZ-sUV"/>
+                                    <segue destination="IvN-LX-e3l" kind="presentation" id="AtY-aF-rft"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
@@ -259,7 +258,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="Whb-2R-7Ui"/>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="5HG-sy-1Ae"/>
                                     <segue destination="SsO-BG-9ZC" kind="presentation" identifier="height_continue" id="xAU-WT-A6c"/>
                                 </connections>
                             </button>
@@ -1378,10 +1376,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="iHz-cU-Dm1"/>
         <segue reference="Ljg-P9-Kyv"/>
-        <segue reference="OJW-vV-kwk"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
-        <segue reference="7PI-cb-EZr"/>
+        <segue reference="mEu-Ba-OjW"/>
         <segue reference="xAU-WT-A6c"/>
     </inferredMetricsTieBreakers>
 </document>
