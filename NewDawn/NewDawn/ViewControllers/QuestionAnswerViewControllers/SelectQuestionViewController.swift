@@ -31,22 +31,17 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     ]
     
     func getSampleQuestions() -> Array<Question> {
+        return sample_questions
+    }
+    
+    func isAnswered(question: Question) -> Bool {
         let answered_questions = self.getQuestionAnswersFromLocalStore()
-        var unanswered_questions = [Question]()
-        // Check if the sample question has already been answered
-        for question in sample_questions {
-            var already_answered = false
-            for answered_question in answered_questions {
-                if answered_question.question.question == question.question {
-                    already_answered = true
-                    break
-                }
-            }
-            if already_answered == false {
-                unanswered_questions.append(question)
+        for answered_question in answered_questions {
+            if answered_question.question.question == question.question {
+                return true
             }
         }
-        return unanswered_questions
+        return false
     }
     
     func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
@@ -82,11 +77,17 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         // Set button style and content
         polishQuestionButton(button: questionButton)
         questionButton.setTitle(question.question, for: .normal)
-        questionButton.setBackgroundImage(
-            UIImage(named: "QuestionBlock"), for: .normal)
+        if isAnswered(question: question) {
+            questionButton.setBackgroundImage(
+                UIImage(named: "QuestionBlock2"), for: .normal)
+            questionButton.isEnabled = false
+        } else {
+            questionButton.setBackgroundImage(
+                UIImage(named: "QuestionBlock"), for: .normal)
+            questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
+        }
         questionButton.layer.borderWidth = 0
         questionButton.titleLabel?.font =  UIFont(name: "PingFangTC-Regular", size: 16)
-        questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
         // Store question if as button tag
         questionButton.tag = Int(question.id)
         questionButton.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
