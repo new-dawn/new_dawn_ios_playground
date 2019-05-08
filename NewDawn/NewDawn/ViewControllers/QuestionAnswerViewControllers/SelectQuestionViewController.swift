@@ -14,17 +14,20 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     var containerView = UIView()
 
     let QUESTION_WIDTH = 326
-    let QUESTION_HEIGHT = 180
-    let QUESTION_BLOCK_HEIGHT = 190
-    let Y_CENTER_OFFSET = -200
+    let QUESTION_HEIGHT = 90
+    let QUESTION_BLOCK_HEIGHT = 95
+    let Y_CENTER_OFFSET = -250
 
     // TODO: Replace hardcoded questions with backend request
     var sample_questions = [
-        Question(id: 1, question: "Do you like hiking?"),
-        Question(id: 2, question: "What's your favorate song?"),
-        Question(id: 3, question: "Do you have a pet?"),
-        Question(id: 4, question: "What's your best hobby?"),
-        Question(id: 5, question: "What't your most recent trip?"),
+        Question(id: 1, question: "如果可以出演电影，我想演？"),
+        Question(id: 2, question: "周末喜欢做什么?"),
+        Question(id: 3, question: "我最喜欢的歌词是?"),
+        Question(id: 4, question: "生命中影响我最深的人?"),
+        Question(id: 5, question: "我的特别技能?"),
+        Question(id: 6, question: "得到我的心的办法?"),
+        Question(id: 7, question: "你会知道我喜欢你，如果？"),
+        Question(id: 8, question: "Jason是不是最帅的?"),
     ]
     
     func getSampleQuestions() -> Array<Question> {
@@ -79,6 +82,11 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         // Set button style and content
         polishQuestionButton(button: questionButton)
         questionButton.setTitle(question.question, for: .normal)
+        questionButton.setBackgroundImage(
+            UIImage(named: "QuestionBlock"), for: .normal)
+        questionButton.layer.borderWidth = 0
+        questionButton.titleLabel?.font =  UIFont(name: "PingFangTC-Regular", size: 16)
+        questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
         // Store question if as button tag
         questionButton.tag = Int(question.id)
         questionButton.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
