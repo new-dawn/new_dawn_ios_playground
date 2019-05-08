@@ -16,7 +16,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     let QUESTION_WIDTH = 326
     let QUESTION_HEIGHT = 90
     let QUESTION_BLOCK_HEIGHT = 95
-    let Y_CENTER_OFFSET = -270
+    let Y_TOP_OFFSET = 20
 
     // TODO: Replace hardcoded questions with backend request
     var sample_questions = [
@@ -71,9 +71,18 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         performSegue(withIdentifier: "answerQuestion", sender: question)
     }
     
+    func createQuestionRect(offsetY: Int) -> CGRect {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let questionRect = CGRect(
+            x: (screenSize.width / 2) - CGFloat(QUESTION_WIDTH / 2),
+            y: CGFloat(offsetY),
+            width: CGFloat(QUESTION_WIDTH), height: CGFloat(QUESTION_HEIGHT))
+        return questionRect
+    }
+    
     func createQuestionButton(question: Question, offsetY: Int) -> UIButton {
         let questionButton = UIButton(
-            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+            frame: createQuestionRect(offsetY: offsetY))
         // Set button style and content
         polishQuestionButton(button: questionButton)
         questionButton.setTitle(question.question, for: .normal)
@@ -98,7 +107,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     func generateQuestions() -> Void {
         // A dynamic offset to control the distance
         // between question blocks
-        var buttonOffsetY: Int = Y_CENTER_OFFSET
+        var buttonOffsetY: Int = Y_TOP_OFFSET
         for question in self.getSampleQuestions() {
             // Auto-generate a question button
             // Increment the offset for next button
