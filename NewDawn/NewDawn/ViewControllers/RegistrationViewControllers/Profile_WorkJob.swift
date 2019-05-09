@@ -18,7 +18,9 @@ class Profile_WorkJob: UIViewController {
     
     @IBOutlet weak var workplaceTextField: UITextField!
     @IBOutlet weak var jobtitleTextField: UITextField!
-    @IBOutlet weak var visibleButton: UIButton!
+    // @IBOutlet weak var visibleButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     
     func loadStoredFields() {
@@ -28,34 +30,36 @@ class Profile_WorkJob: UIViewController {
         if let jobtitle = localReadKeyValue(key: JOBTITLE) as? String {
             jobtitleTextField.text = jobtitle
         }
-        if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
-            visibleField = visible
+        // if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
+            // visibleField = visible
             // Select the button if a user has already done so
-            if visibleField == true {
-                selectButton(button: visibleButton, text: "Visible")
-            }
-        }
+            // if visibleField == true {
+                // selectButton(button: visibleButton, text: "Visible")
+            // }
+        // }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishTextField(textField: workplaceTextField)
-        polishTextField(textField: jobtitleTextField)
-        polishUIButton(button: visibleButton)
+        workplaceTextField.setBottomBorder()
+        jobtitleTextField.setBottomBorder()
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        backButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        // polishUIButton(button: visibleButton)
         loadStoredFields()
     }
     
-    @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visibleField == true {
-            deselectButton(button: visibleButton, text: "Invisible")
-            visibleField = false
-            localStoreKeyValue(key: VISIBLE, value: false)
-        } else {
-            selectButton(button: visibleButton, text: "Visible")
-            visibleField = true
-            localStoreKeyValue(key: VISIBLE, value: true)
-        }
-    }
+    // @IBAction func visibleButtonTapped(_ sender: Any) {
+        // if visibleField == true {
+            // deselectButton(button: visibleButton, text: "Invisible")
+            // visibleField = false
+            // localStoreKeyValue(key: VISIBLE, value: false)
+        // } else {
+            // selectButton(button: visibleButton, text: "Visible")
+            // visibleField = true
+            // localStoreKeyValue(key: VISIBLE, value: true)
+        // }
+    // }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         localStoreKeyValue(key: WORKPLACE, value: workplaceTextField.text!)
