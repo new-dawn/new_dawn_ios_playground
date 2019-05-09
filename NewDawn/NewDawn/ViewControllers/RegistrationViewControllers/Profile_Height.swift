@@ -24,6 +24,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
 
     // @IBOutlet weak var visibleButton: UIButton!
 
@@ -42,7 +43,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //move text 20 pixels up
 
         continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
-
+        backButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // Picker Toolbar
         let toolbar = UIToolbar();
@@ -107,6 +108,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             localStoreKeyValue(key: HEIGHT, value: heightTextField.text!)
         }
     }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

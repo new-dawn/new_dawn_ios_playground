@@ -205,21 +205,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
-                                <rect key="frame" x="53" y="533" width="269" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="Q0C-Mu-T2r"/>
-                                </constraints>
-                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="n1f-A5-6CP"/>
-                                    <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="5HG-sy-1Ae"/>
-                                    <segue destination="SsO-BG-9ZC" kind="presentation" identifier="height_continue" id="xAU-WT-A6c"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="公分" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-T8-OYf">
                                 <rect key="frame" x="98" y="295" width="175" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="Slw-kF-IkE"/>
@@ -249,24 +235,53 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ga-Hr-8NG">
+                                <rect key="frame" x="53" y="533" width="269" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="P04-aX-vPL"/>
+                                </constraints>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IvN-LX-e3l" kind="presentation" id="AtY-aF-rft"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJD-qP-weV">
+                                <rect key="frame" x="53" y="421" width="269" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Q0C-Mu-T2r"/>
+                                </constraints>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="Whb-2R-7Ui"/>
+                                    <segue destination="SsO-BG-9ZC" kind="presentation" identifier="height_continue" id="xAU-WT-A6c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lce-Ko-68M" firstAttribute="top" secondItem="2ga-Hr-8NG" secondAttribute="bottom" constant="59" id="4yJ-Gh-27A"/>
                             <constraint firstItem="PhF-gB-JDx" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="277.5" id="GOy-Ax-fWJ"/>
                             <constraint firstItem="nyD-T8-OYf" firstAttribute="firstBaseline" secondItem="v1k-fz-d4Z" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="Gr8-qR-Try"/>
+                            <constraint firstItem="2ga-Hr-8NG" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="37" id="JVS-nY-ff9"/>
                             <constraint firstItem="hJD-qP-weV" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="37" id="S2l-nj-3zA"/>
                             <constraint firstItem="PhF-gB-JDx" firstAttribute="firstBaseline" secondItem="v1k-fz-d4Z" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="Wej-ue-J8b"/>
                             <constraint firstItem="hJD-qP-weV" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="ZMG-h9-RvO"/>
                             <constraint firstItem="nyD-T8-OYf" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="280" id="aPC-Qc-iBR"/>
                             <constraint firstItem="nyD-T8-OYf" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="98" id="cEr-R3-xyW"/>
                             <constraint firstItem="v1k-fz-d4Z" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="gz0-ag-fao"/>
-                            <constraint firstItem="lce-Ko-68M" firstAttribute="top" secondItem="hJD-qP-weV" secondAttribute="bottom" constant="59" id="hsx-o3-siy"/>
+                            <constraint firstItem="lce-Ko-68M" firstAttribute="top" secondItem="hJD-qP-weV" secondAttribute="bottom" constant="150" id="hsx-o3-siy"/>
                             <constraint firstItem="PhF-gB-JDx" firstAttribute="leading" secondItem="DhD-Dp-3nb" secondAttribute="leading" constant="69" id="q6z-Bk-XjO"/>
                             <constraint firstItem="v1k-fz-d4Z" firstAttribute="top" secondItem="Ep1-0E-Xw5" secondAttribute="bottom" constant="200" id="ryf-0P-Dde"/>
                             <constraint firstItem="nyD-T8-OYf" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="v8K-1u-Do9"/>
+                            <constraint firstItem="2ga-Hr-8NG" firstAttribute="centerX" secondItem="DhD-Dp-3nb" secondAttribute="centerX" id="zjO-V2-KPD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="2ga-Hr-8NG" id="CiW-6i-hS6"/>
                         <outlet property="continueButton" destination="hJD-qP-weV" id="VEb-Lb-K2i"/>
                         <outlet property="heightTextField" destination="nyD-T8-OYf" id="qER-g4-Zcz"/>
                     </connections>
@@ -1363,7 +1378,7 @@
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
-        <segue reference="7PI-cb-EZr"/>
+        <segue reference="mEu-Ba-OjW"/>
         <segue reference="xAU-WT-A6c"/>
     </inferredMetricsTieBreakers>
 </document>
