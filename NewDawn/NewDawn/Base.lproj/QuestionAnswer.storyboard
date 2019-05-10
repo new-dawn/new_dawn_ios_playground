@@ -130,15 +130,19 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6l-ot-2zc">
-                                <rect key="frame" x="51" y="499" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="51" y="499" width="273" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="DAT-SY-k3b"/>
+                                    <constraint firstAttribute="height" constant="70" id="DAT-SY-k3b"/>
                                     <constraint firstAttribute="width" constant="273" id="cts-VV-73B"/>
                                 </constraints>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="确定" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="pDu-07-LST" eventType="touchUpInside" id="nxa-mY-wRs"/>
                                     <segue destination="0y1-Cg-qwi" kind="show" identifier="addAnswer" id="Nga-Hd-0GA"/>
