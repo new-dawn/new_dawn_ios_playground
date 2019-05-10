@@ -10,6 +10,7 @@
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
 		2408CE3F2279331800042776 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408CE3E2279331800042776 /* UIViewExtensions.swift */; };
+		24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377835228536CF00F41CB6 /* UIButtonExtensions.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -85,6 +86,7 @@
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		2408CE3E2279331800042776 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		24377835228536CF00F41CB6 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				2408CE3E2279331800042776 /* UIViewExtensions.swift */,
+				24377835228536CF00F41CB6 /* UIButtonExtensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				24C09FBA2263E99400302CEF /* ImageCollectionViewCell.swift in Sources */,
 				24C09FBD2263E99400302CEF /* Profile_Education.swift in Sources */,
 				24C09FB82263E99400302CEF /* ProfileGNBViewController.swift in Sources */,
+				24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */,
 				24C09FA62263E99400302CEF /* TimerUtil.swift in Sources */,
 				24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */,
 				24C09FA32263E99400302CEF /* LocalStorageUtil.swift in Sources */,

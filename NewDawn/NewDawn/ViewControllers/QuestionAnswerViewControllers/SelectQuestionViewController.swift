@@ -95,7 +95,6 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
                 UIImage(named: "QuestionBlock"), for: .normal)
             questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
         }
-        questionButton.layer.borderWidth = 0
         questionButton.titleLabel?.font =  UIFont(name: "PingFangTC-Regular", size: 16)
         // Store question if as button tag
         questionButton.tag = Int(question.id)
