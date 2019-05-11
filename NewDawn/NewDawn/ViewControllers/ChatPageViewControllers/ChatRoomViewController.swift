@@ -27,6 +27,10 @@ class ChatRoomViewController: MessagesViewController {
     let CLUSTER = "us2"
     let MESSAGE_USER_FROM_ID = "user_from_id"
     let MESSAGE_USER_TO_ID = "user_to_id"
+    
+    // Chat Background Color
+    let myColor = UIColor(red: 255/255, green: 224/255, blue: 224/255, alpha: 1)
+    let youColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
 
     // Meta-info about this chat room
     // To be changed by Chat page segue
@@ -221,14 +225,14 @@ class ChatRoomViewController: MessagesViewController {
     
     func storeMessage(_ message: MessageType) {
         // Send to server
-        if case let MessageKind.text(message_text) = message.kind {
+        if case let MessageKind.attributedText(message_attributed_text) = message.kind {
             HttpUtil.sendMessageAction(
                 user_from: self.userIdMe,
                 user_to: self.userIdYou,
                 action_type: UserActionType.MESSAGE.rawValue,
                 entity_type: 0,
                 entity_id: 0,
-                message: message_text
+                message: message_attributed_text.string
             )
         }
     }
@@ -247,6 +251,13 @@ extension ChatRoomViewController: MessagesDataSource {
 }
 
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        if message.sender.id == self.userIdMe {
+            return myColor
+        } else {
+            return youColor
+        }
+    }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.id
         if userId == self.userIdMe {

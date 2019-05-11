@@ -19,14 +19,17 @@ struct TextMessage: MessageType {
     init(sender: Sender, content: String) {
         self.sender = sender
         self.sentDate = Date()
-        self.kind = .text(content)
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "PingFangTC-Regular", size: 16)!
+        ]
+        self.kind = .attributedText(NSAttributedString.init(string: content, attributes: attributes))
         self.messageId = UUID().uuidString
     }
     
     func getText() -> String {
         switch kind {
-        case .text(let text):
-            return text
+        case .attributedText(let attributedText):
+            return attributedText.string
         default:
             return "N/A"
         }
