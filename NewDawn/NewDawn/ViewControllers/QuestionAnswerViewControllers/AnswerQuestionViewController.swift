@@ -20,7 +20,7 @@ class AnswerQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishTextView(textView: questionTextField, text: question.question)
+        questionTextField.text = question.question
         polishTextView(textView: answerTextField)
     }
     
