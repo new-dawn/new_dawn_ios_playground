@@ -12,14 +12,12 @@ let UNKNOWN = "N/A"
 
 class QuestionViewController: UIViewController {
     
-    let QUESTION_WIDTH = 257
-    let QUESTION_HEIGHT = 40
+    let QUESTION_WIDTH = 230
+    let QUESTION_HEIGHT = 45
     let QUESTION_BLOCK_HEIGHT = 50
-    let Y_CENTER_OFFSET = 50
+    let Y_CENTER_OFFSET = 0
     let QUESTION_FONT_SIZE = 12
     let QUESTION_MAX_NUM = 3
-    
-    let SELECT_QUESTION_TEXT = "Select a question                     +"
     
     // Keep track of all question answer views
     var questionAnswerViews = [UIView]()
@@ -61,11 +59,9 @@ class QuestionViewController: UIViewController {
     
     func createCrossSignButton(question_answer: QuestionAnswer) -> UIButton {
         // A cross sign button on the right top corner of each button
-        let crossButton = UIButton(frame: CGRect(x: QUESTION_WIDTH-QUESTION_HEIGHT, y: QUESTION_HEIGHT/2-(QUESTION_HEIGHT/2), width: QUESTION_HEIGHT, height: QUESTION_HEIGHT))
-        crossButton.layer.cornerRadius = CGFloat(QUESTION_HEIGHT/2)
-        crossButton.backgroundColor = UIColor.gray
+        let crossButton = UIButton(frame: CGRect(x: QUESTION_WIDTH-QUESTION_HEIGHT*2/3, y: QUESTION_HEIGHT/2-(QUESTION_HEIGHT/3), width: QUESTION_HEIGHT/2, height: QUESTION_HEIGHT/2))
+        crossButton.setBackgroundImage(UIImage(named: "QuestionCancelButton"), for: .normal)
         //crossButton.setImage(UIImage(named: "cross.png"), for: .normal)
-        crossButton.setTitle("x", for: .normal)
         crossButton.addTarget(self, action: #selector(crossSignButtonClicked), for: .touchUpInside)
         crossButton.autoresizingMask = [.flexibleLeftMargin, .flexibleBottomMargin]
         crossButton.tag = Int(question_answer.question.id)
@@ -79,6 +75,8 @@ class QuestionViewController: UIViewController {
         polishQuestionButton(button: questionButton)
         questionButton.setTitle(question_answer.question.question, for: .normal)
         questionButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        questionButton.setBackgroundImage(UIImage(named: "QuestionBar"), for: .normal)
+        questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
         // Store question if as button tag
         questionButton.tag = Int(question_answer.question.id)
 
@@ -90,11 +88,10 @@ class QuestionViewController: UIViewController {
     
     func createSelectQuestionButton(offsetY: Int) -> UIButton {
         let selectQuestionButton = UIButton(
-            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+            frame: genCenterRect(width: 40, height: 40, offsetY: offsetY))
         // Set button style and content
         polishQuestionButton(button: selectQuestionButton)
-        selectQuestionButton.setTitle(SELECT_QUESTION_TEXT, for: .normal)
-        selectQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        selectQuestionButton.setBackgroundImage(UIImage(named: "QuestionAddButton"), for: .normal)
         selectQuestionButton.addTarget(self, action:#selector(self.selectQuestionButtonClicked), for: .touchUpInside)
         
         // Add the button to the container

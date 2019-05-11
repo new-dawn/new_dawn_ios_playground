@@ -14,36 +14,34 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     var containerView = UIView()
 
     let QUESTION_WIDTH = 326
-    let QUESTION_HEIGHT = 180
-    let QUESTION_BLOCK_HEIGHT = 190
-    let Y_CENTER_OFFSET = -200
+    let QUESTION_HEIGHT = 90
+    let QUESTION_BLOCK_HEIGHT = 95
+    let Y_TOP_OFFSET = 20
 
     // TODO: Replace hardcoded questions with backend request
     var sample_questions = [
-        Question(id: 1, question: "Do you like hiking?"),
-        Question(id: 2, question: "What's your favorate song?"),
-        Question(id: 3, question: "Do you have a pet?"),
-        Question(id: 4, question: "What's your best hobby?"),
-        Question(id: 5, question: "What't your most recent trip?"),
+        Question(id: 1, question: "如果可以出演电影，我想演？"),
+        Question(id: 2, question: "周末喜欢做什么?"),
+        Question(id: 3, question: "我最喜欢的歌词是?"),
+        Question(id: 4, question: "生命中影响我最深的人?"),
+        Question(id: 5, question: "我的特别技能?"),
+        Question(id: 6, question: "得到我的心的办法?"),
+        Question(id: 7, question: "你会知道我喜欢你，如果？"),
+        Question(id: 8, question: "Jason是不是最帅的?"),
     ]
     
     func getSampleQuestions() -> Array<Question> {
+        return sample_questions
+    }
+    
+    func isAnswered(question: Question) -> Bool {
         let answered_questions = self.getQuestionAnswersFromLocalStore()
-        var unanswered_questions = [Question]()
-        // Check if the sample question has already been answered
-        for question in sample_questions {
-            var already_answered = false
-            for answered_question in answered_questions {
-                if answered_question.question.question == question.question {
-                    already_answered = true
-                    break
-                }
-            }
-            if already_answered == false {
-                unanswered_questions.append(question)
+        for answered_question in answered_questions {
+            if answered_question.question.question == question.question {
+                return true
             }
         }
-        return unanswered_questions
+        return false
     }
     
     func getQuestionAnswersFromLocalStore() -> Array<QuestionAnswer> {
@@ -73,12 +71,31 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
         performSegue(withIdentifier: "answerQuestion", sender: question)
     }
     
+    func createQuestionRect(offsetY: Int) -> CGRect {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let questionRect = CGRect(
+            x: (screenSize.width / 2) - CGFloat(QUESTION_WIDTH / 2),
+            y: CGFloat(offsetY),
+            width: CGFloat(QUESTION_WIDTH), height: CGFloat(QUESTION_HEIGHT))
+        return questionRect
+    }
+    
     func createQuestionButton(question: Question, offsetY: Int) -> UIButton {
         let questionButton = UIButton(
-            frame: genCenterRect(width: QUESTION_WIDTH, height: QUESTION_HEIGHT, offsetY: offsetY))
+            frame: createQuestionRect(offsetY: offsetY))
         // Set button style and content
         polishQuestionButton(button: questionButton)
         questionButton.setTitle(question.question, for: .normal)
+        if isAnswered(question: question) {
+            questionButton.setBackgroundImage(
+                UIImage(named: "QuestionBlock2"), for: .normal)
+            questionButton.isEnabled = false
+        } else {
+            questionButton.setBackgroundImage(
+                UIImage(named: "QuestionBlock"), for: .normal)
+            questionButton.titleEdgeInsets = UIEdgeInsets(top: -10.0, left: 0.0, bottom: 0.0, right: 0.0)
+        }
+        questionButton.titleLabel?.font =  UIFont(name: "PingFangTC-Regular", size: 16)
         // Store question if as button tag
         questionButton.tag = Int(question.id)
         questionButton.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
@@ -89,7 +106,7 @@ class SelectQuestionViewController: UIViewController, UIScrollViewDelegate {
     func generateQuestions() -> Void {
         // A dynamic offset to control the distance
         // between question blocks
-        var buttonOffsetY: Int = Y_CENTER_OFFSET
+        var buttonOffsetY: Int = Y_TOP_OFFSET
         for question in self.getSampleQuestions() {
             // Auto-generate a question button
             // Increment the offset for next button

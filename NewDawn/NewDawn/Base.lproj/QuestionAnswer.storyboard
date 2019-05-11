@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,56 +18,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="To break the ice, we would like you to answer some questions." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBc-z2-7Al">
-                                <rect key="frame" x="62.5" y="126" width="250" height="170"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="选择并回答三个问题" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBc-z2-7Al">
+                                <rect key="frame" x="92.5" y="126" width="190" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="1u9-AE-2IP"/>
-                                    <constraint firstAttribute="height" constant="170" id="Ar0-YA-ogr"/>
+                                    <constraint firstAttribute="width" constant="190" id="1u9-AE-2IP"/>
+                                    <constraint firstAttribute="height" constant="35" id="Ar0-YA-ogr"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Yes let's do it!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-EA-DeO">
-                                <rect key="frame" x="87.5" y="304" width="200" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="问答是慢慢社区中很重要的部分，高质量有趣的问答会很有帮助哦" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-EA-DeO">
+                                <rect key="frame" x="72.5" y="169" width="230" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0FN-Db-zkW"/>
-                                    <constraint firstAttribute="width" constant="200" id="980-zk-aTH"/>
+                                    <constraint firstAttribute="height" constant="50" id="0FN-Db-zkW"/>
+                                    <constraint firstAttribute="width" constant="230" id="980-zk-aTH"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cka-hP-jaY">
-                                <rect key="frame" x="51" y="546" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="51" y="517" width="273" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="RjR-X6-eW8"/>
+                                    <constraint firstAttribute="height" constant="70" id="RjR-X6-eW8"/>
                                     <constraint firstAttribute="width" constant="273" id="vvc-Jf-OBx"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="0y1-Cg-qwi" eventType="touchUpInside" id="gza-uD-VYR"/>
                                     <segue destination="3tk-MN-k18" kind="show" id="HV7-E2-0gs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-OR-AOM">
-                                <rect key="frame" x="145" y="597" width="85" height="30"/>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3tk-MN-k18" kind="show" id="Fds-EV-yxy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fAt-7v-Ncu" firstAttribute="bottom" secondItem="X9X-OR-AOM" secondAttribute="bottom" constant="40" id="9k9-r3-Nov"/>
-                            <constraint firstItem="X9X-OR-AOM" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="FAY-Pt-feL"/>
                             <constraint firstItem="R9e-EA-DeO" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="Rob-2v-q9e"/>
                             <constraint firstItem="cka-hP-jaY" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="f8u-t1-Q8T"/>
                             <constraint firstItem="fAt-7v-Ncu" firstAttribute="bottom" secondItem="cka-hP-jaY" secondAttribute="bottom" constant="80" id="jzr-hc-eP6"/>
@@ -120,50 +113,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Question sent by previous view. Will be replaced during run time" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
-                                <rect key="frame" x="24.5" y="65" width="326" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuestionBlock3" translatesAutoresizingMaskIntoConstraints="NO" id="2ul-Do-YJe">
+                                <rect key="frame" x="24" y="65" width="327" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="326" id="Cdc-Q1-asf"/>
-                                    <constraint firstAttribute="height" constant="128" id="nyg-PG-X6n"/>
+                                    <constraint firstAttribute="height" constant="150" id="MTc-CZ-yNQ"/>
+                                    <constraint firstAttribute="width" constant="327" id="oRz-XR-91K"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="21"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="你最喜欢的一句歌词是" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
+                                <rect key="frame" x="57.5" y="90" width="260" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Cdc-Q1-asf"/>
+                                    <constraint firstAttribute="height" constant="100" id="nyg-PG-X6n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6l-ot-2zc">
-                                <rect key="frame" x="51" y="483" width="273" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="51" y="499" width="273" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="DAT-SY-k3b"/>
+                                    <constraint firstAttribute="height" constant="70" id="DAT-SY-k3b"/>
                                     <constraint firstAttribute="width" constant="273" id="cts-VV-73B"/>
                                 </constraints>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="确定" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="pDu-07-LST" eventType="touchUpInside" id="nxa-mY-wRs"/>
                                     <segue destination="0y1-Cg-qwi" kind="show" identifier="addAnswer" id="Nga-Hd-0GA"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-wx-7a2">
-                                <rect key="frame" x="24.5" y="219" width="326" height="164"/>
+                                <rect key="frame" x="37.5" y="235" width="300" height="164"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="326" id="2tw-cf-nDo"/>
+                                    <constraint firstAttribute="width" constant="300" id="2tw-cf-nDo"/>
                                     <constraint firstAttribute="height" constant="164" id="67t-Gh-KL8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="s6l-ot-2zc" firstAttribute="top" secondItem="nLt-wx-7a2" secondAttribute="bottom" constant="100" id="2BB-Eq-sHI"/>
-                            <constraint firstItem="KTC-1b-B6w" firstAttribute="top" secondItem="kYP-O7-asj" secondAttribute="top" constant="45" id="ENU-eG-gFb"/>
+                            <constraint firstItem="KTC-1b-B6w" firstAttribute="top" secondItem="kYP-O7-asj" secondAttribute="top" constant="70" id="ENU-eG-gFb"/>
+                            <constraint firstItem="2ul-Do-YJe" firstAttribute="top" secondItem="kYP-O7-asj" secondAttribute="top" constant="45" id="Ffe-B7-fAo"/>
                             <constraint firstItem="nLt-wx-7a2" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="FtX-oL-bwV"/>
                             <constraint firstItem="s6l-ot-2zc" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="poa-uu-KLS"/>
                             <constraint firstItem="KTC-1b-B6w" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="rmf-Rd-PHX"/>
-                            <constraint firstItem="nLt-wx-7a2" firstAttribute="top" secondItem="KTC-1b-B6w" secondAttribute="bottom" constant="26" id="sVB-hC-k9S"/>
+                            <constraint firstItem="2ul-Do-YJe" firstAttribute="centerX" secondItem="tKH-Wy-kz3" secondAttribute="centerX" id="sPd-iy-dkg"/>
+                            <constraint firstItem="nLt-wx-7a2" firstAttribute="top" secondItem="KTC-1b-B6w" secondAttribute="bottom" constant="45" id="sVB-hC-k9S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kYP-O7-asj"/>
                     </view>
@@ -174,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtF-zP-qzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="148"/>
+            <point key="canvasLocation" x="2218.4000000000001" y="147.97601199400302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N9O-Je-ox4">
@@ -195,8 +200,11 @@
             <point key="canvasLocation" x="-90.400000000000006" y="148.87556221889056"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="QuestionBlock3" width="340" height="163"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fds-EV-yxy"/>
         <segue reference="Nga-Hd-0GA"/>
     </inferredMetricsTieBreakers>
 </document>
