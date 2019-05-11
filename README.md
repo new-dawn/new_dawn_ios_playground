@@ -7,6 +7,7 @@ Take a look at these videos to get familiar with iOS/Swift development:
 2. UI Views & Constraint: https://www.youtube.com/watch?v=aiXvvL1wNUc. This tutorial covers basics aruond Constraints and StackView. Our app also has extensive constraints and more complex views such as ImageView, TableView, CollectionView, etc. But you don't need to know them until you are going to work on one of them.
 3. Segue Basics (Connect and pass data between two views): https://www.youtube.com/watch?v=uKQjJb-KSwU. This teaches you how one view passes data to another.
 4. Install Cocoapods: https://www.youtube.com/watch?v=MuMZZtQpB6Y. Cocoapods contains all extension library we use within the app. You should install it and run 'pod install' frequently in our repository to update the libraries we use (see below for details).
+5. Send GET/POST request to fetch and send data to our server in Swift: https://www.youtube.com/watch?v=YY3bTxgxWss
 
 ## Repository Setup
 1. Clone the repo to your local machine by running `git clone https://github.com/new-dawn/new_dawn_ios_playground.git` in your terminal. You should run `git pull --rebase origin master` frequently so you can keep your local repo in sync with Github master branch. After the first time you clone the repo, you should go to `new_dawn_ios_playground/NewDawn` directory, and run `pod install` to install required depencency.
