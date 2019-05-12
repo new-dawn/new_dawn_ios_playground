@@ -1690,9 +1690,9 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="255" height="66"/>
-        <image name="EditProfile_Edit" width="44" height="44"/>
-        <image name="EditProfile_Preview" width="44" height="44"/>
+        <image name="EditProfile_Button" width="510" height="132"/>
+        <image name="EditProfile_Edit" width="88" height="88"/>
+        <image name="EditProfile_Preview" width="88" height="88"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
