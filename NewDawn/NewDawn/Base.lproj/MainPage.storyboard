@@ -993,7 +993,10 @@
                                                         <constraint firstAttribute="height" constant="60" id="6Jj-f4-bgU"/>
                                                         <constraint firstAttribute="width" constant="281" id="7ig-GA-4p4"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="Register_continue_btn"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="14"/>
+                                                    <state key="normal" title="我想对你说..." backgroundImage="Register_continue_btn">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
                                                             <real key="value" value="-20"/>
@@ -1588,6 +1591,7 @@
         <!--ModalImageQuestionAnswerViewController-->
         <scene sceneID="TXP-Mb-4VI">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-Il-hmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ModelQuestionAnswerLikedViewController" title="ModalImageQuestionAnswerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="y15-Mj-UAa" customClass="ModalQuestionAnswerLikedViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcI-ha-FYB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1675,7 +1679,6 @@
                         <outlet property="titleLabel" destination="AZ7-JC-bc8" id="U5r-7E-AqV"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-Il-hmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="-1333.5832083958021"/>
         </scene>
@@ -1687,9 +1690,9 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="510" height="132"/>
-        <image name="EditProfile_Edit" width="88" height="88"/>
-        <image name="EditProfile_Preview" width="88" height="88"/>
+        <image name="EditProfile_Button" width="255" height="66"/>
+        <image name="EditProfile_Edit" width="44" height="44"/>
+        <image name="EditProfile_Preview" width="44" height="44"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
