@@ -61,6 +61,17 @@ class LikeAnswerViewCell: UITableViewCell {
     }
 }
 
+class LikeMeViewCell: UITableViewCell {
+    @IBOutlet weak var likeMeButton: UIButton!
+    
+    var item: MainPageViewModellItem? {
+        didSet {
+            guard let item = item as? LikeMeViewModelItem else { return }
+            likeMeButton.setTitle("\(item.likerFirstName) 喜欢你的回答，想对你说...", for: .normal)
+        }
+    }
+}
+
 class BasicInfoViewCell: UITableViewCell {
     
     @IBOutlet weak var firstNameLabel: UILabel!
