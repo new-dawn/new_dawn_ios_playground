@@ -596,16 +596,13 @@
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="1Wd-cd-6nd"/>
                             <constraint firstItem="JLy-3f-JN8" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Au9-fi-hzA"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="30" id="Bxe-B5-tx4"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="C9v-HG-fN1"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JLy-3f-JN8" secondAttribute="leading" id="Clx-fJ-w2V"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="trailing" secondItem="JLy-3f-JN8" secondAttribute="trailing" id="ECP-MD-rLE"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="v1a-bQ-2LW" secondAttribute="centerX" id="FrH-8O-w7A"/>
-                            <constraint firstItem="JgF-5v-hzk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="IAC-eC-T6t"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Hzj-GA-k9K" secondAttribute="trailing" constant="71" id="KRa-HF-NbG"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PNc-y8-EKY"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="25" id="Pb4-0X-dAJ"/>
                             <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PpS-Uh-i2x"/>
-                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="RI7-zS-dbK"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="JgF-5v-hzk" secondAttribute="trailing" constant="47.5" id="Sut-t7-Cug"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="v1a-bQ-2LW" secondAttribute="trailing" constant="47.5" id="Yff-dR-s9h"/>
                             <constraint firstItem="Hzj-GA-k9K" firstAttribute="leading" secondItem="qra-ng-JQW" secondAttribute="leading" id="ZC6-dD-hmi"/>
@@ -623,7 +620,6 @@
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="-5" id="nfN-nF-NUx"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="oVb-D4-C6p"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="p8M-7J-hch"/>
-                            <constraint firstItem="n9d-zn-2sT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="xJW-ke-L1P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bvy-J3-sr9"/>
                     </view>
@@ -1660,7 +1656,6 @@
         <image name="EditProfile_Button" width="510" height="132"/>
         <image name="EditProfile_Edit" width="88" height="88"/>
         <image name="EditProfile_Preview" width="88" height="88"/>
-        <image name="HeightIcon" width="13" height="26"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
