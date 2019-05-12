@@ -62,8 +62,8 @@ class LikeAnswerViewCell: UITableViewCell {
 }
 
 class LikeMeViewCell: UITableViewCell {
-    @IBOutlet weak var likeMeButton: UIButton!
     
+    @IBOutlet weak var likeMeButton: UIButton!
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? LikeMeViewModelItem else { return }
