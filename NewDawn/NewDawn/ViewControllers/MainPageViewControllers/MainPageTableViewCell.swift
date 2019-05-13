@@ -9,12 +9,6 @@
 import UIKit
 
 let CM = " cm"
-let LATEST_LIKED_ITEM = "latest_liked_item"
-let LATEST_LIKED_USER_NAME = "latest_liked_user_name"
-let LATEST_LIKED_USER_ID = "latest_liked_user_id"
-let ENTITY_TYPE = "entity_type"
-let ENTITY_ID = "entity_id"
-let ACTION_TYPE = "action_type"
 
 class MainPageTableViewCell: UITableViewCell {
 
@@ -133,16 +127,15 @@ class QuestionAnswerViewCell: UITableViewCell {
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
         let castItem = item as! QuestionAnswerViewModelItem
-        LocalStorageUtil.localStoreKeyValue(
-            key: LATEST_LIKED_ITEM, value: [
-                QUESTION: castItem.question,
-                ANSWER: castItem.answer,
-                ENTITY_ID: castItem.id,
-                ACTION_TYPE: UserActionType.LIKE.rawValue,
-                ENTITY_TYPE: MainPageViewModelItemType.QUESTION_ANSWER.rawValue
-            ])
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
+        LikeInfoUtil.storeLatestLikeYouInfo(
+            LikeYouInfo(
+                user_id,
+                latest_liked_user_name: name,
+                entity_id: castItem.id,
+                question: castItem.question,
+                answer: castItem.answer
+            )
+        )
     }
 }
 
@@ -191,15 +184,14 @@ class MainImageViewCell: UITableViewCell {
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
         let castItem = item as! MainImageViewModelItem
-        LocalStorageUtil.localStoreKeyValue(
-            key: LATEST_LIKED_ITEM, value: [
-                IMAGE_URL: castItem.mainImageURL,
-                ENTITY_ID: castItem.id,
-                ACTION_TYPE: UserActionType.LIKE.rawValue,
-                ENTITY_TYPE: MainPageViewModelItemType.MAIN_IMAGE.rawValue
-            ])
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_NAME, value: name)
-        LocalStorageUtil.localStoreKeyValue(key: LATEST_LIKED_USER_ID, value: user_id)
+        LikeInfoUtil.storeLatestLikeYouInfo(
+            LikeYouInfo(
+                user_id,
+                latest_liked_user_name: name,
+                entity_id: castItem.id,
+                image_url: castItem.mainImageURL
+            )
+        )
     }
     
 }

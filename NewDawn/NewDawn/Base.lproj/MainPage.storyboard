@@ -1002,6 +1002,9 @@
                                                             <real key="value" value="-20"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="zkD-JC-Aof" kind="presentation" id="OLR-Wb-hdo"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1323,7 +1326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2m-t4-xbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808.8" y="-1332.6836581709147"/>
+            <point key="canvasLocation" x="2692" y="-1285"/>
         </scene>
         <!--MainPageViewController-->
         <scene sceneID="A1l-gg-cOS">
@@ -1591,7 +1594,6 @@
         <!--ModalImageQuestionAnswerViewController-->
         <scene sceneID="TXP-Mb-4VI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-Il-hmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ModelQuestionAnswerLikedViewController" title="ModalImageQuestionAnswerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="y15-Mj-UAa" customClass="ModalQuestionAnswerLikedViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcI-ha-FYB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1679,8 +1681,88 @@
                         <outlet property="titleLabel" destination="AZ7-JC-bc8" id="U5r-7E-AqV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TXf-Il-hmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-1333.5832083958021"/>
+            <point key="canvasLocation" x="1815" y="-1286"/>
+        </scene>
+        <!--RectQuestionAnswerViewController-->
+        <scene sceneID="5Uo-sv-Ttq">
+            <objects>
+                <viewController storyboardIdentifier="RectInfoQuestionAnswerViewController" title="RectQuestionAnswerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="zkD-JC-Aof" customClass="RectInfoQuestionAnswerViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zdc-WX-vbO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Edg-Lh-EHw">
+                                <rect key="frame" x="27" y="184" width="320" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InfoPanel" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-ko-bzd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="问题" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ey-ji-SMo">
+                                        <rect key="frame" x="41" y="24" width="228" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="我的回答" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-2E-aH7">
+                                        <rect key="frame" x="90" y="72" width="195" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN1-VM-0jN">
+                                        <rect key="frame" x="277" y="5" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton" backgroundImage="CloseButton"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="zkD-JC-Aof" eventType="touchUpInside" id="SAq-Ff-sQo"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xa3-kA-IFq">
+                                        <rect key="frame" x="28" y="72" width="54" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kJX-iA-YqN">
+                                        <rect key="frame" x="231" y="144" width="54" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="你的评论" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-To-y3G">
+                                        <rect key="frame" x="28" y="144" width="192" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70553351679999998" green="0.70553351679999998" blue="0.70553351679999998" alpha="0.91873899650000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="sEV-Nw-9sr"/>
+                    </view>
+                    <connections>
+                        <outlet property="myAnswer" destination="MIA-2E-aH7" id="rgN-NY-toY"/>
+                        <outlet property="myAnswerTextView" destination="MIA-2E-aH7" id="t16-fI-v78"/>
+                        <outlet property="myImage" destination="xa3-kA-IFq" id="V6s-3H-2au"/>
+                        <outlet property="myImageView" destination="xa3-kA-IFq" id="aSv-21-tU7"/>
+                        <outlet property="questionTextView" destination="3ey-ji-SMo" id="OgW-gS-4oZ"/>
+                        <outlet property="yourComment" destination="gx1-To-y3G" id="ep6-gg-Y8F"/>
+                        <outlet property="yourCommentTextView" destination="gx1-To-y3G" id="SeE-Px-faY"/>
+                        <outlet property="yourImage" destination="kJX-iA-YqN" id="S5q-PL-BtY"/>
+                        <outlet property="yourImageView" destination="kJX-iA-YqN" id="8J3-Ud-lWa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdf-7J-3t0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2000000000000002" y="-1287.7061469265368"/>
         </scene>
     </scenes>
     <resources>
@@ -1690,10 +1772,11 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="510" height="132"/>
-        <image name="EditProfile_Edit" width="88" height="88"/>
-        <image name="EditProfile_Preview" width="88" height="88"/>
+        <image name="EditProfile_Button" width="255" height="66"/>
+        <image name="EditProfile_Edit" width="44" height="44"/>
+        <image name="EditProfile_Preview" width="44" height="44"/>
         <image name="HomeTab" width="24" height="24"/>
+        <image name="InfoPanel" width="345" height="284"/>
         <image name="LikeButton" width="62" height="62"/>
         <image name="LikeButtonNew" width="88" height="77"/>
         <image name="LocationIcon" width="21" height="26"/>
