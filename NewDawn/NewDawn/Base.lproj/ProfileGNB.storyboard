@@ -831,7 +831,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
-                                <rect key="frame" x="99.5" y="391" width="176" height="83.5"/>
+                                <rect key="frame" x="99.5" y="410.5" width="176" height="83.5"/>
                                 <string key="text">• 至少3张照片
 • 至少一张照片清晰地展示脸部
 • 至少一张照片清晰地展示全身
@@ -841,7 +841,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdk-k2-Y5g">
-                                <rect key="frame" x="52.5" y="557" width="270" height="60"/>
+                                <rect key="frame" x="52.5" y="576.5" width="270" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Mdc-Ma-Saf"/>
@@ -862,7 +862,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="NJs-tb-0hW">
-                                <rect key="frame" x="87.5" y="151" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="170.5" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NJs-tb-0hW" secondAttribute="height" multiplier="1:1" id="7GV-Hj-kIH"/>
                                     <constraint firstAttribute="height" constant="200" id="YpM-wA-FDr"/>
@@ -870,7 +870,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-EJ-brt">
-                                <rect key="frame" x="52.5" y="489" width="270" height="60"/>
+                                <rect key="frame" x="52.5" y="508.5" width="270" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="juo-hY-UhA"/>
@@ -892,7 +892,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NJs-tb-0hW" firstAttribute="top" secondItem="cDX-nM-D9l" secondAttribute="bottom" constant="10.5" id="0SL-xs-OqB"/>
+                            <constraint firstItem="NJs-tb-0hW" firstAttribute="top" secondItem="cDX-nM-D9l" secondAttribute="bottom" constant="30" id="0SL-xs-OqB"/>
                             <constraint firstItem="cDX-nM-D9l" firstAttribute="top" secondItem="YI4-RN-GnN" secondAttribute="bottom" constant="70" id="E50-Sk-ixg"/>
                             <constraint firstItem="MbO-EJ-brt" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="IL7-li-Zio"/>
                             <constraint firstItem="cDX-nM-D9l" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="PNL-hd-OBi"/>
@@ -1386,9 +1386,9 @@
         <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-FJ-ORZ"/>
+        <segue reference="iHz-cU-Dm1"/>
         <segue reference="Ljg-P9-Kyv"/>
-        <segue reference="OJW-vV-kwk"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>

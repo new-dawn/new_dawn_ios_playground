@@ -101,7 +101,7 @@ class Profile_PhotosUpload: UIViewController {
         let images = imagesArray as NSArray as! [ImageItem]
         let used_images = images.filter{$0.image != BLANK_IMG}
         if (used_images.count < 3) {
-            self.displayMessage(userMessage: "Need to upload at least 3 images")
+            self.displayMessage(userMessage: "为了帮助你配对，请最少上传3张符合要求的照片喔。")
             return false
         }else{
             return true
@@ -184,9 +184,9 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
     
     @objc func tap(_ sender: UIButton){
         clicked_image = sender.tag
-        let alert = UIAlertController(title: "Delete this Image", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "确定要删除这张照片吗？", message: nil, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "是", style: .default, handler: { (action) in
             
             self.imagesArray[self.clicked_image].image = BLANK_IMG
             let dataPath = ImageUtil.getPersonalImagesDirectory()
@@ -200,7 +200,7 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
             self.collectionView.reloadData()
         }))
         
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in}))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (action) in}))
         present(alert,animated: true,completion: nil)
     }
     
