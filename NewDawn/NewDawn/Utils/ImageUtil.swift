@@ -11,7 +11,7 @@ import UIKit
 
 let MAX_IMG_SIZE = 256000
 // This image can be replaced by other default images
-let BLANK_IMG = UIImage(named: "MeTab")!
+let BLANK_IMG = UIImage(named: "EmptyImage")!
 
 class ImageUtil {
     static func polishCircularImageView(imageView: UIImageView) -> Void {

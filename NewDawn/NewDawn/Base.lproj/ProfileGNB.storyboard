@@ -823,47 +823,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
-                                <rect key="frame" x="58" y="90" width="263" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="  上传你最棒的照片！" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-nM-D9l">
+                                <rect key="frame" x="36" y="90" width="287" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Use your best photos &amp; videos to shine!
-
-</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Yes! Let’s do it!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
-                                <rect key="frame" x="58" y="248" width="101" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-nG-lnu">
+                                <rect key="frame" x="99.5" y="391" width="176" height="83.5"/>
+                                <string key="text">• 至少3张照片
+• 至少一张照片清晰地展示脸部
+• 至少一张照片清晰地展示全身
+• 需要本人的照片</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdk-k2-Y5g">
-                                <rect key="frame" x="51" y="555" width="273" height="40"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="52.5" y="557" width="270" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Mdc-Ma-Saf"/>
+                                    <constraint firstAttribute="height" constant="60" id="Mdc-Ma-Saf"/>
+                                    <constraint firstAttribute="width" constant="270" id="Sh3-6i-JBe"/>
                                 </constraints>
-                                <state key="normal" title="Previous">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="IvN-LX-e3l" eventType="touchUpInside" id="lkx-Wa-SFU"/>
                                     <segue destination="b8r-oE-fGS" kind="presentation" id="vCo-NW-E29"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-EJ-brt">
-                                <rect key="frame" x="51" y="469" width="273" height="40"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="NJs-tb-0hW">
+                                <rect key="frame" x="87.5" y="151" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="kPi-Qy-5Mz"/>
+                                    <constraint firstAttribute="width" secondItem="NJs-tb-0hW" secondAttribute="height" multiplier="1:1" id="7GV-Hj-kIH"/>
+                                    <constraint firstAttribute="height" constant="200" id="YpM-wA-FDr"/>
+                                    <constraint firstAttribute="width" constant="200" id="zJ9-o6-byl"/>
                                 </constraints>
-                                <state key="normal" title="Add Photos ">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-EJ-brt">
+                                <rect key="frame" x="52.5" y="489" width="270" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="juo-hY-UhA"/>
+                                    <constraint firstAttribute="height" constant="60" id="kPi-Qy-5Mz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <state key="normal" title="上传照片" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="cKV-BN-cTX" kind="presentation" id="Ljg-P9-Kyv"/>
                                 </connections>
@@ -871,14 +892,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="MbO-EJ-brt" secondAttribute="trailing" constant="35" id="9Zf-SV-67i"/>
+                            <constraint firstItem="NJs-tb-0hW" firstAttribute="top" secondItem="cDX-nM-D9l" secondAttribute="bottom" constant="10.5" id="0SL-xs-OqB"/>
+                            <constraint firstItem="cDX-nM-D9l" firstAttribute="top" secondItem="YI4-RN-GnN" secondAttribute="bottom" constant="70" id="E50-Sk-ixg"/>
                             <constraint firstItem="MbO-EJ-brt" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="IL7-li-Zio"/>
-                            <constraint firstItem="6vr-Mf-CTR" firstAttribute="top" secondItem="xdk-k2-Y5g" secondAttribute="bottom" constant="72" id="Ncw-XW-bqQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xdk-k2-Y5g" secondAttribute="trailing" constant="35" id="QO6-is-AMH"/>
-                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="top" secondItem="MbO-EJ-brt" secondAttribute="bottom" constant="46" id="ZfZ-M3-0uU"/>
-                            <constraint firstItem="MbO-EJ-brt" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="35" id="gpI-8I-uyQ"/>
-                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="leading" secondItem="3Qb-b3-yPp" secondAttribute="leadingMargin" constant="35" id="m3z-4k-dGE"/>
+                            <constraint firstItem="cDX-nM-D9l" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="PNL-hd-OBi"/>
+                            <constraint firstItem="xdk-k2-Y5g" firstAttribute="top" secondItem="MbO-EJ-brt" secondAttribute="bottom" constant="8" id="ZfZ-M3-0uU"/>
+                            <constraint firstItem="Cfc-nG-lnu" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="syY-Cv-Cc1"/>
+                            <constraint firstItem="Cfc-nG-lnu" firstAttribute="top" secondItem="NJs-tb-0hW" secondAttribute="bottom" constant="40" id="x5J-rP-pJl"/>
+                            <constraint firstItem="MbO-EJ-brt" firstAttribute="top" secondItem="Cfc-nG-lnu" secondAttribute="bottom" constant="14.5" id="yT9-Jo-wNG"/>
                             <constraint firstItem="xdk-k2-Y5g" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="z3T-I7-tcI"/>
+                            <constraint firstItem="NJs-tb-0hW" firstAttribute="centerX" secondItem="3Qb-b3-yPp" secondAttribute="centerX" id="zxt-uw-0Td"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -986,45 +1009,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70J-YJ-Y0H">
-                                <rect key="frame" x="52.5" y="595" width="270" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="52.5" y="595" width="270" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="6sr-hj-bUO"/>
+                                    <constraint firstAttribute="height" constant="60" id="6sr-hj-bUO"/>
                                     <constraint firstAttribute="width" constant="270" id="xCc-Xe-5HQ"/>
                                 </constraints>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="gIN-sC-2GR" kind="presentation" id="OJW-vV-kwk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR0-Rc-c3S">
-                                <rect key="frame" x="52.5" y="534" width="270" height="41"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="52.5" y="534" width="270" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="PMR-Qh-nNJ"/>
-                                    <constraint firstAttribute="height" constant="41" id="cAa-cN-GOG"/>
+                                    <constraint firstAttribute="height" constant="60" id="cAa-cN-GOG"/>
                                 </constraints>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="continueUploadImageTapped:" destination="cKV-BN-cTX" eventType="touchUpInside" id="ino-ss-0b2"/>
                                     <segue destination="GWg-yl-rvs" kind="presentation" identifier="image_continue" id="Ewt-Pj-4Ll"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep uploading your photos or videos!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-us-3yv">
-                                <rect key="frame" x="28" y="60" width="295" height="89"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传你最棒的照片！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-us-3yv">
+                                <rect key="frame" x="40" y="75" width="295" height="93"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="295" id="vYm-Gv-TSW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-c6-mmc">
-                                <rect key="frame" x="37.5" y="183" width="300" height="300"/>
+                                <rect key="frame" x="37.5" y="202" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="GNc-Dq-awI"/>
@@ -1040,13 +1075,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-Di-Jdw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="108" height="96"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="108" id="zlp-eo-iyi"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3K-H6-z4t">
-                                                    <rect key="frame" x="62" y="0.0" width="30" height="30"/>
+                                                    <rect key="frame" x="20" y="0.0" width="30" height="30"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="To5-Es-5eb">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1056,8 +1088,8 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="9a8-t2-KdL" secondAttribute="height" multiplier="1:1" id="8zG-bz-aii"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="azz-S6-kA1"/>
-                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="mIN-IR-3CV"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="CfX-mL-VdT"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="YN1-hc-Uh3"/>
                                                                 </constraints>
                                                                 <state key="normal" image="SkipButton">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1067,23 +1099,18 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="9a8-t2-KdL" firstAttribute="top" secondItem="To5-Es-5eb" secondAttribute="top" id="5WH-a8-iht"/>
                                                             <constraint firstItem="9a8-t2-KdL" firstAttribute="leading" secondItem="To5-Es-5eb" secondAttribute="leading" id="BfX-Vp-BKa"/>
                                                             <constraint firstItem="9a8-t2-KdL" firstAttribute="top" secondItem="To5-Es-5eb" secondAttribute="top" id="HxG-nb-fBG"/>
                                                             <constraint firstAttribute="bottom" secondItem="9a8-t2-KdL" secondAttribute="bottom" id="SJQ-cM-iHf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="9a8-t2-KdL" secondAttribute="bottom" id="TM9-6X-Tz2"/>
                                                             <constraint firstAttribute="trailing" secondItem="9a8-t2-KdL" secondAttribute="trailing" id="dbv-4K-3ea"/>
-                                                            <constraint firstAttribute="bottom" secondItem="9a8-t2-KdL" secondAttribute="bottom" id="h0U-mk-nIG"/>
-                                                            <constraint firstAttribute="bottom" secondItem="9a8-t2-KdL" secondAttribute="bottom" id="huz-Ue-OTH"/>
                                                             <constraint firstItem="9a8-t2-KdL" firstAttribute="leading" secondItem="To5-Es-5eb" secondAttribute="leading" id="uD1-Ba-8HC"/>
                                                         </constraints>
                                                     </view>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="b3K-H6-z4t" secondAttribute="height" multiplier="1:1" id="0c0-YC-h1c"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Hci-WD-Miz"/>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="MQj-Yc-8RA"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="cdG-B3-Fvu"/>
+                                                        <constraint firstAttribute="width" constant="30" id="s5s-pZ-Hq3"/>
+                                                        <constraint firstAttribute="height" constant="30" id="zeg-mV-nuz"/>
                                                     </constraints>
                                                     <vibrancyEffect>
                                                         <blurEffect style="light"/>
@@ -1092,9 +1119,10 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="leading" secondItem="xsg-WM-7yh" secondAttribute="leadingMargin" constant="54" id="0Ww-l3-PYE"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerX" secondItem="xsg-WM-7yh" secondAttribute="centerX" id="9Bb-VZ-lpD"/>
+                                            <constraint firstAttribute="trailing" secondItem="8nn-Di-Jdw" secondAttribute="trailing" id="D7T-be-D0p"/>
                                             <constraint firstItem="b3K-H6-z4t" firstAttribute="top" secondItem="8nn-Di-Jdw" secondAttribute="top" id="HKL-zB-suC"/>
+                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="trailing" secondItem="8nn-Di-Jdw" secondAttribute="trailing" id="sA1-PM-tpv"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="top" secondItem="xsg-WM-7yh" secondAttribute="top" id="wlW-KR-vAP"/>
                                             <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerY" secondItem="xsg-WM-7yh" secondAttribute="centerY" id="x1d-uY-8cM"/>
                                         </constraints>
@@ -1110,19 +1138,27 @@
                                     <outlet property="delegate" destination="cKV-BN-cTX" id="5U2-GR-eUj"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按并拖拽来编排照片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-ZL-gF4">
+                                <rect key="frame" x="122.5" y="168" width="130.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eR0-Rc-c3S" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="7Ub-Dp-Cbu"/>
                             <constraint firstItem="eR0-Rc-c3S" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="8h7-lH-Uga"/>
+                            <constraint firstItem="6Yw-ZL-gF4" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="JpT-wn-88i"/>
                             <constraint firstItem="70J-YJ-Y0H" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="L5M-9G-Qq9"/>
                             <constraint firstItem="aRg-c6-mmc" firstAttribute="top" secondItem="zlO-us-3yv" secondAttribute="bottom" constant="34" id="LR8-oZ-qgB"/>
-                            <constraint firstItem="1Ab-e4-tuk" firstAttribute="top" secondItem="70J-YJ-Y0H" secondAttribute="bottom" constant="31" id="N5C-bJ-F0n"/>
+                            <constraint firstItem="1Ab-e4-tuk" firstAttribute="top" secondItem="70J-YJ-Y0H" secondAttribute="bottom" constant="12" id="N5C-bJ-F0n"/>
+                            <constraint firstItem="6Yw-ZL-gF4" firstAttribute="top" secondItem="zlO-us-3yv" secondAttribute="bottom" id="hw2-QZ-iSe"/>
                             <constraint firstItem="aRg-c6-mmc" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="iEo-zk-6oF"/>
-                            <constraint firstItem="70J-YJ-Y0H" firstAttribute="top" secondItem="eR0-Rc-c3S" secondAttribute="bottom" constant="20" id="j5R-LG-QfK"/>
-                            <constraint firstItem="zlO-us-3yv" firstAttribute="top" secondItem="lIt-np-Px1" secondAttribute="bottom" constant="40" id="oOV-0g-lf9"/>
-                            <constraint firstItem="eR0-Rc-c3S" firstAttribute="top" secondItem="aRg-c6-mmc" secondAttribute="bottom" constant="51" id="qfe-y8-dHZ"/>
-                            <constraint firstItem="zlO-us-3yv" firstAttribute="leading" secondItem="Iha-VK-9ec" secondAttribute="leadingMargin" constant="12" id="ryF-vN-wUx"/>
+                            <constraint firstItem="70J-YJ-Y0H" firstAttribute="top" secondItem="eR0-Rc-c3S" secondAttribute="bottom" constant="1" id="j5R-LG-QfK"/>
+                            <constraint firstItem="zlO-us-3yv" firstAttribute="top" secondItem="lIt-np-Px1" secondAttribute="bottom" constant="55" id="oOV-0g-lf9"/>
+                            <constraint firstItem="eR0-Rc-c3S" firstAttribute="top" secondItem="aRg-c6-mmc" secondAttribute="bottom" constant="32" id="qfe-y8-dHZ"/>
+                            <constraint firstItem="zlO-us-3yv" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="sDe-Pk-Q3J"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1345,6 +1381,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RegisterPlaceHolder" width="344" height="254"/>
         <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SkipButton" width="62" height="62"/>
     </resources>
