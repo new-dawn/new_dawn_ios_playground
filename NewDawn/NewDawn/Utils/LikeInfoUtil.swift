@@ -14,10 +14,13 @@ class LikeInfoUtil {
     static func getLatestLikeYouInfo() -> LikeYouInfo? {
         return LocalStorageUtil.localReadKeyValueStruct(key: LATEST_LIKE_YOU_INFO)
     }
-    static func getLatestLikeMeInfo() -> LikeYouInfo? {
+    static func getLatestLikeMeInfo() -> LikeMeInfo? {
         return LocalStorageUtil.localReadKeyValueStruct(key: LATEST_LIKE_ME_INFO)
     }
     static func storeLatestLikeYouInfo(_ like_you_info: LikeYouInfo) -> Void {
         LocalStorageUtil.localStoreKeyValueStruct(key: LATEST_LIKE_YOU_INFO, value: like_you_info)
+    }
+    static func storeLatestLikeMeInfo(_ like_me_info: LikeMeInfo) -> Void {
+        LocalStorageUtil.localStoreKeyValueStruct(key: LATEST_LIKE_ME_INFO, value: like_me_info)
     }
 }

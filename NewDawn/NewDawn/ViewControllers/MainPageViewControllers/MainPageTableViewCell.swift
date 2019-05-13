@@ -61,13 +61,14 @@ class LikeMeViewCell: UITableViewCell {
     var item: MainPageViewModellItem? {
         didSet {
             guard let item = item as? LikeMeViewModelItem else { return }
-            if item.likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
-                likeMeButton.setTitle("\(item.likerFirstName) 喜欢你的图片，想对你说...", for: .normal)
+            if item.likeMeInfo.likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+                likeMeButton.setTitle("\(item.likeMeInfo.yourFirstName) 喜欢你的图片，想对你说...", for: .normal)
+                LikeInfoUtil.storeLatestLikeMeInfo(item.likeMeInfo)
             }
-            if item.likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
-                likeMeButton.setTitle("\(item.likerFirstName) 喜欢你的回答，想对你说...", for: .normal)
+            if item.likeMeInfo.likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+                likeMeButton.setTitle("\(item.likeMeInfo.yourFirstName) 喜欢你的回答，想对你说...", for: .normal)
+                LikeInfoUtil.storeLatestLikeMeInfo(item.likeMeInfo)
             }
-            
         }
     }
 }

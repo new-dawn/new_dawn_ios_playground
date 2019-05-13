@@ -1749,14 +1749,10 @@
                         <viewLayoutGuide key="safeArea" id="sEV-Nw-9sr"/>
                     </view>
                     <connections>
-                        <outlet property="myAnswer" destination="MIA-2E-aH7" id="rgN-NY-toY"/>
-                        <outlet property="myAnswerTextView" destination="MIA-2E-aH7" id="t16-fI-v78"/>
-                        <outlet property="myImage" destination="xa3-kA-IFq" id="V6s-3H-2au"/>
+                        <outlet property="myAnswerTextView" destination="MIA-2E-aH7" id="CZc-vr-4sJ"/>
                         <outlet property="myImageView" destination="xa3-kA-IFq" id="aSv-21-tU7"/>
-                        <outlet property="questionTextView" destination="3ey-ji-SMo" id="OgW-gS-4oZ"/>
-                        <outlet property="yourComment" destination="gx1-To-y3G" id="ep6-gg-Y8F"/>
+                        <outlet property="questionTextView" destination="3ey-ji-SMo" id="kRB-FO-EcR"/>
                         <outlet property="yourCommentTextView" destination="gx1-To-y3G" id="SeE-Px-faY"/>
-                        <outlet property="yourImage" destination="kJX-iA-YqN" id="S5q-PL-BtY"/>
                         <outlet property="yourImageView" destination="kJX-iA-YqN" id="8J3-Ud-lWa"/>
                     </connections>
                 </viewController>

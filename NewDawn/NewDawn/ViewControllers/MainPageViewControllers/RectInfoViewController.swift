@@ -15,8 +15,21 @@ class RectInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Get my profile photo
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile in
+            if user_profile?.mainImages.first != nil {
+                self.myImageView.downloaded(from: self.myImageView.getURL(path: user_profile!.mainImages.first!.image_url))
+            }
+        }
+        // Get your image and comment
+        let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
+        if let your_image_url = like_me_info?.yourImageURL {
+             yourImageView.downloaded(from: yourImageView.getURL(path: your_image_url))
+        }
+        if let your_comment = like_me_info?.likedInfo.liked_message, let your_first_name = like_me_info?.yourFirstName {
+            yourCommentTextView.text = "\(your_first_name): \(your_comment)"
+        }
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
@@ -27,27 +40,24 @@ class RectInfoViewController: UIViewController {
 
 class RectInfoQuestionAnswerViewController: RectInfoViewController {
     
-    var question: String?
-    var myImageURL: String?
-    var myAnswer: String?
-    var yourImageURL: String?
-    var yourComment: String?
-    
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var myAnswerTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionTextView.text? = question ?? UNKNOWN
-        myAnswerTextView.text? = myAnswer ?? UNKNOWN
-        yourCommentTextView.text? = yourComment ?? UNKNOWN
-        if (myImageURL != nil) {
-            ImageUtil.downLoadImage(url: myImageURL!) {
-                image in
-                self.myImageView.image = image
+        
+        // Get my first name
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile in
+            if let my_first_name = user_profile?.firstname {
+                let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
+                if let my_question = like_me_info?.likedInfo.liked_question {
+                    self.questionTextView.text = my_question
+                }
+                if let my_answer = like_me_info?.likedInfo.liked_answer {
+                    self.myAnswerTextView.text = "\(my_first_name): \(my_answer)"
+                }
             }
         }
     }
-    
-    
 }

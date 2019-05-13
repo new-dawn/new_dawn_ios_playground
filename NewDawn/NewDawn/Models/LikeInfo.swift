@@ -34,11 +34,11 @@ struct LikedInfo: Codable {
 
 struct LikeMeInfo: Codable {
     var yourImageURL: String = UNKNOWN
-    var myImageURL: String = UNKNOWN
+    var yourFirstName: String = UNKNOWN
     var likedInfo = LikedInfo()
-    init(_ yourImageURL: String, myImageURL: String, likedInfo: LikedInfo) {
+    init(_ yourImageURL: String, yourFirstName: String, likedInfo: LikedInfo) {
         self.yourImageURL = yourImageURL
-        self.myImageURL = myImageURL
+        self.yourFirstName = yourFirstName
         self.likedInfo = likedInfo
     }
 }
