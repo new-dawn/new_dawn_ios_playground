@@ -180,12 +180,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06C278D8228908A000BB718A /* CustomLayout */ = {
+		06C278D8228908A000BB718A /* CustomLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				06C278D9228908C600BB718A /* PhotoLayout.swift */,
 			);
-			path = CustomLayout;
+			path = CustomLayouts;
 			sourceTree = "<group>";
 		};
 		17165545D8163B7189F60507 /* Pods */ = {
@@ -222,7 +223,7 @@
 				24C09F6D2263E99400302CEF /* Main.storyboard */,
 				24C09F6F2263E99400302CEF /* QuestionAnswer.storyboard */,
 				24C09F712263E99400302CEF /* ProfileGNB.storyboard */,
-				06C278D8228908A000BB718A /* CustomLayout */,
+				06C278D8228908A000BB718A /* CustomLayouts */,
 				24C09F732263E99400302CEF /* ViewControllers */,
 				24C09F992263E99400302CEF /* NewDawn.entitlements */,
 				24C09F9C2263E99400302CEF /* AppDelegate.swift */,
@@ -296,7 +297,6 @@
 				24C09F802263E99400302CEF /* Profile_WorkJob.swift */,
 				24C09F812263E99400302CEF /* ProfileGNBViewController.swift */,
 				24C09F822263E99400302CEF /* Profile_Photos.swift */,
-				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				24C09F842263E99400302CEF /* Profile_HomeTown.swift */,
 				24C09F852263E99400302CEF /* Profile_PhotosUpload.swift */,
 				24C09F862263E99400302CEF /* Profile_Education.swift */,
