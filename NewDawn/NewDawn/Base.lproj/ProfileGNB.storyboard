@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1014,24 +1014,29 @@
                                     <segue destination="GWg-yl-rvs" kind="presentation" identifier="image_continue" id="Ewt-Pj-4Ll"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep uploading your photos or videos!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-us-3yv">
+                                <rect key="frame" x="28" y="60" width="295" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="vYm-Gv-TSW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-c6-mmc">
-                                <rect key="frame" x="28" y="214" width="319" height="220"/>
+                                <rect key="frame" x="37.5" y="183" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="GNc-Dq-awI"/>
+                                    <constraint firstAttribute="height" constant="300" id="GNc-Dq-awI"/>
+                                    <constraint firstAttribute="width" secondItem="aRg-c6-mmc" secondAttribute="height" multiplier="1:1" id="Xfw-M0-lj6"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5N8-bn-ZcF">
-                                    <size key="itemSize" width="108" height="96"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="hnh-rS-B5A" customClass="PhotoCollectionViewLayout" customModule="NewDawn" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="xsg-WM-7yh" customClass="ImageCollectionViewCell" customModule="NewDawn" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="108" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="108" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-Di-Jdw">
@@ -1105,28 +1110,18 @@
                                     <outlet property="delegate" destination="cKV-BN-cTX" id="5U2-GR-eUj"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep uploading your photos or videos!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-us-3yv">
-                                <rect key="frame" x="28" y="60" width="295" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="295" id="vYm-Gv-TSW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eR0-Rc-c3S" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="7Ub-Dp-Cbu"/>
                             <constraint firstItem="eR0-Rc-c3S" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="8h7-lH-Uga"/>
-                            <constraint firstItem="aRg-c6-mmc" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="IMm-CO-AoW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aRg-c6-mmc" secondAttribute="trailing" constant="12" id="J7y-q2-Jzq"/>
                             <constraint firstItem="70J-YJ-Y0H" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="L5M-9G-Qq9"/>
-                            <constraint firstItem="aRg-c6-mmc" firstAttribute="top" secondItem="zlO-us-3yv" secondAttribute="bottom" constant="65" id="LR8-oZ-qgB"/>
+                            <constraint firstItem="aRg-c6-mmc" firstAttribute="top" secondItem="zlO-us-3yv" secondAttribute="bottom" constant="34" id="LR8-oZ-qgB"/>
                             <constraint firstItem="1Ab-e4-tuk" firstAttribute="top" secondItem="70J-YJ-Y0H" secondAttribute="bottom" constant="31" id="N5C-bJ-F0n"/>
+                            <constraint firstItem="aRg-c6-mmc" firstAttribute="centerX" secondItem="Iha-VK-9ec" secondAttribute="centerX" id="iEo-zk-6oF"/>
                             <constraint firstItem="70J-YJ-Y0H" firstAttribute="top" secondItem="eR0-Rc-c3S" secondAttribute="bottom" constant="20" id="j5R-LG-QfK"/>
                             <constraint firstItem="zlO-us-3yv" firstAttribute="top" secondItem="lIt-np-Px1" secondAttribute="bottom" constant="40" id="oOV-0g-lf9"/>
-                            <constraint firstItem="eR0-Rc-c3S" firstAttribute="top" secondItem="aRg-c6-mmc" secondAttribute="bottom" constant="100" id="qfe-y8-dHZ"/>
+                            <constraint firstItem="eR0-Rc-c3S" firstAttribute="top" secondItem="aRg-c6-mmc" secondAttribute="bottom" constant="51" id="qfe-y8-dHZ"/>
                             <constraint firstItem="zlO-us-3yv" firstAttribute="leading" secondItem="Iha-VK-9ec" secondAttribute="leadingMargin" constant="12" id="ryF-vN-wUx"/>
                         </constraints>
                     </view>
@@ -1350,13 +1345,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Register_continue_btn" width="255" height="66"/>
+        <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cLz-FJ-ORZ"/>
         <segue reference="Ljg-P9-Kyv"/>
-        <segue reference="Khe-Ut-PaY"/>
+        <segue reference="OJW-vV-kwk"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
         <segue reference="mEu-Ba-OjW"/>
