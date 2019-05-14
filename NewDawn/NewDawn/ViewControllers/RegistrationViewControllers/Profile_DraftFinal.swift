@@ -39,10 +39,16 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         
-        self.processSessionTasks(request: request!){jsonResponse, error in
-            
+        self.processSessionTasks(request: request!){
+            jsonResponse, error in
+            self.removeActivityIndicator(activityIndicator: activityIndicator)
             if (error != nil){
-                print("noooooo good registration")
+                self.displayMessage(userMessage: "Registration Failed: Process Session Tasks Error")
+                return
+            }
+            
+            if let response_error = jsonResponse?["error"] {
+                self.displayMessage(userMessage: "Registration Failed: Server Returns Error Message: \(response_error)")
                 return
             }
             
@@ -63,9 +69,10 @@ class Profile_DraftFinal: UIViewController {
                             print("image upload \(success)")}
                     }
                 }
-                self.removeActivityIndicator(activityIndicator: activityIndicator)
-                self.performSegue(withIdentifier: "after_register", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "after_register", sender: self)
                 }
+            }
         }
         
     }
@@ -161,9 +168,7 @@ class Profile_DraftFinal: UIViewController {
     
     // Transform mm/dd/yy to yyyy/mm/dd
     func _birthday_str_handler(birthday: String) -> String{
-        let m_d_y = birthday.components(separatedBy: "/")
-        let new_birthday = m_d_y[2] + "-" + m_d_y[0] + "-" + m_d_y[1]
-        return new_birthday
+        return birthday.replacingOccurrences(of: "/", with: "-")
     }
     
     // Transform string to int
