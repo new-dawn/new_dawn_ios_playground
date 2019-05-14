@@ -21,3 +21,5 @@ Take a look at these videos to get familiar with iOS/Swift development:
 ## FAQ
 1. **Why am I not able to install my app from Xcode to my iPhone?**
       For app development on the new iOS 12.2, you will need to run both macOS Mojave 10.14 and Xcode version 10.2.1 on your laptop. Try to update your macOS and Xcode to the lastest version if similar problems occur in the future.
+2. **How to use keyboard in Simulator**
+      If you cannot find your keyboard in iOS simulator, try "command+shift+k".
