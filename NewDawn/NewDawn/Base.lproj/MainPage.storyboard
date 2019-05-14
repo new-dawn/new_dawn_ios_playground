@@ -1685,58 +1685,57 @@
             </objects>
             <point key="canvasLocation" x="1815" y="-1286"/>
         </scene>
-        <!--RectQuestionAnswerViewController-->
+        <!--RectInfoViewController-->
         <scene sceneID="5Uo-sv-Ttq">
             <objects>
-                <viewController storyboardIdentifier="RectInfoQuestionAnswerViewController" title="RectQuestionAnswerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="zkD-JC-Aof" customClass="RectInfoQuestionAnswerViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RectInfoViewController" title="RectInfoViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="zkD-JC-Aof" customClass="RectInfoViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zdc-WX-vbO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Edg-Lh-EHw">
-                                <rect key="frame" x="27" y="184" width="320" height="223"/>
+                                <rect key="frame" x="27" y="184" width="320" height="301"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InfoPanel" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-ko-bzd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="301"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="问题" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ey-ji-SMo">
-                                        <rect key="frame" x="41" y="24" width="228" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="39" y="27" width="228" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="我的回答" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-2E-aH7">
-                                        <rect key="frame" x="90" y="72" width="195" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="我的回答" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-2E-aH7">
+                                        <rect key="frame" x="34" y="103" width="184" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN1-VM-0jN">
-                                        <rect key="frame" x="277" y="5" width="34" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="276" y="5" width="34" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="CloseButton" backgroundImage="CloseButton"/>
                                         <connections>
                                             <action selector="closeButtonTapped:" destination="zkD-JC-Aof" eventType="touchUpInside" id="SAq-Ff-sQo"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xa3-kA-IFq">
-                                        <rect key="frame" x="28" y="72" width="54" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="233" y="103" width="53" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kJX-iA-YqN">
-                                        <rect key="frame" x="231" y="144" width="54" height="54"/>
+                                        <rect key="frame" x="33" y="196" width="54" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="你的评论" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-To-y3G">
-                                        <rect key="frame" x="28" y="144" width="192" height="54"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="你的评论" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-To-y3G">
+                                        <rect key="frame" x="97" y="196" width="188" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="30"/>
