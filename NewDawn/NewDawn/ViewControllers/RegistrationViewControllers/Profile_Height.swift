@@ -49,7 +49,7 @@ class Profile_Height: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_Education.donePicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_Height.donePicker))
         toolbar.setItems([flexSpace, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
