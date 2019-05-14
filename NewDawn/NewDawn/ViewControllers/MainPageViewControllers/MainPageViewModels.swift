@@ -147,8 +147,11 @@ class MainPageViewModel: NSObject {
         let likedInfo = userProfile.likedInfo
         if hasLikedInfo(likedInfo: likedInfo) {
             return LikeMeViewModelItem(
-                likerFirstName: userProfile.firstname,
-                likedInfo: likedInfo
+                LikeMeInfo(
+                    userProfile.mainImages.first?.image_url ?? UNKNOWN,
+                    yourFirstName: userProfile.firstname,
+                    likedInfo: likedInfo
+                )
             )
         }
         return nil
@@ -334,12 +337,10 @@ class LikeMeViewModelItem: MainPageViewModellItem {
     }
     
     // Customized Attributes
-    var likerFirstName: String
-    var likedInfo: LikedInfo
+    var likeMeInfo: LikeMeInfo
     
-    init(likerFirstName: String, likedInfo: LikedInfo) {
-        self.likerFirstName = likerFirstName
-        self.likedInfo = likedInfo
+    init(_ likeMeInfo: LikeMeInfo) {
+        self.likeMeInfo = likeMeInfo
     }
 }
 
