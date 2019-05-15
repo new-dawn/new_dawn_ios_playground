@@ -63,8 +63,6 @@ class Profile_PhotosUpload: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         picker.delegate = self
-//        let nib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)
-//        collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
     }
     
     private func setupCollectionViewItemSize() {
@@ -90,7 +88,6 @@ class Profile_PhotosUpload: UIViewController {
             collectionView.performBatchUpdates({
                 self.collectionView.endInteractiveMovement()
             })
-
         default:
             collectionView.cancelInteractiveMovement()
         }
@@ -156,10 +153,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     // Define start and destination object
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        let item = imagesArray[sourceIndexPath.item]
-        imagesArray.remove(at: sourceIndexPath.item)
-        imagesArray.insert(item, at: destinationIndexPath.item)
+        let item = self.imagesArray[sourceIndexPath.row]
+        self.imagesArray.remove(at: sourceIndexPath.row)
+        self.imagesArray.insert(item, at: destinationIndexPath.row)
     }
     
     
@@ -183,6 +179,7 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
 extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @objc func tap(_ sender: UIButton){
+        collectionView.reloadData()
         clicked_image = sender.tag
         let alert = UIAlertController(title: "确定要删除这张照片吗？", message: nil, preferredStyle: .alert)
         
@@ -222,8 +219,7 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
         
         let editedView = info[.editedImage] as! UIImage
         let editedViewItem = ImageItem(imageName: "", image: editedView)
-        imagesArray.remove(at: clicked_image)
-        imagesArray.insert(editedViewItem, at: clicked_image)
+        imagesArray[clicked_image] = editedViewItem
         
         // Compress and save images
         let dataPath = ImageUtil.getPersonalImagesDirectory()
