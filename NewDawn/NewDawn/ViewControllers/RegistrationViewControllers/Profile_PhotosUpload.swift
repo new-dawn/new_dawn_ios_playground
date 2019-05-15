@@ -14,16 +14,21 @@ class Profile_PhotosUpload: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var longPressGesture: UILongPressGestureRecognizer!
     
+    struct ImageItem {
+        let imageName: String!
+        var image: UIImage!
+    }
+    
     let picker = UIImagePickerController()
     // Use this variable to track which image to replace with
     var clicked_image = 0
-    var imagesArray = NSMutableArray()
+    var imagesArray = [ImageItem]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Default images
-        imagesArray = [BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG, BLANK_IMG]
+        imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
         
         // Get documents folder
         let dataPath = ImageUtil.getPersonalImagesDirectory()
@@ -42,26 +47,27 @@ class Profile_PhotosUpload: UIViewController {
             for local_image in local_images{
                 let order = local_image["order"] as! Int
                 let single_img = local_image["img"]
-                imagesArray[order] = single_img as! UIImage
+                imagesArray[order].image = (single_img as! UIImage)
             }
         }
         
-        // Delegate
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        picker.delegate = self
-        
-        // Layout
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
-        // square spacing
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 40) / 3, height: (self.collectionView.frame.size.width - 40) / 3)
+        setupCollectionView()
+        setupCollectionViewItemSize()
         
         // Handle long press gesture
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longPressGesture)
+    }
+    
+    func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        picker.delegate = self
+    }
+    
+    private func setupCollectionViewItemSize() {
+        let customLayout = PhotoCollectionViewLayout(size: CGSize(width: 300, height: 300))
+        collectionView.collectionViewLayout = customLayout
     }
     
     // Control state of gesture
@@ -82,7 +88,6 @@ class Profile_PhotosUpload: UIViewController {
             collectionView.performBatchUpdates({
                 self.collectionView.endInteractiveMovement()
             })
-
         default:
             collectionView.cancelInteractiveMovement()
         }
@@ -90,10 +95,10 @@ class Profile_PhotosUpload: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool{
-        let images = imagesArray as NSArray as! [UIImage]
-        let used_images = images.filter{$0 != BLANK_IMG}
+        let images = imagesArray as NSArray as! [ImageItem]
+        let used_images = images.filter{$0.image != BLANK_IMG}
         if (used_images.count < 3) {
-            self.displayMessage(userMessage: "Need to upload at least 3 images")
+            self.displayMessage(userMessage: "为了帮助你配对，请最少上传3张符合要求的照片喔。")
             return false
         }else{
             return true
@@ -126,14 +131,14 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-        cell.backgroundColor = UIColor.gray
+        cell.backgroundColor = UIColor.white
         cell.deleteButtonBackgroundView.layer.cornerRadius = 0.5 * cell.deleteButtonBackgroundView.bounds.size.width
         cell.deleteButtonBackgroundView.clipsToBounds = true
         cell.deleteButtonBackgroundView.backgroundColor = UIColor.white
-        cell.myImage.image = imagesArray[indexPath.row] as? UIImage
+        cell.myImage.image = imagesArray[indexPath.row].image as UIImage
         let delete_button = cell.deleteButton
         delete_button!.tag = indexPath.row
-        if imagesArray[indexPath.row] as! UIImage != BLANK_IMG{
+        if imagesArray[indexPath.row].image != BLANK_IMG{
             delete_button?.addTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
         } else {
             delete_button?.removeTarget(self, action: #selector(tap(_:)), for: .allTouchEvents)
@@ -148,10 +153,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     // Define start and destination object
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        let item = imagesArray[sourceIndexPath.item]
-        imagesArray.removeObject(at: sourceIndexPath.item)
-        imagesArray.insert(item, at: destinationIndexPath.item)
+        let item = self.imagesArray[sourceIndexPath.row]
+        self.imagesArray.remove(at: sourceIndexPath.row)
+        self.imagesArray.insert(item, at: destinationIndexPath.row)
     }
     
     
@@ -175,12 +179,13 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
 extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @objc func tap(_ sender: UIButton){
+        collectionView.reloadData()
         clicked_image = sender.tag
-        let alert = UIAlertController(title: "Delete this Image", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "确定要删除这张照片吗？", message: nil, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "是", style: .default, handler: { (action) in
             
-            self.imagesArray[self.clicked_image] = BLANK_IMG
+            self.imagesArray[self.clicked_image].image = BLANK_IMG
             let dataPath = ImageUtil.getPersonalImagesDirectory()
             var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(self.clicked_image))
             fileURL = fileURL.appendingPathExtension("jpeg")
@@ -192,7 +197,7 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
             self.collectionView.reloadData()
         }))
         
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in}))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (action) in}))
         present(alert,animated: true,completion: nil)
     }
     
@@ -213,8 +218,8 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let editedView = info[.editedImage] as! UIImage
-        imagesArray.removeObject(at: clicked_image)
-        imagesArray.insert(editedView, at: clicked_image)
+        let editedViewItem = ImageItem(imageName: "", image: editedView)
+        imagesArray[clicked_image] = editedViewItem
         
         // Compress and save images
         let dataPath = ImageUtil.getPersonalImagesDirectory()
