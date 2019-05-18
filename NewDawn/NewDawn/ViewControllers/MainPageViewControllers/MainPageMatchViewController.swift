@@ -25,4 +25,25 @@ class MainPageMatchViewController: UIViewController {
             yourCity.text = "\(yourUserProfile.hometown)"
         }
     }
+    func notifyMainPageSwipe() {
+        // Update latest matched user id
+        // to mute new match notification
+        if let user_id = userProfile?.user_id {
+            LocalStorageUtil.localStoreKeyValue(key: MATCHED_USER_ID, value: user_id)
+        }
+        // Tell the main page to swipe to the
+        // next profile
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
+    }
+    @IBAction func chatButtonTapped(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
+        self.present (vc, animated: false, completion: nil)
+        vc.selectedIndex = 1
+        notifyMainPageSwipe()
+    }
+    @IBAction func stayButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+        notifyMainPageSwipe()
+    }
 }
