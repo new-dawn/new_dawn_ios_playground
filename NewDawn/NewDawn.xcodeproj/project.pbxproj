@@ -886,7 +886,7 @@
 			baseConfigurationReference = FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
-				DEVELOPMENT_TEAM = 5M2WD33Q6U;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -905,7 +905,7 @@
 			baseConfigurationReference = D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
-				DEVELOPMENT_TEAM = 5M2WD33Q6U;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
