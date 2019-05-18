@@ -15,6 +15,7 @@
 		2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */; };
 		24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377840228920FD00F41CB6 /* LikeInfoUtil.swift */; };
 		24377843228921F000F41CB6 /* LikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377842228921F000F41CB6 /* LikeInfo.swift */; };
+		245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -95,6 +96,7 @@
 		2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectInfoViewController.swift; sourceTree = "<group>"; };
 		24377840228920FD00F41CB6 /* LikeInfoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoUtil.swift; sourceTree = "<group>"; };
 		24377842228921F000F41CB6 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
+		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				24C09F902263E99400302CEF /* MainPageViewController.swift */,
 				24C09F912263E99400302CEF /* MainPageViewModels.swift */,
 				2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */,
+				245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */,
 			);
 			path = MainPageViewControllers;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				24C09FA42263E99400302CEF /* ImageUtil.swift in Sources */,
 				24C09FAF2263E99400302CEF /* QuestionViewController.swift in Sources */,
 				24C09FC62263E99400302CEF /* MainPageViewController.swift in Sources */,
+				245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */,
 				24C09FBC2263E99400302CEF /* Profile_PhotosUpload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

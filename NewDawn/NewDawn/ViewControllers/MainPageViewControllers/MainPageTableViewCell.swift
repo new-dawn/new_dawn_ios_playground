@@ -103,6 +103,8 @@ class QuestionAnswerViewCell: UITableViewCell {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    
     var name: String!
     var user_id: String!
     var id: Int!
@@ -123,6 +125,9 @@ class QuestionAnswerViewCell: UITableViewCell {
             name = item.name
             user_id = item.user_id
             id = item.id
+            
+            // Hide like button on this item if the current user liked me
+            likeButton.isHidden = item.liked_me
         }
     }
     
@@ -146,6 +151,7 @@ class MainImageViewCell: UITableViewCell {
     @IBOutlet weak var firstNameAndAge: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var employer: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     var name: String!
     var user_id: String!
     var id: Int!
@@ -170,6 +176,9 @@ class MainImageViewCell: UITableViewCell {
             mainImageView!.downloaded(from: mainImageView!.getURL(path: item.mainImageURL))
             mainImageView!.layer.cornerRadius = 26
             mainImageView!.clipsToBounds = true
+            
+            // Hide like button on this item if the current user liked me
+            likeButton.isHidden = item.liked_me
         }
     }
     

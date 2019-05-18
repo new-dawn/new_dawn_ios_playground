@@ -122,7 +122,8 @@ class MainPageViewModel: NSObject {
             answer: userProfile.questionAnswers[index].answer,
             name: userProfile.firstname + " " + userProfile.lastname,
             user_id: userProfile.user_id,
-            id: userProfile.questionAnswers[index].id
+            id: userProfile.questionAnswers[index].id,
+            liked_me: userProfile.likedInfo.liked_entity_type != 0
         )
         return questionAnswer
     }
@@ -137,7 +138,8 @@ class MainPageViewModel: NSObject {
             employer: userProfile.employer,
             isFirst: index == 0,
             user_id: userProfile.user_id,
-            id:  userProfile.mainImages[index].id
+            id:  userProfile.mainImages[index].id,
+            liked_me: userProfile.likedInfo.liked_entity_type != 0
         )
         return mainImage
     }
@@ -409,13 +411,15 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     var name: String
     var user_id: String
     var id: Int
+    var liked_me: Bool
     
-    init(question: String, answer: String, name: String, user_id: String, id: Int) {
+    init(question: String, answer: String, name: String, user_id: String, id: Int, liked_me: Bool) {
         self.question = question
         self.answer = answer
         self.name = name
         self.user_id = user_id
         self.id = id
+        self.liked_me = liked_me
     }
     
 }
@@ -446,8 +450,9 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var isFirst: Bool
     var user_id: String
     var id: Int
+    var liked_me: Bool
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, user_id: String, id: Int) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, user_id: String, id: Int, liked_me: Bool) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
@@ -457,6 +462,7 @@ class MainImageViewModelItem: MainPageViewModellItem {
         self.isFirst = isFirst
         self.user_id = user_id
         self.id = id
+        self.liked_me = liked_me
     }
     
 }
