@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */; };
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
 		06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C278D9228908C600BB718A /* PhotoLayout.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingTabelCell.swift; sourceTree = "<group>"; };
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		06C278D9228908C600BB718A /* PhotoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLayout.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				06C278D9228908C600BB718A /* PhotoLayout.swift */,
+				066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */,
 			);
 			path = CustomLayouts;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				24C09FC82263E99400302CEF /* SettingPageViewController.swift in Sources */,
 				24C09FA72263E99400302CEF /* UserModels.swift in Sources */,
 				2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */,
+				066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */,
 				0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */,
 				24C09FB32263E99400302CEF /* ChatProfileViewController.swift in Sources */,
 				24C09FB92263E99400302CEF /* Profile_Photos.swift in Sources */,
