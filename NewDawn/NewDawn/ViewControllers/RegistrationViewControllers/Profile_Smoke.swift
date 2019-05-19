@@ -16,14 +16,16 @@ class Profile_Smoke: UIViewController {
     let NOSMOKE = "no"
     let SOCIAL_SMOKE = "social"
     let UNKNOWN = "N/A"
-    let VISIBLE = "smoke_visible"
+    // let VISIBLE = "smoke_visible"
     var smoke_pref: String? = nil
-    var visible_state = false
+    // var visible_state = false
     
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
     @IBOutlet weak var noSmokeButton: UIButton!
-    @IBOutlet weak var visibleButton: UIButton!
+    // @IBOutlet weak var visibleButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     
     func loadStoredFields() {
@@ -34,50 +36,52 @@ class Profile_Smoke: UIViewController {
                 smoke_pref = NOSMOKE
             }
             else if smoke == FREQUENT_SMOKE{
-                selectButton(button: frequentlyButton)
+                selectSmokeButton(button: frequentlyButton)
                 smoke_pref = FREQUENT_SMOKE
             }
             else if smoke == SOCIAL_SMOKE{
-                selectButton(button: sociallyButton)
+                selectSmokeButton(button: sociallyButton)
                 smoke_pref = SOCIAL_SMOKE
             }
         }
         
-        if let smoke_visible = localReadKeyValue(key: VISIBLE) as? Bool {
-            let visibleField = smoke_visible
-            if visibleField == true {
-                selectButton(button: visibleButton, text: "Visible")
-                visible_state = true
-            }
-        }
+        // if let smoke_visible = localReadKeyValue(key: VISIBLE) as? Bool {
+            // let visibleField = smoke_visible
+            // if visibleField == true {
+                // selectButton(button: visibleButton, text: "Visible")
+                // visible_state = true
+            // }
+        // }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: sociallyButton)
-        polishUIButton(button: frequentlyButton)
-        polishUIButton(button: noSmokeButton)
-        polishUIButton(button: visibleButton)
+        polishSmokeButton(button: sociallyButton)
+        polishSmokeButton(button: frequentlyButton)
+        polishSmokeButton(button: noSmokeButton)
+        // polishUIButton(button: visibleButton)
         loadStoredFields()
+        continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+        backButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
     }
     
-    @IBAction func visibleButtonTapped(_ sender: Any) {
-        if visible_state == true {
-            deselectButton(button: visibleButton, text: "Invisible")
-            visible_state = false
-        } else {
-            selectButton(button: visibleButton, text: "Visible")
-            visible_state = true
-        }
-    }
+    // @IBAction func visibleButtonTapped(_ sender: Any) {
+        // if visible_state == true {
+            // deselectButton(button: visibleButton, text: "Invisible")
+            // visible_state = false
+        // } else {
+            // selectButton(button: visibleButton, text: "Visible")
+            // visible_state = true
+        // }
+    // }
     
     @IBAction func noSmokeButtonTapped(_ sender: Any) {
         if smoke_pref == NOSMOKE {
             deselectButton(button: noSmokeButton)
             smoke_pref = nil
         } else {
-            selectButton(button: noSmokeButton)
+            selectSmokeButton(button: noSmokeButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
             smoke_pref = NOSMOKE
         }
@@ -88,7 +92,7 @@ class Profile_Smoke: UIViewController {
             deselectButton(button: frequentlyButton)
             smoke_pref = nil
         } else {
-            selectButton(button: frequentlyButton)
+            selectSmokeButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noSmokeButton])
             smoke_pref = FREQUENT_SMOKE
         }
@@ -99,7 +103,7 @@ class Profile_Smoke: UIViewController {
             deselectButton(button: sociallyButton)
             smoke_pref = nil
         } else {
-            selectButton(button: sociallyButton)
+            selectSmokeButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noSmokeButton])
             smoke_pref = SOCIAL_SMOKE
         }
@@ -111,8 +115,23 @@ class Profile_Smoke: UIViewController {
         }else{
             localStoreKeyValue(key: SMOKE, value: UNKNOWN)
         }
-        localStoreKeyValue(key: VISIBLE, value: visible_state)
+        // localStoreKeyValue(key: VISIBLE, value: visible_state)
         }
+    
+    func polishSmokeButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func selectSmokeButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
     
 }
 
