@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */; };
 		066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */; };
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefSettingTableCell.swift; sourceTree = "<group>"; };
 		066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingTabelCell.swift; sourceTree = "<group>"; };
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		24F657EF21B31C1300DB2547 = {
 			isa = PBXGroup;
 			children = (
+				064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */,
 				24C09F5C2263E99400302CEF /* NewDawn */,
 				D56257B6927956DFF08F74B6 /* Frameworks */,
 				24F6580F21B31C1300DB2547 /* NewDawnTests */,
@@ -713,6 +716,7 @@
 				24C09FC62263E99400302CEF /* MainPageViewController.swift in Sources */,
 				245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */,
 				24C09FBC2263E99400302CEF /* Profile_PhotosUpload.swift in Sources */,
+				064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
