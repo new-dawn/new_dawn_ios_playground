@@ -32,7 +32,7 @@ class Profile_Smoke: UIViewController {
         // Select the buttons if a user has already done so
         if let smoke = localReadKeyValue(key: SMOKE) as? String{
             if smoke == NOSMOKE{
-                selectButton(button: noSmokeButton)
+                selectSmokeButton(button: noSmokeButton)
                 smoke_pref = NOSMOKE
             }
             else if smoke == FREQUENT_SMOKE{
