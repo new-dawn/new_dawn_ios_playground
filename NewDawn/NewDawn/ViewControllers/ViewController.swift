@@ -78,35 +78,6 @@ extension UIViewController {
         }
     }
     
-    // A helper function to handle HTTP request with a callback function
-    func processSessionTasks(
-        request: URLRequest, callback: @escaping (NSDictionary?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: request) {
-            (data: Data?, response: URLResponse?, error: Error?) in
-            
-            // Check response error
-            if error != nil
-            {
-                self.displayMessage(userMessage: "Could not perform this request")
-                print("error=\(String(describing: error!))")
-                return
-            }
-            // Parse Response
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                if let parseJSON = json {
-                    callback(parseJSON, nil)
-                }
-                print("Session Task Processed")
-            } catch {
-                callback(nil, error)
-                print("Error processing response")
-                self.displayMessage(userMessage: "Error processing response", dismiss: false)
-            }
-        }
-        task.resume()
-    }
-    
     // A helper function to get API Key from concatenating username and access token
     func getAPIKey(username: String, accessToken: String) -> String {
         // Concatenate according to TastyPie requirement
@@ -231,8 +202,18 @@ extension UIViewController {
         if force || TimerUtil.isOutdated() {
             ProfileIndexUtil.refreshProfileIndex()
             TimerUtil.updateDate()
+            if LoginUserUtil.getLoginUserId() == nil {
+                displayMessage(userMessage: "Error: Cannot find login user id from keychain")
+                return
+            }
             UserProfileBuilder.fetchUserProfiles(params: ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]) {
-                (data) in
+                (data, error) in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                    }
+                    return
+                }
                 UserProfileBuilder.parseAndStoreInLocalStorage(response: data)
                 DispatchQueue.main.async {
                     let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabViewController")

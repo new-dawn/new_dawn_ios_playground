@@ -67,7 +67,13 @@ class MainPageViewController: UIViewController {
     
     @IBAction func acceptLikeButtonTapped(_ sender: Any) {
         LoginUserUtil.fetchLoginUserProfile() {
-            userProfile in
+            userProfile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
             if let myUserProfile = userProfile, let yourUserProfile = self.current_user_profile {
                 // Send an entity-less like action
                 // which means accept like

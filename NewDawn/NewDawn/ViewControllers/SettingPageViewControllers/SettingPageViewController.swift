@@ -42,7 +42,13 @@ class SettingPageViewController: UIViewController {
         view.addSubview(draw)
         
         LoginUserUtil.fetchLoginUserProfile() {
-            user_profile in
+            user_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
             if user_profile != nil {
                 if user_profile!.mainImages.isEmpty == false {
                     self.profileImage.downloaded(from:
@@ -56,7 +62,13 @@ class SettingPageViewController: UIViewController {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {
             LoginUserUtil.fetchLoginUserProfile() {
-                user_profile in
+                user_profile, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                    }
+                    return
+                }
                 if user_profile != nil {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "myProfile", sender: user_profile)

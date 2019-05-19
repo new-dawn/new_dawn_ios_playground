@@ -55,7 +55,13 @@ class MainPageTabBarViewController: UITabBarController, UITabBarControllerDelega
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func checkMatchedUsers(jsonResponse: NSDictionary) -> Void{
+    func checkMatchedUsers(jsonResponse: NSDictionary, error: String?) -> Void{
+        if error != nil {
+            DispatchQueue.main.async {
+                self.displayMessage(userMessage: "Error: Check Matched Users failed with \(error!)")
+            }
+            return
+        }
         let objects = jsonResponse["objects"] as! [[String: Any]]
         let upto_date_matched_users_dicts = objects.map{$0["user_to"]!} as! [[String: Any]]
         let upto_date_matched_users_id = upto_date_matched_users_dicts.map{$0["id"]!} as! [Int]

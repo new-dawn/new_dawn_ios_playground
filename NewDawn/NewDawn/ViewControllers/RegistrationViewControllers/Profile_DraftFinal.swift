@@ -39,39 +39,32 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         
-        self.processSessionTasks(request: request!){
-            jsonResponse, error in
+        HttpUtil.processSessionTasks(request: request!){
+            register_response, error in
             self.removeActivityIndicator(activityIndicator: activityIndicator)
             if (error != nil){
-                self.displayMessage(userMessage: "Registration Failed: Process Session Tasks Error")
-                return
-            }
-            
-            if let response_error = jsonResponse?["error"] {
-                self.displayMessage(userMessage: "Registration Failed: Server Returns Error Message: \(response_error)")
-                return
-            }
-            
-            if let register_response = jsonResponse{
-                print("Register Success")
-                self.storeCertification(register_response: register_response)
-                self.notificationSetUp()
-                if let images = ImageUtil.getPersonalImagesWithData(){
-                    for single_image in images{
-                        let single_img = single_image["img"]
-                        let single_params = [
-                            "order": single_image["order"]!,
-                            "caption": single_image["caption"]!,
-                            "user": single_image["user_uri"]!
-                            ] as [String: Any]
-                        let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
-                        self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                            print("image upload \(success)")}
-                    }
-                }
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "after_register", sender: self)
+                    self.displayMessage(userMessage: error!)
                 }
+                return
+            }
+            self.storeCertification(register_response: register_response)
+            self.notificationSetUp()
+            if let images = ImageUtil.getPersonalImagesWithData(){
+                for single_image in images{
+                    let single_img = single_image["img"]
+                    let single_params = [
+                        "order": single_image["order"]!,
+                        "caption": single_image["caption"]!,
+                        "user": single_image["user_uri"]!
+                        ] as [String: Any]
+                    let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
+                    self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                        print("image upload \(success)")}
+                }
+            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "after_register", sender: self)
             }
         }
         
