@@ -43,14 +43,23 @@ class Profile_PhotosUpload: UIViewController {
         }
         
         // Fill in cells with existing images
-        if let local_images = ImageUtil.getPersonalImagesWithData(){
-            for local_image in local_images{
-                let order = local_image["order"] as! Int
-                let single_img = local_image["img"]
-                imagesArray[order].image = (single_img as! UIImage)
+        ImageUtil.getPersonalImagesWithData() {
+            local_images, error in
+            if error != nil {
+                self.displayMessage(userMessage: "Error: Get personal image failed when filling the cells: \(error!)")
+            }
+            else if local_images == nil {
+                self.displayMessage(userMessage: "Warning: Local images returns nil")
+            } else {
+                for local_image in local_images! {
+                    let order = local_image["order"] as! Int
+                    let single_img = local_image["img"]
+                    DispatchQueue.main.async {
+                        self.imagesArray[order].image = (single_img as! UIImage)
+                    }
+                }
             }
         }
-        
         setupCollectionView()
         setupCollectionViewItemSize()
         

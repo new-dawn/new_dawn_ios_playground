@@ -19,6 +19,7 @@ let IMAGE_URL = "image_url"
 let AGE = "age"
 let CANDIDATE_PROFILES = "user_profiles"
 let USERID = "user_id"
+let USER_URI = "resource_uri"
 let LIKED_INFO = "liked_info"
 let LIKED_MESSAGE = "liked_message"
 let LIKED_ENTITY_TYPE = "liked_entity_type"
@@ -149,6 +150,7 @@ struct MainImage: Codable {
 // A user profile class instantiated by json dictionary sent from backend
 struct UserProfile: Codable {
     var user_id: String = UNKNOWN
+    var user_uri: String = UNKNOWN
     var firstname: String = UNKNOWN
     var lastname: String = UNKNOWN
     var age: Int = -1
@@ -167,6 +169,9 @@ struct UserProfile: Codable {
     init(data: NSDictionary) {
         if let user_id = data[USERID] as? String {
             self.user_id = user_id
+        }
+        if let user_uri = data[USER_URI] as? String {
+            self.user_uri = user_uri
         }
         if let firstname = data[FIRSTNAME] as? String {
             self.firstname = firstname
@@ -249,11 +254,12 @@ class UserProfileBuilder{
     
     static func parseProfileInfo(profile_data: [String: Any]) -> NSDictionary {
         let user_data = profile_data["user"] as? NSDictionary
-        let user_id_int = user_data?["id"] as? Int ?? -1
+        let username = user_data?["username"] as? String ?? UNKNOWN
         let info: NSMutableDictionary = [
-            USERID: String(user_id_int),
+            USERID: String(username),
             FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
+            USER_URI: user_data?[USER_URI] as? String ?? UNKNOWN,
             AGE: profile_data[AGE] as? Int ?? UNKNOWN,
             HEIGHT: profile_data[HEIGHT] as? Int ?? UNKNOWN,
             HOMETOWN: profile_data[HOMETOWN] as? String ?? UNKNOWN,

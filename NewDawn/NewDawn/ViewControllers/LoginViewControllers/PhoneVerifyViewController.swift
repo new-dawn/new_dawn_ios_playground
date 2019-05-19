@@ -36,7 +36,7 @@ class PhoneVerifyViewController: UIViewController {
             // viewer will automatically login as a super user
             // Notice that super user doesn't have a profile
             DispatchQueue.main.async {
-                _ = LoginUserUtil.saveLoginUserId(user_id: 1)
+                _ = LoginUserUtil.saveLoginUserId(user_id: "prodsuperuser")
                 let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
                 let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
                 let appDelegate = UIApplication.shared.delegate

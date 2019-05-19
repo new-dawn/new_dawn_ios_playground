@@ -30,91 +30,118 @@ class Profile_DraftFinal: UIViewController {
     
     
     @IBAction func getStartedButtonTapped(_ sender: Any) {
-        // TODO: Send all info to backend and go to profile page
         let activityIndicator = self.prepareActivityIndicator()
-        
-        let request = createRegistrationRequest()
-        
-        if request == nil {
-            return
-        }
-        
-        self.processSessionTasks(request: request!){
-            register_response in
-            self.removeActivityIndicator(activityIndicator: activityIndicator)
-            self.storeCertification(register_response: register_response)
-            self.notificationSetUp()
-            if let images = ImageUtil.getPersonalImagesWithData(){
-                for single_image in images{
-                    let single_img = single_image["img"]
-                    let single_params = [
-                        "order": single_image["order"]!,
-                        "caption": single_image["caption"]!,
-                        "user": single_image["user_uri"]!
-                        ] as [String: Any]
-                    let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
-                    self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                        print("image upload \(success)")}
+    
+        LoginUserUtil.fetchLoginUserProfile(true) {
+            user_profile, error in
+            var request: URLRequest? = nil
+            if let user_id = user_profile?.user_id, let user_uri = user_profile?.user_uri {
+                print("Warning: User profile with id \(user_id) and uri \(user_uri) already exist. This might imply that the registration page is being used as an editting page.")
+                let user_uri_arr = user_uri.components(separatedBy: "/")
+                // The user uri is of the form /api/v1/user/5/
+                let user_raw_id = user_uri_arr.dropLast().last
+                request = self.createRegistrationRequest(
+                    true, user_raw_id: user_raw_id)
+            } else {
+                request = self.createRegistrationRequest(
+                    false)
+            }
+            if request == nil {
+                self.displayMessage(userMessage: "Error: User request fails to construct")
+            }
+            HttpUtil.processSessionTasks(request: request!){
+                register_response, error in
+                self.removeActivityIndicator(activityIndicator: activityIndicator)
+                if error != nil {
+                    self.displayMessage(userMessage: "Error: Registration request sent failed: \(error!)")
+                    return
+                }
+                self.storeCertification(register_response: register_response)
+                self.notificationSetUp()
+                ImageUtil.getPersonalImagesWithData() {
+                    images, error in
+                    if error != nil {
+                        self.displayMessage(userMessage: "Error: Getting personal images failed during registration: \(error!)")
+                        return
+                    }
+                    if images == nil {
+                        self.displayMessage(userMessage: "Warning: Getting personal images returns nil during registration: \(error!)")
+                        return
+                    }
+                    for single_image in images! {
+                        let single_img = single_image["img"]
+                        let single_params = [
+                            "order": single_image["order"]!,
+                            "caption": single_image["caption"]!,
+                            "user": single_image["user_uri"]!
+                            ] as [String: Any]
+                        let img_name = self.MD5(String(single_image["user_id"] as! String) + String(single_image["order"] as! Int))! + ".jpeg"
+                        self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                            print("image upload \(success)")}
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "after_register", sender: self)
                 }
             }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "after_register", sender: self)
-            }
         }
-        
     }
     
-    func createRegistrationRequest() -> URLRequest? {
-        
+    func createRegistrationRequest(_ user_exist: Bool, user_raw_id: String? = nil) -> URLRequest? {
         var url = getURL(path: "register/")
         var httpMethod: String;
-        let register_info: [String: Any] = getUserInputInfo()
-        let user_id = LoginUserUtil.getLoginUserId()
-        if user_id != nil && user_id != 1{
-            let user_id_url = String(user_id!) + "/"
-            httpMethod = "PUT"
-            url = url.appendingPathComponent(user_id_url)
-        }else{
-            httpMethod = "POST"
-        }
-        var request = URLRequest(url:url)
-        request.httpMethod = httpMethod
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
-        } catch let error {
-            // TODO: Sepearte error messages into engineer's and user's
-            print(error.localizedDescription)
-            self.displayMessage(userMessage: "Registration Request Creation Failed", dismiss: false)
+        var request: URLRequest
+        if let register_info = getUserInputInfo() {
+            if user_exist && user_raw_id != nil {
+                httpMethod = "PUT"
+                url.appendPathComponent(user_raw_id! + "/")
+            } else {
+                httpMethod = "POST"
+            }
+            request = URLRequest(url:url)
+            request.httpMethod = httpMethod
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
+            } catch let error {
+                // TODO: Sepearte error messages into engineer's and user's
+                print(error.localizedDescription)
+                self.displayMessage(userMessage: "Registration Request Creation Failed: Json serialization failed", dismiss: false)
+                return nil
+            }
+        } else {
+            self.displayMessage(userMessage: "Registration Request Creation Failed: Incomplete registration info", dismiss: false)
             return nil
         }
         return request
     }
     
-    func getUserInputInfo() -> [String: Any]{
+    func getUserInputInfo() -> [String: Any]? {
         
         let user_data = getUserData()
         let account_data = getAccountData()
         let profile_data = getProfileData()
-//        let visibility_data = []
-        
         let question_answer_data = getQuestionAnswersData()
         
         // TODO: better handle username and password
-        let random_id = UUID().uuidString
-        let pesudo_data = [
-            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? random_id,
-            "password":random_id
-        ]
-        
-        var register_data = [String: Any]()
-        register_data += user_data as! Dictionary<String, String>
-        register_data += account_data as! Dictionary<String, String>
-        register_data += profile_data
-        register_data += question_answer_data
-        register_data += pesudo_data
-        return register_data
+        if let phone_number = LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) {
+            let random_id = UUID().uuidString
+            let pesudo_data = [
+                "username":phone_number,
+                "password":random_id
+            ]
+            var register_data = [String: Any]()
+            register_data += user_data as! Dictionary<String, String>
+            register_data += account_data as! Dictionary<String, String>
+            register_data += profile_data
+            register_data += question_answer_data
+            register_data += pesudo_data
+            return register_data
+        } else {
+            self.displayMessage(userMessage: "Error: Phone number doesn't exist in local storage, thus cannot construct username for registration")
+            return nil
+        }
     }
     
     func readRegistrationResponse(parseJSON: NSDictionary) -> Void {
@@ -229,7 +256,7 @@ class Profile_DraftFinal: UIViewController {
     
     // A helper function to store user id and apikey
     func storeCertification(register_response:NSDictionary) -> Void{
-        if let user_id = register_response["id"] as? Int, let token = register_response["token"] as? String {
+        if let user_id = register_response["id"] as? String, let token = register_response["token"] as? String {
             _ = LoginUserUtil.saveLoginUserId(user_id: user_id)
             _ = LoginUserUtil.saveAccessToken(token: token)
         }
@@ -263,13 +290,12 @@ class Profile_DraftFinal: UIViewController {
             let queryParams: [String: String] = [:] // URL query params your auth endpoint needs
             return AuthData(headers: headers, queryParams: queryParams)
         }
-        let user_id = String(LoginUserUtil.getLoginUserId() ?? 1)
+        let user_id = String(LoginUserUtil.getLoginUserId() ?? UNKNOWN)
         pushNotifications.setUserId(user_id, tokenProvider: tokenProvider, completion: { error in
             guard error == nil else {
                 print(error.debugDescription)
                 return
             }
-            
             print("Successfully authenticated with Pusher Beams")
         })
     }

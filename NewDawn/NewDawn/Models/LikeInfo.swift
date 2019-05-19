@@ -51,7 +51,7 @@ struct LikeYouInfo: Codable {
     var image_url: String = UNKNOWN
     var latest_liked_user_id: String = UNKNOWN
     var latest_liked_user_name: String = UNKNOWN
-    var my_id: Int = 0
+    var my_id: String = UNKNOWN
     
     init(_ latest_liked_user_id: String, latest_liked_user_name: String, entity_id: Int, question: String, answer: String) {
         self.latest_liked_user_id = latest_liked_user_id
@@ -60,7 +60,7 @@ struct LikeYouInfo: Codable {
         self.entity_type = EntityType.QUESTION_ANSWER.rawValue
         self.question = question
         self.answer = answer
-        self.my_id = LoginUserUtil.getLoginUserId() ?? 0
+        self.my_id = LoginUserUtil.getLoginUserId() ?? UNKNOWN
     }
     
     init(_ latest_liked_user_id: String, latest_liked_user_name: String, entity_id: Int, image_url: String) {
@@ -69,6 +69,6 @@ struct LikeYouInfo: Codable {
         self.entity_id = entity_id
         self.entity_type = EntityType.MAIN_IMAGE.rawValue
         self.image_url = image_url
-        self.my_id = LoginUserUtil.getLoginUserId() ?? 0
+        self.my_id = LoginUserUtil.getLoginUserId() ?? UNKNOWN
     }
 }

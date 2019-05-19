@@ -96,7 +96,7 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
                 if let lastMessageTuple = messageTuples.last {
                     cell.lastMessageText?.text = lastMessageTuple["message"] as? String
                     // Check if the last message has been read. If so then hide the notification icon. Also store the updated last message.
-                    if let last_message_id = lastMessageTuple[MESSAGE_ID] as? Int, let last_message_user_id = lastMessageTuple["user_from_id"] as? Int {
+                    if let last_message_id = lastMessageTuple[MESSAGE_ID] as? Int, let last_message_user_id = lastMessageTuple["user_from_id"] as? String {
                         let last_viewed_message_id = LocalStorageUtil.localReadKeyValue(key: VIEWED_MESSAGES + String(user_id)) as? Int ?? -1
                         // If the login user has already viewed the message, or if the message is sent by the login user himself, then hide the notification icon
                         if last_viewed_message_id == last_message_id || last_message_user_id == LoginUserUtil.getLoginUserId() {

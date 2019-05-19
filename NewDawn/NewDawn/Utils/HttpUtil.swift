@@ -61,7 +61,7 @@ class HttpUtil{
         request: URLRequest, callback: @escaping (NSDictionary, String?) -> Void) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200 || httpURLResponse.statusCode == 201,
                 let data = data, error == nil
                 else {
                     callback(

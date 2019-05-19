@@ -69,34 +69,49 @@ class ImageUtil {
     }
     
     // Get Personal Images with data from Document Directory
-    static func getPersonalImagesWithData() -> Array<[String: Any]>?{
+    static func getPersonalImagesWithData(
+        callback: @escaping (Array<[String: Any]>?, String?) -> Void) -> Void {
         let dataPath = ImageUtil.getPersonalImagesDirectory()
         let datapath_url = NSURL(string: dataPath)
         var images_data = [[String: Any]]()
-        do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: datapath_url! as URL, includingPropertiesForKeys: nil)
-            for fileurl in fileURLs{
-                if String(fileurl.lastPathComponent) == ".DS_Store"{
-                    continue
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile, error in
+            // If the user is in the process of registration
+            // the user profile could be empty
+            // otherwise the user profile should already exist
+            do {
+                let fileURLs = try FileManager.default.contentsOfDirectory(at: datapath_url! as URL, includingPropertiesForKeys: nil)
+                for fileurl in fileURLs{
+                    if String(fileurl.lastPathComponent) == ".DS_Store"{
+                        continue
+                    }
+                    let img = UIImage(contentsOfFile: fileurl.path)
+                    let order = Int(String(fileurl.lastPathComponent).prefix(1))!
+                    let caption = "good"
+                    if let user_id = user_profile?.user_id, let user_uri = user_profile?.user_uri {
+                        images_data.append([
+                            "img": img!,
+                            "order": order,
+                            "caption": caption,
+                            "user_uri": user_uri,
+                            "user_id": user_id
+                        ])
+                        callback(images_data, nil)
+                    } else {
+                        images_data.append([
+                            "img": img!,
+                            "order": order,
+                            "caption": caption,
+                            "user_uri": UNKNOWN,
+                            "user_id": UNKNOWN
+                        ])
+                        callback(images_data, nil)
+                    }
                 }
-                let img = UIImage(contentsOfFile: fileurl.path)
-                let order = Int(String(fileurl.lastPathComponent).prefix(1))!
-                let caption = "good"
-                let user_id = LoginUserUtil.getLoginUserId()
-                let user_uri = "/api/v1/user/\(user_id ?? 1)/"
-                images_data.append([
-                    "img": img!,
-                    "order": order,
-                    "caption": caption,
-                    "user_uri": user_uri,
-                    "user_id": user_id ?? 1
-                    ])
+            } catch {
+                callback(nil, "Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
             }
-        } catch {
-            print("Error while enumerating files \(String(describing: datapath_url!.path)): \(error.localizedDescription)")
-            return nil
         }
-        return images_data
     }
     
     static func getPersonalImagesDirectory() -> String{

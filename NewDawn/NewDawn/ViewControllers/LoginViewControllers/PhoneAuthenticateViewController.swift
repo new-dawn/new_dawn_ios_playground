@@ -95,7 +95,7 @@ class PhoneAuthenticateViewController: UIViewController {
         let success = parseJSON["success"] as? Bool
         let message = parseJSON["message"] as? String
         let exist = parseJSON["exist"] as? Bool
-        let user_id = parseJSON["user_id"] as? Int
+        let user_id = parseJSON["user_id"] as? String
         if success == false {
             self.displayMessage(userMessage: message!)
             return
