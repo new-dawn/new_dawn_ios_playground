@@ -58,28 +58,40 @@ class HttpUtil{
     }
     
     static func processSessionTasks(
-        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
-        let task = URLSession.shared.dataTask(with: request) {
-            (data: Data?, response: URLResponse?, error: Error?) in
-            
-            // Check response error
-            if error != nil
-            {
-                print("error=\(String(describing: error!))")
-                return
-            }
+        request: URLRequest, callback: @escaping (NSDictionary, String?) -> Void) {
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let data = data, error == nil
+                else {
+                    callback(
+                        ["success":false],
+                        "Process Session Task Failed: Server return non-200"
+                    )
+                    return
+                }
             // Parse Response
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = json {
-                    callback(parseJSON)
+                    if let response_error = parseJSON["error"] {
+                        callback(["success":false], "Process Session Task Failed: Server return error message: \(response_error)")
+                        return
+                    }
+                    callback(parseJSON, nil)
+                } else {
+                    callback(
+                        ["success":false],
+                        "Process Session Task Failed: Json cannot be casted into NSDictionary"
+                    )
                 }
-                print("Session Task Processed")
             } catch {
-                print("Error processing response")
+                callback(
+                    ["success":false],
+                    "Process Session Task Failed: Json parse failed"
+                )
             }
-        }
-        task.resume()
+        }.resume()
     }
     
     static func getURL(path:String, prod:Bool = CONNECT_TO_PROD, isMedia: Bool = false) -> URL {
@@ -122,10 +134,14 @@ class HttpUtil{
             print(error.localizedDescription)
             return
         }
-        self.processSessionTasks(request: request, callback: readActionResponse)
+        HttpUtil.processSessionTasks(request: request, callback: readActionResponse)
     }
     
-    static func readActionResponse(parseJSON: NSDictionary) -> Void {
+    static func readActionResponse(parseJSON: NSDictionary, error: String?) -> Void {
+        if error != nil {
+            print ("Send Action Data Failed to Send")
+            return
+        }
         let msg = parseJSON["success"] as? Bool
         if msg == false {
             print ("Send Action Data Failed to Send")
@@ -133,12 +149,12 @@ class HttpUtil{
         }
     }
     
-    static func getAllMessagesAction(user_from: String, callback: @escaping (NSDictionary) -> Void) {
+    static func getAllMessagesAction(user_from: String, callback: @escaping (NSDictionary, String?) -> Void) {
         // Get a dictionary mapped from matched users to past messages
         let url = getURL(path: "user_action/get_messages/?user_from=\(user_from)")
         var request = URLRequest(url:url)
         request.httpMethod = "GET"
-        self.processSessionTasks(request: request, callback: callback)
+        HttpUtil.processSessionTasks(request: request, callback: callback)
     }
     
     static func sendMessageAction(user_from: String, user_to: String, action_type: Int, entity_type: Int, entity_id: Int, message: String){

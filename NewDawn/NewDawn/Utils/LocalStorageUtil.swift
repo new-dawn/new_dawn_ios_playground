@@ -75,38 +75,38 @@ class LoginUserUtil {
         return KeychainWrapper.standard.removeAllKeys()
     }
 
-    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile?) -> Void) -> Void {
+    static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile?, String?) -> Void) -> Void {
         // TODO: Send username and access token to get user profile
         UserProfileBuilder.fetchUserProfiles(params: ["user__id": String(user_id), "apikey": accessToken]) {
-            (data) in
+            (data, error) in
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
-                callback(profiles[0])
+                callback(profiles[0], error)
             } else {
-                callback(nil)
+                callback(nil, error)
             }
         }
     }
     
-    static func fetchLoginUserProfile(callback: @escaping (UserProfile?) -> Void) -> Void {
+    static func fetchLoginUserProfile(callback: @escaping (UserProfile?, String?) -> Void) -> Void {
         // This is a lazy fetcher where user profile will only be fetched when needed
         // After fetching, the user profile is stored locally
         // Notice that user profile will be nil if user id and accessToken is not in keychain
         if let user_id = getLoginUserId(), let accessToken = getAccessToken() {
             // Check if the user profile has already fetched and stored in local storage
             if let user_profile: UserProfile? = LocalStorageUtil.localReadKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE) {
-                callback(user_profile)
+                callback(user_profile, nil)
             } else {
                 LoginUserUtil.fetchUserProfile(user_id: user_id, accessToken: accessToken) {
-                    user_profile in
+                    user_profile, error in
                     LocalStorageUtil.localStoreKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE, value: user_profile)
-                    callback(user_profile)
+                    callback(user_profile, error)
                 }
             }
         } else {
             // There's no user id an access token found in local keychain
             LocalStorageUtil.localRemoveKey(key: LoginUserUtil.LOGIN_USER_PROFILE)
-            callback(nil)
+            callback(nil, "No keychain is found locally")
         }
     }
 }

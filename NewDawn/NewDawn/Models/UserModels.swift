@@ -241,7 +241,7 @@ class UserProfileBuilder{
     }
     
     // Usage for user to other users' profiles information from backend
-    static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary) -> Void){
+    static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary, String?) -> Void){
         // TODO: get username and api_key from keychain/local storage
         let request = UserProfileBuilder.createGetProfileRequest(params)
         HttpUtil.processSessionTasks(request: request!, callback: callback)

@@ -29,7 +29,7 @@ class MainPageTabBarViewController: UITabBarController, UITabBarControllerDelega
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        HttpUtil.processSessionTasks(request: request, callback: checkMatchedUsers)
+        self.processSessionTasks(request: request, callback: checkMatchedUsers)
     }
     
     func notifyNewMatch(){

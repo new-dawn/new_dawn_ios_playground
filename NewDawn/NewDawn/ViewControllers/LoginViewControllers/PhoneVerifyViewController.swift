@@ -56,7 +56,7 @@ class PhoneVerifyViewController: UIViewController {
         }
         
         // Process Request
-        HttpUtil.processSessionTasks(request: request!) {
+        self.processSessionTasks(request: request!) {
             response in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)

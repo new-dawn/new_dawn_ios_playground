@@ -50,7 +50,7 @@ class PhoneAuthenticateViewController: UIViewController {
         }
         
         // Process Request & Remove Activity Indicator
-        HttpUtil.processSessionTasks(request: request!) {
+        self.processSessionTasks(request: request!) {
             response in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)

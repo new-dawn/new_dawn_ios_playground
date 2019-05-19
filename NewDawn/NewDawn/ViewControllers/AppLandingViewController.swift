@@ -15,7 +15,13 @@ class AppLandingViewController: UIViewController {
         // Override point for customization after application launch.
         if LoginUserUtil.isLogin() {
             LoginUserUtil.fetchLoginUserProfile() {
-                user_profile in
+                user_profile, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                    }
+                    return
+                }
                 if user_profile != nil {
                     DispatchQueue.main.async {
                         // Wait for user profile to be available

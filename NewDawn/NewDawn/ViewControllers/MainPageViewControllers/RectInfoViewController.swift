@@ -19,7 +19,13 @@ class RectInfoViewController: UIViewController {
         super.viewDidLoad()
         // Get my profile photo and firstname
         LoginUserUtil.fetchLoginUserProfile() {
-            user_profile in
+            user_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
             if let my_image_url = user_profile?.mainImages.first?.image_url {
                 self.myImageView.downloaded(
                     from: self.myImageView.getURL(path: my_image_url))
