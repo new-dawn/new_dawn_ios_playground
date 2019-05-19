@@ -39,15 +39,9 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         
-        HttpUtil.processSessionTasks(request: request!){
-            register_response, error in
+        self.processSessionTasks(request: request!){
+            register_response in
             self.removeActivityIndicator(activityIndicator: activityIndicator)
-            if (error != nil){
-                DispatchQueue.main.async {
-                    self.displayMessage(userMessage: error!)
-                }
-                return
-            }
             self.storeCertification(register_response: register_response)
             self.notificationSetUp()
             if let images = ImageUtil.getPersonalImagesWithData(){

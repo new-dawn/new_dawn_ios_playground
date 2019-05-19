@@ -58,6 +58,22 @@ extension UIViewController {
         }
     }
     
+    // This function is a wrapper of HttpUtil.processSessionTasks
+    // It helps view controllers to display an alert when request failed
+    func processSessionTasks(
+        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
+        HttpUtil.processSessionTasks(request: request) {
+            response, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: VC process session tasks failed - \(error!)")
+                }
+                return
+            }
+            callback(response)
+        }
+    }
+    
     // A helper function to enable activity indicator circle
     // Should be used whenever we want user to wait while loading something
     func prepareActivityIndicator() -> UIActivityIndicatorView {

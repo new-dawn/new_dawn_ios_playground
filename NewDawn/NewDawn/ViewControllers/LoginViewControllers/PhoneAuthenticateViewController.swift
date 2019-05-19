@@ -50,16 +50,10 @@ class PhoneAuthenticateViewController: UIViewController {
         }
         
         // Process Request & Remove Activity Indicator
-        HttpUtil.processSessionTasks(request: request!) {
-            response, error in
+        self.processSessionTasks(request: request!) {
+            response in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)
-            if error != nil {
-                DispatchQueue.main.async {
-                    self.displayMessage(userMessage: "Error: Authenticate phone number failed with \(error!)")
-                }
-                return
-            }
             self.readPhoneAuthenticateResponse(parseJSON: response)
         }
     }

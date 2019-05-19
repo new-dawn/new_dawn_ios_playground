@@ -56,16 +56,10 @@ class PhoneVerifyViewController: UIViewController {
         }
         
         // Process Request
-        HttpUtil.processSessionTasks(request: request!) {
-            response, error in
+        self.processSessionTasks(request: request!) {
+            response in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)
-            if error != nil {
-                DispatchQueue.main.async {
-                    self.displayMessage(userMessage: "Error: Verify Phone Number failed with \(error!)")
-                }
-                return
-            }
             self.readPhoneVerifyResponse(parseJSON: response)
         }
     }
