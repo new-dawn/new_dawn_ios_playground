@@ -14,7 +14,7 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var clickable_filters = ["age_pref", "height_pref"]
     var clickable_filters_name = ["年龄范围", "身高范围"]
-    var icons = ["HeightIcon", "HeightIcon"]
+    var icons = ["PreferenceHeight_Icon", "PreferenceHeight_Icon"]
     @IBOutlet weak var prefTableView: UITableView!
     
     override func viewDidLoad() {
