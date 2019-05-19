@@ -23,20 +23,20 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         privacyButton.layer.borderWidth = 2
         privacyButton.layer.cornerRadius = 25
         privacyButton.clipsToBounds = true
-//        privacyButton.leftImage(image: UIImage(named: "AccountSetting_Account")!, renderMode: .alwaysOriginal)
         let privacy_image = UIImage(named: "WorkIcon")!
         privacyButton.setImage(privacy_image.withRenderingMode(.alwaysOriginal), for: .normal)
         privacyButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: privacy_image.size.width * 3)
         privacyButton.contentHorizontalAlignment = .left
         privacyButton.imageView?.contentMode = .scaleAspectFit
-        
         privacyButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 60.0, bottom: 0.0, right: 0.0)
+        
         
         // Add straight line
         let draw = DrawLine(frame: CGRect(x: 40, y: 350, width: 300, height: 1))
         draw.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
         view.addSubview(draw)
         
+        // Set up collection view
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -80,15 +80,7 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.switchButton.onTintColor = UIColor(red:92.0/255, green:117.0/255, blue:163.0/255, alpha:1)
         cell.switchButton.tintColor = UIColor(red:193.0/255, green:208.0/255, blue:215.0/255, alpha:1)
-//        // set table view cell style
-//        cell.textLabel?.text = switch_cells[indexPath.section]
-//        cell.textLabel?.font = UIFont(name:"PingFangTC-Semibold", size: 18.0)
-//
-//        // Add UI Switch button
-//        let mySwitch = UISwitch(frame: CGRect(x: 1, y: 1, width: 48, height: 20))
-//        mySwitch.isOn = true
-//        mySwitch.onTintColor = UIColor(red:193/255, green:199/255, blue:208/255, alpha:1)
-//        mySwitch.tintColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1)
+
         cell.switchButton.tag = indexPath.section
         cell.switchButton.addTarget(self, action: #selector(toggle(_:)), for: .valueChanged)
         return cell
@@ -102,10 +94,10 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
         
         if cell == "账号" && sender.isOn == false {
-            let alertController = UIAlertController(title: nil, message: "You won’t show up on MM’s feed anymore, while you can still chat with connected people.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: nil, message: "关闭帐号后你的帐号将不会显示在推送中。你确认要关闭你的帐号吗？", preferredStyle: .alert)
             alertController.setValue(NSAttributedString(string: alertController.message!,
                                                         attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
-            let confirmAction = UIAlertAction(title: "Turn off Account", style: .default) { (_) in
+            let confirmAction = UIAlertAction(title: "Yes", style: .default) { (_) in
                 // Add confirm action
             }
             confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
@@ -114,7 +106,7 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
             self.present(alertController, animated: true, completion: nil)
         }
         if cell == "系统通知" && sender.isOn == false{
-            let alertController = UIAlertController(title: nil, message: "You can turn on nitification in Phone Settings ", preferredStyle: .alert)
+            let alertController = UIAlertController(title: nil, message: "你可以在手机设定中将通知再打开。", preferredStyle: .alert)
             alertController.setValue(NSAttributedString(string: alertController.message!,
                                                         attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
             let confirmAction = UIAlertAction(title: "Go to Phone Settings", style: .default) { (_) in
@@ -141,19 +133,3 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
     }
 }
 
-
-//extension UIButton {
-//    func leftImage(image: UIImage, renderMode: UIImage.RenderingMode) {
-//        self.setImage(image.withRenderingMode(renderMode), for: .normal)
-//        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: image.size.width / 2)
-//        self.contentHorizontalAlignment = .left
-//        self.imageView?.contentMode = .scaleAspectFit
-//    }
-//
-//    func rightImage(image: UIImage, renderMode: UIImage.RenderingMode){
-//        self.setImage(image.withRenderingMode(renderMode), for: .normal)
-//        self.imageEdgeInsets = UIEdgeInsets(top: 0, left:image.size.width / 2, bottom: 0, right: 0)
-//        self.contentHorizontalAlignment = .right
-//        self.imageView?.contentMode = .scaleAspectFit
-//    }
-//}
