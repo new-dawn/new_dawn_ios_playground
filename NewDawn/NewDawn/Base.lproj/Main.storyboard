@@ -17,30 +17,46 @@
                         <viewControllerLayoutGuide type="top" id="8C2-YW-XoQ"/>
                         <viewControllerLayoutGuide type="bottom" id="a31-7f-hCW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Uja-ay-PoS">
+                    <view key="view" contentMode="scaleAspectFit" id="Uja-ay-PoS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="慢慢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-hG-r9k">
-                                <rect key="frame" x="167" y="271" width="80" height="56"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="fgh-5E-agb">
+                                <rect key="frame" x="79" y="191" width="256" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="布谷鸟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-hG-r9k">
+                                <rect key="frame" x="165" y="406" width="84" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="就是让你不孤单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-1F-Tqa">
+                                <rect key="frame" x="158" y="465" width="98" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="连接你我的心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-1F-Tqa">
-                                <rect key="frame" x="165" y="347" width="84" height="20"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="14"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHq-es-sYb">
+                                <rect key="frame" x="71" y="560" width="273" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="手机登入和注册" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="W2h-ud-Kx5" eventType="touchUpInside" id="0Oh-sJ-bJC"/>
+                                    <segue destination="W2h-ud-Kx5" kind="show" id="k37-V4-noZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9TJ-hG-r9k" firstAttribute="top" secondItem="8C2-YW-XoQ" secondAttribute="bottom" constant="251" id="F0g-eS-pMx"/>
-                            <constraint firstItem="9TJ-hG-r9k" firstAttribute="centerX" secondItem="Uja-ay-PoS" secondAttribute="centerX" id="Gy0-8t-zFL"/>
-                            <constraint firstItem="ThB-1F-Tqa" firstAttribute="top" secondItem="9TJ-hG-r9k" secondAttribute="bottom" constant="20" id="Jip-iO-DIY"/>
-                            <constraint firstItem="ThB-1F-Tqa" firstAttribute="centerX" secondItem="Uja-ay-PoS" secondAttribute="centerX" id="ZKM-CZ-WBi"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKk-eT-dyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,9 +263,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LogoPlaceholder" width="222" height="222"/>
         <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sDy-Zp-GUl"/>
+        <segue reference="k37-V4-noZ"/>
     </inferredMetricsTieBreakers>
 </document>

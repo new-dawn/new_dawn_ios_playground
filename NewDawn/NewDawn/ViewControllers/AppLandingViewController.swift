@@ -17,29 +17,33 @@ class AppLandingViewController: UIViewController {
             LoginUserUtil.fetchLoginUserProfile() {
                 user_profile, error in
                 if error != nil {
-                    DispatchQueue.main.async {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                    }
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
                     return
                 }
                 if user_profile != nil {
-                    DispatchQueue.main.async {
-                        // Wait for user profile to be available
-                        let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                        let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                        let appDelegate = UIApplication.shared.delegate
-                        appDelegate?.window??.rootViewController = homePage
-                    }
-                    return
+                    self.goToMainPage()
+                } else if LoginUserUtil.getLoginUserId() == 1 {
+                    self.displayMessage(userMessage: "Warning: You are login into an admin account. This account was created automatically thus doesn't have a user profile.")
+                    self.goToMainPage()
+                } else {
+                    self.displayMessage(userMessage: "Warning: You have a login id \(String(describing: LoginUserUtil.getLoginUserId())) stored locally, but it doesn't have a linked user profile. It might because the database has refreshed or your profile has been deleted. For data safety purpose, your local credential will be revoked.")
+                    _ = LoginUserUtil.logout()
                 }
-                _ = LoginUserUtil.logout()
             }
+        } else {
+            // Even if the user wasn't login, we clean up the credential for safety
+            _ = LoginUserUtil.logout()
         }
-        // Take user to login page
-        let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController") as! PhoneVerifyViewController
-        let appDelegate = UIApplication.shared.delegate
-        appDelegate?.window??.rootViewController = loginPage
+    }
+    
+    func goToMainPage() -> Void {
+        DispatchQueue.main.async {
+            // Wait for user profile to be available
+            let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = homePage
+        }
     }
     
 
