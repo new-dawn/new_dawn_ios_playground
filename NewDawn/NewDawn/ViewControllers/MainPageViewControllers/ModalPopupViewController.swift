@@ -31,7 +31,7 @@ class ModalPopupViewController: UIViewController {
         if let latest_like_item = self.latestLikeYouInfo {
             HttpUtil.sendAction(
                 user_from: String(latest_like_item.my_id),
-                user_to: latest_like_item.latest_liked_user_name,
+                user_to: latest_like_item.latest_liked_user_id,
                 action_type: UserActionType.LIKE.rawValue,
                 entity_type: latest_like_item.entity_type,
                 entity_id: latest_like_item.entity_id,
