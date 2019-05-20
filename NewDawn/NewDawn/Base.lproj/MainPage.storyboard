@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -807,7 +807,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-kP-M9w">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusableCell" rowHeight="29" id="UhU-Qx-W94">
                                         <rect key="frame" x="0.0" y="28" width="375" height="29"/>
@@ -1386,29 +1386,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Oops, there is no suggestions currently. They are on the way" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
-                                <rect key="frame" x="32.5" y="244" width="310" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="目前推送已经浏览完了 我们明日会再次 为您推送适合的人选" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
+                                <rect key="frame" x="32" y="392" width="310" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="ifH-I8-3LH"/>
-                                    <constraint firstAttribute="height" constant="200" id="pl3-ad-UHg"/>
-                                </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="fVH-JG-Ym7">
+                                <rect key="frame" x="76" y="139" width="222" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="xH9-Ne-pni" firstAttribute="top" secondItem="wUl-5W-KJG" secondAttribute="top" constant="180" id="M76-XA-TaN"/>
-                            <constraint firstItem="xH9-Ne-pni" firstAttribute="centerX" secondItem="F6H-it-Pmp" secondAttribute="centerX" id="ahm-ot-ILe"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wUl-5W-KJG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XU-2e-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810" y="-371"/>
+            <point key="canvasLocation" x="1808.8" y="-371.06446776611699"/>
         </scene>
         <!--Main Page Match View Controller-->
         <scene sceneID="35Z-IR-CMf">
@@ -1905,17 +1902,18 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="510" height="132"/>
-        <image name="EditProfile_Edit" width="88" height="88"/>
-        <image name="EditProfile_Preview" width="88" height="88"/>
+        <image name="EditProfile_Button" width="255" height="66"/>
+        <image name="EditProfile_Edit" width="44" height="44"/>
+        <image name="EditProfile_Preview" width="44" height="44"/>
         <image name="HomeTab" width="24" height="24"/>
-        <image name="InfoPanel" width="690" height="568"/>
+        <image name="InfoPanel" width="345" height="284"/>
         <image name="LikeButtonNew" width="88" height="77"/>
-        <image name="LikeButtonNew2" width="108" height="108"/>
+        <image name="LikeButtonNew2" width="54" height="54"/>
         <image name="LocationIcon" width="21" height="26"/>
-        <image name="MatchModal" width="394" height="460"/>
+        <image name="LogoPlaceholder" width="222" height="222"/>
+        <image name="MatchModal" width="197" height="230"/>
         <image name="MeTab" width="24" height="24"/>
-        <image name="Register_continue_btn" width="510" height="132"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
         <image name="SendLikeButton" width="101" height="88"/>
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="36" height="24"/>
