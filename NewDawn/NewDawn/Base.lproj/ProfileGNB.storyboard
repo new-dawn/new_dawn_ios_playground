@@ -400,8 +400,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnY-7K-EZD">
-                                <rect key="frame" x="60" y="461" width="255" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnY-7K-EZD">
+                                <rect key="frame" x="60" y="489" width="255" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="M9e-HD-GCq"/>
                                     <constraint firstAttribute="height" constant="75" id="fno-1G-PYe"/>
@@ -431,18 +431,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="你已经获取或在读的最高学历是？" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AAt-SD-28Q">
-                                <rect key="frame" x="93" y="244" width="189" height="66"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="CNs-Xc-ct2"/>
-                                    <constraint firstAttribute="height" constant="66" id="nW5-bo-vyj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最 高 学 历" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82l-Yx-YnA">
-                                <rect key="frame" x="54" y="338" width="21" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="最 高 学 历" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82l-Yx-YnA">
+                                <rect key="frame" x="51" y="370" width="21" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Kah-cT-LZl"/>
                                     <constraint firstAttribute="width" constant="21" id="Sae-M0-EVH"/>
@@ -451,8 +441,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RF7-RK-n1R">
-                                <rect key="frame" x="104" y="338" width="167" height="56"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RF7-RK-n1R">
+                                <rect key="frame" x="104" y="370" width="167" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXa-tX-pXE" userLabel="Undergrad">
                                         <rect key="frame" x="0.0" y="0.0" width="41" height="56"/>
@@ -519,8 +509,8 @@
                                     <constraint firstAttribute="height" constant="56" id="dsa-dj-R6H"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-2a-Pjr">
-                                <rect key="frame" x="60" y="537" width="255" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-2a-Pjr">
+                                <rect key="frame" x="60" y="572" width="255" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="XEU-lr-M0q"/>
                                     <constraint firstAttribute="height" constant="75" id="dN5-Dr-YRM"/>
@@ -545,6 +535,16 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="你已经获取或在读的最高学历是？" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AAt-SD-28Q">
+                                <rect key="frame" x="93" y="281" width="189" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="CNs-Xc-ct2"/>
+                                    <constraint firstAttribute="height" constant="66" id="nW5-bo-vyj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -552,7 +552,7 @@
                             <constraint firstItem="i5y-gI-NEA" firstAttribute="leading" secondItem="yqk-Tb-9K7" secondAttribute="trailing" constant="7" id="6w5-A6-miv"/>
                             <constraint firstItem="7g7-2a-Pjr" firstAttribute="leading" secondItem="fnY-7K-EZD" secondAttribute="leading" id="9zr-hs-Icy"/>
                             <constraint firstItem="fwr-S5-P04" firstAttribute="top" secondItem="7g7-2a-Pjr" secondAttribute="bottom" constant="55" id="AK4-qC-3va"/>
-                            <constraint firstItem="AAt-SD-28Q" firstAttribute="top" secondItem="ECS-FB-VhP" secondAttribute="bottom" constant="32" id="Bbq-rN-0oC"/>
+                            <constraint firstItem="AAt-SD-28Q" firstAttribute="top" secondItem="ECS-FB-VhP" secondAttribute="bottom" constant="51" id="Bbq-rN-0oC"/>
                             <constraint firstItem="ECS-FB-VhP" firstAttribute="centerY" secondItem="yqk-Tb-9K7" secondAttribute="centerY" id="JKp-Vl-4gf"/>
                             <constraint firstItem="AAt-SD-28Q" firstAttribute="leading" secondItem="82l-Yx-YnA" secondAttribute="trailing" constant="18" id="K0K-CC-isQ"/>
                             <constraint firstItem="ECS-FB-VhP" firstAttribute="centerX" secondItem="3aZ-RX-ynf" secondAttribute="centerX" id="KBJ-ok-u2A"/>
