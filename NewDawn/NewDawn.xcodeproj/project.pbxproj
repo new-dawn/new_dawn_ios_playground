@@ -195,6 +195,7 @@
 		06C278D8228908A000BB718A /* CustomLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */,
 				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				06C278D9228908C600BB718A /* PhotoLayout.swift */,
 				066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */,
@@ -360,7 +361,6 @@
 		24F657EF21B31C1300DB2547 = {
 			isa = PBXGroup;
 			children = (
-				064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */,
 				24C09F5C2263E99400302CEF /* NewDawn */,
 				D56257B6927956DFF08F74B6 /* Frameworks */,
 				24F6580F21B31C1300DB2547 /* NewDawnTests */,

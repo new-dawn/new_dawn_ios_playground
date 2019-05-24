@@ -23,7 +23,7 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         privacyButton.layer.borderWidth = 2
         privacyButton.layer.cornerRadius = 25
         privacyButton.clipsToBounds = true
-        let privacy_image = UIImage(named: "WorkIcon")!
+        let privacy_image = UIImage(named: "AccountSetting_Privacy")!
         privacyButton.setImage(privacy_image.withRenderingMode(.alwaysOriginal), for: .normal)
         privacyButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: privacy_image.size.width * 3)
         privacyButton.contentHorizontalAlignment = .left
