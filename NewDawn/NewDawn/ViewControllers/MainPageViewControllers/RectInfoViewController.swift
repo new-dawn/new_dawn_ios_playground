@@ -56,7 +56,6 @@ class RectInfoViewController: UIViewController {
             }
         }
         // Get your image and comment
-//        let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
         if let your_image_url = like_me_info?.yourImageURL {
              yourImageView.downloaded(from: yourImageView.getURL(path: your_image_url))
              ImageUtil.polishCircularImageView(imageView: self.yourImageView)
