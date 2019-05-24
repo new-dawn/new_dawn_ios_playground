@@ -33,8 +33,14 @@ class ChatPageViewController: UIViewController {
     func fetchEndUsersAndMessages() -> Void {
         // TODO: replace it by login user id in local storage
         HttpUtil.getAllMessagesAction(user_from: String(LoginUserUtil.getLoginUserId()!), callback: {
-            response in
+            response, error in
                 DispatchQueue.main.async {
+                    if error != nil {
+                        DispatchQueue.main.async {
+                            self.displayMessage(userMessage: "Error: Fetch end user chat messages failed with \(error!)")
+                        }
+                        return
+                    }
                     if let chat_history = response["objects"] as? [[String:Any]] {
                         self.allMessages = chat_history
                         // Initialize the table view with all chat info

@@ -21,6 +21,7 @@ enum MainPageViewModelItemType: Int {
     case LINKEDIN = 5
     case LIKE_IMAGE = 6
     case LIKE_ANSWER = 7
+    case LIKE_ME = 8
 }
 
 enum UserActionType: Int{
@@ -67,21 +68,10 @@ class MainPageViewModel: NSObject {
     var image_items = [MainImageViewModelItem]()
     var basic_info_item = [BasicInfoViewModelItem]()
     var question_answer_items = [QuestionAnswerViewModelItem]()
+    var like_me_items = [LikeMeViewModelItem]()
     
     init(userProfile: UserProfile, include_liked_info: Bool = true) {
         super.init()
-        if include_liked_info == true {
-            // Append liked banner on top of the view
-            let likedInfo = userProfile.likedInfo
-            if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
-                items.append(
-                    LikeImageViewModelItem(likerFirstName: userProfile.firstname, likedImageURL: likedInfo.liked_image_url, likedMessage: likedInfo.liked_message))
-            }
-            if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
-                items.append(
-                    LikeAnswerViewModelItem(likerFirstName: userProfile.firstname, likedAnswer: likedInfo.liked_question, likedMessage: likedInfo.liked_message))
-            }
-        }
 
         // Append image items
         if !userProfile.mainImages.isEmpty {
@@ -100,6 +90,11 @@ class MainPageViewModel: NSObject {
                     fetchQuestionAnswer(userProfile: userProfile, index: index))
             }
         }
+        // Append like me info
+        if include_liked_info == true, let info = fetchLikeMe(userProfile: userProfile) {
+            like_me_items.append(info)
+        }
+    
         // Apply some order on all items
         self.sectionSort()
     }
@@ -127,7 +122,8 @@ class MainPageViewModel: NSObject {
             answer: userProfile.questionAnswers[index].answer,
             name: userProfile.firstname + " " + userProfile.lastname,
             user_id: userProfile.user_id,
-            id: userProfile.questionAnswers[index].id
+            id: userProfile.questionAnswers[index].id,
+            liked_me: userProfile.likedInfo.liked_entity_type != 0
         )
         return questionAnswer
     }
@@ -142,9 +138,32 @@ class MainPageViewModel: NSObject {
             employer: userProfile.employer,
             isFirst: index == 0,
             user_id: userProfile.user_id,
-            id:  userProfile.mainImages[index].id
+            id:  userProfile.mainImages[index].id,
+            liked_me: userProfile.likedInfo.liked_entity_type != 0
         )
         return mainImage
+    }
+    
+    func fetchLikeMe(userProfile: UserProfile) -> LikeMeViewModelItem? {
+        // Append liked banner on top of the view
+        let likedInfo = userProfile.likedInfo
+        if hasLikedInfo(likedInfo: likedInfo) {
+            return LikeMeViewModelItem(
+                LikeMeInfo(
+                    userProfile.mainImages.first?.image_url ?? UNKNOWN,
+                    yourFirstName: userProfile.firstname,
+                    likedInfo: likedInfo
+                )
+            )
+        }
+        return nil
+    }
+    
+    func hasLikedInfo(likedInfo: LikedInfo) -> Bool {
+        if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue || likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+            return true
+        }
+        return false
     }
     
     func sectionSort() -> Void {
@@ -152,6 +171,10 @@ class MainPageViewModel: NSObject {
         if image_items.count > 0 {
             items.append(image_items[0])
             image_items.removeFirst()
+        }
+        if like_me_items.count > 0 {
+            items.append(like_me_items[0])
+            like_me_items.removeFirst()
         }
         // Ordering of items
         while true {
@@ -227,6 +250,12 @@ extension MainPageViewModel: UITableViewDataSource, UITableViewDelegate {
                 cell.selectionStyle = .none
                 return cell
             }
+        case .LIKE_ME:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "likeMeViewCell", for: indexPath) as? LikeMeViewCell {
+                cell.item = item
+                cell.selectionStyle = .none
+                return cell
+            }
     }
         return UITableViewCell()
     }
@@ -290,6 +319,30 @@ class LikeAnswerViewModelItem: MainPageViewModellItem {
         self.likerFirstName = likerFirstName
         self.likedAnswer = likedAnswer
         self.likedMessage = likedMessage
+    }
+}
+
+class LikeMeViewModelItem: MainPageViewModellItem {
+    
+    // Required Attributes
+    var type: MainPageViewModelItemType {
+        return .LIKE_ME
+    }
+    var sectionTitle: String {
+        return "Like Me"
+    }
+    var rowCount: Int {
+        return 1
+    }
+    var rowHeight: Int {
+        return 80
+    }
+    
+    // Customized Attributes
+    var likeMeInfo: LikeMeInfo
+    
+    init(_ likeMeInfo: LikeMeInfo) {
+        self.likeMeInfo = likeMeInfo
     }
 }
 
@@ -358,13 +411,15 @@ class QuestionAnswerViewModelItem: MainPageViewModellItem {
     var name: String
     var user_id: String
     var id: Int
+    var liked_me: Bool
     
-    init(question: String, answer: String, name: String, user_id: String, id: Int) {
+    init(question: String, answer: String, name: String, user_id: String, id: Int, liked_me: Bool) {
         self.question = question
         self.answer = answer
         self.name = name
         self.user_id = user_id
         self.id = id
+        self.liked_me = liked_me
     }
     
 }
@@ -395,8 +450,9 @@ class MainImageViewModelItem: MainPageViewModellItem {
     var isFirst: Bool
     var user_id: String
     var id: Int
+    var liked_me: Bool
     
-    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, user_id: String, id: Int) {
+    init(mainImageURL: String, caption: String, name: String, age: Int, jobTitle: String, employer: String, isFirst: Bool, user_id: String, id: Int, liked_me: Bool) {
         self.mainImageURL = mainImageURL
         self.caption = caption
         self.name = name
@@ -406,6 +462,7 @@ class MainImageViewModelItem: MainPageViewModellItem {
         self.isFirst = isFirst
         self.user_id = user_id
         self.id = id
+        self.liked_me = liked_me
     }
     
 }

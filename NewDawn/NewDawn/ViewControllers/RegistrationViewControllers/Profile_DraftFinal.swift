@@ -39,33 +39,27 @@ class Profile_DraftFinal: UIViewController {
             return
         }
         
-        self.processSessionTasks(request: request!){jsonResponse, error in
-            
-            if (error != nil){
-                print("noooooo good registration")
-                return
+        self.processSessionTasks(request: request!){
+            register_response in
+            self.removeActivityIndicator(activityIndicator: activityIndicator)
+            self.storeCertification(register_response: register_response)
+            self.notificationSetUp()
+            if let images = ImageUtil.getPersonalImagesWithData(){
+                for single_image in images{
+                    let single_img = single_image["img"]
+                    let single_params = [
+                        "order": single_image["order"]!,
+                        "caption": single_image["caption"]!,
+                        "user": single_image["user_uri"]!
+                        ] as [String: Any]
+                    let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
+                    self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                        print("image upload \(success)")}
+                }
             }
-            
-            if let register_response = jsonResponse{
-                print("Register Success")
-                self.storeCertification(register_response: register_response)
-                self.notificationSetUp()
-                if let images = ImageUtil.getPersonalImagesWithData(){
-                    for single_image in images{
-                        let single_img = single_image["img"]
-                        let single_params = [
-                            "order": single_image["order"]!,
-                            "caption": single_image["caption"]!,
-                            "user": single_image["user_uri"]!
-                            ] as [String: Any]
-                        let img_name = self.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
-                        self.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                            print("image upload \(success)")}
-                    }
-                }
-                self.removeActivityIndicator(activityIndicator: activityIndicator)
+            DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "after_register", sender: self)
-                }
+            }
         }
         
     }
@@ -161,9 +155,7 @@ class Profile_DraftFinal: UIViewController {
     
     // Transform mm/dd/yy to yyyy/mm/dd
     func _birthday_str_handler(birthday: String) -> String{
-        let m_d_y = birthday.components(separatedBy: "/")
-        let new_birthday = m_d_y[2] + "-" + m_d_y[0] + "-" + m_d_y[1]
-        return new_birthday
+        return birthday.replacingOccurrences(of: "/", with: "-")
     }
     
     // Transform string to int

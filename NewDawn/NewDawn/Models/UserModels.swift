@@ -146,29 +146,6 @@ struct MainImage: Codable {
     }
 }
 
-struct LikedInfo: Codable {
-    var liked_entity_type: Int = EntityType.NONE.rawValue
-    var liked_image_url: String = UNKNOWN
-    var liked_message: String = UNKNOWN
-    var liked_question: String = UNKNOWN
-    var liked_answer: String = UNKNOWN
-    init(_ info: [String: Any]) {
-        if let entity_type = info[LIKED_ENTITY_TYPE] as? Int {
-            if entity_type == EntityType.MAIN_IMAGE.rawValue {
-                liked_entity_type = EntityType.MAIN_IMAGE.rawValue
-                liked_image_url = info[LIKED_IMAGE_URL] as? String ?? UNKNOWN
-                liked_message = info[LIKED_MESSAGE] as? String ?? UNKNOWN
-            }
-            if entity_type == EntityType.QUESTION_ANSWER.rawValue {
-                liked_entity_type = EntityType.QUESTION_ANSWER.rawValue
-                liked_question = info[LIKED_QUESTION] as? String ?? UNKNOWN
-                liked_answer = info[LIKED_ANSWER] as? String ?? UNKNOWN
-                liked_message = info[LIKED_MESSAGE] as? String ?? UNKNOWN
-            }
-        }
-    }
-}
-
 // A user profile class instantiated by json dictionary sent from backend
 struct UserProfile: Codable {
     var user_id: String = UNKNOWN
@@ -264,7 +241,7 @@ class UserProfileBuilder{
     }
     
     // Usage for user to other users' profiles information from backend
-    static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary) -> Void){
+    static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary, String?) -> Void){
         // TODO: get username and api_key from keychain/local storage
         let request = UserProfileBuilder.createGetProfileRequest(params)
         HttpUtil.processSessionTasks(request: request!, callback: callback)

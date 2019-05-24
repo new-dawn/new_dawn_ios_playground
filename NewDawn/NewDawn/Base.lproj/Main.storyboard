@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -101,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="目前只接受美国手机号码" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-I1-FIZ">
-                                <rect key="frame" x="72" y="202" width="281" height="45"/>
+                                <rect key="frame" x="66.666666666666686" y="202" width="281" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="281" id="DXY-cq-PWr"/>
@@ -247,9 +247,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Register_continue_btn" width="765" height="198"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xde-FY-Wcc"/>
+        <segue reference="sDy-Zp-GUl"/>
     </inferredMetricsTieBreakers>
 </document>

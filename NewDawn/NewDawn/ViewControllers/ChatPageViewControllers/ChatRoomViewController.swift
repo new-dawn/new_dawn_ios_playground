@@ -165,7 +165,13 @@ class ChatRoomViewController: MessagesViewController {
             return
         }
         UserProfileBuilder.fetchUserProfiles(params: ["viewer_id": userIdMe,"user__id": userIdYou]) {
-            (data) in
+            (data, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
             let profiles = UserProfileBuilder.parseAndReturn(response: data)
             if !profiles.isEmpty {
                 self.userProfileYou = profiles[0]
@@ -262,7 +268,13 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
         let userId = message.sender.id
         if userId == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
-                my_profile in
+                my_profile, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                    }
+                    return
+                }
                 if my_profile != nil && !my_profile!.mainImages.isEmpty {
                     self.setAvatarForUser(url: my_profile!.mainImages[0].image_url, view: avatarView)
                 }
@@ -322,7 +334,13 @@ extension ChatRoomViewController: MessageCellDelegate {
         }
         if sender.id == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
-                userProfileMe in
+                userProfileMe, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                    }
+                    return
+                }
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
                 }

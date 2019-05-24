@@ -15,27 +15,29 @@ class ModalPopupViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextView!
     
     var triggeredSection: MainPageViewModelItemType?
+    var latestLikeYouInfo: LikeYouInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Make keyboard show/hide dynamically moves the view
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        if let name = getLikedUserName() {
-            titleLabel?.text = name
-        }
+        self.latestLikeYouInfo = LikeInfoUtil.getLatestLikeYouInfo()
+        titleLabel?.text = self.latestLikeYouInfo?.latest_liked_user_name
+        
     }
 
     @IBAction func likeButtonTapped(_ sender: Any) {
-        let lastest_liked_item = getLikedItem() as! [String: Any]
-        let lastest_liked_user_id = getLikedUserID()!
-        let local_user_id = String(LoginUserUtil.getLoginUserId()!)
-        HttpUtil.sendAction(user_from: local_user_id,
-                            user_to: lastest_liked_user_id,
-                            action_type: UserActionType.LIKE.rawValue,
-                            entity_type: lastest_liked_item[ENTITY_TYPE] as! Int,
-                            entity_id: lastest_liked_item[ENTITY_ID] as! Int,
-                            message: commentTextField.text)
+        if let latest_like_item = self.latestLikeYouInfo {
+            HttpUtil.sendAction(
+                user_from: String(latest_like_item.my_id),
+                user_to: latest_like_item.latest_liked_user_id,
+                action_type: UserActionType.LIKE.rawValue,
+                entity_type: latest_like_item.entity_type,
+                entity_id: latest_like_item.entity_id,
+                message: commentTextField.text
+            )
+        }
         dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
     }
@@ -45,18 +47,6 @@ class ModalPopupViewController: UIViewController {
     
     func getKeyboardOffsetFactor() -> CGFloat {
         return 0
-    }
-    
-    func getLikedItem() -> Optional<Any> {
-        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_ITEM)
-    }
-    
-    func getLikedUserName() -> String? {
-        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_NAME) as? String
-    }
-    
-    func getLikedUserID() -> String? {
-        return LocalStorageUtil.localReadKeyValue(key: LATEST_LIKED_USER_ID) as? String
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -79,8 +69,8 @@ class ModalImageLikedViewController: ModalPopupViewController {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let image = getLikedItem() as? NSDictionary {
-            imageView!.downloaded(from: imageView!.getURL(path: image[IMAGE_URL] as! String))
+        if let latest_liked_image_url = self.latestLikeYouInfo?.image_url {
+            imageView!.downloaded(from: imageView!.getURL(path: latest_liked_image_url))
         }
         imageView.clipsToBounds = true
     }
@@ -96,9 +86,9 @@ class ModalQuestionAnswerLikedViewController: ModalPopupViewController {
     @IBOutlet weak var questionAnswerText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let questionAnswer = getLikedItem() as? NSDictionary {
-            questionText?.text = questionAnswer[QUESTION] as? String
-            questionAnswerText?.text = questionAnswer[ANSWER] as? String
+        if let latest_liked_q = self.latestLikeYouInfo?.question, let latest_liked_a = self.latestLikeYouInfo?.answer {
+            questionText?.text = latest_liked_q
+            questionAnswerText?.text = latest_liked_a
         }
     }
 

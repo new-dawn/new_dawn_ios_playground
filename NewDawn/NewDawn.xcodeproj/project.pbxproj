@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */; };
+		066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */; };
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
+		06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C278D9228908C600BB718A /* PhotoLayout.swift */; };
 		2408CE3F2279331800042776 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408CE3E2279331800042776 /* UIViewExtensions.swift */; };
 		24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377835228536CF00F41CB6 /* UIButtonExtensions.swift */; };
+		2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */; };
+		24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377840228920FD00F41CB6 /* LikeInfoUtil.swift */; };
+		24377843228921F000F41CB6 /* LikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377842228921F000F41CB6 /* LikeInfo.swift */; };
+		245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -82,11 +89,18 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefSettingTableCell.swift; sourceTree = "<group>"; };
+		066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingTabelCell.swift; sourceTree = "<group>"; };
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		06C278D9228908C600BB718A /* PhotoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLayout.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		2408CE3E2279331800042776 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		24377835228536CF00F41CB6 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectInfoViewController.swift; sourceTree = "<group>"; };
+		24377840228920FD00F41CB6 /* LikeInfoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoUtil.swift; sourceTree = "<group>"; };
+		24377842228921F000F41CB6 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
+		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -178,6 +192,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06C278D8228908A000BB718A /* CustomLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
+				06C278D9228908C600BB718A /* PhotoLayout.swift */,
+				066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */,
+			);
+			path = CustomLayouts;
+			sourceTree = "<group>";
+		};
 		17165545D8163B7189F60507 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +236,7 @@
 				24C09F6D2263E99400302CEF /* Main.storyboard */,
 				24C09F6F2263E99400302CEF /* QuestionAnswer.storyboard */,
 				24C09F712263E99400302CEF /* ProfileGNB.storyboard */,
+				06C278D8228908A000BB718A /* CustomLayouts */,
 				24C09F732263E99400302CEF /* ViewControllers */,
 				24C09F992263E99400302CEF /* NewDawn.entitlements */,
 				24C09F9C2263E99400302CEF /* AppDelegate.swift */,
@@ -229,6 +254,7 @@
 				24C09F632263E99400302CEF /* ImageUtil.swift */,
 				24C09F642263E99400302CEF /* ProfileIndexUtil.swift */,
 				24C09F652263E99400302CEF /* TimerUtil.swift */,
+				24377840228920FD00F41CB6 /* LikeInfoUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +264,7 @@
 			children = (
 				24C09F672263E99400302CEF /* UserModels.swift */,
 				24C09F682263E99400302CEF /* Message.swift */,
+				24377842228921F000F41CB6 /* LikeInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,7 +312,6 @@
 				24C09F802263E99400302CEF /* Profile_WorkJob.swift */,
 				24C09F812263E99400302CEF /* ProfileGNBViewController.swift */,
 				24C09F822263E99400302CEF /* Profile_Photos.swift */,
-				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				24C09F842263E99400302CEF /* Profile_HomeTown.swift */,
 				24C09F852263E99400302CEF /* Profile_PhotosUpload.swift */,
 				24C09F862263E99400302CEF /* Profile_Education.swift */,
@@ -305,6 +331,8 @@
 				24C09F8F2263E99400302CEF /* ModalPopupViewController.swift */,
 				24C09F902263E99400302CEF /* MainPageViewController.swift */,
 				24C09F912263E99400302CEF /* MainPageViewModels.swift */,
+				2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */,
+				245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */,
 			);
 			path = MainPageViewControllers;
 			sourceTree = "<group>";
@@ -332,6 +360,7 @@
 		24F657EF21B31C1300DB2547 = {
 			isa = PBXGroup;
 			children = (
+				064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */,
 				24C09F5C2263E99400302CEF /* NewDawn */,
 				D56257B6927956DFF08F74B6 /* Frameworks */,
 				24F6580F21B31C1300DB2547 /* NewDawnTests */,
@@ -654,11 +683,14 @@
 				24C09FA82263E99400302CEF /* Message.swift in Sources */,
 				24C09FC02263E99400302CEF /* Profile_Notificatioin.swift in Sources */,
 				24C09FBF2263E99400302CEF /* Profile_Drink.swift in Sources */,
+				06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */,
 				24C09FB62263E99400302CEF /* Profile_Height.swift in Sources */,
 				24C09FBB2263E99400302CEF /* Profile_HomeTown.swift in Sources */,
 				24C09FCE2263E99400302CEF /* AppDelegate.swift in Sources */,
 				24C09FC32263E99400302CEF /* MainPageTabBarViewController.swift in Sources */,
+				24377843228921F000F41CB6 /* LikeInfo.swift in Sources */,
 				24C09FB22263E99400302CEF /* ChatRoomViewController.swift in Sources */,
+				24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */,
 				24C09FB52263E99400302CEF /* Profile_DraftFinal.swift in Sources */,
 				24C09FC72263E99400302CEF /* MainPageViewModels.swift in Sources */,
 				24C09FCA2263E99400302CEF /* AppLandingViewController.swift in Sources */,
@@ -674,13 +706,17 @@
 				24C09FA32263E99400302CEF /* LocalStorageUtil.swift in Sources */,
 				24C09FC82263E99400302CEF /* SettingPageViewController.swift in Sources */,
 				24C09FA72263E99400302CEF /* UserModels.swift in Sources */,
+				2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */,
+				066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */,
 				0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */,
 				24C09FB32263E99400302CEF /* ChatProfileViewController.swift in Sources */,
 				24C09FB92263E99400302CEF /* Profile_Photos.swift in Sources */,
 				24C09FA42263E99400302CEF /* ImageUtil.swift in Sources */,
 				24C09FAF2263E99400302CEF /* QuestionViewController.swift in Sources */,
 				24C09FC62263E99400302CEF /* MainPageViewController.swift in Sources */,
+				245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */,
 				24C09FBC2263E99400302CEF /* Profile_PhotosUpload.swift in Sources */,
+				064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

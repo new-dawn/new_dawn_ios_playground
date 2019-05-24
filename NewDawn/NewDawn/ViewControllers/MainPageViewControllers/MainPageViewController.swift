@@ -12,24 +12,31 @@ import UIKit
 class MainPageViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var acceptLikeButton: UIButton!
+    
     var viewModel: MainPageViewModel!
     var user_profiles: Array<UserProfile>!
+    var current_user_profile: UserProfile?
+    
+    func isLiked(_ userProfile: UserProfile) -> Bool {
+        return userProfile.likedInfo.liked_entity_type != 0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
             NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
         user_profiles = UserProfileBuilder.getUserProfileListFromLocalStorage()
-//        user_profiles = [
-//            UserProfile(data: USER_DUMMY_DATA[0]),
-//            UserProfile(data: USER_DUMMY_DATA[1])
-//        ]
         if ProfileIndexUtil.noMoreProfile(profiles: user_profiles) || TimerUtil.isOutdated() {
             // Go to the ending page if no profile is available in local storage or is outdated
             // The ending page will handle profile fetch and refresh the main page automatically
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
         } else {
             // Prepare the current profile view
-            viewModel = MainPageViewModel(userProfile: user_profiles[ProfileIndexUtil.loadProfileIndex()])
+            current_user_profile = user_profiles[ProfileIndexUtil.loadProfileIndex()]
+            // Show receive like button if the current user liked me
+            acceptLikeButton.isHidden = !isLiked(current_user_profile!)
+            // Build main page UI
+            viewModel = MainPageViewModel(userProfile: current_user_profile!)
             tableView.dataSource = viewModel
             tableView.delegate = viewModel
             tableView.rowHeight = UITableView.automaticDimension
@@ -58,4 +65,38 @@ class MainPageViewController: UIViewController {
         self.performSegueToNextProfile(sender)
     }
     
+    @IBAction func acceptLikeButtonTapped(_ sender: Any) {
+        LoginUserUtil.fetchLoginUserProfile() {
+            userProfile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
+            if let myUserProfile = userProfile, let yourUserProfile = self.current_user_profile {
+                // Send an entity-less like action
+                // which means accept like
+                HttpUtil.sendAction(
+                    user_from: String(myUserProfile.user_id),
+                    user_to: yourUserProfile.user_id,
+                    action_type: UserActionType.LIKE.rawValue,
+                    entity_type: EntityType.NONE.rawValue,
+                    entity_id: 0,
+                    message: UNKNOWN
+                )
+                // Go to match popup view
+                self.performSegue(withIdentifier: "mainPageMatch", sender: yourUserProfile)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Prepare the current user profile sent to the match page
+        if let matchViewController = segue.destination as? MainPageMatchViewController {
+            if let yourProfile = sender as? UserProfile {
+                matchViewController.userProfile = yourProfile
+            }
+        }
+    }
 }
