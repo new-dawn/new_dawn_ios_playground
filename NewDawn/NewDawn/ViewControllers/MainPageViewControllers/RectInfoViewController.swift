@@ -14,37 +14,49 @@ class RectInfoViewController: UIViewController {
     @IBOutlet weak var yourCommentTextView: UITextView!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var myAnswerTextView: UITextView!
-
+    @IBOutlet weak var photoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Get my profile photo and firstname
-        LoginUserUtil.fetchLoginUserProfile() {
-            user_profile, error in
-            if error != nil {
-                DispatchQueue.main.async {
-                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                }
-                return
+        
+        let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
+        if like_me_info?.likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+            if let photo_image_url = like_me_info?.likedInfo.liked_image_url {
+                photoImageView.downloaded(from: photoImageView.getURL(path: photo_image_url))
             }
-            if let my_image_url = user_profile?.mainImages.first?.image_url {
-                self.myImageView.downloaded(
-                    from: self.myImageView.getURL(path: my_image_url))
-                ImageUtil.polishCircularImageView(imageView: self.myImageView)
-            }
-            if let my_first_name = user_profile?.firstname {
-                let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
-                DispatchQueue.main.async {
-                    if let my_question = like_me_info?.likedInfo.liked_question {
-                        self.questionTextView.text = my_question
+            questionTextView.text = ""
+            myAnswerTextView.text = ""
+        }
+        else {
+            // Get my profile photo and firstname
+            LoginUserUtil.fetchLoginUserProfile() {
+                user_profile, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
                     }
-                    if let my_answer = like_me_info?.likedInfo.liked_answer {
-                        self.myAnswerTextView.text = "\(my_first_name): \(my_answer)"
+                    return
+                }
+                if let my_image_url = user_profile?.mainImages.first?.image_url {
+                    self.myImageView.downloaded(
+                        from: self.myImageView.getURL(path: my_image_url))
+                    ImageUtil.polishCircularImageView(imageView: self.myImageView)
+                }
+                if let my_first_name = user_profile?.firstname {
+                    let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
+                    DispatchQueue.main.async {
+                        if let my_question = like_me_info?.likedInfo.liked_question {
+                            self.questionTextView.text = my_question
+                        }
+                        if let my_answer = like_me_info?.likedInfo.liked_answer {
+                            self.myAnswerTextView.text = "\(my_first_name): \(my_answer)"
+                        }
                     }
                 }
             }
         }
         // Get your image and comment
-        let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
+//        let like_me_info = LikeInfoUtil.getLatestLikeMeInfo()
         if let your_image_url = like_me_info?.yourImageURL {
              yourImageView.downloaded(from: yourImageView.getURL(path: your_image_url))
              ImageUtil.polishCircularImageView(imageView: self.yourImageView)
