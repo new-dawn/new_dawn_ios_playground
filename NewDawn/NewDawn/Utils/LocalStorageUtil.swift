@@ -67,7 +67,7 @@ class LoginUserUtil {
     }
     
     static func isLogin() -> Bool {
-        return KeychainWrapper.standard.hasValue(forKey: LoginUserUtil.USER_ID)
+        return KeychainWrapper.standard.hasValue(forKey: LoginUserUtil.USER_ID) && KeychainWrapper.standard.hasValue(forKey: LoginUserUtil.ACCESS_TOKEN)
     }
     
     static func logout() -> Bool {
