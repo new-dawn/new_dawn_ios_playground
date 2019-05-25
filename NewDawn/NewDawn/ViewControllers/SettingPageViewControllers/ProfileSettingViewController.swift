@@ -131,5 +131,31 @@ class ProfileSettingViewController: UIViewController, UITableViewDelegate, UITab
         self.present (vc, animated: true, completion: nil)
         vc.selectedIndex = 2
     }
+    
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alertController.setValue(NSAttributedString(string: alertController.message!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor : UIColor.black]), forKey: "attributedMessage")
+        let confirmAction = UIAlertAction(title: "Log Out Now      ", style: .default) { (_) in
+            if LoginUserUtil.logout() {
+                // Take user to login page
+                let loginStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                // Go to profile page
+                DispatchQueue.main.async {
+                    let loginPage = loginStoryboard.instantiateViewController(withIdentifier: "PhoneVerifyViewController")
+                        as! PhoneVerifyViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = loginPage
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in}
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+        confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
