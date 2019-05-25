@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1447,7 +1447,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEI-hC-0vc">
-                                <rect key="frame" x="71" y="189" width="230" height="260"/>
+                                <rect key="frame" x="70" y="189" width="230" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MatchModal" translatesAutoresizingMaskIntoConstraints="NO" id="t7L-US-yd1">
@@ -1514,7 +1514,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It's a match!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csf-gD-qE5">
-                                <rect key="frame" x="113" y="150" width="153" height="31"/>
+                                <rect key="frame" x="112" y="150" width="153" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1626,7 +1626,7 @@
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="971.96401799100454"/>
         </scene>
-        <!--Setting-->
+        <!--账号与设置-->
         <scene sceneID="Eo4-U9-dRl">
             <objects>
                 <viewController id="r3Z-WH-1Wp" customClass="ProfileSettingViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
@@ -1704,19 +1704,39 @@
                                     <segue destination="MTh-Su-G29" kind="show" id="a78-0S-NmD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLB-Gw-5L9">
+                                <rect key="frame" x="87.5" y="517" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="30W-Ie-r8h"/>
+                                    <constraint firstAttribute="width" constant="200" id="KFn-u5-G02"/>
+                                </constraints>
+                                <state key="normal" title="登出" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logOutButton:" destination="r3Z-WH-1Wp" eventType="touchUpInside" id="iWm-bL-2je"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LLB-Gw-5L9" firstAttribute="centerX" secondItem="cLb-yr-PKw" secondAttribute="centerX" id="CAa-q9-MoR"/>
                             <constraint firstItem="XBs-MD-zaY" firstAttribute="trailing" secondItem="qdR-4H-XMa" secondAttribute="trailing" constant="30" id="GQS-61-iw5"/>
                             <constraint firstItem="eno-ki-7bE" firstAttribute="top" secondItem="qdR-4H-XMa" secondAttribute="bottom" constant="8" symbolic="YES" id="Gv9-zx-CAS"/>
                             <constraint firstItem="eno-ki-7bE" firstAttribute="centerX" secondItem="cLb-yr-PKw" secondAttribute="centerX" id="S2m-cU-98t"/>
+                            <constraint firstItem="LLB-Gw-5L9" firstAttribute="top" secondItem="eno-ki-7bE" secondAttribute="bottom" constant="61" id="bnp-Rn-UoR"/>
                             <constraint firstItem="eno-ki-7bE" firstAttribute="leading" secondItem="XBs-MD-zaY" secondAttribute="leading" constant="30" id="etP-83-n6N"/>
                             <constraint firstItem="qdR-4H-XMa" firstAttribute="leading" secondItem="XBs-MD-zaY" secondAttribute="leading" constant="30" id="kT8-bN-sMw"/>
                             <constraint firstItem="qdR-4H-XMa" firstAttribute="top" secondItem="XBs-MD-zaY" secondAttribute="top" constant="86" id="tHG-HM-aQw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XBs-MD-zaY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Setting" id="2DS-Uz-S29"/>
+                    <navigationItem key="navigationItem" title="账号与设置" id="2DS-Uz-S29"/>
                     <connections>
                         <outlet property="privacyButton" destination="eno-ki-7bE" id="AkK-K8-q9a"/>
                         <outlet property="tableView" destination="qdR-4H-XMa" id="ma2-YJ-oQs"/>
@@ -1938,18 +1958,18 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="255" height="66"/>
-        <image name="EditProfile_Edit" width="44" height="44"/>
-        <image name="EditProfile_Preview" width="44" height="44"/>
+        <image name="EditProfile_Button" width="510" height="132"/>
+        <image name="EditProfile_Edit" width="88" height="88"/>
+        <image name="EditProfile_Preview" width="88" height="88"/>
         <image name="HomeTab" width="24" height="24"/>
-        <image name="InfoPanel" width="345" height="284"/>
+        <image name="InfoPanel" width="690" height="568"/>
         <image name="LikeButtonNew" width="88" height="77"/>
-        <image name="LikeButtonNew2" width="54" height="54"/>
+        <image name="LikeButtonNew2" width="108" height="108"/>
         <image name="LocationIcon" width="21" height="26"/>
         <image name="LogoPlaceholder" width="222" height="222"/>
-        <image name="MatchModal" width="197" height="230"/>
+        <image name="MatchModal" width="394" height="460"/>
         <image name="MeTab" width="24" height="24"/>
-        <image name="Register_continue_btn" width="255" height="66"/>
+        <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SendLikeButton" width="101" height="88"/>
         <image name="SettingContinueButton" width="40" height="40"/>
         <image name="SkipButton" width="62" height="62"/>
