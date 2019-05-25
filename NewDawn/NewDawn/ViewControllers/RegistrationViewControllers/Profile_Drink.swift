@@ -23,51 +23,33 @@ class Profile_Drink: UIViewController {
     @IBOutlet weak var sociallyButton: UIButton!
     @IBOutlet weak var frequentlyButton: UIButton!
     @IBOutlet weak var noDrinkButton: UIButton!
-    @IBOutlet weak var visibleButton: UIButton!
     
     func loadStoredFields() {
         // Select the buttons if a user has already done so
         if let drink = localReadKeyValue(key: DRINK) as? String{
             if drink == NODRINK{
-                selectButton(button: noDrinkButton)
+                selectDrinkButton(button: noDrinkButton)
                 drink_pref = NODRINK
             }
             else if drink == FREQUENT_DRINK{
-                selectButton(button: frequentlyButton)
+                selectDrinkButton(button: frequentlyButton)
                 drink_pref = FREQUENT_DRINK
             }
             else if drink == SOCIAL_DRINK{
-                selectButton(button: sociallyButton)
+                selectDrinkButton(button: sociallyButton)
                 drink_pref = SOCIAL_DRINK
-            }
-        }
-        if let drink_visible = localReadKeyValue(key: VISIBLE) as? Bool {
-            let visibleField = drink_visible
-            if visibleField == true {
-                selectButton(button: visibleButton, text: "Visible")
-                visible_state = true
             }
         }
     }
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        polishUIButton(button: sociallyButton)
-        polishUIButton(button: frequentlyButton)
-        polishUIButton(button: noDrinkButton)
-        polishUIButton(button: visibleButton)
+        polishDrinkButton(button: sociallyButton)
+        polishDrinkButton(button: frequentlyButton)
+        polishDrinkButton(button: noDrinkButton)
         loadStoredFields()
     }
     
-    @IBAction func visibeButtonTapped(_ sender: Any) {
-        if visible_state == true {
-            deselectButton(button: visibleButton, text: "Invisible")
-            visible_state = false
-        } else {
-            selectButton(button: visibleButton, text: "Visible")
-            visible_state = true
-        }
-    }
     
     
     @IBAction func noDrinkButtonTapped(_ sender: Any) {
@@ -75,7 +57,7 @@ class Profile_Drink: UIViewController {
             deselectButton(button: noDrinkButton)
             drink_pref = nil
         } else {
-            selectButton(button: noDrinkButton)
+            selectDrinkButton(button: noDrinkButton)
             deselectButtons(buttons: [sociallyButton,frequentlyButton])
             drink_pref = NODRINK
         }
@@ -86,7 +68,7 @@ class Profile_Drink: UIViewController {
             deselectButton(button: frequentlyButton)
             drink_pref = nil
         } else {
-            selectButton(button: frequentlyButton)
+            selectDrinkButton(button: frequentlyButton)
             deselectButtons(buttons: [sociallyButton,noDrinkButton])
             drink_pref = FREQUENT_DRINK
         }
@@ -97,7 +79,7 @@ class Profile_Drink: UIViewController {
             deselectButton(button: sociallyButton)
             drink_pref = nil
         } else {
-            selectButton(button: sociallyButton)
+            selectDrinkButton(button: sociallyButton)
             deselectButtons(buttons: [frequentlyButton,noDrinkButton])
             drink_pref = SOCIAL_DRINK
         }
@@ -110,6 +92,21 @@ class Profile_Drink: UIViewController {
             localStoreKeyValue(key: DRINK, value: UNKNOWN)
         }
         localStoreKeyValue(key: VISIBLE, value: visible_state)
+    }
+    
+    func polishDrinkButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func selectDrinkButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
     }
     
 }
