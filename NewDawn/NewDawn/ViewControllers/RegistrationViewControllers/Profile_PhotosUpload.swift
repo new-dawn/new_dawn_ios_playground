@@ -85,9 +85,8 @@ class Profile_PhotosUpload: UIViewController {
         
         // TODO: weired flashes after end interactive movement
         case .ended:
-            collectionView.performBatchUpdates({
-                self.collectionView.endInteractiveMovement()
-            })
+            self.collectionView.endInteractiveMovement()
+            self.collectionView.reloadData()
         default:
             collectionView.cancelInteractiveMovement()
         }

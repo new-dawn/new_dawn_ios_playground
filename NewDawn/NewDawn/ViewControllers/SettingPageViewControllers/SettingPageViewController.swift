@@ -13,7 +13,6 @@ class SettingPageViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var preferenceButton: UIButton!
-    @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
@@ -32,7 +31,6 @@ class SettingPageViewController: UIViewController {
         
         // Move text up to the middle
         preferenceButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
-        accountButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         helpButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         settingButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         
@@ -50,9 +48,16 @@ class SettingPageViewController: UIViewController {
                 return
             }
             if user_profile != nil {
-                if user_profile!.mainImages.isEmpty == false {
-                    self.profileImage.downloaded(from:
-                        self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
+                DispatchQueue.main.async {
+                    let user_age = user_profile!.age
+                    let user_firstname = user_profile!.firstname
+                    let user_hometown = user_profile!.hometown
+                    self.NameAgeText.text = user_firstname + ", " + String(user_age)
+                    self.HomeTownText.text = user_hometown
+                    if user_profile!.mainImages.isEmpty == false {
+                        self.profileImage.downloaded(from:
+                            self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
+                    }
                 }
             }
         }
