@@ -39,7 +39,7 @@ class SettingPageViewController: UIViewController {
         draw.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
         view.addSubview(draw)
         
-        LoginUserUtil.fetchLoginUserProfile(getLocal: false) {
+        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, error in
             if error != nil {
                 DispatchQueue.main.async {
