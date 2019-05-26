@@ -12,9 +12,13 @@ let PHONE_NUMBER = "phone_number"
 
 class PhoneAuthenticateViewController: UIViewController {
     
+    @IBOutlet weak var confirmButton: UIButton!
     
+    @IBOutlet weak var verificationCodeTextField1: VerificationTextField!
+    @IBOutlet weak var verificationCodeTextField2: VerificationTextField!
+    @IBOutlet weak var verificationCodeTextField3: VerificationTextField!
+    @IBOutlet weak var verificationCodeTextField4: VerificationTextField!
     
-    @IBOutlet weak var verificationCodeTextField: UITextField!
     
     // The country code and phone number from previous view
     // are passed from segue
@@ -23,16 +27,16 @@ class PhoneAuthenticateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        confirmButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         // Do any additional setup after loading the view.
     }
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
         
-        let verificationCode = verificationCodeTextField.text
+        let verificationCode = verificationCodeTextField1.text! + verificationCodeTextField2.text! + verificationCodeTextField3.text! + verificationCodeTextField4.text!
         
         // Validate Username and Password
-        if (verificationCode?.isEmpty)!
+        if (verificationCode.isEmpty)
         {
             print("Verification Code is Missing")
             self.displayMessage(userMessage: "Verification code cannot be empty")
@@ -78,7 +82,7 @@ class PhoneAuthenticateViewController: UIViewController {
         let postString = [
             "phone_number": userPhoneNumber,
             "country_code": userCountryCode,
-            "verification_code": verificationCodeTextField.text!,
+            "verification_code": verificationCodeTextField1.text! + verificationCodeTextField2.text! + verificationCodeTextField3.text! + verificationCodeTextField4.text!,
         ] as [String: String]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
