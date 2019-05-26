@@ -52,9 +52,6 @@ class SettingPageViewController: UIViewController {
                     let user_age = user_profile!.age
                     let user_firstname = user_profile!.firstname
                     let user_hometown = user_profile!.hometown
-                    print(user_age)
-                    print(user_firstname)
-                    print(user_hometown)
                     self.NameAgeText.text = user_firstname + ", " + String(user_age)
                     self.HomeTownText.text = user_hometown
                     if user_profile!.mainImages.isEmpty == false {
