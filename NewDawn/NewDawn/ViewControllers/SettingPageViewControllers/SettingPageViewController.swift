@@ -25,10 +25,6 @@ class SettingPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ImageUtil.polishCircularImageView(imageView: profileImage)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(gesture:)))// add it to the image view;
-        profileImage.addGestureRecognizer(tapGesture)
-        // make sure imageView can be interacted with by user
-        profileImage.isUserInteractionEnabled = true
         
         // Move text up to the middle
         preferenceButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -58,21 +54,18 @@ class SettingPageViewController: UIViewController {
         }
     }
     
-    @objc func imageTapped(gesture: UIGestureRecognizer) {
-        // if the tapped view is a UIImageView then set it to imageview
-        if (gesture.view as? UIImageView) != nil {
-            LoginUserUtil.fetchLoginUserProfile() {
-                user_profile, error in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                    }
-                    return
+    @IBAction func previewButtonTapped(_ sender: Any) {
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
                 }
-                if user_profile != nil {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "myProfile", sender: user_profile)
-                    }
+                return
+            }
+            if user_profile != nil {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "myProfile", sender: user_profile)
                 }
             }
         }
