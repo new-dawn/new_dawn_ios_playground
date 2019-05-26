@@ -529,18 +529,8 @@
                                     <segue destination="vXc-VO-zxn" kind="show" id="Mqy-87-MOj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdr-Fx-NQg">
-                                <rect key="frame" x="47.5" y="396" width="280" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="vi4-qJ-7uA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <state key="normal" title="账号" backgroundImage="EditProfile_Button">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1a-bQ-2LW">
-                                <rect key="frame" x="47.5" y="462" width="280" height="70"/>
+                                <rect key="frame" x="47.5" y="464" width="280" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ESD-ux-5Ez"/>
                                 </constraints>
@@ -548,19 +538,6 @@
                                 <state key="normal" title="帮助与反馈" backgroundImage="EditProfile_Button">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9d-zn-2sT">
-                                <rect key="frame" x="47.5" y="530" width="280" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="24e-2V-a0D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <state key="normal" title="通用设置" backgroundImage="EditProfile_Button">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="r3Z-WH-1Wp" kind="show" id="JkI-Ua-oBd"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzj-GA-k9K">
                                 <rect key="frame" x="261" y="179" width="43" height="46"/>
@@ -589,24 +566,35 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9d-zn-2sT">
+                                <rect key="frame" x="47.5" y="394" width="280" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="24e-2V-a0D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="账号设置" backgroundImage="EditProfile_Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="r3Z-WH-1Wp" kind="show" id="JkI-Ua-oBd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Hzj-GA-k9K" secondAttribute="bottom" constant="76" id="0Me-yH-EQR"/>
                             <constraint firstItem="v1a-bQ-2LW" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="1Wd-cd-6nd"/>
+                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="n9d-zn-2sT" secondAttribute="bottom" id="Aqy-Gx-Vkh"/>
                             <constraint firstItem="JLy-3f-JN8" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Au9-fi-hzA"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="top" secondItem="bvy-J3-sr9" secondAttribute="top" constant="30" id="Bxe-B5-tx4"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JLy-3f-JN8" secondAttribute="leading" id="Clx-fJ-w2V"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="trailing" secondItem="JLy-3f-JN8" secondAttribute="trailing" id="ECP-MD-rLE"/>
-                            <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="v1a-bQ-2LW" secondAttribute="centerX" id="FrH-8O-w7A"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Hzj-GA-k9K" secondAttribute="trailing" constant="71" id="KRa-HF-NbG"/>
                             <constraint firstItem="n9d-zn-2sT" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PNc-y8-EKY"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="25" id="Pb4-0X-dAJ"/>
-                            <constraint firstItem="Fdr-Fx-NQg" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="PpS-Uh-i2x"/>
+                            <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="JgF-5v-hzk" secondAttribute="bottom" constant="23" id="Qge-8m-Aug"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="JgF-5v-hzk" secondAttribute="trailing" constant="47.5" id="Sut-t7-Cug"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="v1a-bQ-2LW" secondAttribute="trailing" constant="47.5" id="Yff-dR-s9h"/>
                             <constraint firstItem="Hzj-GA-k9K" firstAttribute="leading" secondItem="qra-ng-JQW" secondAttribute="leading" id="ZC6-dD-hmi"/>
-                            <constraint firstItem="n9d-zn-2sT" firstAttribute="top" secondItem="v1a-bQ-2LW" secondAttribute="bottom" constant="-2" id="ZZ4-DE-eQ7"/>
                             <constraint firstItem="Snv-h9-g87" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="Zss-Uc-nUu"/>
                             <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="n9d-zn-2sT" secondAttribute="trailing" constant="47.5" id="bFZ-UA-h9Z"/>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="75" id="bIB-nt-YDv"/>
@@ -616,8 +604,6 @@
                             <constraint firstItem="Hzj-GA-k9K" firstAttribute="trailing" secondItem="qra-ng-JQW" secondAttribute="trailing" constant="-3" id="ioY-wn-mUh"/>
                             <constraint firstItem="JgF-5v-hzk" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="lf4-Yt-5yH"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="top" secondItem="Snv-h9-g87" secondAttribute="bottom" constant="37" id="lt7-5F-bFt"/>
-                            <constraint firstItem="bvy-J3-sr9" firstAttribute="trailing" secondItem="Fdr-Fx-NQg" secondAttribute="trailing" constant="47.5" id="nOb-bq-bjN"/>
-                            <constraint firstItem="v1a-bQ-2LW" firstAttribute="top" secondItem="Fdr-Fx-NQg" secondAttribute="bottom" constant="-5" id="nfN-nF-NUx"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="centerX" secondItem="GPT-qK-SE0" secondAttribute="centerX" id="oVb-D4-C6p"/>
                             <constraint firstItem="ZHM-5F-xDC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bvy-J3-sr9" secondAttribute="leading" id="p8M-7J-hch"/>
                         </constraints>
@@ -627,7 +613,6 @@
                     <connections>
                         <outlet property="HomeTownText" destination="ZHM-5F-xDC" id="vqR-eZ-Zej"/>
                         <outlet property="NameAgeText" destination="JLy-3f-JN8" id="yS5-aj-sDm"/>
-                        <outlet property="accountButton" destination="Fdr-Fx-NQg" id="5c6-0S-VFy"/>
                         <outlet property="helpButton" destination="v1a-bQ-2LW" id="9in-f9-35q"/>
                         <outlet property="preferenceButton" destination="JgF-5v-hzk" id="pIZ-lX-NCt"/>
                         <outlet property="profileImage" destination="Snv-h9-g87" id="5rF-Vg-pxb"/>
@@ -1705,10 +1690,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLB-Gw-5L9">
-                                <rect key="frame" x="87.5" y="517" width="200" height="60"/>
+                                <rect key="frame" x="57.5" y="517" width="260" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="30W-Ie-r8h"/>
-                                    <constraint firstAttribute="width" constant="200" id="KFn-u5-G02"/>
+                                    <constraint firstAttribute="width" constant="260" id="KFn-u5-G02"/>
                                 </constraints>
                                 <state key="normal" title="登出" backgroundImage="Register_continue_btn">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1971,7 +1956,7 @@
         <image name="MeTab" width="24" height="24"/>
         <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SendLikeButton" width="101" height="88"/>
-        <image name="SettingContinueButton" width="40" height="40"/>
+        <image name="SettingContinueButton" width="80" height="80"/>
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="36" height="24"/>
         <image name="TableCell" width="367" height="306"/>

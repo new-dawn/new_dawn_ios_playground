@@ -88,13 +88,13 @@ class LoginUserUtil {
         }
     }
     
-    static func fetchLoginUserProfile(callback: @escaping (UserProfile?, String?) -> Void) -> Void {
+    static func fetchLoginUserProfile(readLocal: Bool = true, callback: @escaping (UserProfile?, String?) -> Void) -> Void {
         // This is a lazy fetcher where user profile will only be fetched when needed
         // After fetching, the user profile is stored locally
         // Notice that user profile will be nil if user id and accessToken is not in keychain
         if let user_id = getLoginUserId(), let accessToken = getAccessToken() {
             // Check if the user profile has already fetched and stored in local storage
-            if let user_profile: UserProfile? = LocalStorageUtil.localReadKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE) {
+            if let user_profile: UserProfile? = LocalStorageUtil.localReadKeyValueStruct(key: LoginUserUtil.LOGIN_USER_PROFILE), readLocal == true {
                 callback(user_profile, nil)
             } else {
                 LoginUserUtil.fetchUserProfile(user_id: user_id, accessToken: accessToken) {
