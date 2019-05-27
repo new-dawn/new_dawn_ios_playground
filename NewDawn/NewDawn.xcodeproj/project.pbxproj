@@ -897,6 +897,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFAE90BC116616056BF15C35 /* Pods-NewDawn.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
@@ -909,6 +911,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -916,6 +919,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0217C7CBCDCD65C763B5859 /* Pods-NewDawn.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NewDawn/NewDawn.entitlements;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawn/Info.plist;
@@ -928,6 +933,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
