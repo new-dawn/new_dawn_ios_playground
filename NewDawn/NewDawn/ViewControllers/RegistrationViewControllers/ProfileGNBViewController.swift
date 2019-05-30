@@ -108,6 +108,10 @@ class ProfileGNBViewController: UIViewController {
     func showDatePicker() {
         //Formate Date
         datePicker.datePickerMode = .date
+        
+        //Minimum 18 years old
+        datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+        
         //ToolBar
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
