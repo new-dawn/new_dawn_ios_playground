@@ -35,12 +35,12 @@ class MainPageEndViewController: UIViewController {
             self.checkMainPageReload(true)
         }
         confirmAction.setValue(UIColor.black, forKey: "titleTextColor")
-        let cancelAction = UIAlertAction(title: "一会再说", style: .cancel) { (_) in
+        let cancelAction = UIAlertAction(title: "一会再说", style: .default) { (_) in
             self.startTimer()
         }
         cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
-        alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
