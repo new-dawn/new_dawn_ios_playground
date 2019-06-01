@@ -152,6 +152,31 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
         let item = self.imagesArray[sourceIndexPath.row]
         self.imagesArray.remove(at: sourceIndexPath.row)
         self.imagesArray.insert(item, at: destinationIndexPath.row)
+        swapLocalImages(sourceRow: sourceIndexPath.row, destRow: destinationIndexPath.row)
+        
+    }
+    
+    func swapLocalImages(sourceRow: Int, destRow:Int) -> Void{
+        do {
+            let dataPath = URL(fileURLWithPath: ImageUtil.getPersonalImagesDirectory())
+            // Source to new name
+            var originPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
+            var destinationPath = dataPath.appendingPathComponent("newname.jpeg")
+            try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            
+            // Dest to Source name
+            originPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
+            destinationPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
+            try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            
+            // New Name to Dest Name
+            originPath = dataPath.appendingPathComponent("newname.jpeg")
+            destinationPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
+            try FileManager.default.moveItem(at: originPath, to: destinationPath)
+        } catch {
+            print(error)
+        }
+        
     }
     
     
