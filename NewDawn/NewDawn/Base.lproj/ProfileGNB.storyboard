@@ -1134,64 +1134,7 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-Di-Jdw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                </imageView>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3K-H6-z4t">
-                                                    <rect key="frame" x="20" y="0.0" width="30" height="30"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="To5-Es-5eb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9a8-t2-KdL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="9a8-t2-KdL" secondAttribute="height" multiplier="1:1" id="8zG-bz-aii"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="CfX-mL-VdT"/>
-                                                                    <constraint firstAttribute="width" constant="30" id="YN1-hc-Uh3"/>
-                                                                </constraints>
-                                                                <state key="normal" image="SkipButton">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="9a8-t2-KdL" firstAttribute="leading" secondItem="To5-Es-5eb" secondAttribute="leading" id="BfX-Vp-BKa"/>
-                                                            <constraint firstItem="9a8-t2-KdL" firstAttribute="top" secondItem="To5-Es-5eb" secondAttribute="top" id="HxG-nb-fBG"/>
-                                                            <constraint firstAttribute="bottom" secondItem="9a8-t2-KdL" secondAttribute="bottom" id="SJQ-cM-iHf"/>
-                                                            <constraint firstAttribute="trailing" secondItem="9a8-t2-KdL" secondAttribute="trailing" id="dbv-4K-3ea"/>
-                                                            <constraint firstItem="9a8-t2-KdL" firstAttribute="leading" secondItem="To5-Es-5eb" secondAttribute="leading" id="uD1-Ba-8HC"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="b3K-H6-z4t" secondAttribute="height" multiplier="1:1" id="0c0-YC-h1c"/>
-                                                        <constraint firstAttribute="width" constant="30" id="s5s-pZ-Hq3"/>
-                                                        <constraint firstAttribute="height" constant="30" id="zeg-mV-nuz"/>
-                                                    </constraints>
-                                                    <vibrancyEffect>
-                                                        <blurEffect style="light"/>
-                                                    </vibrancyEffect>
-                                                </visualEffectView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerX" secondItem="xsg-WM-7yh" secondAttribute="centerX" id="9Bb-VZ-lpD"/>
-                                            <constraint firstAttribute="trailing" secondItem="8nn-Di-Jdw" secondAttribute="trailing" id="D7T-be-D0p"/>
-                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="top" secondItem="8nn-Di-Jdw" secondAttribute="top" id="HKL-zB-suC"/>
-                                            <constraint firstItem="b3K-H6-z4t" firstAttribute="trailing" secondItem="8nn-Di-Jdw" secondAttribute="trailing" id="sA1-PM-tpv"/>
-                                            <constraint firstItem="8nn-Di-Jdw" firstAttribute="top" secondItem="xsg-WM-7yh" secondAttribute="top" id="wlW-KR-vAP"/>
-                                            <constraint firstItem="8nn-Di-Jdw" firstAttribute="centerY" secondItem="xsg-WM-7yh" secondAttribute="centerY" id="x1d-uY-8cM"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="deleteButton" destination="9a8-t2-KdL" id="uOT-2X-aeH"/>
-                                            <outlet property="deleteButtonBackgroundView" destination="b3K-H6-z4t" id="Fhw-Ac-4ME"/>
-                                            <outlet property="myImage" destination="8nn-Di-Jdw" id="zLb-7y-wSe"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -1468,12 +1411,12 @@
     <resources>
         <image name="RegisterPlaceHolder" width="344" height="254"/>
         <image name="Register_continue_btn" width="510" height="132"/>
-        <image name="SkipButton" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ewt-Pj-4Ll"/>
         <segue reference="iHz-cU-Dm1"/>
         <segue reference="Os6-NZ-WLV"/>
-        <segue reference="Khe-Ut-PaY"/>
+        <segue reference="OJW-vV-kwk"/>
         <segue reference="6m0-PK-7Bw"/>
         <segue reference="Sib-rs-igN"/>
         <segue reference="mEu-Ba-OjW"/>
