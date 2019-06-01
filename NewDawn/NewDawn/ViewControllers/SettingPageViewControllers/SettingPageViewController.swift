@@ -42,6 +42,8 @@ class SettingPageViewController: UIViewController {
                 LoginUserUtil.logout()
                 return
             }
+            // TODO: Have a helper function to check both login
+            // user id and access token matching status
             if user_profile == nil && LoginUserUtil.getLoginUserId() != 1 {
                 self.displayMessage(userMessage: "Error: User profile doesn't exist. This might mean that your profile has been deleted from database: \(error!)")
                 LoginUserUtil.logout()
