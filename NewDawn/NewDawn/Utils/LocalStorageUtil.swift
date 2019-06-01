@@ -42,6 +42,11 @@ class LocalStorageUtil {
     static func localRemoveKey(key: String) {
         UserDefaults.standard.removeObject(forKey: key)
     }
+    
+    static func localRemoveAll() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+    }
 }
 
 class LoginUserUtil {
@@ -70,9 +75,18 @@ class LoginUserUtil {
         return KeychainWrapper.standard.hasValue(forKey: LoginUserUtil.USER_ID) && KeychainWrapper.standard.hasValue(forKey: LoginUserUtil.ACCESS_TOKEN)
     }
     
-    static func logout() -> Bool {
-        LocalStorageUtil.localRemoveKey(key: LoginUserUtil.LOGIN_USER_PROFILE)
-        return KeychainWrapper.standard.removeAllKeys()
+    static func logout() -> Void {
+        _ = KeychainWrapper.standard.removeAllKeys()
+        LocalStorageUtil.localRemoveAll()
+        // Take user to the landing page
+        let landingStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // Go to profile page
+        DispatchQueue.main.async {
+            let landingPage = landingStoryboard.instantiateViewController(withIdentifier: "AppLandingViewController")
+                as! AppLandingViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = landingPage
+        }
     }
 
     static func fetchUserProfile(user_id: Int, accessToken: String, callback: @escaping (UserProfile?, String?) -> Void) -> Void {
