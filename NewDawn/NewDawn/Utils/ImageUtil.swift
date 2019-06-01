@@ -12,6 +12,7 @@ import UIKit
 let MAX_IMG_SIZE = 256000
 // This image can be replaced by other default images
 let BLANK_IMG = UIImage(named: "EmptyImage")!
+let DEFAULT_IMG = UIImage(named: "LogoPlaceholder")!
 
 class ImageUtil {
     static func polishCircularImageView(imageView: UIImageView) -> Void {
