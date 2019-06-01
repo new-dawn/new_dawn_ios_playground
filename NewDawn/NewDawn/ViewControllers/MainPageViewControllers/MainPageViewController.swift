@@ -19,7 +19,7 @@ class MainPageViewController: UIViewController {
     var current_user_profile: UserProfile?
     
     func isLiked(_ userProfile: UserProfile) -> Bool {
-        return userProfile.likedInfo.liked_entity_type != 0
+        return userProfile.likedInfoFromYou.liked_entity_type != 0
     }
 
     override func viewDidLoad() {

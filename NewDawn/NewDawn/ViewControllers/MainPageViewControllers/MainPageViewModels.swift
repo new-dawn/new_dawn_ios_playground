@@ -123,7 +123,7 @@ class MainPageViewModel: NSObject {
             name: userProfile.firstname + " " + userProfile.lastname,
             user_id: userProfile.user_id,
             id: userProfile.questionAnswers[index].id,
-            liked_me: userProfile.likedInfo.liked_entity_type != 0
+            liked_me: userProfile.likedInfoFromYou.liked_entity_type != 0
         )
         return questionAnswer
     }
@@ -139,14 +139,14 @@ class MainPageViewModel: NSObject {
             isFirst: index == 0,
             user_id: userProfile.user_id,
             id:  userProfile.mainImages[index].id,
-            liked_me: userProfile.likedInfo.liked_entity_type != 0
+            liked_me: userProfile.likedInfoFromYou.liked_entity_type != 0
         )
         return mainImage
     }
     
     func fetchLikeMe(userProfile: UserProfile) -> LikeMeViewModelItem? {
         // Append liked banner on top of the view
-        let likedInfo = userProfile.likedInfo
+        let likedInfo = userProfile.likedInfoFromYou
         if hasLikedInfo(likedInfo: likedInfo) {
             return LikeMeViewModelItem(
                 LikeMeInfo(
