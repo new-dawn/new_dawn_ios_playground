@@ -19,7 +19,8 @@ let IMAGE_URL = "image_url"
 let AGE = "age"
 let CANDIDATE_PROFILES = "user_profiles"
 let USERID = "user_id"
-let LIKED_INFO = "liked_info"
+let LIKED_INFO_FROM_YOU = "liked_info_from_you"
+let LIKED_INFO_FROM_ME = "liked_info_from_me"
 let LIKED_MESSAGE = "liked_message"
 let LIKED_ENTITY_TYPE = "liked_entity_type"
 let LIKED_IMAGE_URL = "liked_image_url"
@@ -162,7 +163,8 @@ struct UserProfile: Codable {
     var smoke: String = UNKNOWN
     var questionAnswers: Array<QuestionAnswer> = [QuestionAnswer]()
     var mainImages: Array<MainImage> = [MainImage]()
-    var likedInfo: LikedInfo = LikedInfo([:])
+    var likedInfoFromYou: LikedInfo = LikedInfo([:])
+    var likedInfoFromMe: LikedInfo = LikedInfo([:])
     
     init(data: NSDictionary) {
         if let user_id = data[USERID] as? String {
@@ -221,8 +223,11 @@ struct UserProfile: Codable {
                 }
             }
         }
-        if let likedInfo = data[LIKED_INFO] as? [String:Any] {
-            self.likedInfo = LikedInfo(likedInfo)
+        if let likedInfoFromYou = data[LIKED_INFO_FROM_YOU] as? [String:Any] {
+            self.likedInfoFromYou = LikedInfo(likedInfoFromYou)
+        }
+        if let likedInfoFromMe = data[LIKED_INFO_FROM_ME] as? [String:Any] {
+            self.likedInfoFromMe = LikedInfo(likedInfoFromMe)
         }
     }
 }
@@ -265,7 +270,8 @@ class UserProfileBuilder{
             DRINK: profile_data[DRINK] as? String ?? UNKNOWN,
             IMAGES: profile_data[IMAGES] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>(),
-            LIKED_INFO: profile_data[LIKED_INFO] as? [String:Any] ?? [:]
+            LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
+            LIKED_INFO_FROM_ME: profile_data[LIKED_INFO_FROM_ME] as? [String:Any] ?? [:]
         ]
         return info
     }
