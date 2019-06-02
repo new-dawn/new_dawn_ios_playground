@@ -13,7 +13,7 @@ class SettingPageViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var preferenceButton: UIButton!
-    @IBOutlet weak var helpButton: UIButton!
+//    @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     
     @IBOutlet weak var NameAgeText: UILabel!
@@ -27,7 +27,7 @@ class SettingPageViewController: UIViewController {
         
         // Move text up to the middle
         preferenceButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
-        helpButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
+//        helpButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         settingButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // Draw Straight Line
