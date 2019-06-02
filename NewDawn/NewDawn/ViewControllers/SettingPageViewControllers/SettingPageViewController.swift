@@ -38,9 +38,15 @@ class SettingPageViewController: UIViewController {
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, error in
             if error != nil {
-                DispatchQueue.main.async {
-                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                }
+                self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                LoginUserUtil.logout()
+                return
+            }
+            // TODO: Have a helper function to check both login
+            // user id and access token matching status
+            if user_profile == nil && LoginUserUtil.getLoginUserId() != 1 {
+                self.displayMessage(userMessage: "Error: User profile doesn't exist. This might mean that your profile has been deleted from database: \(error!)")
+                LoginUserUtil.logout()
                 return
             }
             if user_profile != nil {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0633895322A2CE0F005C8784 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0633895122A2CE0F005C8784 /* ImageCollectionViewCell.swift */; };
+		0633895422A2CE0F005C8784 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */; };
 		064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */; };
 		066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */; };
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
@@ -45,7 +47,6 @@
 		24C09FB72263E99400302CEF /* Profile_WorkJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F802263E99400302CEF /* Profile_WorkJob.swift */; };
 		24C09FB82263E99400302CEF /* ProfileGNBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F812263E99400302CEF /* ProfileGNBViewController.swift */; };
 		24C09FB92263E99400302CEF /* Profile_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F822263E99400302CEF /* Profile_Photos.swift */; };
-		24C09FBA2263E99400302CEF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */; };
 		24C09FBB2263E99400302CEF /* Profile_HomeTown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F842263E99400302CEF /* Profile_HomeTown.swift */; };
 		24C09FBC2263E99400302CEF /* Profile_PhotosUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F852263E99400302CEF /* Profile_PhotosUpload.swift */; };
 		24C09FBD2263E99400302CEF /* Profile_Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F862263E99400302CEF /* Profile_Education.swift */; };
@@ -90,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		04C89C23CC2E72EC69940A16 /* Pods_NewDawnUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewDawnUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0633895122A2CE0F005C8784 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefSettingTableCell.swift; sourceTree = "<group>"; };
 		066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingTabelCell.swift; sourceTree = "<group>"; };
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
@@ -129,7 +132,6 @@
 		24C09F802263E99400302CEF /* Profile_WorkJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_WorkJob.swift; sourceTree = "<group>"; };
 		24C09F812263E99400302CEF /* ProfileGNBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGNBViewController.swift; sourceTree = "<group>"; };
 		24C09F822263E99400302CEF /* Profile_Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Photos.swift; sourceTree = "<group>"; };
-		24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		24C09F842263E99400302CEF /* Profile_HomeTown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_HomeTown.swift; sourceTree = "<group>"; };
 		24C09F852263E99400302CEF /* Profile_PhotosUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_PhotosUpload.swift; sourceTree = "<group>"; };
 		24C09F862263E99400302CEF /* Profile_Education.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Education.swift; sourceTree = "<group>"; };
@@ -198,10 +200,11 @@
 			isa = PBXGroup;
 			children = (
 				064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */,
-				24C09F832263E99400302CEF /* ImageCollectionViewCell.swift */,
 				06C278D9228908C600BB718A /* PhotoLayout.swift */,
 				066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */,
 				112A30402298FB280078A95B /* VerificationTextField.swift */,
+				0633895122A2CE0F005C8784 /* ImageCollectionViewCell.swift */,
+				0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */,
 			);
 			path = CustomLayouts;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				24C09FAC2263E99400302CEF /* QuestionAnswer.storyboard in Resources */,
 				24C09FAA2263E99400302CEF /* MainPage.storyboard in Resources */,
 				24C09FA02263E99400302CEF /* Assets.xcassets in Resources */,
+				0633895422A2CE0F005C8784 /* ImageCollectionViewCell.xib in Resources */,
 				24C09FA92263E99400302CEF /* LaunchScreen.storyboard in Resources */,
 				24C09FAD2263E99400302CEF /* ProfileGNB.storyboard in Resources */,
 				24C09FAB2263E99400302CEF /* Main.storyboard in Resources */,
@@ -670,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0633895322A2CE0F005C8784 /* ImageCollectionViewCell.swift in Sources */,
 				24C09FCC2263E99400302CEF /* PhoneVerifyViewController.swift in Sources */,
 				24C09FAE2263E99400302CEF /* ViewController.swift in Sources */,
 				112A30412298FB280078A95B /* VerificationTextField.swift in Sources */,
@@ -701,7 +706,6 @@
 				24C09FC42263E99400302CEF /* MainPageEndViewController.swift in Sources */,
 				24C09FC52263E99400302CEF /* ModalPopupViewController.swift in Sources */,
 				24C09FC22263E99400302CEF /* MainPageTableViewCell.swift in Sources */,
-				24C09FBA2263E99400302CEF /* ImageCollectionViewCell.swift in Sources */,
 				24C09FBD2263E99400302CEF /* Profile_Education.swift in Sources */,
 				24C09FB82263E99400302CEF /* ProfileGNBViewController.swift in Sources */,
 				24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */,

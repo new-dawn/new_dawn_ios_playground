@@ -63,40 +63,50 @@ class ChatRoomViewController: MessagesViewController {
         }
     }
     
-    func fetchLikeMessage(profile: UserProfile) -> Void {
-        let likeInfo = profile.likedInfo
-        let sender = Sender(id: String(userIdYou), displayName: String(userNameYou))
-        if likeInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
-            ImageUtil.downLoadImage(url: likeInfo.liked_image_url) {
+    func fetchLikedInfoAsMessage(likedInfo: LikedInfo, sender: Sender) -> Void {
+        if likedInfo.liked_entity_type == EntityType.MAIN_IMAGE.rawValue {
+            // Append a image
+            let image_message_index = self.messages.count
+            self.messages.append(
+                ImageMessage(sender: sender, image: DEFAULT_IMG)
+            )
+            // Append message
+            self.messages.append(
+                TextMessage(sender: sender, content: likedInfo.liked_message)
+            )
+            ImageUtil.downLoadImage(url: likedInfo.liked_image_url) {
                 image in
-                // Append a image
-                self.messages.append(
-                    ImageMessage(sender: sender, image: image)
-                )
-                // Append message
-                self.messages.append(
-                    TextMessage(sender: sender, content: likeInfo.liked_message)
-                )
-                self.fetchRegularMessage()
+                self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
+                self.messagesCollectionView.reloadData()
             }
         }
-        else if likeInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
+        else if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
             // Append a answer
             self.messages.append(
                 TextMessage(
                     sender: sender,
-                    content: "I like your answer \"\(likeInfo.liked_answer)\" for question \"\(likeInfo.liked_question)\""
+                    content: "I like your answer \"\(likedInfo.liked_answer)\" for question \"\(likedInfo.liked_question)\""
                 )
             )
             // Append message
             self.messages.append(
-                TextMessage(sender: sender, content: likeInfo.liked_message)
+                TextMessage(sender: sender, content: likedInfo.liked_message)
             )
-            fetchRegularMessage()
         }
-        else {
-            fetchRegularMessage()
-        }
+    }
+    
+    func fetchAllMessages(profile: UserProfile) -> Void {
+        let likedInfoFromYou = profile.likedInfoFromYou
+        let likedInfoFromMe = profile.likedInfoFromMe
+        fetchLikedInfoAsMessage(
+            likedInfo: likedInfoFromYou,
+            sender: Sender(id: String(userIdYou), displayName: String(userNameYou))
+        )
+        fetchLikedInfoAsMessage(
+            likedInfo: likedInfoFromMe,
+            sender: Sender(id: String(userIdMe), displayName: String(userNameMe))
+        )
+        fetchRegularMessage()
     }
     
     func fetchRegularMessage() -> Void {
@@ -125,7 +135,7 @@ class ChatRoomViewController: MessagesViewController {
     func fetchMessagesFromHistory() -> Void {
         fetchEndUserProfile() {
             profile in
-            self.fetchLikeMessage(profile: profile)
+            self.fetchAllMessages(profile: profile)
         }
     }
 

@@ -110,6 +110,10 @@ class ProfileGNBViewController: UIViewController {
         datePicker.datePickerMode = .date
         
         //Minimum 18 years old
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9780c9f15fd4c061f2eada6911200340981bd0d3
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
         
         //ToolBar

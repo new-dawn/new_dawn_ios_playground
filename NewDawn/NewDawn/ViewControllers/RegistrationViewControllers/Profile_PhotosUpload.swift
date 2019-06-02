@@ -29,7 +29,7 @@ class Profile_PhotosUpload: UIViewController {
         super.viewDidLoad()
         // Default images
         imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
-        
+        collectionView.register(UINib.init(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
         // Get documents folder
         let dataPath = ImageUtil.getPersonalImagesDirectory()
         
@@ -129,12 +129,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         cell.backgroundColor = UIColor.white
-        cell.deleteButtonBackgroundView.layer.cornerRadius = 0.5 * cell.deleteButtonBackgroundView.bounds.size.width
-        cell.deleteButtonBackgroundView.clipsToBounds = true
-        cell.deleteButtonBackgroundView.backgroundColor = UIColor.white
-        cell.myImage.image = imagesArray[indexPath.row].image as UIImage
+        cell.imageview.image = imagesArray[indexPath.row].image as UIImage
         let delete_button = cell.deleteButton
         delete_button!.tag = indexPath.row
         if imagesArray[indexPath.row].image != BLANK_IMG{

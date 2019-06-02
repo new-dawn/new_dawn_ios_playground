@@ -14,7 +14,7 @@ class AppLandingViewController: UIViewController {
         super.viewDidLoad()
         // Override point for customization after application launch.
         if LoginUserUtil.isLogin() {
-            LoginUserUtil.fetchLoginUserProfile() {
+            LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
                 user_profile, error in
                 if error != nil {
                     self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
@@ -30,9 +30,6 @@ class AppLandingViewController: UIViewController {
                     _ = LoginUserUtil.logout()
                 }
             }
-        } else {
-            // Even if the user wasn't login, we clean up the credential for safety
-            _ = LoginUserUtil.logout()
         }
     }
     
