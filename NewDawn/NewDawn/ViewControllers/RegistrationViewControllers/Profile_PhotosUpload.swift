@@ -270,7 +270,6 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
     func gallary() {
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
-        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(picker,animated: true ,completion: nil)
     }
     
