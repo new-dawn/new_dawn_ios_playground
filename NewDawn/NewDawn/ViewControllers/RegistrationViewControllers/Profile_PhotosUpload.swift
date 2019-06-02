@@ -28,7 +28,7 @@ class Profile_PhotosUpload: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Default images
-        imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
+        imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
         collectionView.register(UINib.init(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
         // Get documents folder
         let dataPath = ImageUtil.getPersonalImagesDirectory()
@@ -144,6 +144,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     // Enable drag and drop
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        if imagesArray[indexPath.row].image == BLANK_IMG{
+            return false
+        }
         return true
     }
     
@@ -157,24 +160,59 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func swapLocalImages(sourceRow: Int, destRow:Int) -> Void{
-        do {
-            let dataPath = URL(fileURLWithPath: ImageUtil.getPersonalImagesDirectory())
-            // Source to new name
+        let dataPath = URL(fileURLWithPath: ImageUtil.getPersonalImagesDirectory())
+        if sourceRow > destRow{
+            // Source to temp name
             var originPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
-            var destinationPath = dataPath.appendingPathComponent("newname.jpeg")
-            try FileManager.default.moveItem(at: originPath, to: destinationPath)
-            
-            // Dest to Source name
-            originPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
-            destinationPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
-            try FileManager.default.moveItem(at: originPath, to: destinationPath)
-            
-            // New Name to Dest Name
-            originPath = dataPath.appendingPathComponent("newname.jpeg")
+            var destinationPath = dataPath.appendingPathComponent("temp.jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+            for index in stride(from: sourceRow - 1, to: destRow - 1, by: -1){
+                originPath = dataPath.appendingPathComponent(String(index) + ".jpeg")
+                destinationPath = dataPath.appendingPathComponent(String(index + 1) + ".jpeg")
+                do {
+                    try FileManager.default.moveItem(at: originPath, to: destinationPath)
+                } catch {
+                    print(error)
+                }
+            }
+            originPath = dataPath.appendingPathComponent("temp.jpeg")
             destinationPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
-            try FileManager.default.moveItem(at: originPath, to: destinationPath)
-        } catch {
-            print(error)
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+        }else if sourceRow < destRow{
+            // Source to temp name
+            var originPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
+            var destinationPath = dataPath.appendingPathComponent("temp.jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+            for index in stride(from: sourceRow + 1, to: destRow, by: 1){
+                originPath = dataPath.appendingPathComponent(String(index) + ".jpeg")
+                destinationPath = dataPath.appendingPathComponent(String(index - 1) + ".jpeg")
+                do {
+                    try FileManager.default.moveItem(at: originPath, to: destinationPath)
+                } catch {
+                    print(error)
+                }
+            }
+            originPath = dataPath.appendingPathComponent("temp.jpeg")
+            destinationPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+        }else{
+            return
         }
         
     }
