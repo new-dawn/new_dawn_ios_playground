@@ -20,6 +20,10 @@ class AgePrefViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var age_range: UITextField!
     
     override func viewDidLoad() {
+        if let age_pref = LocalStorageUtil.localReadKeyValue(key: "age_pref"){
+            age_range.text = (age_pref as! String)
+        }
+        
         age_range.setBottomBorder()
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
@@ -99,6 +103,9 @@ class HeightPrefViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var height_range: UITextField!
     
     override func viewDidLoad() {
+        if let height_pref = LocalStorageUtil.localReadKeyValue(key: "height_pref"){
+            height_range.text = (height_pref as! String)
+        }
         height_range.setBottomBorder()
         let toolbar = UIToolbar();
         toolbar.sizeToFit()

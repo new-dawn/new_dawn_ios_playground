@@ -28,7 +28,7 @@ class Profile_PhotosUpload: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Default images
-        imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
+        imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
         collectionView.register(UINib.init(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
         // Get documents folder
         let dataPath = ImageUtil.getPersonalImagesDirectory()
@@ -144,6 +144,9 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
     
     // Enable drag and drop
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        if imagesArray[indexPath.row].image == BLANK_IMG{
+            return false
+        }
         return true
     }
     
@@ -152,6 +155,66 @@ extension Profile_PhotosUpload: UICollectionViewDataSource, UICollectionViewDele
         let item = self.imagesArray[sourceIndexPath.row]
         self.imagesArray.remove(at: sourceIndexPath.row)
         self.imagesArray.insert(item, at: destinationIndexPath.row)
+        swapLocalImages(sourceRow: sourceIndexPath.row, destRow: destinationIndexPath.row)
+        
+    }
+    
+    func swapLocalImages(sourceRow: Int, destRow:Int) -> Void{
+        let dataPath = URL(fileURLWithPath: ImageUtil.getPersonalImagesDirectory())
+        if sourceRow > destRow{
+            // Source to temp name
+            var originPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
+            var destinationPath = dataPath.appendingPathComponent("temp.jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+            for index in stride(from: sourceRow - 1, to: destRow - 1, by: -1){
+                originPath = dataPath.appendingPathComponent(String(index) + ".jpeg")
+                destinationPath = dataPath.appendingPathComponent(String(index + 1) + ".jpeg")
+                do {
+                    try FileManager.default.moveItem(at: originPath, to: destinationPath)
+                } catch {
+                    print(error)
+                }
+            }
+            originPath = dataPath.appendingPathComponent("temp.jpeg")
+            destinationPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+        }else if sourceRow < destRow{
+            // Source to temp name
+            var originPath = dataPath.appendingPathComponent(String(sourceRow) + ".jpeg")
+            var destinationPath = dataPath.appendingPathComponent("temp.jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+            for index in stride(from: sourceRow + 1, to: destRow, by: 1){
+                originPath = dataPath.appendingPathComponent(String(index) + ".jpeg")
+                destinationPath = dataPath.appendingPathComponent(String(index - 1) + ".jpeg")
+                do {
+                    try FileManager.default.moveItem(at: originPath, to: destinationPath)
+                } catch {
+                    print(error)
+                }
+            }
+            originPath = dataPath.appendingPathComponent("temp.jpeg")
+            destinationPath = dataPath.appendingPathComponent(String(destRow) + ".jpeg")
+            do {
+                try FileManager.default.moveItem(at: originPath, to: destinationPath)
+            } catch {
+                print(error)
+            }
+        }else{
+            return
+        }
+        
     }
     
     
@@ -207,7 +270,6 @@ extension Profile_PhotosUpload: UIImagePickerControllerDelegate, UINavigationCon
     func gallary() {
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
-        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(picker,animated: true ,completion: nil)
     }
     
