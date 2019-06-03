@@ -11,6 +11,7 @@ import MessageKit
 import MessageInputBar
 import PusherSwift
 
+
 // Chat history of the user to another user
 struct SingleChatHistory: Codable {
     var id: String
@@ -252,6 +253,26 @@ class ChatRoomViewController: MessagesViewController {
             )
         }
     }
+    
+    @IBAction func imTakenButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "专属模式", message: "确认向" + userNameYou + "发出“专属”邀请吗？" + userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.left
+        let messageText = NSMutableAttributedString(
+            string: "确认向" + userNameYou + "发出“专属”邀请吗？" + userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
+            attributes: [
+                NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
+            ]
+        )
+        alertController.setValue(messageText, forKey: "attributedMessage")
+        self.present(alertController, animated: true, completion: nil)
+        let confirmAction = UIAlertAction(title: "确定", style: .default)
+        let cancelAction = UIAlertAction(title: "取消", style: .default)
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+    }
+    
 }
 
 extension ChatRoomViewController: MessagesDataSource {
