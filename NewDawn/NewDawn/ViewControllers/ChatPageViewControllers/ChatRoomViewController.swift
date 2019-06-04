@@ -267,7 +267,9 @@ class ChatRoomViewController: MessagesViewController {
         )
         alertController.setValue(messageText, forKey: "attributedMessage")
         self.present(alertController, animated: true, completion: nil)
-        let confirmAction = UIAlertAction(title: "确定", style: .default)
+        let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
+            HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
+        }
         let cancelAction = UIAlertAction(title: "取消", style: .default)
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
