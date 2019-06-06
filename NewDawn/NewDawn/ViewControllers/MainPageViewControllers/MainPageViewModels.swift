@@ -31,6 +31,7 @@ enum UserActionType: Int{
     case RELATIONSHIP = 4
     case MESSAGE = 5
     case REQUEST_TAKEN = 6
+    case UNMATCH = 7
 }
 
 enum EntityType: Int{
