@@ -194,6 +194,8 @@ class ChatRoomViewController: MessagesViewController {
     }
 
     override func viewDidLoad() {
+        messagesCollectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: MyCustomMessagesFlowLayout())
+        messagesCollectionView.register(MyCustomCell.self)
         super.viewDidLoad()
         configureSenders()
         messagesCollectionView.messagesDataSource = self
@@ -202,6 +204,20 @@ class ChatRoomViewController: MessagesViewController {
         messagesCollectionView.messageCellDelegate = self
         messageInputBar.delegate = self
         fetchMessagesFromHistory()
+    }
+    
+    override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let messagesDataSource = messagesCollectionView.messagesDataSource else {
+            fatalError("Ouch. nil data source for messages")
+        }
+        
+        let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
+        if case .custom = message.kind {
+            let cell = messagesCollectionView.dequeueReusableCell(MyCustomCell.self, for: indexPath)
+            cell.configure(with: message, at: indexPath, and: messagesCollectionView)
+            return cell
+        }
+        return super.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -273,6 +289,14 @@ class ChatRoomViewController: MessagesViewController {
         let cancelAction = UIAlertAction(title: "取消", style: .default)
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
+    }
+    
+}
+
+// Customize this collection view cell with data passed in from message, which is of type .custom
+open class MyCustomCell: UICollectionViewCell {
+    open func configure(with message: MessageType, at indexPath: IndexPath, and messagesCollectionView: MessagesCollectionView) {
+        self.contentView.backgroundColor = UIColor.red
     }
     
 }

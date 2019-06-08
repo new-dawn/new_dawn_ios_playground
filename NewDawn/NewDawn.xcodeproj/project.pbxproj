@@ -14,6 +14,7 @@
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
 		06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C278D9228908C600BB718A /* PhotoLayout.swift */; };
+		111DF6AC22A8B19C000F9592 /* MyCustomMessagesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111DF6AB22A8B19C000F9592 /* MyCustomMessagesFlowLayout.swift */; };
 		112A30412298FB280078A95B /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A30402298FB280078A95B /* VerificationTextField.swift */; };
 		2408CE3F2279331800042776 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408CE3E2279331800042776 /* UIViewExtensions.swift */; };
 		24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377835228536CF00F41CB6 /* UIButtonExtensions.swift */; };
@@ -98,6 +99,7 @@
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		06C278D9228908C600BB718A /* PhotoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLayout.swift; sourceTree = "<group>"; };
+		111DF6AB22A8B19C000F9592 /* MyCustomMessagesFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomMessagesFlowLayout.swift; sourceTree = "<group>"; };
 		112A30402298FB280078A95B /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		2408CE3E2279331800042776 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				112A30402298FB280078A95B /* VerificationTextField.swift */,
 				0633895122A2CE0F005C8784 /* ImageCollectionViewCell.swift */,
 				0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */,
+				111DF6AB22A8B19C000F9592 /* MyCustomMessagesFlowLayout.swift */,
 			);
 			path = CustomLayouts;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				24C09FB12263E99400302CEF /* SelectQuestionViewController.swift in Sources */,
 				24C09FB02263E99400302CEF /* AnswerQuestionViewController.swift in Sources */,
 				24C09FA82263E99400302CEF /* Message.swift in Sources */,
+				111DF6AC22A8B19C000F9592 /* MyCustomMessagesFlowLayout.swift in Sources */,
 				24C09FC02263E99400302CEF /* Profile_Notificatioin.swift in Sources */,
 				24C09FBF2263E99400302CEF /* Profile_Drink.swift in Sources */,
 				06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */,
