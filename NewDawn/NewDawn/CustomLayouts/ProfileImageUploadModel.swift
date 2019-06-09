@@ -27,7 +27,6 @@ class ProfileImageUploadModel: NSObject{
     
     init(_ cv: UICollectionView, _ Controller: UIViewController?) {
         super.init()
-        print("cool")
         collectionView = cv
         viewcontroller = Controller
         let customLayout = PhotoCollectionViewLayout(size: CGSize(width: 300, height: 300))
@@ -86,13 +85,11 @@ class ProfileImageUploadModel: NSObject{
 // Handle collection view data source and delegate
 extension ProfileImageUploadModel: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("no")
         return 6
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("bad")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         cell.backgroundColor = UIColor.white
         print(cell.imageview)

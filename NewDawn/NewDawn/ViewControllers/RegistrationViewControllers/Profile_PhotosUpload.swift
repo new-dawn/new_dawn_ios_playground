@@ -20,7 +20,6 @@ class Profile_PhotosUpload: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("good")
         collectionView.delegate = imageCV
         collectionView.dataSource = imageCV
         collectionView.dragInteractionEnabled = true
