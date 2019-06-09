@@ -1137,10 +1137,6 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="cKV-BN-cTX" id="CFz-LA-XYr"/>
-                                    <outlet property="delegate" destination="cKV-BN-cTX" id="5U2-GR-eUj"/>
-                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按并拖拽来编排照片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-ZL-gF4">
                                 <rect key="frame" x="122.5" y="135" width="130.5" height="18.5"/>
@@ -1166,7 +1162,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="aRg-c6-mmc" id="VeM-NS-AqV"/>
+                        <outlet property="collectionView" destination="aRg-c6-mmc" id="VMJ-26-uaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HFK-HH-cOO" userLabel="First Responder" sceneMemberID="firstResponder"/>

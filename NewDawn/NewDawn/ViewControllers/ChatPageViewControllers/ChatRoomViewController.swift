@@ -291,6 +291,34 @@ class ChatRoomViewController: MessagesViewController {
         alertController.addAction(confirmAction)
     }
     
+    @IBAction func OptionsButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alertController, animated: true)
+        let unmatchAction = self.getUnmatchAlertAction()
+        let cancelAction = UIAlertAction(title: "返回", style: .default)
+        alertController.addAction(unmatchAction)
+        alertController.addAction(cancelAction)
+    }
+    
+    func getUnmatchAlertAction() -> UIAlertAction {
+        return UIAlertAction(title: "删除匹配", style: .default) {(_) in
+            let unmatchAlertController = UIAlertController(title: "删除匹配", message: "确认删除与对方用户的匹配吗？删除匹配后，双方将无法继续与对方聊天", preferredStyle: .alert)
+            self.present(unmatchAlertController, animated: true)
+            let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
+                HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNMATCH.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
+                // Go back to Chat root page
+                DispatchQueue.main.async {
+                    let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
+                    let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
+                    self.present (vc, animated: false, completion: nil)
+                    vc.selectedIndex = 1
+                }
+            }
+            let cancelAction = UIAlertAction(title: "返回", style: .default)
+            unmatchAlertController.addAction(cancelAction)
+            unmatchAlertController.addAction(confirmAction)
+        }
+    }
 }
 
 // Customize this collection view cell with data passed in from message, which is of type .custom
