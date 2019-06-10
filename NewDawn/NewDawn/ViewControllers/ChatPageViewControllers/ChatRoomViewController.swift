@@ -77,8 +77,10 @@ class ChatRoomViewController: MessagesViewController {
             )
             ImageUtil.downLoadImage(url: likedInfo.liked_image_url) {
                 image in
-                self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
-                self.messagesCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
+                    self.messagesCollectionView.reloadData()
+                }
             }
         }
         else if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
@@ -360,8 +362,10 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
         } else {
             ImageUtil.downLoadImage(url: url!) {
                 image in
-                let avatar = Avatar(image: image, initials: "NA")
-                view.set(avatar: avatar)
+                DispatchQueue.main.async {
+                    let avatar = Avatar(image: image, initials: "NA")
+                    view.set(avatar: avatar)
+                }
             }
         }
     }

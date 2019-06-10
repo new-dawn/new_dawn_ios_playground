@@ -8,6 +8,7 @@ target 'NewDawn' do
   pod 'PusherSwift'
   pod 'Alamofire', '~> 4.0'
   pod 'PushNotifications', '~> 1.2.0'
+  pod 'Kingfisher', '~> 5.0'
   target 'NewDawnTests' do
     inherit! :search_paths
     # Pods for testing
