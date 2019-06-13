@@ -11,6 +11,7 @@
 		0633895422A2CE0F005C8784 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */; };
 		064DFAA12291AE0200D97784 /* PrefSettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */; };
 		0655DAC322A7635D0029604B /* ProfileImageUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655DAC222A7635D0029604B /* ProfileImageUploadModel.swift */; };
+		065B7F8422ACBC5600A1A3B0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7F8322ACBC5600A1A3B0 /* EditProfileViewController.swift */; };
 		066CAD5F2290B3D100040F93 /* AccountSettingTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */; };
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
@@ -96,6 +97,7 @@
 		0633895222A2CE0F005C8784 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		064DFAA02291AE0200D97784 /* PrefSettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefSettingTableCell.swift; sourceTree = "<group>"; };
 		0655DAC222A7635D0029604B /* ProfileImageUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUploadModel.swift; sourceTree = "<group>"; };
+		065B7F8322ACBC5600A1A3B0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		066CAD5E2290B3D100040F93 /* AccountSettingTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingTabelCell.swift; sourceTree = "<group>"; };
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				24C09F942263E99400302CEF /* ProfileSettingViewController.swift */,
 				0687F0D122680B7B00729334 /* PreferenceViewController.swift */,
 				0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */,
+				065B7F8322ACBC5600A1A3B0 /* EditProfileViewController.swift */,
 			);
 			path = SettingPageViewControllers;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				24C09FC42263E99400302CEF /* MainPageEndViewController.swift in Sources */,
 				24C09FC52263E99400302CEF /* ModalPopupViewController.swift in Sources */,
 				24C09FC22263E99400302CEF /* MainPageTableViewCell.swift in Sources */,
+				065B7F8422ACBC5600A1A3B0 /* EditProfileViewController.swift in Sources */,
 				24C09FBD2263E99400302CEF /* Profile_Education.swift in Sources */,
 				24C09FB82263E99400302CEF /* ProfileGNBViewController.swift in Sources */,
 				24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */,

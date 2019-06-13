@@ -25,11 +25,11 @@ class ProfileImageUploadModel: NSObject{
     var imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
     let dataPath = ImageUtil.getPersonalImagesDirectory()
     
-    init(_ cv: UICollectionView, _ Controller: UIViewController?) {
+    init(_ cv: UICollectionView, _ Controller: UIViewController?, _ size: Int) {
         super.init()
         collectionView = cv
         viewcontroller = Controller
-        let customLayout = PhotoCollectionViewLayout(size: CGSize(width: 300, height: 300))
+        let customLayout = PhotoCollectionViewLayout(size: CGSize(width: size, height: size))
         collectionView!.collectionViewLayout = customLayout
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView!.addGestureRecognizer(longPressGesture)
