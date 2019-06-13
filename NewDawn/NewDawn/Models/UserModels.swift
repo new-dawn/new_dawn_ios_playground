@@ -282,10 +282,9 @@ class UserProfileBuilder{
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
             LIKED_INFO_FROM_ME: profile_data[LIKED_INFO_FROM_ME] as? [String:Any] ?? [:],
-            TAKEN_REQUESTED_FROM_YOU: profile_data[TAKEN_REQUESTED_FROM_YOU] as? Bool ?? UNKNOWN,
-            TAKEN_REQUESTED_FROM_ME: profile_data[TAKEN_REQUESTED_FROM_ME] as? Bool ?? UNKNOWN
+            TAKEN_REQUESTED_FROM_YOU: profile_data[TAKEN_REQUESTED_FROM_YOU] as? Bool ?? false,
+            TAKEN_REQUESTED_FROM_ME: profile_data[TAKEN_REQUESTED_FROM_ME] as? Bool ?? false
         ]
-        print(profile_data)
         return info
     }
     
