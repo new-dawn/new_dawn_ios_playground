@@ -12,6 +12,26 @@ import UIKit
 class EditProfileTabelViewController: UITableViewController{
     
     @IBOutlet var photoCollectionView: UICollectionView!
+    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var workLabel: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var smokeLabel: UILabel!
+    @IBOutlet weak var drinkLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    
+    @IBOutlet weak var questionLabel_1: UILabel!
+    @IBOutlet weak var answerLabel_1: UILabel!
+    
+    @IBOutlet weak var questionLabel_2: UILabel!
+    @IBOutlet weak var answerLabel_2: UILabel!
+
+    @IBOutlet weak var questionLabel_3: UILabel!
+    @IBOutlet weak var answerLabel_3: UILabel!
+    
     lazy var imageCV = ProfileImageUploadModel(photoCollectionView, self, 270)
     let sectionHeaderTitleArray = ["图片", "个人信息", " ", "我的问答"]
     @IBOutlet weak var personalAttribute: UIView!
@@ -28,12 +48,49 @@ class EditProfileTabelViewController: UITableViewController{
             }
             if user_profile != nil {
                 DispatchQueue.main.async {
-                    let user_age = user_profile!.age
-                    let user_firstname = user_profile!.firstname
-                    let user_hometown = user_profile!.hometown
+                    self.setupDefaultValue(profile: user_profile!)
+                    if user_profile!.questionAnswers.count > 0{
+                        self.setupQuestionAnswer(questionAnswers: user_profile!.questionAnswers)
+                    }
                 }
             }
         }
+    }
+    
+    func setupQuestionAnswer(questionAnswers: Array<QuestionAnswer>){
+        
+        for (index, questionAnswer) in questionAnswers.enumerated(){
+            if index == 0{
+                questionLabel_1.text = questionAnswer.question.question
+                answerLabel_1.text = questionAnswer.answer
+            }
+            if index == 1{
+                questionLabel_2.text = questionAnswer.question.question
+                answerLabel_2.text = questionAnswer.answer
+            }
+            if index == 2{
+                questionLabel_3.text = questionAnswer.question.question
+                answerLabel_3.text = questionAnswer.answer
+            }
+        }
+    }
+    
+    func setupDefaultValue(profile: UserProfile){
+        self.ageLabel.text = String(profile.age)
+        self.firstNameLabel.text = profile.firstname
+        self.heightLabel.text = String(profile.height)
+        let employer_val = profile.employer == "N/A" ? "" : profile.employer
+        let jobtitle_val = profile.jobTitle == "N/A" ? "" : profile.jobTitle
+        let school_val = profile.school == "N/A" ? "" : profile.school
+        let degree_val = profile.degree == "N/A" ? "" : profile.degree
+        let smoke_val = profile.smoke == "N/A" ? "" : profile.smoke
+        let drink_val = profile.drink == "N/A" ? "" : profile.drink
+        let hometown_val = profile.hometown == "N/A" ? "" : profile.hometown
+        self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : employer_val + " , " + jobtitle_val
+        self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : school_val + " , " + degree_val
+        self.smokeLabel.text = smoke_val
+        self.drinkLabel.text = drink_val
+        self.locationLabel.text = hometown_val
     }
     
     func setupPhotoCollection(){
