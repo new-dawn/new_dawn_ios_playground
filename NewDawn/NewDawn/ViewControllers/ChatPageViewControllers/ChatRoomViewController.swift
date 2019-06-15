@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageKit
-import MessageInputBar
 import PusherSwift
 
 
@@ -313,7 +312,7 @@ class ChatRoomViewController: MessagesViewController {
 }
 
 extension ChatRoomViewController: MessagesDataSource {
-    func currentSender() -> Sender {
+    func currentSender() -> SenderType {
         return senderMe!
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -326,14 +325,14 @@ extension ChatRoomViewController: MessagesDataSource {
 
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        if message.sender.id == self.userIdMe {
+        if message.sender.senderId == self.userIdMe {
             return myColor
         } else {
             return youColor
         }
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        let userId = message.sender.id
+        let userId = message.sender.senderId
         if userId == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
                 my_profile, error in
@@ -383,6 +382,13 @@ extension ChatRoomViewController: MessageInputBarDelegate {
         inputBar.inputTextView.text = String()
         messagesCollectionView.scrollToBottom(animated: true)
     }
+    func messageInputBar(_ inputBar: MessageInputBar, textViewTextDidChangeTo text: String) {
+        // Use to send a typing indicator
+    }
+    
+    func messageInputBar(_ inputBar: MessageInputBar, didChangeIntrinsicContentTo size: CGSize) {
+        // Use to change any other subview insets
+    }
 }
 
 // MARK: - MessageCellDelegate
@@ -399,10 +405,10 @@ extension ChatRoomViewController: MessageCellDelegate {
         guard let messagesDataSource = messagesCollectionView.messagesDataSource else { return }
         let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
         let sender = message.sender
-        if sender.id == self.userIdYou {
+        if sender.senderId == self.userIdYou {
             self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
         }
-        if sender.id == self.userIdMe {
+        if sender.senderId == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
                 userProfileMe, error in
                 if error != nil {
