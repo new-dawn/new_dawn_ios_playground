@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 // A image cache storing url -> UIImage pair
 
@@ -21,23 +22,10 @@ extension UIImageView {
         return HttpUtil.getURL(path: path, prod: prod, isMedia: true)
     }
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
-        contentMode = mode
-        if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
-            self.image = imageFromCache
-            return
-        }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                imageCache.setObject(image, forKey: url as AnyObject)
-                self.image = image
-            }
-        }.resume()
+        self.kf.setImage(with: url, options: [
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(0.2))
+        ])
     }
 }
 
