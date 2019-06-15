@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="选择并回答三个问题" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBc-z2-7Al">
-                                <rect key="frame" x="92.5" y="170" width="190" height="35"/>
+                                <rect key="frame" x="92.5" y="126" width="190" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="190" id="1u9-AE-2IP"/>
@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="问答是慢慢社区中很重要的部分，高质量有趣的问答会很有帮助哦" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-EA-DeO">
-                                <rect key="frame" x="72.5" y="213" width="230" height="50"/>
+                                <rect key="frame" x="72.5" y="169" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0FN-Db-zkW"/>
                                     <constraint firstAttribute="width" constant="230" id="980-zk-aTH"/>
@@ -114,14 +114,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuestionBlock3" translatesAutoresizingMaskIntoConstraints="NO" id="2ul-Do-YJe">
-                                <rect key="frame" x="24" y="109" width="327" height="150"/>
+                                <rect key="frame" x="24" y="65" width="327" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="MTc-CZ-yNQ"/>
                                     <constraint firstAttribute="width" constant="327" id="oRz-XR-91K"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="你最喜欢的一句歌词是" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTC-1b-B6w">
-                                <rect key="frame" x="57.5" y="134" width="260" height="100"/>
+                                <rect key="frame" x="57.5" y="90" width="260" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Cdc-Q1-asf"/>
                                     <constraint firstAttribute="height" constant="100" id="nyg-PG-X6n"/>
@@ -130,7 +130,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6l-ot-2zc">
-                                <rect key="frame" x="51" y="543" width="273" height="70"/>
+                                <rect key="frame" x="51" y="499" width="273" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="DAT-SY-k3b"/>
                                     <constraint firstAttribute="width" constant="273" id="cts-VV-73B"/>
@@ -149,7 +149,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-wx-7a2">
-                                <rect key="frame" x="37.5" y="279" width="300" height="164"/>
+                                <rect key="frame" x="37.5" y="235" width="300" height="164"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="2tw-cf-nDo"/>
@@ -202,9 +202,9 @@
     </scenes>
     <resources>
         <image name="QuestionBlock3" width="340" height="163"/>
-        <image name="Register_continue_btn" width="255" height="66"/>
+        <image name="Register_continue_btn" width="510" height="132"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A8L-7S-Akf"/>
+        <segue reference="Nga-Hd-0GA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,18 +25,28 @@ class EditProfileTabelViewController: UITableViewController{
     
     @IBOutlet weak var questionLabel_1: UILabel!
     @IBOutlet weak var answerLabel_1: UILabel!
+    @IBOutlet weak var deleteButton_1: UIButton!
     
     @IBOutlet weak var questionLabel_2: UILabel!
     @IBOutlet weak var answerLabel_2: UILabel!
+    @IBOutlet weak var deleteButton_2: UIButton!
 
     @IBOutlet weak var questionLabel_3: UILabel!
     @IBOutlet weak var answerLabel_3: UILabel!
+    @IBOutlet weak var deleteButton_3: UIButton!
     
     lazy var imageCV = ProfileImageUploadModel(photoCollectionView, self, 270)
     let sectionHeaderTitleArray = ["图片", "个人信息", " ", "我的问答"]
     @IBOutlet weak var personalAttribute: UIView!
     
+    
+    // Logic:
+    // 1. Download all information from server, store them in local
+    // 2. Override them in local when edit
+    // 3. Send changes to server once leave the page
+    
     override func viewDidLoad() {
+
         setupPhotoCollection()
         self.tableView.separatorStyle = .none
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
