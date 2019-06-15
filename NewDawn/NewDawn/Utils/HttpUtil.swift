@@ -22,8 +22,10 @@ extension UIImageView {
         return HttpUtil.getURL(path: path, prod: prod, isMedia: true)
     }
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
-        self.kf.indicatorType = .activity
-        self.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+        self.kf.setImage(with: url, options: [
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(0.2))
+        ])
     }
 }
 
