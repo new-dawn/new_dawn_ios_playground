@@ -8,7 +8,7 @@
 
 import UIKit
 import MessageKit
-import InputBarAccessoryView
+import MessageInputBar
 import PusherSwift
 
 
@@ -54,19 +54,6 @@ class ChatRoomViewController: MessagesViewController {
         senderMe = Sender(id: userIdMe, displayName: userNameMe)
     }
     
-    func configureMessageCollectionView() {
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messageCellDelegate = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        scrollsToBottomOnKeyboardBeginsEditing = true // default false
-        maintainPositionOnKeyboardFrameChanged = true // default false
-    }
-    
-    func configureMessageInputBar() {
-        messageInputBar.delegate = self
-    }
-    
     func constructChannelName() -> String {
         // TODO: A channel name should be unique for this pair of users
         // Should get a hash string from Backend
@@ -90,11 +77,8 @@ class ChatRoomViewController: MessagesViewController {
             )
             ImageUtil.downLoadImage(url: likedInfo.liked_image_url) {
                 image in
-                DispatchQueue.main.async {
-                    self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
-                    self.messagesCollectionView.reloadData()
-                    self.messagesCollectionView.scrollToBottom()
-                }
+                self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
+                self.messagesCollectionView.reloadData()
             }
         }
         else if likedInfo.liked_entity_type == EntityType.QUESTION_ANSWER.rawValue {
@@ -145,10 +129,8 @@ class ChatRoomViewController: MessagesViewController {
                 LocalStorageUtil.localStoreKeyValue(key: VIEWED_MESSAGES + String(userIdYou), value: message_id)
             }
         }
-        DispatchQueue.main.async {
-            self.messagesCollectionView.reloadData()
-            self.messagesCollectionView.scrollToBottom()
-        }
+        self.messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToBottom()
     }
     
     func fetchMessagesFromHistory() -> Void {
@@ -214,39 +196,12 @@ class ChatRoomViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSenders()
-        configureMessageCollectionView()
-        configureMessageInputBar()
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
+        messageInputBar.delegate = self
         fetchMessagesFromHistory()
-        fetchEndUserProfile() {
-            profile in
-            if profile.takenRequestedFromYou {
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "专属模式", message: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
-                    let paragraphStyle = NSMutableParagraphStyle()
-                    paragraphStyle.alignment = NSTextAlignment.left
-                    let messageText = NSMutableAttributedString(
-                        string: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
-                        attributes: [
-                            NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
-                        ]
-                    )
-                    alertController.setValue(messageText, forKey: "attributedMessage")
-                    self.present(alertController, animated: true, completion: nil)
-                    let acceptAction = UIAlertAction(title: "接受", style: .default) {(_) in
-                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.ACCEPT_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                        let acceptAlertController = UIAlertController(title: nil, message: "已与" + self.userNameYou + "进入专属模式。", preferredStyle: .alert)
-                        self.present(acceptAlertController, animated: true, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            acceptAlertController.dismiss(animated: true, completion: nil)
-                        }
-                    }
-                    let ignoreAction = UIAlertAction(title: "忽略", style: .default)
-                    alertController.addAction(acceptAction)
-                    alertController.addAction(ignoreAction)
-                }
-            } //else {
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -415,9 +370,8 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
 }
 
 // MARK: - MessageInputBarDelegate
-extension ChatRoomViewController: InputBarAccessoryViewDelegate {
-    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        
+extension ChatRoomViewController: MessageInputBarDelegate {
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         for component in inputBar.inputTextView.components {
             if let str = component as? String {
                 let message = TextMessage(sender: Sender(id: userIdMe, displayName: userNameMe), content: str)

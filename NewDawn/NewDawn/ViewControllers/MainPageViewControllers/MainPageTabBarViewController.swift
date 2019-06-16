@@ -13,7 +13,7 @@ class MainPageTabBarViewController: UITabBarController, UITabBarControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        self.tabBar.items?.first?.badgeColor = .red
+        // Do any additional setup after loading the view.
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

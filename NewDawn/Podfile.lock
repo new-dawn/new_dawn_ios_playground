@@ -1,13 +1,9 @@
 PODS:
   - Alamofire (4.8.0)
   - CryptoSwift (0.9.0)
-  - InputBarAccessoryView (4.2.2)
-  - Kingfisher (5.6.0)
-  - MessageInputBar (0.4.1):
-    - MessageInputBar/Core (= 0.4.1)
   - MessageInputBar/Core (0.4.1)
-  - MessageKit (3.0.0):
-    - InputBarAccessoryView (~> 4.2.2)
+  - MessageKit (2.0.0):
+    - MessageInputBar/Core
   - PusherSwift (6.1.0):
     - CryptoSwift (~> 0.9.0)
     - ReachabilitySwift (~> 4.1.0)
@@ -21,9 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
-  - Kingfisher (~> 5.0)
-  - MessageInputBar
-  - MessageKit (~> 3.0.0)
+  - MessageKit
   - PusherSwift
   - PushNotifications (~> 1.2.0)
   - SwiftKeychainWrapper (~> 3.0)
@@ -32,8 +26,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CryptoSwift
-    - InputBarAccessoryView
-    - Kingfisher
     - MessageInputBar
     - MessageKit
     - PusherSwift
@@ -46,10 +38,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  InputBarAccessoryView: 2b937602598e2fab3149f37f51dd7ad795653812
-  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
   MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
-  MessageKit: e892a9ca49ebe6d82684d3a93ad84021fa23e2c6
+  MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   PushNotifications: b251b6243148e30039481cbb6e140fe7769d08d4
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
@@ -57,6 +47,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: 90d6faa6b4b0a9ceff70287be10ae0bdc5496ab7
+PODFILE CHECKSUM: 5d604014fba29e2fcec33932f84a40c76f054150
 
 COCOAPODS: 1.6.1

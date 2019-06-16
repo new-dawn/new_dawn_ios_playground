@@ -26,7 +26,6 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
             NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
         user_profiles = UserProfileBuilder.getUserProfileListFromLocalStorage()
-        refreshTabBarCounterBadge(user_profiles)
         if ProfileIndexUtil.noMoreProfile(profiles: user_profiles) || TimerUtil.isOutdated() {
             // Go to the ending page if no profile is available in local storage or is outdated
             // The ending page will handle profile fetch and refresh the main page automatically
@@ -49,7 +48,6 @@ class MainPageViewController: UIViewController {
     
     func performSegueToNextProfile(_ sender: Any) {
         NotificationCenter.default.removeObserver(self)
-        refreshTabBarCounterBadge(user_profiles)
         if ProfileIndexUtil.reachLastProfile(profiles: user_profiles) {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
         } else {
@@ -100,9 +98,5 @@ class MainPageViewController: UIViewController {
                 matchViewController.userProfile = yourProfile
             }
         }
-    }
-    
-    func refreshTabBarCounterBadge(_ profiles: [UserProfile]) {
-        self.tabBarController?.tabBar.items?.first?.badgeValue = "\(String(ProfileIndexUtil.numOfRemainedProfile(profiles: user_profiles)))"
     }
 }

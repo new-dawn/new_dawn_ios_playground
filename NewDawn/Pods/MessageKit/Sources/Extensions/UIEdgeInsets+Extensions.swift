@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2019 MessageKit
+ Copyright (c) 2017-2018 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,13 @@
 
 import Foundation
 
-// swiftlint:disable explicit_acl
+extension UIEdgeInsets {
 
-internal extension UIEdgeInsets {
-
-    var vertical: CGFloat {
+    internal var vertical: CGFloat {
         return top + bottom
     }
 
-    var horizontal: CGFloat {
+    internal var horizontal: CGFloat {
         return left + right
     }
 

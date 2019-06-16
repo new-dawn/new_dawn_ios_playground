@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2019 MessageKit
+ Copyright (c) 2017-2018 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,9 @@
  */
 
 import Foundation
-import InputBarAccessoryView
+import MessageInputBar
 
-internal extension MessagesViewController {
+extension MessagesViewController {
 
     // MARK: - Register / Unregister Observers
 
@@ -56,7 +56,7 @@ internal extension MessagesViewController {
         guard !isMessagesControllerBeingDismissed else { return }
 
         guard let keyboardStartFrameInScreenCoords = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect else { return }
-        guard !keyboardStartFrameInScreenCoords.isEmpty || UIDevice.current.userInterfaceIdiom != .pad else {
+        guard !keyboardStartFrameInScreenCoords.isEmpty else {
             // WORKAROUND for what seems to be a bug in iPad's keyboard handling in iOS 11: we receive an extra spurious frame change
             // notification when undocking the keyboard, with a zero starting frame and an incorrect end frame. The workaround is to
             // ignore this notification.
@@ -112,7 +112,7 @@ internal extension MessagesViewController {
         // see https://developer.apple.com/videos/play/wwdc2017/242/ for more details
         let intersection = messagesCollectionView.frame.intersection(keyboardFrame)
         
-        if intersection.isNull || (messagesCollectionView.frame.maxY - intersection.maxY) > 0.001 {
+        if intersection.isNull || intersection.maxY < messagesCollectionView.frame.maxY {
             // The keyboard is hidden, is a hardware one, or is undocked and does not cover the bottom of the collection view.
             // Note: intersection.maxY may be less than messagesCollectionView.frame.maxY when dealing with undocked keyboards.
             return max(0, additionalBottomInset - automaticallyAddedBottomInset)

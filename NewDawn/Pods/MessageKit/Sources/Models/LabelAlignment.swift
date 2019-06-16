@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2019 MessageKit
+ Copyright (c) 2017-2018 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 
 import UIKit
 
-public struct LabelAlignment: Equatable {
+public struct LabelAlignment {
 
     public var textAlignment: NSTextAlignment
     public var textInsets: UIEdgeInsets
@@ -38,9 +38,9 @@ public struct LabelAlignment: Equatable {
 
 // MARK: - Equatable Conformance
 
-public extension LabelAlignment {
+extension LabelAlignment: Equatable {
 
-    static func == (lhs: LabelAlignment, rhs: LabelAlignment) -> Bool {
+    public static func == (lhs: LabelAlignment, rhs: LabelAlignment) -> Bool {
         return lhs.textAlignment == rhs.textAlignment && lhs.textInsets == rhs.textInsets
     }
 
