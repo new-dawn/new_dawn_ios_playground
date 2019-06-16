@@ -227,7 +227,6 @@ class EditProfileTabelViewController: UITableViewController{
         
         self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : (school_val ?? "") + " , " + (degree_val ?? "")
         self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : (employer_val ?? "") + " , " + (jobtitle_val ?? "")
->>>>>>> f5ae4f26cea3e1732a773c0fc9aebce4b3e6c437
         self.smokeLabel.text = smoke_val
         self.drinkLabel.text = drink_val
         self.locationLabel.text = hometown_val
