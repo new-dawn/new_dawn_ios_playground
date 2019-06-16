@@ -47,6 +47,17 @@ class LocalStorageUtil {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         UserDefaults.standard.synchronize()
     }
+    
+    static func cleanDirectory(directory: String){
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(directory)
+        guard let items = try? FileManager.default.contentsOfDirectory(atPath: path) else { return }
+        
+        for item in items {
+            // This can be made better by using pathComponent
+            let completePath = path.appending("/").appending(item)
+            try? FileManager.default.removeItem(atPath: completePath)
+        }
+    }
 }
 
 class LoginUserUtil {

@@ -33,7 +33,6 @@ class EditProfileQuestionViewController: UIViewController, UIScrollViewDelegate{
         view.addSubview(scrollView)
         // Create Questions
         generateQuestions()
-        print("1121")
     }
     
     override func viewDidLayoutSubviews() {
@@ -145,7 +144,6 @@ class EditProfileQuestionViewController: UIViewController, UIScrollViewDelegate{
             // Increment the offset for next button
             let questionButton = createQuestionButton(question: question, offsetY: buttonOffsetY)
             buttonOffsetY = buttonOffsetY + QUESTION_BLOCK_HEIGHT
-            print("good")
             containerView.addSubview(questionButton)
         }
     }
@@ -183,6 +181,8 @@ class EditProfileAnswerQuestionViewController: UIViewController{
         // Append the new answer and store all question answers to local storage
         question_answers.append(question_answer)
         localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: question_answers)
+        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
 }

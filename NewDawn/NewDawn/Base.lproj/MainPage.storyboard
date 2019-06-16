@@ -596,11 +596,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uII-UV-1ha">
-                                <rect key="frame" x="164" y="509" width="46" height="37"/>
+                                <rect key="frame" x="95" y="509" width="209" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Edit Profile" backgroundImage="Register_continue_btn"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Kws-V2-Pxa" kind="show" id="RTQ-fP-9G6"/>
+                                    <segue destination="Kws-V2-Pxa" kind="show" identifier="prepare_editProfile" id="RTQ-fP-9G6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -793,7 +798,7 @@
             </objects>
             <point key="canvasLocation" x="2800.8000000000002" y="1699.7001499250375"/>
         </scene>
-        <!--Edit Profile Tabel View Controller-->
+        <!-- 编辑个人资料-->
         <scene sceneID="wrE-9U-pRA">
             <objects>
                 <tableViewController id="Kws-V2-Pxa" customClass="EditProfileTabelViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
@@ -1137,29 +1142,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBn-yq-4hb" userLabel="QuestionFrame">
+                                                    <rect key="frame" x="43.5" y="10" width="288" height="99.5"/>
+                                                    <state key="normal" title="Button" backgroundImage="EditProfile_Question"/>
+                                                    <connections>
+                                                        <segue destination="Ohf-Te-mzt" kind="show" id="uB9-aC-7CE"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8h-Ft-eGI">
-                                                    <rect key="frame" x="79" y="33" width="216" height="33"/>
+                                                    <rect key="frame" x="79" y="20" width="216" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-Cm-O2T">
-                                                    <rect key="frame" x="79" y="74" width="216" height="23"/>
+                                                    <rect key="frame" x="79" y="60" width="216" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBn-yq-4hb" userLabel="QuestionFrame">
-                                                    <rect key="frame" x="43.5" y="5" width="288" height="109.5"/>
-                                                    <state key="normal" title="Button" image="EditProfile_Question"/>
-                                                    <connections>
-                                                        <segue destination="Ohf-Te-mzt" kind="show" id="uB9-aC-7CE"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWF-hX-IdP" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="312" y="15" width="35" height="35"/>
+                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="0TS-eB-vlJ"/>
                                                         <constraint firstAttribute="width" secondItem="dWF-hX-IdP" secondAttribute="height" id="2jp-dP-T39"/>
@@ -1170,10 +1175,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="iBn-yq-4hb" secondAttribute="trailing" constant="43.5" id="JHQ-5y-mGz"/>
-                                                <constraint firstAttribute="bottom" secondItem="iBn-yq-4hb" secondAttribute="bottom" constant="5" id="Oj7-FL-EgX"/>
-                                                <constraint firstItem="iBn-yq-4hb" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="5" id="edo-FR-dGS"/>
-                                                <constraint firstItem="dWF-hX-IdP" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="15" id="gTI-FC-lsJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="dWF-hX-IdP" secondAttribute="trailing" constant="28" id="hjh-d4-BU4"/>
+                                                <constraint firstAttribute="bottom" secondItem="iBn-yq-4hb" secondAttribute="bottom" constant="10" id="Oj7-FL-EgX"/>
+                                                <constraint firstItem="iBn-yq-4hb" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="10" id="edo-FR-dGS"/>
+                                                <constraint firstItem="dWF-hX-IdP" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="3" id="gTI-FC-lsJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dWF-hX-IdP" secondAttribute="trailing" constant="32" id="hjh-d4-BU4"/>
                                                 <constraint firstItem="iBn-yq-4hb" firstAttribute="centerX" secondItem="O4l-9H-3Vx" secondAttribute="centerX" id="mqJ-k8-Nb5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1185,29 +1190,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8di-bG-THg" userLabel="QuestionFrame">
+                                                    <rect key="frame" x="43.5" y="5" width="288" height="109.5"/>
+                                                    <state key="normal" title="Button" backgroundImage="EditProfile_Question"/>
+                                                    <connections>
+                                                        <segue destination="Ohf-Te-mzt" kind="show" id="HWe-46-cRr"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5W-Qn-scY">
-                                                    <rect key="frame" x="79" y="33" width="216" height="33"/>
+                                                    <rect key="frame" x="79" y="20" width="216" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-hb-UO3">
-                                                    <rect key="frame" x="79" y="74" width="216" height="23"/>
+                                                    <rect key="frame" x="79" y="60" width="216" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8di-bG-THg" userLabel="QuestionFrame">
-                                                    <rect key="frame" x="43.5" y="5" width="288" height="109.5"/>
-                                                    <state key="normal" title="Button" image="EditProfile_Question"/>
-                                                    <connections>
-                                                        <segue destination="Ohf-Te-mzt" kind="show" id="HWe-46-cRr"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-Re-SGY" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="312" y="15" width="35" height="35"/>
+                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Dj4-P5-52O"/>
                                                         <constraint firstAttribute="width" constant="35" id="L0l-H5-lnm"/>
@@ -1220,8 +1225,8 @@
                                                 <constraint firstAttribute="bottom" secondItem="8di-bG-THg" secondAttribute="bottom" constant="5" id="EOx-Fp-3b3"/>
                                                 <constraint firstItem="8di-bG-THg" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="5" id="F8c-jh-rhG"/>
                                                 <constraint firstAttribute="trailing" secondItem="8di-bG-THg" secondAttribute="trailing" constant="43.5" id="JhF-jO-G1E"/>
-                                                <constraint firstItem="9Fh-Re-SGY" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="15" id="Syi-ud-Gg0"/>
-                                                <constraint firstAttribute="trailing" secondItem="9Fh-Re-SGY" secondAttribute="trailing" constant="28" id="Wvw-Xj-XAj"/>
+                                                <constraint firstItem="9Fh-Re-SGY" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="3" id="Syi-ud-Gg0"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Fh-Re-SGY" secondAttribute="trailing" constant="32" id="Wvw-Xj-XAj"/>
                                                 <constraint firstItem="8di-bG-THg" firstAttribute="centerX" secondItem="5Qr-Gq-hhE" secondAttribute="centerX" id="fjr-mk-7vc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1233,29 +1238,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVL-AI-Ywv" userLabel="QuestionFrame">
+                                                    <rect key="frame" x="43.5" y="5" width="288" height="109.5"/>
+                                                    <state key="normal" title="Button" backgroundImage="EditProfile_Question"/>
+                                                    <connections>
+                                                        <segue destination="Ohf-Te-mzt" kind="show" id="H7U-mm-PDq"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvt-Or-29R">
-                                                    <rect key="frame" x="79" y="33" width="216" height="33"/>
+                                                    <rect key="frame" x="79" y="20" width="216" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXc-EU-lZK">
-                                                    <rect key="frame" x="79" y="74" width="216" height="23"/>
+                                                    <rect key="frame" x="79" y="60" width="216" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVL-AI-Ywv" userLabel="QuestionFrame">
-                                                    <rect key="frame" x="43.5" y="5" width="288" height="109.5"/>
-                                                    <state key="normal" title="Button" image="EditProfile_Question"/>
-                                                    <connections>
-                                                        <segue destination="Ohf-Te-mzt" kind="show" id="H7U-mm-PDq"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tQ-TD-xmv" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="312" y="15" width="35" height="35"/>
+                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="1cO-ZI-BU5"/>
                                                         <constraint firstAttribute="width" secondItem="2tQ-TD-xmv" secondAttribute="height" id="60B-xG-uuB"/>
@@ -1267,8 +1272,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="eVL-AI-Ywv" secondAttribute="trailing" constant="43.5" id="1lK-Js-XJ0"/>
                                                 <constraint firstItem="eVL-AI-Ywv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="5" id="Fd0-Ia-E3C"/>
-                                                <constraint firstAttribute="trailing" secondItem="2tQ-TD-xmv" secondAttribute="trailing" constant="28" id="SKK-2P-Ojn"/>
-                                                <constraint firstItem="2tQ-TD-xmv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="15" id="eZA-n9-z3w"/>
+                                                <constraint firstAttribute="trailing" secondItem="2tQ-TD-xmv" secondAttribute="trailing" constant="32" id="SKK-2P-Ojn"/>
+                                                <constraint firstItem="2tQ-TD-xmv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="3" id="eZA-n9-z3w"/>
                                                 <constraint firstAttribute="bottom" secondItem="eVL-AI-Ywv" secondAttribute="bottom" constant="5" id="srx-Nk-XxW"/>
                                                 <constraint firstItem="eVL-AI-Ywv" firstAttribute="centerX" secondItem="l8Z-bv-Zib" secondAttribute="centerX" id="v3b-m1-I9Y"/>
                                             </constraints>
@@ -1282,6 +1287,7 @@
                             <outlet property="delegate" destination="Kws-V2-Pxa" id="jBJ-wV-qwq"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title=" 编辑个人资料" id="en7-xK-tef"/>
                     <connections>
                         <outlet property="ageLabel" destination="5Zu-ey-H2k" id="PxB-FO-hhg"/>
                         <outlet property="answerLabel_1" destination="RiL-Cm-O2T" id="6yX-gF-HD5"/>
@@ -2501,14 +2507,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuestionBlock3" translatesAutoresizingMaskIntoConstraints="NO" id="eRx-de-ICn">
-                                <rect key="frame" x="24" y="65" width="327" height="150"/>
+                                <rect key="frame" x="24" y="109" width="327" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="bUB-Fr-yzt"/>
                                     <constraint firstAttribute="width" constant="327" id="qAQ-co-MIq"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="你最喜欢的一句歌词是" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4E-Rn-oic">
-                                <rect key="frame" x="57.5" y="90" width="260" height="100"/>
+                                <rect key="frame" x="57.5" y="134" width="260" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Bhc-FZ-GhM"/>
                                     <constraint firstAttribute="height" constant="100" id="huW-ht-eyT"/>
@@ -2517,7 +2523,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBd-4Z-fN0">
-                                <rect key="frame" x="51" y="499" width="273" height="70"/>
+                                <rect key="frame" x="51" y="543" width="273" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="CJy-fz-TVA"/>
                                     <constraint firstAttribute="width" constant="273" id="IhG-us-tlH"/>
@@ -2532,11 +2538,10 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="yGl-5x-9hP" eventType="touchUpInside" id="C29-xc-hbh"/>
-                                    <segue destination="Kws-V2-Pxa" kind="show" id="G6P-Fq-XBf"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z1k-yh-9pg">
-                                <rect key="frame" x="37.5" y="235" width="300" height="164"/>
+                                <rect key="frame" x="37.5" y="279" width="300" height="164"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="3E1-I1-sSf"/>
@@ -2604,7 +2609,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uB9-aC-7CE"/>
-        <segue reference="G6P-Fq-XBf"/>
         <segue reference="nT2-HC-WHj"/>
     </inferredMetricsTieBreakers>
 </document>
