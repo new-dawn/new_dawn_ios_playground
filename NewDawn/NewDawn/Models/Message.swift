@@ -13,10 +13,10 @@ import MessageKit
 struct TextMessage: MessageType {
     var kind: MessageKind
     var sentDate: Date
-    var sender: Sender
+    var sender: SenderType
     var messageId: String
 
-    init(sender: Sender, content: String) {
+    init(sender: SenderType, content: String) {
         self.sender = sender
         self.sentDate = Date()
         let attributes: [NSAttributedString.Key: Any] = [
@@ -64,10 +64,10 @@ class MessageImageItem: MediaItem {
 struct ImageMessage: MessageType {
     var kind: MessageKind
     var sentDate: Date
-    var sender: Sender
+    var sender: SenderType
     var messageId: String
     
-    init(sender: Sender, image: UIImage) {
+    init(sender: SenderType, image: UIImage) {
         self.sender = sender
         self.sentDate = Date()
         self.kind = .photo(MessageImageItem(image: image))

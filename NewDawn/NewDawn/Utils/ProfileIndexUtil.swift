@@ -19,6 +19,10 @@ class ProfileIndexUtil {
         return 0
     }
     
+    static func numOfRemainedProfile(profiles: Array<UserProfile>) -> Int {
+        return profiles.count - loadProfileIndex() - 1
+    }
+    
     static func reachLastProfile(profiles: Array<UserProfile>) -> Bool {
         return loadProfileIndex() == profiles.count - 1
     }
