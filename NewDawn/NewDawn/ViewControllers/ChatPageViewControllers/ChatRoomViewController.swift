@@ -219,7 +219,14 @@ class ChatRoomViewController: MessagesViewController {
                     )
                     alertController.setValue(messageText, forKey: "attributedMessage")
                     self.present(alertController, animated: true, completion: nil)
-                    let acceptAction = UIAlertAction(title: "接受", style: .default)
+                    let acceptAction = UIAlertAction(title: "接受", style: .default) {(_) in
+                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.ACCEPT_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
+                        let acceptAlertController = UIAlertController(title: nil, message: "已与" + self.userNameYou + "进入专属模式。", preferredStyle: .alert)
+                        self.present(acceptAlertController, animated: true, completion: nil)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            acceptAlertController.dismiss(animated: true, completion: nil)
+                        }
+                    }
                     let ignoreAction = UIAlertAction(title: "忽略", style: .default)
                     alertController.addAction(acceptAction)
                     alertController.addAction(ignoreAction)
