@@ -267,51 +267,16 @@ class ChatRoomViewController: MessagesViewController {
         )
         alertController.setValue(messageText, forKey: "attributedMessage")
         self.present(alertController, animated: true, completion: nil)
-        let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-            HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-            let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
-            self.present(sentAlertController, animated: true, completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                sentAlertController.dismiss(animated: true, completion: nil)
-            }
-        }
+        let confirmAction = UIAlertAction(title: "确定", style: .default)
         let cancelAction = UIAlertAction(title: "取消", style: .default)
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
     }
     
-    @IBAction func OptionsButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        self.present(alertController, animated: true)
-        let unmatchAction = self.getUnmatchAlertAction()
-        let cancelAction = UIAlertAction(title: "返回", style: .default)
-        alertController.addAction(unmatchAction)
-        alertController.addAction(cancelAction)
-    }
-    
-    func getUnmatchAlertAction() -> UIAlertAction {
-        return UIAlertAction(title: "删除匹配", style: .default) {(_) in
-            let unmatchAlertController = UIAlertController(title: "删除匹配", message: "确认删除与对方用户的匹配吗？删除匹配后，双方将无法继续与对方聊天", preferredStyle: .alert)
-            self.present(unmatchAlertController, animated: true)
-            let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNMATCH.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                // Go back to Chat root page
-                DispatchQueue.main.async {
-                    let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
-                    self.present (vc, animated: false, completion: nil)
-                    vc.selectedIndex = 1
-                }
-            }
-            let cancelAction = UIAlertAction(title: "返回", style: .default)
-            unmatchAlertController.addAction(cancelAction)
-            unmatchAlertController.addAction(confirmAction)
-        }
-    }
 }
 
 extension ChatRoomViewController: MessagesDataSource {
-    func currentSender() -> SenderType {
+    func currentSender() -> Sender {
         return senderMe!
     }
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -324,14 +289,14 @@ extension ChatRoomViewController: MessagesDataSource {
 
 extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        if message.sender.senderId == self.userIdMe {
+        if message.sender.id == self.userIdMe {
             return myColor
         } else {
             return youColor
         }
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        let userId = message.sender.senderId
+        let userId = message.sender.id
         if userId == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
                 my_profile, error in
@@ -360,10 +325,8 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
         } else {
             ImageUtil.downLoadImage(url: url!) {
                 image in
-                DispatchQueue.main.async {
-                    let avatar = Avatar(image: image, initials: "NA")
-                    view.set(avatar: avatar)
-                }
+                let avatar = Avatar(image: image, initials: "NA")
+                view.set(avatar: avatar)
             }
         }
     }
@@ -397,10 +360,10 @@ extension ChatRoomViewController: MessageCellDelegate {
         guard let messagesDataSource = messagesCollectionView.messagesDataSource else { return }
         let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
         let sender = message.sender
-        if sender.senderId == self.userIdYou {
+        if sender.id == self.userIdYou {
             self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
         }
-        if sender.senderId == self.userIdMe {
+        if sender.id == self.userIdMe {
             LoginUserUtil.fetchLoginUserProfile() {
                 userProfileMe, error in
                 if error != nil {

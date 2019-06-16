@@ -26,8 +26,6 @@ let LIKED_ENTITY_TYPE = "liked_entity_type"
 let LIKED_IMAGE_URL = "liked_image_url"
 let LIKED_QUESTION = "liked_question"
 let LIKED_ANSWER = "liked_answer"
-let TAKEN_REQUESTED_FROM_YOU = "taken_requested_from_you"
-let TAKEN_REQUESTED_FROM_ME = "taken_requested_from_me"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
@@ -167,8 +165,6 @@ struct UserProfile: Codable {
     var mainImages: Array<MainImage> = [MainImage]()
     var likedInfoFromYou: LikedInfo = LikedInfo([:])
     var likedInfoFromMe: LikedInfo = LikedInfo([:])
-    var takenRequestedFromYou: Bool = false
-    var takenRequestedFromMe: Bool = false
     
     init(data: NSDictionary) {
         if let user_id = data[USERID] as? String {
@@ -233,12 +229,6 @@ struct UserProfile: Codable {
         if let likedInfoFromMe = data[LIKED_INFO_FROM_ME] as? [String:Any] {
             self.likedInfoFromMe = LikedInfo(likedInfoFromMe)
         }
-        if let takenRequestedFromYou = data[TAKEN_REQUESTED_FROM_YOU] as? Bool {
-            self.takenRequestedFromYou = takenRequestedFromYou
-        }
-        if let takenRequestedFromME = data[TAKEN_REQUESTED_FROM_ME] as? Bool {
-            self.takenRequestedFromMe = takenRequestedFromME
-        }
     }
 }
 
@@ -281,9 +271,7 @@ class UserProfileBuilder{
             IMAGES: profile_data[IMAGES] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
-            LIKED_INFO_FROM_ME: profile_data[LIKED_INFO_FROM_ME] as? [String:Any] ?? [:],
-            TAKEN_REQUESTED_FROM_YOU: profile_data[TAKEN_REQUESTED_FROM_YOU] as? Bool ?? false,
-            TAKEN_REQUESTED_FROM_ME: profile_data[TAKEN_REQUESTED_FROM_ME] as? Bool ?? false
+            LIKED_INFO_FROM_ME: profile_data[LIKED_INFO_FROM_ME] as? [String:Any] ?? [:]
         ]
         return info
     }

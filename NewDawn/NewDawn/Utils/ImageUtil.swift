@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 
 let MAX_IMG_SIZE = 256000
 // This image can be replaced by other default images
@@ -50,14 +49,24 @@ class ImageUtil {
     
     static func downLoadImage(url: String, callback: @escaping (UIImage) -> Void) -> Void {
         let url = HttpUtil.getURL(path: url, isMedia: true)
-        KingfisherManager.shared.retrieveImage(with: url) { result in
-            switch result {
-            case .success(let value):
-                callback(value.image)
-            case .failure(let error):
-                print(error)
+        if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
+            DispatchQueue.main.async() {
+                callback(imageFromCache)
             }
+            return
         }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                imageCache.setObject(image, forKey: url as AnyObject)
+                callback(image)
+            }
+        }.resume()
     }
     
     // Get Personal Images with data from Document Directory

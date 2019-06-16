@@ -46,27 +46,54 @@ class EditProfileTabelViewController: UITableViewController{
     // 3. Send changes to server once leave the page
     
     override func viewDidLoad() {
-
-        setupPhotoCollection()
+        overrideBackbutton()
         self.tableView.separatorStyle = .none
-        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
-            user_profile, error in
-            if error != nil {
-                self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                LoginUserUtil.logout()
-                return
-            }
-            if user_profile != nil {
-                DispatchQueue.main.async {
-                    self.setupDefaultValue(profile: user_profile!)
-                    if user_profile!.questionAnswers.count > 0{
-                        self.setupQuestionAnswer(questionAnswers: user_profile!.questionAnswers)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupPersonalInfo()
+        self.setupPhotoCollection()
+        self.setupQuestionAnswer()
+    }
+    
+    func overrideBackbutton(){
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Setting", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    
+    @objc func back(sender: UIBarButtonItem) {
+        // Get information from local and send to server
+        // Go back to the root ViewController
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    static func downloadOverwriteLocalImages(profile: UserProfile){
+//        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
+        DispatchQueue.main.async {
+            LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
+            let dataPath = ImageUtil.getPersonalImagesDirectory()
+            for (index, image) in profile.mainImages.enumerated(){
+                let image_name = String(index)
+                var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
+                ImageUtil.downLoadImage(url: image.image_url){
+                    image in
+                    if let imageData = image.jpegData(compressionQuality: 1){
+                        fileURL = fileURL.appendingPathExtension("jpeg")
+                        do{
+                            try imageData.write(to: fileURL, options: .atomic)
+                        }catch{
+                            print ("error", error)
+                        }
                     }
                 }
             }
         }
     }
-    
+
     func setupQuestionAnswer(questionAnswers: Array<QuestionAnswer>){
         
         for (index, questionAnswer) in questionAnswers.enumerated(){
@@ -98,6 +125,109 @@ class EditProfileTabelViewController: UITableViewController{
         let hometown_val = profile.hometown == "N/A" ? "" : profile.hometown
         self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : employer_val + " , " + jobtitle_val
         self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : school_val + " , " + degree_val
+    }
+    
+    static func downloadOverwriteLocalInfo(profile: UserProfile){
+        LocalStorageUtil.localStoreKeyValue(key: FIRSTNAME, value: profile.firstname)
+        LocalStorageUtil.localStoreKeyValue(key: LASTNAME, value: profile.lastname)
+        LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
+        LocalStorageUtil.localStoreKeyValue(key: "age", value: String(profile.age))
+        LocalStorageUtil.localStoreKeyValue(key: HOMETOWN, value: profile.hometown)
+        LocalStorageUtil.localStoreKeyValue(key: SCHOOL, value: profile.school)
+        LocalStorageUtil.localStoreKeyValue(key: DEGREE, value: profile.degree)
+        LocalStorageUtil.localStoreKeyValue(key: JOBTITLE, value: profile.jobTitle)
+        LocalStorageUtil.localStoreKeyValue(key: WORKPLACE, value: profile.employer)
+        LocalStorageUtil.localStoreKeyValue(key: DRINK, value: profile.drink)
+        LocalStorageUtil.localStoreKeyValue(key: SMOKE, value: profile.smoke)
+        LocalStorageUtil.localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: profile.questionAnswers)
+    }
+    
+    func setupQuestionAnswer(){
+        if let existed_question_answers: Array<QuestionAnswer> = LocalStorageUtil.localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            for (index, questionAnswer) in existed_question_answers.enumerated(){
+                if index == 0{
+                    questionLabel_1.text = questionAnswer.question.question
+                    answerLabel_1.text = questionAnswer.answer
+                    deleteButton_1.tag = questionAnswer.question.id + 1000
+                    deleteButton_1.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                }
+                if index == 1{
+                    questionLabel_2.text = questionAnswer.question.question
+                    answerLabel_2.text = questionAnswer.answer
+                    deleteButton_2.tag = questionAnswer.question.id + 2000
+                    deleteButton_2.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                }
+                if index == 2{
+                    questionLabel_3.text = questionAnswer.question.question
+                    answerLabel_3.text = questionAnswer.answer
+                    deleteButton_3.tag = questionAnswer.question.id + 3000
+                    deleteButton_3.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                }
+            }
+        }
+    }
+    
+    @objc func deleteQ(sender: UIButton) {
+        let q_id = sender.tag % 1000
+        let cell_id = Int(sender.tag / 1000)
+        removeQuestionAnswerFromLocalStore(q_id: q_id)
+        removeQuestionText(cell_id: cell_id)
+        self.viewDidLoad()
+    }
+    
+    func removeQuestionText(cell_id: Int){
+        if cell_id == 1{
+            questionLabel_1.text = ""
+            answerLabel_1.text = ""
+            deleteButton_1.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+        }
+        if cell_id == 2{
+            questionLabel_2.text = ""
+            answerLabel_2.text = ""
+            deleteButton_2.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+        }
+        if cell_id == 3{
+            questionLabel_3.text = ""
+            answerLabel_3.text = ""
+            deleteButton_3.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+        }
+    }
+    
+    func removeQuestionAnswerFromLocalStore(q_id: Int) -> Void {
+        // Remove the answered question from local storage
+        if var existed_question_answers: Array<QuestionAnswer> = localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            var index = -1
+            for question_answer in existed_question_answers {
+                index = index + 1
+                if question_answer.question.id == q_id {
+                    break
+                }
+            }
+            if index != -1 {
+                existed_question_answers.remove(at: index)
+            }
+            localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: existed_question_answers)
+        }
+    }
+
+    
+    func setupPersonalInfo(){
+        
+        
+        self.ageLabel.text = localReadKeyValue(key: "age") as? String
+        self.firstNameLabel.text = localReadKeyValue(key: FIRSTNAME) as? String
+        self.heightLabel.text = localReadKeyValue(key: HEIGHT) as? String
+        let employer_val = localReadKeyValue(key: HEIGHT) as? String == UNKNOWN ? "" : localReadKeyValue(key: HEIGHT) as? String
+        let jobtitle_val = localReadKeyValue(key: JOBTITLE) as? String == UNKNOWN ? "" : localReadKeyValue(key: JOBTITLE) as? String
+        let school_val = localReadKeyValue(key: SCHOOL) as? String == UNKNOWN ? "" : localReadKeyValue(key: SCHOOL) as? String
+        let degree_val = localReadKeyValue(key: DEGREE) as? String == UNKNOWN ? "" : localReadKeyValue(key: DEGREE) as? String
+        let smoke_val = localReadKeyValue(key: SMOKE) as? String == UNKNOWN ? "" : localReadKeyValue(key: SMOKE) as? String
+        let drink_val = localReadKeyValue(key: DRINK) as? String == UNKNOWN ? "" : localReadKeyValue(key: DRINK) as? String
+        let hometown_val = localReadKeyValue(key: HOMETOWN) as? String == UNKNOWN ? "" : localReadKeyValue(key: HOMETOWN) as? String
+        
+        self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : (school_val ?? "") + " , " + (degree_val ?? "")
+        self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : (employer_val ?? "") + " , " + (jobtitle_val ?? "")
+>>>>>>> f5ae4f26cea3e1732a773c0fc9aebce4b3e6c437
         self.smokeLabel.text = smoke_val
         self.drinkLabel.text = drink_val
         self.locationLabel.text = hometown_val
