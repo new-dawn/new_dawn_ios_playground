@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
 import PusherSwift
 
 
@@ -53,6 +54,19 @@ class ChatRoomViewController: MessagesViewController {
         senderMe = Sender(id: userIdMe, displayName: userNameMe)
     }
     
+    func configureMessageCollectionView() {
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messageCellDelegate = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        scrollsToBottomOnKeyboardBeginsEditing = true // default false
+        maintainPositionOnKeyboardFrameChanged = true // default false
+    }
+    
+    func configureMessageInputBar() {
+        messageInputBar.delegate = self
+    }
+    
     func constructChannelName() -> String {
         // TODO: A channel name should be unique for this pair of users
         // Should get a hash string from Backend
@@ -79,6 +93,7 @@ class ChatRoomViewController: MessagesViewController {
                 DispatchQueue.main.async {
                     self.messages[image_message_index] = ImageMessage(sender: sender, image: image)
                     self.messagesCollectionView.reloadData()
+                    self.messagesCollectionView.scrollToBottom()
                 }
             }
         }
@@ -130,8 +145,10 @@ class ChatRoomViewController: MessagesViewController {
                 LocalStorageUtil.localStoreKeyValue(key: VIEWED_MESSAGES + String(userIdYou), value: message_id)
             }
         }
-        self.messagesCollectionView.reloadData()
-        self.messagesCollectionView.scrollToBottom()
+        DispatchQueue.main.async {
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom()
+        }
     }
     
     func fetchMessagesFromHistory() -> Void {
@@ -197,11 +214,8 @@ class ChatRoomViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSenders()
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messageCellDelegate = self
-        messageInputBar.delegate = self
+        configureMessageCollectionView()
+        configureMessageInputBar()
         fetchMessagesFromHistory()
         fetchEndUserProfile() {
             profile in
@@ -394,8 +408,9 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
 }
 
 // MARK: - MessageInputBarDelegate
-extension ChatRoomViewController: MessageInputBarDelegate {
-    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+extension ChatRoomViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        
         for component in inputBar.inputTextView.components {
             if let str = component as? String {
                 let message = TextMessage(sender: Sender(id: userIdMe, displayName: userNameMe), content: str)
@@ -404,13 +419,6 @@ extension ChatRoomViewController: MessageInputBarDelegate {
         }
         inputBar.inputTextView.text = String()
         messagesCollectionView.scrollToBottom(animated: true)
-    }
-    func messageInputBar(_ inputBar: MessageInputBar, textViewTextDidChangeTo text: String) {
-        // Use to send a typing indicator
-    }
-    
-    func messageInputBar(_ inputBar: MessageInputBar, didChangeIntrinsicContentTo size: CGSize) {
-        // Use to change any other subview insets
     }
 }
 
