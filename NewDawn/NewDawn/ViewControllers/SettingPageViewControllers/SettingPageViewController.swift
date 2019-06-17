@@ -35,6 +35,14 @@ class SettingPageViewController: UIViewController {
         draw.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
         view.addSubview(draw)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
+    }
+    
+    func viewLoadSetup(){
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, error in
             if error != nil {
@@ -60,6 +68,9 @@ class SettingPageViewController: UIViewController {
                         self.profileImage.downloaded(from:
                             self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                     }
+                    
+                    EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
+                    EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
                 }
             }
         }
@@ -90,7 +101,6 @@ class SettingPageViewController: UIViewController {
             }
         }
     }
-
 }
 
 
