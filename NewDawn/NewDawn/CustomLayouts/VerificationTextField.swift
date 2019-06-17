@@ -65,6 +65,7 @@ class VerificationTextField: UITextField {
         borderStyle = .none
         layer.addSublayer(border)
         delegate = self
+        addDoneButtonOnKeyboard()
     }
 }
 

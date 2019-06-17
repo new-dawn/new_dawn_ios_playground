@@ -18,8 +18,7 @@ class Profile_Education: UIViewController {
     let VISIBLE = "edu_visible"
     
     var visibleField = false
-    let degreePickerData = [String](arrayLiteral: "High School", "Undergrad", "Grad", "PhD")
-    
+
 
     @IBOutlet weak var undergrad: UIButton!
     @IBOutlet weak var grad: UIButton!
@@ -37,10 +36,10 @@ class Profile_Education: UIViewController {
         }
         if let stored_degree = localReadKeyValue(key: DEGREE) as? String {
             degree = stored_degree
-            if degree == "Undergrad" {
+            if degree == "本科" {
                 selectDegreeButton(button: undergrad)
             }
-            else if degree == "Grad" {
+            else if degree == "硕士" {
                 selectDegreeButton(button: grad)
             }
             else {
@@ -73,7 +72,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: undergrad)
         deselectButton(button: grad)
         deselectButton(button: phd)
-        degree = "Undergrad"
+        degree = "本科"
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     
@@ -81,7 +80,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: grad)
         deselectButton(button: undergrad)
         deselectButton(button: phd)
-        degree = "Grad"
+        degree = "硕士"
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     
@@ -89,7 +88,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: phd)
         deselectButton(button: undergrad)
         deselectButton(button: grad)
-        degree = "PhD"
+        degree = "博士"
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     
