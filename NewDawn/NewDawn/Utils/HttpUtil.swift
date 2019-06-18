@@ -167,3 +167,120 @@ class HttpUtil{
         self.processSessionTasks(request: request, callback: readActionResponse)
     }
 }
+
+class EditProfileUtil{
+    
+    static func createRegistrationRequest() -> URLRequest? {
+        var url = HttpUtil.getURL(path: "register/")
+        var httpMethod: String;
+        let register_info: [String: Any] = getUserInputInfo()
+        let user_id = LoginUserUtil.getLoginUserId()
+        if user_id != nil && user_id != 1{
+            let user_id_url = String(user_id!) + "/"
+            httpMethod = "PUT"
+            url = url.appendingPathComponent(user_id_url)
+        }else{
+            httpMethod = "POST"
+        }
+        var request = URLRequest(url:url)
+        request.httpMethod = httpMethod
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: register_info, options: .prettyPrinted)
+        } catch let error {
+            // TODO: Sepearte error messages into engineer's and user's
+            print(error.localizedDescription)
+            return nil
+        }
+        return request
+    }
+    
+    static func getUserInputInfo() -> [String: Any]{
+        let user_data = getUserData()
+        let account_data = getAccountData()
+        let profile_data = getProfileData()
+        let question_answer_data = getQuestionAnswersData()
+        
+        // TODO: better handle username and password
+        let random_id = UUID().uuidString
+        let pesudo_data = [
+            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? random_id,
+            "password":random_id
+        ]
+        
+        var register_data = [String: Any]()
+        register_data += user_data as! Dictionary<String, String>
+        register_data += account_data as! Dictionary<String, String>
+        register_data += profile_data
+        register_data += question_answer_data
+        register_data += pesudo_data
+        return register_data
+    }
+    
+    static func getUserData() -> [String: Any]{
+        return  [
+            FIRSTNAME: LocalStorageUtil.localReadKeyValue(key: FIRSTNAME)!,
+            LASTNAME: LocalStorageUtil.localReadKeyValue(key: LASTNAME)!,
+        ]
+    }
+    
+    static func getAccountData() -> [String: Any] {
+        return [
+            "birthday":_birthday_str_handler(birthday: LocalStorageUtil.localReadKeyValue(key: BIRTHDAY) as! String),
+            "gender":LocalStorageUtil.localReadKeyValue(key: GENDER)!,
+        ]
+    }
+    
+    static func getProfileData() -> [String: Any] {
+        return [
+            "height": _height_num_handler(height: LocalStorageUtil.localReadKeyValue(key: HEIGHT) as! String),
+            "hometown":LocalStorageUtil.localReadKeyValue(key: HOMETOWN) ?? UNKNOWN,
+            "school":LocalStorageUtil.localReadKeyValue(key: SCHOOL) ?? UNKNOWN,
+            "degree":LocalStorageUtil.localReadKeyValue(key: DEGREE) ?? UNKNOWN,
+            "job_title":LocalStorageUtil.localReadKeyValue(key: JOBTITLE) ?? UNKNOWN,
+            "employer":LocalStorageUtil.localReadKeyValue(key: WORKPLACE) ?? UNKNOWN,
+            "drink":LocalStorageUtil.localReadKeyValue(key: DRINK) ?? UNKNOWN,
+            "smoke":LocalStorageUtil.localReadKeyValue(key: SMOKE) ?? UNKNOWN,
+        ]
+    }
+    
+    // Transform mm/dd/yy to yyyy/mm/dd
+    static func _birthday_str_handler(birthday: String) -> String{
+        return birthday.replacingOccurrences(of: "/", with: "-")
+    }
+    
+    // Transform string to int
+    static func _height_num_handler(height: String) -> Int{
+        if height.prefix(1) == "<"{
+            return 139
+        }
+        return Int(height.prefix(3))!
+    }
+    
+    // Transform QuestionAnswer struct to array of dicts
+    static func _question_answer_handler(existed_question_answers: Array<QuestionAnswer>) -> Array<[String: Any]>{
+        var question_answer_array = [[String: Any]]()
+        var num_count = 1;
+        for question_answer in existed_question_answers{
+            let holder = [
+                "question": question_answer.question.question,
+                "answer": question_answer.answer,
+                "order": num_count
+                ] as [String : Any]
+            num_count += 1
+            question_answer_array.append(holder)
+        }
+        return question_answer_array
+    }
+    
+    static func getQuestionAnswersData() -> [String: Any] {
+        if let existed_question_answers: Array<QuestionAnswer> = LocalStorageUtil.localReadKeyValueStruct(key: QUESTION_ANSWERS) {
+            let question_answer_array = _question_answer_handler(existed_question_answers: existed_question_answers)
+            return ["answer_question": question_answer_array]
+        }
+        return ["answer_question": [[String: Any]]()]
+    }
+    
+    
+}

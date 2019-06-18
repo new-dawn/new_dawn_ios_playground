@@ -67,15 +67,58 @@ class EditProfileTabelViewController: UITableViewController{
     @objc func back(sender: UIBarButtonItem) {
         // Get information from local and send to server
         // Go back to the root ViewController
-        self.dismiss(animated: true, completion: {})
-        self.navigationController?.popViewController(animated: true)
+        let request = EditProfileUtil.createRegistrationRequest()
+        
+        if request == nil {
+            return
+        }
+        let activityIndicator = self.prepareActivityIndicator()
+        DispatchQueue.main.async {
+            self.processSessionTasks(request: request!){
+                register_response in
+                if let images = ImageUtil.getPersonalImagesWithData(), images.count != 0{
+                    print(images)
+                    var images_count = 0
+                    for single_image in images{
+                        let single_img = single_image["img"]
+                        let single_params = [
+                            "order": single_image["order"]!,
+                            "caption": single_image["caption"]!,
+                            "user": single_image["user_uri"]!
+                            ] as [String: Any]
+                        let img_name = String.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
+                        ImageUtil.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                            images_count = images_count + 1
+                             print("image upload \(success)")
+                            if images_count == images.count{
+                                // AWS seems to take some time to generate photos URL, even if uploads successfully
+                                // TODO: remove this
+                                // 1. store number of images in local storage
+                                // 2. when fetching images, if number of urls != num of images in local storage
+                                //
+                                //
+                                LocalStorageUtil.localStoreKeyValue(key: "ImagesCount", value: images_count)
+                                self.removeActivityIndicator(activityIndicator: activityIndicator)
+                                self.dismiss(animated: true, completion: {})
+                                self.navigationController?.popViewController(animated: true)
+                            }}
+                    }
+                }else{
+                    self.removeActivityIndicator(activityIndicator: activityIndicator)
+                    self.dismiss(animated: true, completion: {})
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
     }
     
     static func downloadOverwriteLocalImages(profile: UserProfile){
-//        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
         DispatchQueue.main.async {
             LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
             let dataPath = ImageUtil.getPersonalImagesDirectory()
+            print(profile.degree)
+            print(profile.firstname)
+            print(profile.mainImages)
             for (index, image) in profile.mainImages.enumerated(){
                 let image_name = String(index)
                 var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
@@ -112,20 +155,6 @@ class EditProfileTabelViewController: UITableViewController{
         }
     }
     
-    func setupDefaultValue(profile: UserProfile){
-        self.ageLabel.text = String(profile.age)
-        self.firstNameLabel.text = profile.firstname
-        self.heightLabel.text = String(profile.height)
-        let employer_val = profile.employer == "N/A" ? "" : profile.employer
-        let jobtitle_val = profile.jobTitle == "N/A" ? "" : profile.jobTitle
-        let school_val = profile.school == "N/A" ? "" : profile.school
-        let degree_val = profile.degree == "N/A" ? "" : profile.degree
-        let smoke_val = profile.smoke == "N/A" ? "" : profile.smoke
-        let drink_val = profile.drink == "N/A" ? "" : profile.drink
-        let hometown_val = profile.hometown == "N/A" ? "" : profile.hometown
-        self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : employer_val + " , " + jobtitle_val
-        self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : school_val + " , " + degree_val
-    }
     
     static func downloadOverwriteLocalInfo(profile: UserProfile){
         LocalStorageUtil.localStoreKeyValue(key: FIRSTNAME, value: profile.firstname)
