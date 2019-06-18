@@ -77,7 +77,6 @@ class EditProfileTabelViewController: UITableViewController{
             self.processSessionTasks(request: request!){
                 register_response in
                 if let images = ImageUtil.getPersonalImagesWithData(), images.count != 0{
-                    print(images)
                     var images_count = 0
                     for single_image in images{
                         let single_img = single_image["img"]
@@ -92,11 +91,7 @@ class EditProfileTabelViewController: UITableViewController{
                              print("image upload \(success)")
                             if images_count == images.count{
                                 // AWS seems to take some time to generate photos URL, even if uploads successfully
-                                // TODO: remove this
-                                // 1. store number of images in local storage
-                                // 2. when fetching images, if number of urls != num of images in local storage
-                                //
-                                //
+                                // Use a local storage value to keep track of fetched photos
                                 LocalStorageUtil.localStoreKeyValue(key: "ImagesCount", value: images_count)
                                 self.removeActivityIndicator(activityIndicator: activityIndicator)
                                 self.dismiss(animated: true, completion: {})
@@ -116,9 +111,6 @@ class EditProfileTabelViewController: UITableViewController{
         DispatchQueue.main.async {
             LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
             let dataPath = ImageUtil.getPersonalImagesDirectory()
-            print(profile.degree)
-            print(profile.firstname)
-            print(profile.mainImages)
             for (index, image) in profile.mainImages.enumerated(){
                 let image_name = String(index)
                 var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)

@@ -66,19 +66,19 @@ class SettingPageViewController: UIViewController {
                     self.HomeTownText.text = user_hometown
                     if let images_count = LocalStorageUtil.localReadKeyValue(key: "ImagesCount"){
                         if user_profile!.mainImages.count == images_count as! Int {
-                            self.profileImage.downloaded(from:
-                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
                             EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
+                            self.profileImage.downloaded(from:
+                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                         }else{
                             self.viewDidLoad()
                         }
                     }else{
                         if user_profile!.mainImages.isEmpty == false {
-                            self.profileImage.downloaded(from:
-                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
                             EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
+                            self.profileImage.downloaded(from:
+                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                         }
                     }
                 }
