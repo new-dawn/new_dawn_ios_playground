@@ -73,56 +73,54 @@ class EditProfileTabelViewController: UITableViewController{
             return
         }
         let activityIndicator = self.prepareActivityIndicator()
-        DispatchQueue.main.async {
-            self.processSessionTasks(request: request!){
-                register_response in
-                if let images = ImageUtil.getPersonalImagesWithData(), images.count != 0{
-                    var images_count = 0
-                    for single_image in images{
-                        let single_img = single_image["img"]
-                        let single_params = [
-                            "order": single_image["order"]!,
-                            "caption": single_image["caption"]!,
-                            "user": single_image["user_uri"]!
-                            ] as [String: Any]
-                        let img_name = String.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
-                        ImageUtil.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
-                            images_count = images_count + 1
-                             print("image upload \(success)")
-                            if images_count == images.count{
-                                // AWS seems to take some time to generate photos URL, even if uploads successfully
-                                // Use a local storage value to keep track of fetched photos
-                                LocalStorageUtil.localStoreKeyValue(key: "ImagesCount", value: images_count)
-                                self.removeActivityIndicator(activityIndicator: activityIndicator)
-                                self.dismiss(animated: true, completion: {})
-                                self.navigationController?.popViewController(animated: true)
-                            }}
-                    }
-                }else{
-                    self.removeActivityIndicator(activityIndicator: activityIndicator)
-                    self.dismiss(animated: true, completion: {})
-                    self.navigationController?.popViewController(animated: true)
+        self.processSessionTasks(request: request!){
+            register_response in
+            if let images = ImageUtil.getPersonalImagesWithData(), images.count != 0{
+                var images_count = 0
+                for single_image in images{
+                    let single_img = single_image["img"]
+                    let single_params = [
+                        "order": single_image["order"] ?? UNKNOWN,
+                        "caption": single_image["caption"] ?? UNKNOWN,
+                        "user": single_image["user_uri"] ?? UNKNOWN
+                        ] as [String: Any]
+                    let img_name = String.MD5(String(single_image["user_id"] as! Int) + String(single_image["order"] as! Int))! + ".jpeg"
+                    ImageUtil.photoUploader(photo: single_img as! UIImage, filename: img_name, parameters: single_params){ success in
+                        images_count = images_count + 1
+                        // TODO: Handle unsuccessful upload
+                         print("image upload \(success)")
+                        if images_count == images.count{
+                            // AWS seems to take some time to generate photos URL, even if uploads successfully
+                            // Use a local storage value to keep track of fetched photos
+                            LocalStorageUtil.localStoreKeyValue(key: "ImagesCount", value: images_count)
+                            self.removeActivityIndicator(activityIndicator: activityIndicator)
+                            self.dismiss(animated: true, completion: {})
+                            self.navigationController?.popViewController(animated: true)
+                        }}
                 }
+            }else{
+                self.removeActivityIndicator(activityIndicator: activityIndicator)
+                self.dismiss(animated: true, completion: {})
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
     
     static func downloadOverwriteLocalImages(profile: UserProfile){
-        DispatchQueue.main.async {
-            LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
-            let dataPath = ImageUtil.getPersonalImagesDirectory()
-            for (index, image) in profile.mainImages.enumerated(){
-                let image_name = String(index)
-                var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
-                ImageUtil.downLoadImage(url: image.image_url){
-                    image in
-                    if let imageData = image.jpegData(compressionQuality: 1){
-                        fileURL = fileURL.appendingPathExtension("jpeg")
-                        do{
-                            try imageData.write(to: fileURL, options: .atomic)
-                        }catch{
-                            print ("error", error)
-                        }
+
+        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
+        for (index, image) in profile.mainImages.enumerated(){
+            let image_name = String(index)
+            var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
+            ImageUtil.downLoadImage(url: image.image_url){
+                image in
+                if let imageData = image.jpegData(compressionQuality: 1){
+                    fileURL = fileURL.appendingPathExtension("jpeg")
+                    do{
+                        try imageData.write(to: fileURL, options: .atomic)
+                    }catch{
+                        print ("error", error)
                     }
                 }
             }

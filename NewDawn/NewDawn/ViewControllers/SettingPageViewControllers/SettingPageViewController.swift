@@ -39,10 +39,10 @@ class SettingPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewLoadSetup()
+        viewLoadSetup(loadCounts: 0)
     }
     
-    func viewLoadSetup(){
+    func viewLoadSetup(loadCounts: Int){
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, error in
             if error != nil {
@@ -71,7 +71,9 @@ class SettingPageViewController: UIViewController {
                             self.profileImage.downloaded(from:
                                 self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                         }else{
-                            self.viewDidLoad()
+                            if loadCounts < 5{
+                                self.viewLoadSetup(loadCounts: loadCounts + 1)
+                            }
                         }
                     }else{
                         if user_profile!.mainImages.isEmpty == false {
