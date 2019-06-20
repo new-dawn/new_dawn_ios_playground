@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Kingfisher
+import Alamofire
 
 let MAX_IMG_SIZE = 256000
 // This image can be replaced by other default images
@@ -94,5 +95,46 @@ class ImageUtil {
     static func getPersonalImagesDirectory() -> String{
          let dataPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("PersonalImages")
         return dataPath
+    }
+    
+    // A helper function to upload image
+    static func photoUploader(photo: UIImage, filename: String, parameters: [String: Any], completion: @escaping (Bool) -> Void) {
+        
+        let imageData = photo.jpegData(compressionQuality: 1)
+        
+        //        guard let authToken = Locksmith.loadDataForUserAccount(userAccount: "userToken")?["token"] as? String else {
+        //            return
+        //        }
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        ]
+        var url: URLRequest?
+        let image_upload_url = HttpUtil.getURL(path: "image/")
+        
+        do {
+            url = try URLRequest(url: image_upload_url, method: .post, headers: headers)
+        } catch {
+            print("Error")
+        }
+        
+        let data = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        
+        if let url = url {
+            upload(multipartFormData: { (mpd) in
+                mpd.append(imageData!, withName: "media", fileName: filename, mimeType: "image/jpeg")
+                mpd.append(data, withName: "data")
+            }, with: url, encodingCompletion: { (success) in
+                switch success {
+                case .success(let request, let streamingFromDisk, let streamFileURL):
+                    completion(true)
+                case .failure(let errorType):
+                    completion(false)
+                    print("cannot upload")
+                }
+            })
+        }
     }
 }
