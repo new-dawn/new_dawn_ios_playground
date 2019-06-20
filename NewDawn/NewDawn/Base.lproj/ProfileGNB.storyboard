@@ -1409,7 +1409,6 @@
         <image name="Register_continue_btn" width="510" height="132"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ewt-Pj-4Ll"/>
         <segue reference="iHz-cU-Dm1"/>
         <segue reference="Os6-NZ-WLV"/>
         <segue reference="OJW-vV-kwk"/>

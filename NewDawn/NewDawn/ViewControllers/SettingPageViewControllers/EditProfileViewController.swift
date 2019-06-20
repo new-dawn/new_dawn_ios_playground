@@ -236,7 +236,7 @@ class EditProfileTabelViewController: UITableViewController{
         self.ageLabel.text = localReadKeyValue(key: "age") as? String
         self.firstNameLabel.text = localReadKeyValue(key: FIRSTNAME) as? String
         self.heightLabel.text = localReadKeyValue(key: HEIGHT) as? String
-        let employer_val = localReadKeyValue(key: HEIGHT) as? String == UNKNOWN ? "" : localReadKeyValue(key: HEIGHT) as? String
+        let employer_val = localReadKeyValue(key: WORKPLACE) as? String == UNKNOWN ? "" : localReadKeyValue(key: WORKPLACE) as? String
         let jobtitle_val = localReadKeyValue(key: JOBTITLE) as? String == UNKNOWN ? "" : localReadKeyValue(key: JOBTITLE) as? String
         let school_val = localReadKeyValue(key: SCHOOL) as? String == UNKNOWN ? "" : localReadKeyValue(key: SCHOOL) as? String
         let degree_val = localReadKeyValue(key: DEGREE) as? String == UNKNOWN ? "" : localReadKeyValue(key: DEGREE) as? String

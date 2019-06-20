@@ -186,3 +186,197 @@ class EditProfileAnswerQuestionViewController: UIViewController{
     }
 
 }
+
+class EditProfileBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+    let MAN = "M"
+    let WOMAN = "W"
+    var gender = UNKNOWN
+    
+    @IBOutlet weak var womanButton: UIButton!
+    @IBOutlet weak var manButton: UIButton!
+    
+    @IBOutlet weak var firstnameTextField: UITextField!
+    @IBOutlet weak var lastnameTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
+    
+    let heightPickerData = Profile_Height.heightGenerator(minHeight: 140, maxHeight: 250)
+    
+    @IBOutlet weak var heightTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
+    // Load fields that user has already filled in
+    func loadStoredFields() {
+        if let firstname = localReadKeyValue(key: FIRSTNAME) as? String {
+            firstnameTextField.text = firstname
+        }
+        if let lastname = localReadKeyValue(key: LASTNAME) as? String {
+            lastnameTextField.text = lastname
+        }
+        if let birthday = localReadKeyValue(key: BIRTHDAY) as? String {
+            birthdayTextField.text = birthday
+        }
+        if let stored_gender = localReadKeyValue(key: GENDER) as? String {
+            gender = stored_gender
+            if gender == MAN {
+                selectManButton(button: manButton)
+            } else {
+                selectWomanButton(button: womanButton)
+            }
+        }
+        if let height = localReadKeyValue(key: HEIGHT) as? String {
+            heightTextField.text = height + " cm"
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        polishGenderButton(button: womanButton)
+        polishGenderButton(button: manButton)
+        firstnameTextField.setBottomBorder()
+        lastnameTextField.setBottomBorder()
+        birthdayTextField.setBottomBorder()
+        heightTextField.setBottomBorder()
+        loadStoredFields()
+        showDatePicker()
+        overrideBackbutton()
+        
+        let loc = Locale(identifier: "zh_Hans_CN")
+        self.datePicker.locale = loc
+        
+        // Height Picker Toolbar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_Height.donePicker))
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        // Degree Picker
+        let heightPicker = UIPickerView()
+        heightTextField.inputView = heightPicker
+        heightTextField.inputAccessoryView = toolbar
+        heightPicker.delegate = self
+    }
+    
+    func overrideBackbutton(){
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        if (firstnameTextField.text?.isEmpty)! ||
+            (lastnameTextField.text?.isEmpty)! ||
+            (birthdayTextField.text?.isEmpty)! ||
+            gender == UNKNOWN{
+            self.displayMessage(userMessage: "Cannot have empty field")
+        }else if (heightTextField.text?.isEmpty)! {
+            self.displayMessage(userMessage: "Cannot have empty field")
+        }else{
+            // Store Name, Birthday locally
+            localStoreKeyValue(key: FIRSTNAME, value: firstnameTextField.text!)
+            localStoreKeyValue(key: LASTNAME, value: lastnameTextField.text!)
+            localStoreKeyValue(key: BIRTHDAY, value: birthdayTextField.text!)
+            localStoreKeyValue(key: HEIGHT, value: heightTextField.text!.prefix(3))
+            self.dismiss(animated: true, completion: {})
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func womanButtonTapped(_ sender: Any) {
+        selectWomanButton(button: womanButton)
+        deselectButton(button: manButton)
+        gender = WOMAN
+        localStoreKeyValue(key: GENDER, value: gender)
+    }
+    @IBAction func manButtonTapped(_ sender: Any) {
+        selectManButton(button: manButton)
+        deselectButton(button: womanButton)
+        gender = MAN
+        localStoreKeyValue(key: GENDER, value: gender)
+    }
+    
+    func showDatePicker() {
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        //Minimum 18 years old
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        birthdayTextField.inputAccessoryView = toolbar
+        birthdayTextField.inputView = datePicker
+    }
+    
+    @objc func donedatePicker(dateField: UITextField){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        birthdayTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    func selectWomanButton(button: UIButton){
+        let color = UIColor(red:241/255, green:78/255, blue:78/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+    func selectManButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+    func polishGenderButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return heightPickerData.count
+    }
+    
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return heightPickerData[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        heightTextField.text = heightPickerData[row]
+    }
+    
+    @objc func donePicker() {
+        heightTextField.resignFirstResponder()
+    }
+    
+    class func heightGenerator(minHeight: Int, maxHeight: Int) -> [String]{
+        let heights_int = [Int](minHeight...maxHeight)
+        var heightStringArray = heights_int.map { String($0) + " cm"}
+        let min_value = "<" + String(minHeight) + " cm"
+        let max_value = ">" + String(maxHeight) + " cm"
+        heightStringArray.insert(min_value, at: 0)
+        heightStringArray.insert(max_value, at: heightStringArray.count)
+        return heightStringArray
+    }
+}
