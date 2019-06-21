@@ -480,4 +480,39 @@ class EditProfile_Education: UIViewController {
 }
 
 
-
+class EditProfile_WorkJob: UIViewController {
+    
+    @IBOutlet weak var workplaceTextField: UITextField!
+    @IBOutlet weak var jobtitleTextField: UITextField!
+    
+    
+    func loadStoredFields() {
+        if let workplace = localReadKeyValue(key: WORKPLACE) as? String {
+            workplaceTextField.text = workplace
+        }
+        if let jobtitle = localReadKeyValue(key: JOBTITLE) as? String {
+            jobtitleTextField.text = jobtitle
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        workplaceTextField.setBottomBorder()
+        jobtitleTextField.setBottomBorder()
+        loadStoredFields()
+        overrideBackbutton()
+    }
+    
+    func overrideBackbutton(){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        localStoreKeyValue(key: WORKPLACE, value: workplaceTextField.text!)
+        localStoreKeyValue(key: JOBTITLE, value: jobtitleTextField.text!)
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
+}
