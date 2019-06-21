@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ijP-AI-M46">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHq-es-sYb">
-                                <rect key="frame" x="71" y="560" width="273" height="60"/>
+                                <rect key="frame" x="71" y="542" width="273" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="手机登入和注册" backgroundImage="Register_continue_btn">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-Ji-qBy">
-                                <rect key="frame" x="70.666666666666686" y="396" width="273" height="60"/>
+                                <rect key="frame" x="70.666666666666686" y="551" width="273" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="BRy-N1-I0G"/>
                                     <constraint firstAttribute="height" constant="60" id="UWQ-Cn-ugy"/>
@@ -138,9 +138,9 @@
                             <constraint firstItem="EVo-Ee-8rk" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="66" id="ZQw-S4-kdN"/>
                             <constraint firstItem="IxL-wb-f4W" firstAttribute="top" secondItem="SVI-I1-FIZ" secondAttribute="bottom" constant="74" id="erf-1z-HK0"/>
                             <constraint firstItem="Ds9-Ji-qBy" firstAttribute="centerX" secondItem="AZs-lA-0pS" secondAttribute="centerX" id="nmo-Tl-8Zw"/>
+                            <constraint firstItem="bHC-LO-C6P" firstAttribute="top" secondItem="Ds9-Ji-qBy" secondAttribute="bottom" constant="125" id="qh0-nw-tdW"/>
                             <constraint firstItem="4tW-sO-R87" firstAttribute="top" secondItem="cPO-34-C90" secondAttribute="bottom" constant="128" id="rAF-32-gCn"/>
                             <constraint firstItem="SVI-I1-FIZ" firstAttribute="top" secondItem="4tW-sO-R87" secondAttribute="bottom" constant="19" id="uxw-AU-ihV"/>
-                            <constraint firstItem="Ds9-Ji-qBy" firstAttribute="top" secondItem="EVo-Ee-8rk" secondAttribute="bottom" constant="43" id="w1i-PC-AOa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -189,7 +189,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2g-cE-MXM">
-                                <rect key="frame" x="70.666666666666686" y="398" width="273" height="60"/>
+                                <rect key="frame" x="70.666666666666686" y="551" width="273" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="qZZ-Kv-Bf1"/>
                                     <constraint firstAttribute="height" constant="60" id="vVF-Ai-dCR"/>
@@ -268,6 +268,7 @@
                             <constraint firstItem="fBd-eH-AMN" firstAttribute="top" secondItem="n2g-rJ-Kwq" secondAttribute="bottom" constant="66" id="0rs-gN-hIs"/>
                             <constraint firstItem="EVg-64-EHy" firstAttribute="centerX" secondItem="pB2-Ko-XuB" secondAttribute="centerX" id="2U7-Vn-qw3"/>
                             <constraint firstItem="n2g-rJ-Kwq" firstAttribute="top" secondItem="8EG-OY-pMQ" secondAttribute="bottom" constant="1" id="A0q-36-bom"/>
+                            <constraint firstItem="4qd-s4-Fih" firstAttribute="top" secondItem="f2g-cE-MXM" secondAttribute="bottom" constant="125" id="B3A-ty-kfK"/>
                             <constraint firstItem="n2g-rJ-Kwq" firstAttribute="centerX" secondItem="pB2-Ko-XuB" secondAttribute="centerX" id="GBm-Nv-USw"/>
                             <constraint firstItem="f2g-cE-MXM" firstAttribute="centerX" secondItem="pB2-Ko-XuB" secondAttribute="centerX" id="IAD-tF-ZFG"/>
                             <constraint firstItem="7gg-F0-pts" firstAttribute="top" secondItem="n2g-rJ-Kwq" secondAttribute="bottom" constant="66" id="JlJ-NP-tot"/>
@@ -281,7 +282,6 @@
                             <constraint firstItem="8EG-OY-pMQ" firstAttribute="centerX" secondItem="pB2-Ko-XuB" secondAttribute="centerX" id="oLL-uk-IEl"/>
                             <constraint firstItem="8EG-OY-pMQ" firstAttribute="top" secondItem="8Qn-Wx-2Sl" secondAttribute="bottom" constant="128" id="pYI-rL-y0I"/>
                             <constraint firstItem="n2g-rJ-Kwq" firstAttribute="leading" secondItem="pB2-Ko-XuB" secondAttribute="leading" constant="67" id="rXL-if-W0f"/>
-                            <constraint firstItem="f2g-cE-MXM" firstAttribute="top" secondItem="EVg-64-EHy" secondAttribute="bottom" constant="35" id="sWg-PU-u8E"/>
                         </constraints>
                     </view>
                     <connections>
@@ -308,7 +308,7 @@
     </scenes>
     <resources>
         <image name="LogoPlaceholder" width="222" height="222"/>
-        <image name="Register_continue_btn" width="765" height="198"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sDy-Zp-GUl"/>
