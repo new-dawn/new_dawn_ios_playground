@@ -982,6 +982,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ7-fH-maG">
                                                     <rect key="frame" x="290" y="5" width="41.5" height="41.5"/>
                                                     <state key="normal" title="Button" image="SettingContinueButton"/>
+                                                    <connections>
+                                                        <segue destination="Chk-bI-D8c" kind="show" id="Wkj-KK-mqd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2775,6 +2778,164 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2h5-Od-16x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1336.8" y="3970.1649175412299"/>
+        </scene>
+        <!--学校-->
+        <scene sceneID="vuS-Lp-TTT">
+            <objects>
+                <viewController title="学校" id="Chk-bI-D8c" customClass="EditProfile_Education" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="35W-YX-zeT"/>
+                        <viewControllerLayoutGuide type="bottom" id="LGq-bb-q0f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yns-6j-KzM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你的学校" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8G-uy-uYq">
+                                <rect key="frame" x="97.5" y="172" width="180" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="4dt-P5-fJW"/>
+                                    <constraint firstAttribute="height" constant="40" id="wup-hN-Doa"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="学校" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-SX-2mD">
+                                <rect key="frame" x="69" y="183" width="21" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="最 高 学 历" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxx-oe-6B9">
+                                <rect key="frame" x="51" y="370" width="21" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="aig-lw-KIo"/>
+                                    <constraint firstAttribute="width" constant="21" id="yuf-7O-iyC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-y7-rkr">
+                                <rect key="frame" x="104" y="370" width="167" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TH9-l1-73I" userLabel="Undergrad">
+                                        <rect key="frame" x="0.0" y="0.0" width="41" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="exU-Up-FiD"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="本 科">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="14" name="PingFangTC-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="undergradTapped:" destination="Chk-bI-D8c" eventType="touchUpInside" id="FT0-3k-4o3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-AP-Pei" userLabel="Grad">
+                                        <rect key="frame" x="63" y="0.0" width="41" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="eTw-i2-vSh"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="硕 士">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="14" name="PingFangTC-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="gradTapped:" destination="Chk-bI-D8c" eventType="touchUpInside" id="6Hc-NE-92w"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fh9-nA-8IX" userLabel="PhD">
+                                        <rect key="frame" x="126" y="0.0" width="41" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="dZ5-cp-pGw"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="博 士">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="14" name="PingFangTC-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="phdTapped:" destination="Chk-bI-D8c" eventType="touchUpInside" id="joZ-TY-RhU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Khn-bl-oVQ"/>
+                                </constraints>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fxQ-fT-blz" userLabel="School Text Field">
+                                <rect key="frame" x="102" y="190" width="170" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VeO-bC-6TP"/>
+                                    <constraint firstAttribute="width" constant="170" id="rYn-Xh-0cH"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="你已经获取或在读的最高学历是？" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xN6-Od-Rxh">
+                                <rect key="frame" x="93" y="281" width="189" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="YLg-gQ-Px1"/>
+                                    <constraint firstAttribute="width" constant="189" id="dYK-Le-rvx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fxQ-fT-blz" firstAttribute="centerX" secondItem="Yns-6j-KzM" secondAttribute="centerX" id="63P-Pi-Ta4"/>
+                            <constraint firstItem="xN6-Od-Rxh" firstAttribute="centerX" secondItem="Yns-6j-KzM" secondAttribute="centerX" id="6zV-x3-tQq"/>
+                            <constraint firstItem="gxx-oe-6B9" firstAttribute="top" secondItem="xN6-Od-Rxh" secondAttribute="bottom" constant="28" id="Ebi-Vr-pmb"/>
+                            <constraint firstItem="L8G-uy-uYq" firstAttribute="leading" secondItem="q3S-SX-2mD" secondAttribute="trailing" constant="7" id="IKV-D7-Cqn"/>
+                            <constraint firstItem="xN6-Od-Rxh" firstAttribute="top" secondItem="fxQ-fT-blz" secondAttribute="bottom" constant="51" id="JEL-JB-84C"/>
+                            <constraint firstItem="xN6-Od-Rxh" firstAttribute="leading" secondItem="gxx-oe-6B9" secondAttribute="trailing" constant="18" id="cPt-oc-eTf"/>
+                            <constraint firstItem="q3S-SX-2mD" firstAttribute="top" secondItem="L8G-uy-uYq" secondAttribute="bottom" constant="15" id="dYB-LS-f5Y"/>
+                            <constraint firstItem="L8G-uy-uYq" firstAttribute="centerX" secondItem="Yns-6j-KzM" secondAttribute="centerX" id="heP-9Z-pzp"/>
+                            <constraint firstItem="fxQ-fT-blz" firstAttribute="centerY" secondItem="q3S-SX-2mD" secondAttribute="centerY" id="mpM-5w-jdE"/>
+                            <constraint firstItem="8aW-y7-rkr" firstAttribute="top" secondItem="xN6-Od-Rxh" secondAttribute="bottom" constant="28" id="rGP-aM-8HP"/>
+                            <constraint firstItem="L8G-uy-uYq" firstAttribute="top" secondItem="35W-YX-zeT" secondAttribute="bottom" constant="108" id="xOC-Av-RHr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ava-qQ-7sU"/>
+                    </view>
+                    <connections>
+                        <outlet property="grad" destination="xnb-AP-Pei" id="3Zh-4H-iAI"/>
+                        <outlet property="phd" destination="fh9-nA-8IX" id="ea2-H3-chT"/>
+                        <outlet property="schoolTextField" destination="fxQ-fT-blz" id="B9r-Vu-wsG"/>
+                        <outlet property="undergrad" destination="TH9-l1-73I" id="pq7-DN-NqS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jcx-bL-bWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="4716"/>
         </scene>
     </scenes>
     <resources>
