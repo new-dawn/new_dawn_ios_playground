@@ -10,19 +10,29 @@ import UIKit
 
 let HOMETOWN = "hometown"
 
-class Profile_HomeTown: UIViewController {
+class Profile_HomeTown: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
-    /* Constant String Keys*/
     let VISIBLE = "hometown_visible"
+    let locationPickerData = ["纽约", "波士顿"]
     
-    /* Constrains */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
-//    var visibleField = false
-
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return locationPickerData.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return locationPickerData[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        hometownTextField.text = locationPickerData[row]
+    }
+    
     
     @IBOutlet weak var hometownTextField: UITextField!
-//    @IBOutlet weak var visibleButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
@@ -30,43 +40,44 @@ class Profile_HomeTown: UIViewController {
         if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
             hometownTextField.text = hometown
         }
-//        if let visible = localReadKeyValue(key: VISIBLE) as? Bool {
-//            visibleField = visible
-//            // Select the button if a user has already done so
-//            if visibleField == true {
-//                selectButton(button: visibleButton, text: "Visible")
-//            }
-//        }
+    }
+    
+    @objc func donePicker() {
+        hometownTextField.resignFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        polishTextField(textField: hometownTextField)
-//        polishUIButton(button: visibleButton)
         hometownTextField.setBottomBorder()
         continueButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         backButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         loadStoredFields()
         
+        // Picker Toolbar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(Profile_HomeTown.donePicker))
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        // Location Picker
+        let locationPicker = UIPickerView()
+        hometownTextField.inputView = locationPicker
+        hometownTextField.inputAccessoryView = toolbar
+        locationPicker.delegate = self
+        
     }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
-    
-    
-//    @IBAction func visibleButtonTapped(_ sender: Any) {
-//        if visibleField == true {
-//            deselectButton(button: visibleButton, text: "Invisible")
-//            visibleField = false
-//            localStoreKeyValue(key: VISIBLE, value: false)
-//        } else {
-//            selectButton(button: visibleButton, text: "Visible")
-//            visibleField = true
-//            localStoreKeyValue(key: VISIBLE, value: true)
-//        }
-//    }
-//
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool{
+        if (hometownTextField.text?.isEmpty)! {
+            self.displayMessage(userMessage: "Cannot have empty field")
+            return false
+        }else{
+            return true
+        }
+    }
+
     @IBAction func nextButtonTapped(_ sender: Any) {
         localStoreKeyValue(key: HOMETOWN, value: hometownTextField.text!)
         localStoreKeyValue(key: VISIBLE, value: true)

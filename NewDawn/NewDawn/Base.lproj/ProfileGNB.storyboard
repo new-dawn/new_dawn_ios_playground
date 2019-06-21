@@ -302,7 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你的故乡" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你所在的城市" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
                                 <rect key="frame" x="52.5" y="170" width="270" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -314,7 +314,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKP-vy-PeF">
-                                <rect key="frame" x="95" y="260.5" width="185" height="40"/>
+                                <rect key="frame" x="95" y="258.5" width="185" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d9c-hy-Bla"/>
                                 </constraints>
@@ -325,10 +325,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故乡" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-YN-eQg">
-                                <rect key="frame" x="66" y="256" width="21" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-YN-eQg">
+                                <rect key="frame" x="66" y="256" width="21" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="JUo-1j-jy1"/>
+                                    <constraint firstAttribute="height" constant="50" id="JUo-1j-jy1"/>
                                     <constraint firstAttribute="width" constant="21" id="gyB-DA-35t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1419,7 +1419,7 @@
         <segue reference="vCo-NW-E29"/>
         <segue reference="Sib-rs-igN"/>
         <segue reference="7PI-cb-EZr"/>
-        <segue reference="kpz-4v-05O"/>
+        <segue reference="xAU-WT-A6c"/>
         <segue reference="Qnx-s3-FCQ"/>
     </inferredMetricsTieBreakers>
 </document>
