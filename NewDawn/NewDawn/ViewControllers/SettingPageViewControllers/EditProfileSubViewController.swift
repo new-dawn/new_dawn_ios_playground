@@ -516,3 +516,215 @@ class EditProfile_WorkJob: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+
+class EditProfile_Smoke: UIViewController {
+    
+    let FREQUENT_SMOKE = "frequent"
+    let NOSMOKE = "no"
+    let SOCIAL_SMOKE = "social"
+    let UNKNOWN = "N/A"
+    var smoke_pref: String? = nil
+    
+    @IBOutlet weak var sociallyButton: UIButton!
+    @IBOutlet weak var frequentlyButton: UIButton!
+    @IBOutlet weak var noSmokeButton: UIButton!
+
+    
+    
+    func loadStoredFields() {
+        // Select the buttons if a user has already done so
+        if let smoke = localReadKeyValue(key: SMOKE) as? String{
+            if smoke == NOSMOKE{
+                selectSmokeButton(button: noSmokeButton)
+                smoke_pref = NOSMOKE
+            }
+            else if smoke == FREQUENT_SMOKE{
+                selectSmokeButton(button: frequentlyButton)
+                smoke_pref = FREQUENT_SMOKE
+            }
+            else if smoke == SOCIAL_SMOKE{
+                selectSmokeButton(button: sociallyButton)
+                smoke_pref = SOCIAL_SMOKE
+            }
+        }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        polishSmokeButton(button: sociallyButton)
+        polishSmokeButton(button: frequentlyButton)
+        polishSmokeButton(button: noSmokeButton)
+        loadStoredFields()
+        overrideBackbutton()
+    }
+    
+    func overrideBackbutton(){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        localStoreKeyValue(key: SMOKE, value: smoke_pref ?? UNKNOWN)
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    
+    @IBAction func noSmokeButtonTapped(_ sender: Any) {
+        if smoke_pref == NOSMOKE {
+            deselectButton(button: noSmokeButton)
+            smoke_pref = nil
+        } else {
+            selectSmokeButton(button: noSmokeButton)
+            deselectButtons(buttons: [sociallyButton,frequentlyButton])
+            smoke_pref = NOSMOKE
+        }
+    }
+    
+    @IBAction func frequentButtonTapped(_ sender: Any) {
+        if smoke_pref == FREQUENT_SMOKE {
+            deselectButton(button: frequentlyButton)
+            smoke_pref = nil
+        } else {
+            selectSmokeButton(button: frequentlyButton)
+            deselectButtons(buttons: [sociallyButton,noSmokeButton])
+            smoke_pref = FREQUENT_SMOKE
+        }
+    }
+    
+    @IBAction func sociallyButtonTapped(_ sender: Any) {
+        if smoke_pref == SOCIAL_SMOKE {
+            deselectButton(button: sociallyButton)
+            smoke_pref = nil
+        } else {
+            selectSmokeButton(button: sociallyButton)
+            deselectButtons(buttons: [frequentlyButton,noSmokeButton])
+            smoke_pref = SOCIAL_SMOKE
+        }
+    }
+    
+    
+    func polishSmokeButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func selectSmokeButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+}
+
+
+class EditProfile_Drink: UIViewController {
+    
+    let FREQUENT_DRINK = "frequent"
+    let NODRINK = "no"
+    let SOCIAL_DRINK = "social"
+    let UNKNOWN = "N/A"
+    let VISIBLE = "drink_visible"
+    var drink_pref: String? = nil
+    var visible_state = false
+    
+    @IBOutlet weak var sociallyButton: UIButton!
+    @IBOutlet weak var frequentlyButton: UIButton!
+    @IBOutlet weak var noDrinkButton: UIButton!
+    
+    func loadStoredFields() {
+        // Select the buttons if a user has already done so
+        if let drink = localReadKeyValue(key: DRINK) as? String{
+            if drink == NODRINK{
+                selectDrinkButton(button: noDrinkButton)
+                drink_pref = NODRINK
+            }
+            else if drink == FREQUENT_DRINK{
+                selectDrinkButton(button: frequentlyButton)
+                drink_pref = FREQUENT_DRINK
+            }
+            else if drink == SOCIAL_DRINK{
+                selectDrinkButton(button: sociallyButton)
+                drink_pref = SOCIAL_DRINK
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        polishDrinkButton(button: sociallyButton)
+        polishDrinkButton(button: frequentlyButton)
+        polishDrinkButton(button: noDrinkButton)
+        loadStoredFields()
+        overrideBackbutton()
+    }
+    
+    func overrideBackbutton(){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        localStoreKeyValue(key: DRINK, value: drink_pref ?? UNKNOWN)
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func noDrinkButtonTapped(_ sender: Any) {
+        if drink_pref == NODRINK {
+            deselectButton(button: noDrinkButton)
+            drink_pref = nil
+        } else {
+            selectDrinkButton(button: noDrinkButton)
+            deselectButtons(buttons: [sociallyButton,frequentlyButton])
+            drink_pref = NODRINK
+        }
+    }
+    
+    @IBAction func frequentButtonTapped(_ sender: Any) {
+        if drink_pref == FREQUENT_DRINK {
+            deselectButton(button: frequentlyButton)
+            drink_pref = nil
+        } else {
+            selectDrinkButton(button: frequentlyButton)
+            deselectButtons(buttons: [sociallyButton,noDrinkButton])
+            drink_pref = FREQUENT_DRINK
+        }
+    }
+    
+    @IBAction func sociallyButtonTapped(_ sender: Any) {
+        if drink_pref == SOCIAL_DRINK {
+            deselectButton(button: sociallyButton)
+            drink_pref = nil
+        } else {
+            selectDrinkButton(button: sociallyButton)
+            deselectButtons(buttons: [frequentlyButton,noDrinkButton])
+            drink_pref = SOCIAL_DRINK
+        }
+    }
+    
+    
+    func polishDrinkButton(button: UIButton) -> Void {
+        button.layer.cornerRadius = 13
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor(red:151/255, green:151/255, blue:151/255, alpha:1).cgColor
+        button.layer.masksToBounds = true
+    }
+    
+    func selectDrinkButton(button: UIButton){
+        let color = UIColor(red:22/255, green:170/255, blue:184/255, alpha:1)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.borderColor = color.cgColor
+        button.layer.backgroundColor = color.cgColor
+    }
+    
+}

@@ -1409,11 +1409,11 @@
         <image name="Register_continue_btn" width="510" height="132"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLz-FJ-ORZ"/>
+        <segue reference="iHz-cU-Dm1"/>
         <segue reference="Os6-NZ-WLV"/>
-        <segue reference="OJW-vV-kwk"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="6m0-PK-7Bw"/>
-        <segue reference="Lg2-B7-aic"/>
+        <segue reference="Sib-rs-igN"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
         <segue reference="amX-Zs-ZQr"/>

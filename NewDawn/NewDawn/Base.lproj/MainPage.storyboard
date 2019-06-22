@@ -1033,6 +1033,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-oZ-SwD">
                                                     <rect key="frame" x="290" y="5" width="41.5" height="41.5"/>
                                                     <state key="normal" title="Button" image="SettingContinueButton"/>
+                                                    <connections>
+                                                        <segue destination="Qe7-8F-o3e" kind="show" id="WDZ-b6-n01"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1078,6 +1081,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYi-jS-kvb">
                                                     <rect key="frame" x="290" y="5" width="41.5" height="41.5"/>
                                                     <state key="normal" title="Button" image="SettingContinueButton"/>
+                                                    <connections>
+                                                        <segue destination="PDW-gI-krf" kind="show" id="1mp-W4-H3U"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2941,18 +2947,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="现在任职的公司？" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cB-rH-muu">
-                                <rect key="frame" x="52.5" y="144" width="270" height="40"/>
+                                <rect key="frame" x="91" y="144" width="193" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="FA6-oe-1DY"/>
                                     <constraint firstAttribute="height" constant="40" id="ue3-2R-dQw"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRY-90-twY">
-                                <rect key="frame" x="97" y="321" width="175" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRY-90-twY">
+                                <rect key="frame" x="91" y="362" width="193" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ShP-Yl-5Wi"/>
                                 </constraints>
@@ -2992,8 +2997,8 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kxe-xN-Nxr">
-                                <rect key="frame" x="88" y="167" width="175" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kxe-xN-Nxr">
+                                <rect key="frame" x="91" y="209" width="193" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EHk-Bl-hhY"/>
                                 </constraints>
@@ -3011,14 +3016,12 @@
                             <constraint firstItem="5cB-rH-muu" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="80" id="3Zp-zG-pUT"/>
                             <constraint firstItem="1eV-JQ-5u8" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="296" id="DMK-Jy-IW0"/>
                             <constraint firstItem="BRY-90-twY" firstAttribute="centerX" secondItem="ZAa-hZ-sJh" secondAttribute="centerX" id="HSF-gC-EjP"/>
-                            <constraint firstItem="Kxe-xN-Nxr" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="144" id="KFS-wA-3jq"/>
+                            <constraint firstItem="Kxe-xN-Nxr" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="145" id="KFS-wA-3jq"/>
                             <constraint firstItem="46Q-Nc-kZ4" firstAttribute="leading" secondItem="ZAa-hZ-sJh" secondAttribute="leading" constant="59" id="Knd-RJ-f9p"/>
                             <constraint firstItem="5cB-rH-muu" firstAttribute="centerX" secondItem="ZAa-hZ-sJh" secondAttribute="centerX" id="NtI-tA-JP4"/>
-                            <constraint firstItem="Kxe-xN-Nxr" firstAttribute="width" secondItem="5cB-rH-muu" secondAttribute="width" id="NxT-3H-lUo"/>
                             <constraint firstItem="Kxe-xN-Nxr" firstAttribute="centerX" secondItem="ZAa-hZ-sJh" secondAttribute="centerX" id="RLY-lJ-4LA"/>
                             <constraint firstItem="BRY-90-twY" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="298" id="VcC-CI-V3w"/>
                             <constraint firstItem="46Q-Nc-kZ4" firstAttribute="top" secondItem="SEg-nO-m0u" secondAttribute="bottom" constant="142" id="X8V-GE-RE8"/>
-                            <constraint firstAttribute="trailing" secondItem="Kxe-xN-Nxr" secondAttribute="trailing" constant="80" id="deL-Jw-5up"/>
                             <constraint firstItem="Kxe-xN-Nxr" firstAttribute="leading" secondItem="ZAa-hZ-sJh" secondAttribute="leadingMargin" constant="75" id="ffC-li-3d6"/>
                             <constraint firstItem="BRY-90-twY" firstAttribute="leading" secondItem="ZAa-hZ-sJh" secondAttribute="leadingMargin" constant="75" id="j4P-H6-sEW"/>
                             <constraint firstItem="1eV-JQ-5u8" firstAttribute="leading" secondItem="ZAa-hZ-sJh" secondAttribute="leading" constant="59" id="vP7-P3-ohd"/>
@@ -3035,6 +3038,208 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWb-b2-ZOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1337" y="5520"/>
+        </scene>
+        <!--Edit Profile Drink-->
+        <scene sceneID="Yhn-8j-qPC">
+            <objects>
+                <viewController id="PDW-gI-krf" customClass="EditProfile_Drink" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J4I-5N-iih"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5Y-zI-4i4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ddX-QG-t2f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Xxb-79-bSo">
+                                <rect key="frame" x="164" y="269" width="45" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="vMn-F5-Mjl"/>
+                                    <constraint firstAttribute="width" constant="45" id="wZS-rS-19x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="经 常 喝">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="frequentButtonTapped:" destination="PDW-gI-krf" eventType="touchUpInside" id="Jja-7u-6Js"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-O3-jio">
+                                <rect key="frame" x="229" y="269" width="45" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="ZJr-Pt-GtD"/>
+                                    <constraint firstAttribute="width" constant="45" id="v5q-gK-N18"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="不 喝">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="noDrinkButtonTapped:" destination="PDW-gI-krf" eventType="touchUpInside" id="Vsq-41-pEl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="REh-SH-aJD">
+                                <rect key="frame" x="99" y="269" width="45" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="YAo-3q-9rd"/>
+                                    <constraint firstAttribute="height" constant="93" id="g2S-Bz-T8Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="偶 尔 喝">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sociallyButtonTapped:" destination="PDW-gI-krf" eventType="touchUpInside" id="tOx-Ao-dtx"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="饮酒习惯呢？" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp4-h8-Cc0">
+                                <rect key="frame" x="116.5" y="182" width="142" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gxj-4l-yAc"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="REh-SH-aJD" firstAttribute="top" secondItem="Qp4-h8-Cc0" secondAttribute="bottom" constant="37" id="9IJ-vn-kwi"/>
+                            <constraint firstItem="Qp4-h8-Cc0" firstAttribute="centerX" secondItem="ddX-QG-t2f" secondAttribute="centerX" id="HeK-do-Z3Z"/>
+                            <constraint firstItem="VFl-O3-jio" firstAttribute="top" secondItem="REh-SH-aJD" secondAttribute="top" id="LDd-ZJ-Vaf"/>
+                            <constraint firstItem="Qp4-h8-Cc0" firstAttribute="leading" secondItem="ddX-QG-t2f" secondAttribute="leading" constant="116.5" id="P71-mW-zpe"/>
+                            <constraint firstItem="Qp4-h8-Cc0" firstAttribute="top" secondItem="J4I-5N-iih" secondAttribute="bottom" constant="118" id="TXg-At-ZDS"/>
+                            <constraint firstItem="VFl-O3-jio" firstAttribute="leading" secondItem="Xxb-79-bSo" secondAttribute="trailing" constant="20" id="Yee-Dc-dN4"/>
+                            <constraint firstItem="Xxb-79-bSo" firstAttribute="top" secondItem="REh-SH-aJD" secondAttribute="top" id="efq-Ik-M2V"/>
+                            <constraint firstItem="Xxb-79-bSo" firstAttribute="leading" secondItem="REh-SH-aJD" secondAttribute="trailing" constant="20" id="sVW-gk-pt7"/>
+                            <constraint firstItem="REh-SH-aJD" firstAttribute="leading" secondItem="ddX-QG-t2f" secondAttribute="leading" constant="99" id="wKd-U6-TTf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WwU-Ax-meB"/>
+                    </view>
+                    <connections>
+                        <outlet property="frequentlyButton" destination="Xxb-79-bSo" id="0aF-Kx-HNg"/>
+                        <outlet property="noDrinkButton" destination="VFl-O3-jio" id="bO7-v3-8PS"/>
+                        <outlet property="sociallyButton" destination="REh-SH-aJD" id="x5r-ql-Ict"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tgi-y9-cFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="6217"/>
+        </scene>
+        <!--Edit Profile Smoke-->
+        <scene sceneID="6Op-8w-cHj">
+            <objects>
+                <viewController id="Qe7-8F-o3e" customClass="EditProfile_Smoke" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdX-t6-YT1"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Pm-SS-P6I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Gw-RW-zlr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="14g-Ps-bgu">
+                                <rect key="frame" x="172.5" y="216" width="30" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="6Cp-Am-qlI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="经 常 抽">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="frequentButtonTapped:" destination="Qe7-8F-o3e" eventType="touchUpInside" id="H2t-Bg-jV1"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请问你抽烟吗？" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIh-zc-Oij">
+                                <rect key="frame" x="105.5" y="144" width="164" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1IN-dM-Gkj"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="64x-Qj-dP0">
+                                <rect key="frame" x="122.5" y="216" width="30" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="FfF-eV-RqK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="偶 尔 抽 抽">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sociallyButtonTapped:" destination="Qe7-8F-o3e" eventType="touchUpInside" id="SKE-CB-K4v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4WS-7n-TGM">
+                                <rect key="frame" x="222.5" y="216" width="30" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="Add-N0-5Xg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="不 抽">
+                                    <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="noSmokeButtonTapped:" destination="Qe7-8F-o3e" eventType="touchUpInside" id="nuP-bS-EZC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4WS-7n-TGM" firstAttribute="leading" secondItem="14g-Ps-bgu" secondAttribute="trailing" constant="20" id="KkB-k6-88L"/>
+                            <constraint firstItem="4WS-7n-TGM" firstAttribute="top" secondItem="FIh-zc-Oij" secondAttribute="bottom" constant="22" id="M55-ld-daJ"/>
+                            <constraint firstItem="FIh-zc-Oij" firstAttribute="centerX" secondItem="7Gw-RW-zlr" secondAttribute="centerX" id="RwH-9w-w4u"/>
+                            <constraint firstItem="14g-Ps-bgu" firstAttribute="top" secondItem="FIh-zc-Oij" secondAttribute="bottom" constant="22" id="T0A-hp-FYa"/>
+                            <constraint firstItem="FIh-zc-Oij" firstAttribute="top" secondItem="U9V-Yf-iHz" secondAttribute="top" constant="80" id="apE-E3-ill"/>
+                            <constraint firstItem="64x-Qj-dP0" firstAttribute="top" secondItem="FIh-zc-Oij" secondAttribute="bottom" constant="22" id="dH3-KA-c7j"/>
+                            <constraint firstItem="14g-Ps-bgu" firstAttribute="leading" secondItem="64x-Qj-dP0" secondAttribute="trailing" constant="20" id="fk7-2x-qYR"/>
+                            <constraint firstItem="14g-Ps-bgu" firstAttribute="centerX" secondItem="7Gw-RW-zlr" secondAttribute="centerX" id="vzp-yj-e6e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U9V-Yf-iHz"/>
+                    </view>
+                    <connections>
+                        <outlet property="frequentlyButton" destination="14g-Ps-bgu" id="wli-fh-Tg4"/>
+                        <outlet property="noSmokeButton" destination="4WS-7n-TGM" id="WXC-RM-Z0X"/>
+                        <outlet property="sociallyButton" destination="64x-Qj-dP0" id="f81-SS-4Bk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ek-9e-DwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="6927"/>
         </scene>
     </scenes>
     <resources>
