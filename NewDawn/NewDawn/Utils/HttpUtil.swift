@@ -242,6 +242,7 @@ class EditProfileUtil{
             "employer":LocalStorageUtil.localReadKeyValue(key: WORKPLACE) ?? UNKNOWN,
             "drink":LocalStorageUtil.localReadKeyValue(key: DRINK) ?? UNKNOWN,
             "smoke":LocalStorageUtil.localReadKeyValue(key: SMOKE) ?? UNKNOWN,
+            "location":LocalStorageUtil.localReadKeyValue(key: LOCATION) ?? UNKNOWN,
         ]
     }
     

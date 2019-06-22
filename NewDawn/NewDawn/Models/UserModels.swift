@@ -162,6 +162,7 @@ struct UserProfile: Codable {
     var drink: String = UNKNOWN
     var jobTitle: String = UNKNOWN
     var employer: String = UNKNOWN
+    var location: String = UNKNOWN
     var smoke: String = UNKNOWN
     var questionAnswers: Array<QuestionAnswer> = [QuestionAnswer]()
     var mainImages: Array<MainImage> = [MainImage]()
@@ -206,6 +207,9 @@ struct UserProfile: Codable {
         }
         if let employer = data[WORKPLACE] as? String {
             self.employer = employer
+        }
+        if let location = data[LOCATION] as? String {
+            self.location = location
         }
         if let question_answers = data[QUESTION_ANSWERS] as? Array<NSDictionary> {
             for dict in question_answers {
@@ -278,6 +282,7 @@ class UserProfileBuilder{
             SCHOOL: profile_data[SCHOOL] as? String ?? UNKNOWN,
             SMOKE: profile_data[SMOKE] as? String ?? UNKNOWN,
             DRINK: profile_data[DRINK] as? String ?? UNKNOWN,
+            LOCATION: profile_data[LOCATION] as? String ?? UNKNOWN,
             IMAGES: profile_data[IMAGES] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
