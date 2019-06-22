@@ -44,6 +44,16 @@ class AgePrefViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewWillDisappear(_ animated: Bool) {
         LocalStorageUtil.localStoreKeyValue(key: "age_pref", value: self.age_range.text!)
+        if self.from_age != "" {
+            LocalStorageUtil.localStoreKeyValue(key: "from_age", value: self.from_age)
+        } else {
+            LocalStorageUtil.localStoreKeyValue(key: "from_age", value: String(age_choices_from[0]))
+        }
+        if self.to_age != "" {
+            LocalStorageUtil.localStoreKeyValue(key: "to_age", value: self.to_age)
+        } else {
+            LocalStorageUtil.localStoreKeyValue(key: "to_age", value: String(age_choices_to[age_choices_to.count-1]))
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -126,6 +136,16 @@ class HeightPrefViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewWillDisappear(_ animated: Bool) {
         LocalStorageUtil.localStoreKeyValue(key: "height_pref", value: self.height_range.text!)
+        if self.from_height != "" {
+            LocalStorageUtil.localStoreKeyValue(key: "from_height", value: self.from_height)
+        } else {
+            LocalStorageUtil.localStoreKeyValue(key: "from_height", value: String(height_choices_from[0]))
+        }
+        if self.to_height != "" {
+            LocalStorageUtil.localStoreKeyValue(key: "to_height", value: self.to_height)
+        } else {
+            LocalStorageUtil.localStoreKeyValue(key: "to_height", value: String(height_choices_to[height_choices_to.count-1]))
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

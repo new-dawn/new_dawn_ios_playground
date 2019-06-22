@@ -258,7 +258,16 @@ class UserProfileBuilder{
     // Usage for user to other users' profiles information from backend
     static func fetchUserProfiles(params: [String:String] = [:], callback: @escaping (NSDictionary, String?) -> Void){
         // TODO: get username and api_key from keychain/local storage
-        let request = UserProfileBuilder.createGetProfileRequest(params)
+        var temp_params = params
+        if let from_age = LocalStorageUtil.localReadKeyValue(key: "from_age"),
+            let to_age = LocalStorageUtil.localReadKeyValue(key: "to_age") {
+        temp_params["age__range"] = (from_age as! String) + "," + (to_age as! String)
+        }
+        if let from_height = LocalStorageUtil.localReadKeyValue(key: "from_height"),
+            let to_height = LocalStorageUtil.localReadKeyValue(key: "to_height") {
+            temp_params["height__range"] = (from_height as! String) + "," + (to_height as! String)
+        }
+        let request = UserProfileBuilder.createGetProfileRequest(temp_params)
         HttpUtil.processSessionTasks(request: request!, callback: callback)
     }
     
