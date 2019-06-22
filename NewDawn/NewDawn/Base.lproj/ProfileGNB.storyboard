@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP3-S2-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8" y="834.33283358320841"/>
+            <point key="canvasLocation" x="871" y="838"/>
         </scene>
         <!--Profile Height-->
         <scene sceneID="BT1-VS-daF">
@@ -258,8 +258,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="Whb-2R-7Ui"/>
-                                    <segue destination="SsO-BG-9ZC" kind="show" identifier="height_continue" id="xAU-WT-A6c"/>
+                                    <action selector="nextButtonAction:" destination="zK3-2z-MPV" eventType="touchUpInside" id="qNI-Dp-nZ1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -284,16 +283,17 @@
                         <outlet property="backButton" destination="2ga-Hr-8NG" id="CiW-6i-hS6"/>
                         <outlet property="continueButton" destination="hJD-qP-weV" id="VEb-Lb-K2i"/>
                         <outlet property="heightTextField" destination="nyD-T8-OYf" id="qER-g4-Zcz"/>
+                        <segue destination="SsO-BG-9ZC" kind="show" identifier="height_continue" id="bHa-BE-YA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqN-pe-4Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280.8000000000002" y="840.62968515742136"/>
+            <point key="canvasLocation" x="1575" y="844"/>
         </scene>
-        <!--Profile Home Town-->
+        <!--Profile Location-->
         <scene sceneID="WMO-1g-Y8Z">
             <objects>
-                <viewController id="SsO-BG-9ZC" customClass="Profile_HomeTown" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SsO-BG-9ZC" customClass="Profile_Location" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dcJ-49-YLV"/>
                         <viewControllerLayoutGuide type="bottom" id="wbB-cq-ogI"/>
@@ -302,7 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你的故乡" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你所在的城市" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-EV-FBG">
                                 <rect key="frame" x="52.5" y="170" width="270" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -314,7 +314,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKP-vy-PeF">
-                                <rect key="frame" x="95" y="260.5" width="185" height="40"/>
+                                <rect key="frame" x="95" y="258.5" width="185" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d9c-hy-Bla"/>
                                 </constraints>
@@ -325,10 +325,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故乡" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-YN-eQg">
-                                <rect key="frame" x="66" y="256" width="21" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-YN-eQg">
+                                <rect key="frame" x="66" y="256" width="21" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="JUo-1j-jy1"/>
+                                    <constraint firstAttribute="height" constant="50" id="JUo-1j-jy1"/>
                                     <constraint firstAttribute="width" constant="21" id="gyB-DA-35t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -359,7 +359,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="SsO-BG-9ZC" eventType="touchUpInside" id="h2u-Ud-mh1"/>
-                                    <segue destination="bam-Sq-fYd" kind="show" id="7PI-cb-EZr"/>
+                                    <segue destination="YX6-cn-lRM" kind="show" identifier="location_continue" id="yRR-bR-An1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -379,14 +379,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="3SA-mw-FHx" id="RGJ-IU-o5b"/>
+                        <outlet property="backButton" destination="3SA-mw-FHx" id="nM9-BV-6mI"/>
                         <outlet property="continueButton" destination="enJ-ub-aeK" id="SHa-cm-9ui"/>
-                        <outlet property="hometownTextField" destination="vKP-vy-PeF" id="vlP-Od-ecQ"/>
+                        <outlet property="locationTextField" destination="vKP-vy-PeF" id="IzI-XR-q5l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRG-KS-ybI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909.5999999999999" y="840.62968515742136"/>
+            <point key="canvasLocation" x="2246" y="838"/>
         </scene>
         <!--Profile Education-->
         <scene sceneID="HNX-QT-YI4">
@@ -547,7 +547,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SsO-BG-9ZC" kind="show" id="kpz-4v-05O"/>
+                                    <segue destination="YX6-cn-lRM" kind="show" id="52u-bf-ZGF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1407,12 +1407,111 @@
             </objects>
             <point key="canvasLocation" x="5024.8000000000002" y="841.52923538230891"/>
         </scene>
+        <!--Profile Home Town-->
+        <scene sceneID="gnU-RD-jmM">
+            <objects>
+                <viewController id="YX6-cn-lRM" customClass="Profile_HomeTown" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4lj-xY-X8w"/>
+                        <viewControllerLayoutGuide type="bottom" id="C98-Js-MSm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Tz-Fy-3fH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你的故乡" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrI-P8-anB">
+                                <rect key="frame" x="52.5" y="170" width="270" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="JSD-2R-lLg"/>
+                                    <constraint firstAttribute="width" constant="270" id="jFF-0t-ycL"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZk-j5-79J">
+                                <rect key="frame" x="95" y="258.5" width="185" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nHp-lP-0lU"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="故乡" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NN-xn-u1C">
+                                <rect key="frame" x="66" y="256" width="21" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="j40-4J-hbh"/>
+                                    <constraint firstAttribute="height" constant="50" id="lUs-bj-RCw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMJ-Bs-bBP">
+                                <rect key="frame" x="52.5" y="547" width="270" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="4Gi-Jx-sc4"/>
+                                    <constraint firstAttribute="height" constant="70" id="rdv-zb-p6F"/>
+                                </constraints>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SsO-BG-9ZC" kind="show" id="wUG-32-BB0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-wD-QKs">
+                                <rect key="frame" x="52.5" y="472" width="270" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="1n7-AU-93R"/>
+                                    <constraint firstAttribute="width" constant="270" id="qA3-2E-CPx"/>
+                                </constraints>
+                                <state key="normal" title="继续" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="YX6-cn-lRM" eventType="touchUpInside" id="TJx-7f-We6"/>
+                                    <segue destination="bam-Sq-fYd" kind="show" identifier="hometown_continue" id="4Ih-fu-uJC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qZk-j5-79J" firstAttribute="leading" secondItem="6NN-xn-u1C" secondAttribute="trailing" constant="8" symbolic="YES" id="075-RI-0m0"/>
+                            <constraint firstItem="6NN-xn-u1C" firstAttribute="top" secondItem="4lj-xY-X8w" secondAttribute="bottom" constant="236" id="3KS-gg-8Jz"/>
+                            <constraint firstItem="C98-Js-MSm" firstAttribute="top" secondItem="PR3-wD-QKs" secondAttribute="bottom" constant="125" id="EjX-Ha-e4I"/>
+                            <constraint firstItem="vrI-P8-anB" firstAttribute="centerX" secondItem="8Tz-Fy-3fH" secondAttribute="centerX" id="O7q-e8-Ah0"/>
+                            <constraint firstItem="oMJ-Bs-bBP" firstAttribute="centerX" secondItem="8Tz-Fy-3fH" secondAttribute="centerX" id="PMw-lN-mpZ"/>
+                            <constraint firstItem="6NN-xn-u1C" firstAttribute="centerY" secondItem="qZk-j5-79J" secondAttribute="centerY" constant="2.5" id="STV-wE-Ayh"/>
+                            <constraint firstItem="qZk-j5-79J" firstAttribute="centerX" secondItem="8Tz-Fy-3fH" secondAttribute="centerX" id="Vam-8p-B5o"/>
+                            <constraint firstItem="6NN-xn-u1C" firstAttribute="leading" secondItem="8Tz-Fy-3fH" secondAttribute="leadingMargin" constant="50" id="aJq-oI-IVd"/>
+                            <constraint firstItem="PR3-wD-QKs" firstAttribute="centerX" secondItem="8Tz-Fy-3fH" secondAttribute="centerX" id="exZ-xZ-nC3"/>
+                            <constraint firstItem="C98-Js-MSm" firstAttribute="top" secondItem="oMJ-Bs-bBP" secondAttribute="bottom" constant="50" id="jHT-eB-rWT"/>
+                            <constraint firstItem="vrI-P8-anB" firstAttribute="top" secondItem="4lj-xY-X8w" secondAttribute="bottom" constant="150" id="woq-u3-Qgs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="oMJ-Bs-bBP" id="soC-ej-zVF"/>
+                        <outlet property="continueButton" destination="PR3-wD-QKs" id="fAz-At-etg"/>
+                        <outlet property="hometownTextField" destination="qZk-j5-79J" id="PDw-zv-YT0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l87-84-RbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2909.5999999999999" y="840.62968515742136"/>
+        </scene>
     </scenes>
     <resources>
         <image name="RegisterPlaceHolder" width="172" height="127"/>
         <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="yRR-bR-An1"/>
         <segue reference="iHz-cU-Dm1"/>
         <segue reference="Os6-NZ-WLV"/>
         <segue reference="Khe-Ut-PaY"/>
@@ -1421,5 +1520,11 @@
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="kpz-4v-05O"/>
         <segue reference="amX-Zs-ZQr"/>
+        <segue reference="OJW-vV-kwk"/>
+        <segue reference="vCo-NW-E29"/>
+        <segue reference="Lg2-B7-aic"/>
+        <segue reference="4Ih-fu-uJC"/>
+        <segue reference="bHa-BE-YA6"/>
+        <segue reference="Qnx-s3-FCQ"/>
     </inferredMetricsTieBreakers>
 </document>
