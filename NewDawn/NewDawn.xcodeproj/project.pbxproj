@@ -25,6 +25,7 @@
 		24377843228921F000F41CB6 /* LikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377842228921F000F41CB6 /* LikeInfo.swift */; };
 		245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */; };
 		24B1EF5C22BDEEFE001602AA /* Profile_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */; };
+		24B1EF5E22BEDD52001602AA /* MainPagePendingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -114,6 +115,7 @@
 		24377842228921F000F41CB6 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
 		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Location.swift; sourceTree = "<group>"; };
+		24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPagePendingReviewViewController.swift; path = ViewControllers/MainPageViewControllers/MainPagePendingReviewViewController.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				24C09F662263E99400302CEF /* Models */,
 				24C09F692263E99400302CEF /* LaunchScreen.storyboard */,
 				24C09F6B2263E99400302CEF /* MainPage.storyboard */,
+				24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */,
 				24C09F6D2263E99400302CEF /* Main.storyboard */,
 				24C09F6F2263E99400302CEF /* QuestionAnswer.storyboard */,
 				24C09F712263E99400302CEF /* ProfileGNB.storyboard */,
@@ -718,6 +721,7 @@
 				24C09FB22263E99400302CEF /* ChatRoomViewController.swift in Sources */,
 				24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */,
 				0655DAC322A7635D0029604B /* ProfileImageUploadModel.swift in Sources */,
+				24B1EF5E22BEDD52001602AA /* MainPagePendingReviewViewController.swift in Sources */,
 				24C09FB52263E99400302CEF /* Profile_DraftFinal.swift in Sources */,
 				24C09FC72263E99400302CEF /* MainPageViewModels.swift in Sources */,
 				24C09FCA2263E99400302CEF /* AppLandingViewController.swift in Sources */,

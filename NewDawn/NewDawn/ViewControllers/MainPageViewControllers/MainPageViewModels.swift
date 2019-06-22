@@ -108,7 +108,8 @@ class MainPageViewModel: NSObject {
             degree: userProfile.degree,
             drink: userProfile.drink,
             height: userProfile.height,
-            location: userProfile.hometown,
+            location: userProfile.location,
+            hometown: userProfile.hometown,
             school: userProfile.school,
             smoke: userProfile.smoke,
             employer: userProfile.employer,
@@ -362,7 +363,7 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
         return 1
     }
     var rowHeight: Int {
-        return 300
+        return 330
     }
     
     // Customized Attributes
@@ -371,18 +372,20 @@ class BasicInfoViewModelItem: MainPageViewModellItem {
     var drink: String
     var height: Int
     var location: String
+    var hometown: String
     var school: String
     var smoke: String
     var employer: String
     var jobTitle: String
     var age: Int
     
-    init(firstName: String, degree: String, drink: String, height: Int, location: String, school: String, smoke: String, employer: String, jobTitle: String, age: Int) {
+    init(firstName: String, degree: String, drink: String, height: Int, location: String, hometown: String, school: String, smoke: String, employer: String, jobTitle: String, age: Int) {
         self.firstName = firstName
         self.degree = degree
         self.drink = drink
         self.height = height
         self.location = location
+        self.hometown = hometown
         self.school = school
         self.smoke = smoke
         self.employer = employer

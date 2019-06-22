@@ -83,6 +83,7 @@ class BasicInfoViewCell: UITableViewCell {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var workLabel: UILabel!
+    @IBOutlet weak var hometownLabel: UILabel!
     
     var item: MainPageViewModellItem? {
         didSet {
@@ -91,10 +92,11 @@ class BasicInfoViewCell: UITableViewCell {
             smokeLabel?.text = item.smoke
             drinkLabel?.text = item.drink
             heightLabel?.text = String(item.height)
-            degreeLabel?.text = item.degree
+            degreeLabel?.text = item.degree + ", " + item.school
             firstNameLabel?.text = item.firstName
             workLabel?.text = item.jobTitle + ", " + item.employer
             ageLabel?.text = String(item.age)
+            hometownLabel?.text = item.hometown
         }
     }
 }

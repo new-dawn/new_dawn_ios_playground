@@ -26,8 +26,17 @@ let LIKED_ENTITY_TYPE = "liked_entity_type"
 let LIKED_IMAGE_URL = "liked_image_url"
 let LIKED_QUESTION = "liked_question"
 let LIKED_ANSWER = "liked_answer"
+let REVIEW_STATUS = "review_status"
 let TAKEN_REQUESTED_FROM_YOU = "taken_requested_from_you"
 let TAKEN_REQUESTED_FROM_ME = "taken_requested_from_me"
+
+enum UserReviewStatus: Int{
+    case PENDING = 0
+    case BLOCK = 1
+    case NORMAL = 2
+    case GOOD = 3
+    case PROMOTE = 4
+}
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
@@ -164,6 +173,7 @@ struct UserProfile: Codable {
     var employer: String = UNKNOWN
     var location: String = UNKNOWN
     var smoke: String = UNKNOWN
+    var review_status: Int = UserReviewStatus.PENDING.rawValue
     var questionAnswers: Array<QuestionAnswer> = [QuestionAnswer]()
     var mainImages: Array<MainImage> = [MainImage]()
     var likedInfoFromYou: LikedInfo = LikedInfo([:])
@@ -210,6 +220,9 @@ struct UserProfile: Codable {
         }
         if let location = data[LOCATION] as? String {
             self.location = location
+        }
+        if let review_status = data[REVIEW_STATUS] as? Int {
+            self.review_status = review_status
         }
         if let question_answers = data[QUESTION_ANSWERS] as? Array<NSDictionary> {
             for dict in question_answers {
@@ -283,6 +296,7 @@ class UserProfileBuilder{
             SMOKE: profile_data[SMOKE] as? String ?? UNKNOWN,
             DRINK: profile_data[DRINK] as? String ?? UNKNOWN,
             LOCATION: profile_data[LOCATION] as? String ?? UNKNOWN,
+            REVIEW_STATUS: profile_data[REVIEW_STATUS] as? Int ?? UserReviewStatus.PENDING.rawValue,
             IMAGES: profile_data[IMAGES] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             QUESTION_ANSWERS: profile_data[QUESTION_ANSWERS] as? Array<NSDictionary> ?? Array<NSDictionary>(),
             LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
