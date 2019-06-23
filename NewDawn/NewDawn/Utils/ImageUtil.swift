@@ -73,8 +73,6 @@ class ImageUtil {
                     continue
                 }
                 let img = UIImage(contentsOfFile: fileurl.path)
-                print(fileurl)
-                print(fileurl.lastPathComponent)
                 let order = Int(String(fileurl.lastPathComponent).prefix(1))!
                 let caption = "good"
                 let user_id = LoginUserUtil.getLoginUserId()
