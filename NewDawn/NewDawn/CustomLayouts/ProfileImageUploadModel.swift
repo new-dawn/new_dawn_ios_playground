@@ -157,7 +157,7 @@ extension ProfileImageUploadModel: UICollectionViewDataSource, UICollectionViewD
             } catch {
                 print(error)
             }
-            for index in stride(from: sourceRow + 1, to: destRow, by: 1){
+            for index in stride(from: sourceRow + 1, to: destRow + 1, by: 1){
                 originPath = dataPath.appendingPathComponent(String(index) + ".jpeg")
                 destinationPath = dataPath.appendingPathComponent(String(index - 1) + ".jpeg")
                 do {
