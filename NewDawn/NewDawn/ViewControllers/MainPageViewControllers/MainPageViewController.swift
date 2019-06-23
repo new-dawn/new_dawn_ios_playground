@@ -21,6 +21,21 @@ class MainPageViewController: UIViewController {
     func isLiked(_ userProfile: UserProfile) -> Bool {
         return userProfile.likedInfoFromYou.liked_entity_type != 0
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Check if the current user has passed the review
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile, _  in
+            if user_profile != nil {
+                if user_profile?.review_status == UserReviewStatus.PENDING.rawValue {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "pending_review", sender: self)
+                    }
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
