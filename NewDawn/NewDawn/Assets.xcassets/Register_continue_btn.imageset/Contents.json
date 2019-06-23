@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Blue_Button_withShadow_1x.png",
+      "filename" : "Blue_Button.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Blue_Button_withShadow_2x.png",
+      "filename" : "Blue_Button@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Blue_Button_withShadow_3x.png",
+      "filename" : "Blue_Button@3x.png",
       "scale" : "3x"
     }
   ],
