@@ -21,19 +21,23 @@ class EditProfileTabelViewController: UITableViewController{
     @IBOutlet weak var smokeLabel: UILabel!
     @IBOutlet weak var drinkLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var homeTownLabel: UILabel!
     
     
     @IBOutlet weak var questionLabel_1: UILabel!
     @IBOutlet weak var answerLabel_1: UILabel!
     @IBOutlet weak var deleteButton_1: UIButton!
+    @IBOutlet weak var questionFrameButton_1: UIButton!
     
     @IBOutlet weak var questionLabel_2: UILabel!
     @IBOutlet weak var answerLabel_2: UILabel!
     @IBOutlet weak var deleteButton_2: UIButton!
+    @IBOutlet weak var questionFrameButton_2: UIButton!
 
     @IBOutlet weak var questionLabel_3: UILabel!
     @IBOutlet weak var answerLabel_3: UILabel!
     @IBOutlet weak var deleteButton_3: UIButton!
+    @IBOutlet weak var questionFrameButton_3: UIButton!
     
     lazy var imageCV = ProfileImageUploadModel(photoCollectionView, self, 270)
     let sectionHeaderTitleArray = ["图片", "个人信息", " ", "我的问答"]
@@ -152,6 +156,7 @@ class EditProfileTabelViewController: UITableViewController{
         LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
         LocalStorageUtil.localStoreKeyValue(key: "age", value: String(profile.age))
         LocalStorageUtil.localStoreKeyValue(key: HOMETOWN, value: profile.hometown)
+        LocalStorageUtil.localStoreKeyValue(key: LOCATION, value: profile.location)
         LocalStorageUtil.localStoreKeyValue(key: SCHOOL, value: profile.school)
         LocalStorageUtil.localStoreKeyValue(key: DEGREE, value: profile.degree)
         LocalStorageUtil.localStoreKeyValue(key: JOBTITLE, value: profile.jobTitle)
@@ -169,18 +174,21 @@ class EditProfileTabelViewController: UITableViewController{
                     answerLabel_1.text = questionAnswer.answer
                     deleteButton_1.tag = questionAnswer.question.id + 1000
                     deleteButton_1.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                    questionFrameButton_1.isUserInteractionEnabled = false
                 }
                 if index == 1{
                     questionLabel_2.text = questionAnswer.question.question
                     answerLabel_2.text = questionAnswer.answer
                     deleteButton_2.tag = questionAnswer.question.id + 2000
                     deleteButton_2.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                    questionFrameButton_2.isUserInteractionEnabled = false
                 }
                 if index == 2{
                     questionLabel_3.text = questionAnswer.question.question
                     answerLabel_3.text = questionAnswer.answer
                     deleteButton_3.tag = questionAnswer.question.id + 3000
                     deleteButton_3.addTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+                    questionFrameButton_3.isUserInteractionEnabled = false
                 }
             }
         }
@@ -199,16 +207,19 @@ class EditProfileTabelViewController: UITableViewController{
             questionLabel_1.text = ""
             answerLabel_1.text = ""
             deleteButton_1.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+            questionFrameButton_1.isUserInteractionEnabled = true
         }
         if cell_id == 2{
             questionLabel_2.text = ""
             answerLabel_2.text = ""
             deleteButton_2.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+            questionFrameButton_2.isUserInteractionEnabled = true
         }
         if cell_id == 3{
             questionLabel_3.text = ""
             answerLabel_3.text = ""
             deleteButton_3.removeTarget(self, action: #selector(deleteQ), for: .allTouchEvents)
+            questionFrameButton_3.isUserInteractionEnabled = true
         }
     }
     
@@ -243,12 +254,14 @@ class EditProfileTabelViewController: UITableViewController{
         let smoke_val = localReadKeyValue(key: SMOKE) as? String == UNKNOWN ? "" : localReadKeyValue(key: SMOKE) as? String
         let drink_val = localReadKeyValue(key: DRINK) as? String == UNKNOWN ? "" : localReadKeyValue(key: DRINK) as? String
         let hometown_val = localReadKeyValue(key: HOMETOWN) as? String == UNKNOWN ? "" : localReadKeyValue(key: HOMETOWN) as? String
+        let location_val = localReadKeyValue(key: LOCATION) as? String == UNKNOWN ? "" : localReadKeyValue(key: LOCATION) as? String
         
         self.degreeLabel.text = (school_val == "" && degree_val == "") ? "" : (school_val ?? "") + " , " + (degree_val ?? "")
         self.workLabel.text = (employer_val == "" && jobtitle_val == "") ? "" : (employer_val ?? "") + " , " + (jobtitle_val ?? "")
         self.smokeLabel.text = smoke_val
         self.drinkLabel.text = drink_val
-        self.locationLabel.text = hometown_val
+        self.locationLabel.text = location_val
+        self.homeTownLabel.text = hometown_val
     }
     
     func setupPhotoCollection(){
