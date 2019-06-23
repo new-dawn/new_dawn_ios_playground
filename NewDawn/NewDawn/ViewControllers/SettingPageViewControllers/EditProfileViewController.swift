@@ -82,6 +82,24 @@ class EditProfileTabelViewController: UITableViewController{
             return
         }
         
+        if let first_name = LocalStorageUtil.localReadKeyValue(key: FIRSTNAME), let last_name = LocalStorageUtil.localReadKeyValue(key: LASTNAME), let birthday = LocalStorageUtil.localReadKeyValue(key: BIRTHDAY), let height = LocalStorageUtil.localReadKeyValue(key: HEIGHT){
+            if first_name as! String == "" || last_name as! String == ""{
+                self.displayMessage(userMessage: "姓名不能为空")
+                return
+            }
+            if birthday as! String == ""{
+                self.displayMessage(userMessage: "生日不能为空")
+                return
+            }
+            if height as! String == ""{
+                self.displayMessage(userMessage: "身高不能为空")
+                return
+            }
+        }else{
+            self.displayMessage(userMessage: "身份信息不能为空")
+            return
+        }
+        
         if request == nil {
             return
         }
