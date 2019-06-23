@@ -2567,10 +2567,10 @@
             </objects>
             <point key="canvasLocation" x="933.60000000000002" y="-1287.7061469265368"/>
         </scene>
-        <!--Edit Profile Question View Controller-->
+        <!--选择问题-->
         <scene sceneID="3LY-Rh-twL">
             <objects>
-                <viewController id="Ohf-Te-mzt" customClass="EditProfileQuestionViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="选择问题" id="Ohf-Te-mzt" customClass="EditProfileQuestionViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8GD-nE-6L1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3003,10 +3003,10 @@
             </objects>
             <point key="canvasLocation" x="118" y="3164"/>
         </scene>
-        <!--Edit Profile Work Job-->
+        <!--工作-->
         <scene sceneID="Cnn-TO-DPs">
             <objects>
-                <viewController id="ell-VM-mZs" customClass="EditProfile_WorkJob" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="工作" id="ell-VM-mZs" customClass="EditProfile_WorkJob" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SEg-nO-m0u"/>
                         <viewControllerLayoutGuide type="bottom" id="bJg-52-6tp"/>
@@ -3108,10 +3108,10 @@
             </objects>
             <point key="canvasLocation" x="-518" y="3163"/>
         </scene>
-        <!--Edit Profile Drink-->
+        <!--饮酒习惯-->
         <scene sceneID="Yhn-8j-qPC">
             <objects>
-                <viewController id="PDW-gI-krf" customClass="EditProfile_Drink" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="饮酒习惯" id="PDW-gI-krf" customClass="EditProfile_Drink" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J4I-5N-iih"/>
                         <viewControllerLayoutGuide type="bottom" id="Y5Y-zI-4i4"/>
@@ -3211,10 +3211,10 @@
             </objects>
             <point key="canvasLocation" x="-1146" y="3164"/>
         </scene>
-        <!--Edit Profile Smoke-->
+        <!--抽烟习惯-->
         <scene sceneID="6Op-8w-cHj">
             <objects>
-                <viewController id="Qe7-8F-o3e" customClass="EditProfile_Smoke" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="抽烟习惯" id="Qe7-8F-o3e" customClass="EditProfile_Smoke" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kdX-t6-YT1"/>
                         <viewControllerLayoutGuide type="bottom" id="8Pm-SS-P6I"/>
@@ -3310,10 +3310,10 @@
             </objects>
             <point key="canvasLocation" x="-1767" y="3164"/>
         </scene>
-        <!--Edit Profile Location-->
+        <!--居住地-->
         <scene sceneID="J8g-x1-KP4">
             <objects>
-                <viewController id="8Oh-ZH-yZo" customClass="EditProfile_Location" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="居住地" id="8Oh-ZH-yZo" customClass="EditProfile_Location" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="su6-ts-DhY"/>
                         <viewControllerLayoutGuide type="bottom" id="TfT-PY-3pZ"/>
@@ -3376,10 +3376,10 @@
             </objects>
             <point key="canvasLocation" x="-2388" y="3162"/>
         </scene>
-        <!--Edit Profile Home Town-->
+        <!--故乡-->
         <scene sceneID="XYm-sl-M8Z">
             <objects>
-                <viewController id="8T8-mh-K68" customClass="EditProfile_HomeTown" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="故乡" id="8T8-mh-K68" customClass="EditProfile_HomeTown" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eHd-fv-IKQ"/>
                         <viewControllerLayoutGuide type="bottom" id="ZIj-Zj-AZb"/>
