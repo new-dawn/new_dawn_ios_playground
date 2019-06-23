@@ -1107,7 +1107,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditProfile_Personal" translatesAutoresizingMaskIntoConstraints="NO" id="aF3-Xs-2Q3">
                                                     <rect key="frame" x="43.5" y="5" width="288" height="46.5"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeTownIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9he-8K-WyR">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HometownIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9he-8K-WyR">
                                                     <rect key="frame" x="76" y="15" width="23.5" height="23.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9he-8K-WyR" secondAttribute="height" multiplier="1:1" id="YP5-Mf-lvL"/>
@@ -3485,8 +3485,7 @@
         <image name="EditProfile_Question" width="288" height="82"/>
         <image name="Editprofile_Basic" width="288" height="82"/>
         <image name="HomeTab" width="24" height="24"/>
-        <image name="HomeTownIcon" width="23" height="26"/>
-        <image name="HometownIcon" width="23" height="26"/>
+        <image name="HometownIcon" width="21" height="23"/>
         <image name="ImTakenButton" width="39" height="21"/>
         <image name="InfoPanel" width="690" height="568"/>
         <image name="LikeButtonNew" width="88" height="77"/>
@@ -3496,7 +3495,7 @@
         <image name="MatchModal" width="394" height="460"/>
         <image name="MeTab" width="24" height="24"/>
         <image name="QuestionBlock3" width="340" height="163"/>
-        <image name="Register_continue_btn" width="510" height="132"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
         <image name="SendLikeButton" width="101" height="88"/>
         <image name="SettingContinueButton" width="80" height="80"/>
         <image name="SkipButton" width="62" height="62"/>
