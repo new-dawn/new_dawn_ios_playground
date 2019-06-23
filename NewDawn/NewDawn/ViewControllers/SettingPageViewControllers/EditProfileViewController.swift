@@ -73,6 +73,15 @@ class EditProfileTabelViewController: UITableViewController{
         // Go back to the root ViewController
         let request = EditProfileUtil.createRegistrationRequest()
         
+        // Warning amount of photos
+        let dataPath = ImageUtil.getPersonalImagesDirectory()
+        var stored_files = try?FileManager.default.contentsOfDirectory(atPath: dataPath)
+        stored_files = stored_files?.filter{$0 != ".DS_Store"}
+        if (stored_files!.count < 3) {
+            self.displayMessage(userMessage: "为了帮助你配对，请最少上传3张符合要求的照片喔。")
+            return
+        }
+        
         if request == nil {
             return
         }

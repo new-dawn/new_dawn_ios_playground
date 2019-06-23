@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -562,7 +562,7 @@
                                 </constraints>
                                 <state key="normal" image="EditProfile_Edit"/>
                                 <connections>
-                                    <segue destination="8vw-nJ-uOU" kind="show" id="RJ6-gJ-bvz"/>
+                                    <segue destination="Kws-V2-Pxa" kind="show" id="2QU-Ls-cvK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qra-ng-JQW">
@@ -596,19 +596,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="r3Z-WH-1Wp" kind="show" id="JkI-Ua-oBd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uII-UV-1ha">
-                                <rect key="frame" x="95" y="509" width="209" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit Profile" backgroundImage="Register_continue_btn"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
-                                        <real key="value" value="-10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="Kws-V2-Pxa" kind="show" identifier="prepare_editProfile" id="RTQ-fP-9G6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -651,14 +638,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFS-gT-P5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="971.96401799100454"/>
-        </scene>
-        <!--ProfileGNB-->
-        <scene sceneID="zks-4R-m7E">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ProfileGNB" id="8vw-nJ-uOU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5YQ-so-w5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="934" y="1438"/>
         </scene>
         <!--匹配偏好设置-->
         <scene sceneID="mbk-GC-8jr">
@@ -1247,7 +1226,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWF-hX-IdP" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
+                                                    <rect key="frame" x="307" y="2" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="0TS-eB-vlJ"/>
                                                         <constraint firstAttribute="width" secondItem="dWF-hX-IdP" secondAttribute="height" id="2jp-dP-T39"/>
@@ -1260,8 +1239,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="iBn-yq-4hb" secondAttribute="trailing" constant="43.5" id="JHQ-5y-mGz"/>
                                                 <constraint firstAttribute="bottom" secondItem="iBn-yq-4hb" secondAttribute="bottom" id="Oj7-FL-EgX"/>
                                                 <constraint firstItem="iBn-yq-4hb" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="10" id="edo-FR-dGS"/>
-                                                <constraint firstItem="dWF-hX-IdP" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="3" id="gTI-FC-lsJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="dWF-hX-IdP" secondAttribute="trailing" constant="32" id="hjh-d4-BU4"/>
+                                                <constraint firstItem="dWF-hX-IdP" firstAttribute="top" secondItem="O4l-9H-3Vx" secondAttribute="top" constant="2" id="gTI-FC-lsJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dWF-hX-IdP" secondAttribute="trailing" constant="33" id="hjh-d4-BU4"/>
                                                 <constraint firstItem="iBn-yq-4hb" firstAttribute="centerX" secondItem="O4l-9H-3Vx" secondAttribute="centerX" id="mqJ-k8-Nb5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1295,7 +1274,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-Re-SGY" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
+                                                    <rect key="frame" x="307" y="2" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Dj4-P5-52O"/>
                                                         <constraint firstAttribute="width" constant="35" id="L0l-H5-lnm"/>
@@ -1308,8 +1287,8 @@
                                                 <constraint firstAttribute="bottom" secondItem="8di-bG-THg" secondAttribute="bottom" constant="5" id="EOx-Fp-3b3"/>
                                                 <constraint firstItem="8di-bG-THg" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="5" id="F8c-jh-rhG"/>
                                                 <constraint firstAttribute="trailing" secondItem="8di-bG-THg" secondAttribute="trailing" constant="43.5" id="JhF-jO-G1E"/>
-                                                <constraint firstItem="9Fh-Re-SGY" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="3" id="Syi-ud-Gg0"/>
-                                                <constraint firstAttribute="trailing" secondItem="9Fh-Re-SGY" secondAttribute="trailing" constant="32" id="Wvw-Xj-XAj"/>
+                                                <constraint firstItem="9Fh-Re-SGY" firstAttribute="top" secondItem="5Qr-Gq-hhE" secondAttribute="top" constant="2" id="Syi-ud-Gg0"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Fh-Re-SGY" secondAttribute="trailing" constant="33" id="Wvw-Xj-XAj"/>
                                                 <constraint firstItem="8di-bG-THg" firstAttribute="centerX" secondItem="5Qr-Gq-hhE" secondAttribute="centerX" id="fjr-mk-7vc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1343,7 +1322,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tQ-TD-xmv" userLabel="DeleteQuestion">
-                                                    <rect key="frame" x="308" y="3" width="35" height="35"/>
+                                                    <rect key="frame" x="307" y="2" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="1cO-ZI-BU5"/>
                                                         <constraint firstAttribute="width" secondItem="2tQ-TD-xmv" secondAttribute="height" id="60B-xG-uuB"/>
@@ -1355,8 +1334,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="eVL-AI-Ywv" secondAttribute="trailing" constant="43.5" id="1lK-Js-XJ0"/>
                                                 <constraint firstItem="eVL-AI-Ywv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="5" id="Fd0-Ia-E3C"/>
-                                                <constraint firstAttribute="trailing" secondItem="2tQ-TD-xmv" secondAttribute="trailing" constant="32" id="SKK-2P-Ojn"/>
-                                                <constraint firstItem="2tQ-TD-xmv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="3" id="eZA-n9-z3w"/>
+                                                <constraint firstAttribute="trailing" secondItem="2tQ-TD-xmv" secondAttribute="trailing" constant="33" id="SKK-2P-Ojn"/>
+                                                <constraint firstItem="2tQ-TD-xmv" firstAttribute="top" secondItem="l8Z-bv-Zib" secondAttribute="top" constant="2" id="eZA-n9-z3w"/>
                                                 <constraint firstAttribute="bottom" secondItem="eVL-AI-Ywv" secondAttribute="bottom" constant="5" id="srx-Nk-XxW"/>
                                                 <constraint firstItem="eVL-AI-Ywv" firstAttribute="centerX" secondItem="l8Z-bv-Zib" secondAttribute="centerX" id="v3b-m1-I9Y"/>
                                             </constraints>
@@ -1754,7 +1733,7 @@
                                         <rect key="frame" x="0.0" y="985" width="375" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b35-SD-ntx" id="uKN-U5-igC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TableCell" translatesAutoresizingMaskIntoConstraints="NO" id="yXU-4q-WQz">
@@ -3499,27 +3478,27 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="255" height="66"/>
-        <image name="EditProfile_Edit" width="44" height="44"/>
+        <image name="EditProfile_Button" width="510" height="132"/>
+        <image name="EditProfile_Edit" width="88" height="88"/>
         <image name="EditProfile_Personal" width="307" height="53"/>
-        <image name="EditProfile_Preview" width="44" height="44"/>
+        <image name="EditProfile_Preview" width="88" height="88"/>
         <image name="EditProfile_Question" width="288" height="82"/>
         <image name="Editprofile_Basic" width="288" height="82"/>
         <image name="HomeTab" width="24" height="24"/>
-        <image name="HomeTownIcon" width="21" height="23"/>
+        <image name="HomeTownIcon" width="23" height="26"/>
         <image name="HometownIcon" width="23" height="26"/>
         <image name="ImTakenButton" width="39" height="21"/>
-        <image name="InfoPanel" width="345" height="284"/>
+        <image name="InfoPanel" width="690" height="568"/>
         <image name="LikeButtonNew" width="88" height="77"/>
-        <image name="LikeButtonNew2" width="54" height="54"/>
+        <image name="LikeButtonNew2" width="108" height="108"/>
         <image name="LocationIcon" width="21" height="26"/>
         <image name="LogoPlaceholder" width="222" height="222"/>
-        <image name="MatchModal" width="197" height="230"/>
+        <image name="MatchModal" width="394" height="460"/>
         <image name="MeTab" width="24" height="24"/>
         <image name="QuestionBlock3" width="340" height="163"/>
-        <image name="Register_continue_btn" width="255" height="66"/>
+        <image name="Register_continue_btn" width="510" height="132"/>
         <image name="SendLikeButton" width="101" height="88"/>
-        <image name="SettingContinueButton" width="40" height="40"/>
+        <image name="SettingContinueButton" width="80" height="80"/>
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="36" height="24"/>
         <image name="TableCell" width="367" height="306"/>
