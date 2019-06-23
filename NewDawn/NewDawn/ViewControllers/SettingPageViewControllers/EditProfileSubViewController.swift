@@ -726,5 +726,105 @@ class EditProfile_Drink: UIViewController {
         button.layer.borderColor = color.cgColor
         button.layer.backgroundColor = color.cgColor
     }
+}
     
+    
+class EditProfile_HomeTown: UIViewController {
+    
+
+    @IBOutlet weak var hometownTextField: UITextField!
+
+    func loadStoredFields() {
+        if let hometown = localReadKeyValue(key: HOMETOWN) as? String {
+            hometownTextField.text = hometown
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        hometownTextField.setBottomBorder()
+        loadStoredFields()
+        overrideBackbutton()
+    }
+    
+    func overrideBackbutton(){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        localStoreKeyValue(key: HOMETOWN, value: hometownTextField.text ?? UNKNOWN)
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
+
+}
+
+
+class EditProfile_Location: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let locationPickerData = ["纽约", "波士顿"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return locationPickerData.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return locationPickerData[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        locationTextField.text = locationPickerData[row]
+    }
+    
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    
+    func loadStoredFields() {
+        if let location = localReadKeyValue(key: LOCATION) as? String {
+            locationTextField.text = location
+        }
+    }
+    
+    @objc func donePicker() {
+        locationTextField.resignFirstResponder()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationTextField.setBottomBorder()
+        loadStoredFields()
+        
+        // Picker Toolbar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        // Location Picker
+        let locationPicker = UIPickerView()
+        locationTextField.inputView = locationPicker
+        locationTextField.inputAccessoryView = toolbar
+        locationPicker.delegate = self
+        overrideBackbutton()
+    }
+    
+    func overrideBackbutton(){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Profile Edit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem){
+        localStoreKeyValue(key: LOCATION, value: locationTextField.text ?? UNKNOWN)
+        self.dismiss(animated: true, completion: {})
+        self.navigationController?.popViewController(animated: true)
+    }
 }
