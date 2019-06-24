@@ -67,6 +67,16 @@ class Profile_Education: UIViewController {
         loadStoredFields()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool{
+        if (schoolTextField.text?.isEmpty)! && identifier == "school_continue" {
+            self.displayMessage(userMessage: "Cannot have empty field")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     
     @IBAction func undergradTapped(_ sender: Any) {
         selectDegreeButton(button: undergrad)

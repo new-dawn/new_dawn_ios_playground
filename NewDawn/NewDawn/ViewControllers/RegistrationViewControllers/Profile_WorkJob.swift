@@ -49,6 +49,16 @@ class Profile_WorkJob: UIViewController {
         loadStoredFields()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool{
+        if ((workplaceTextField.text?.isEmpty)! || (jobtitleTextField.text?.isEmpty)!) && identifier == "job_continue" {
+            self.displayMessage(userMessage: "Cannot have empty field")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     // @IBAction func visibleButtonTapped(_ sender: Any) {
         // if visibleField == true {
             // deselectButton(button: visibleButton, text: "Invisible")
