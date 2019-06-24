@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -411,7 +411,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="bam-Sq-fYd" eventType="touchUpInside" id="cPp-0s-Ug7"/>
-                                    <segue destination="rCc-Xe-gYN" kind="show" id="Lg2-B7-aic"/>
+                                    <segue destination="rCc-Xe-gYN" kind="show" identifier="school_continue" id="Lg2-B7-aic"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="请输入你的学校" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5y-gI-NEA">
@@ -607,7 +607,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="rCc-Xe-gYN" eventType="touchUpInside" id="mBK-ph-46y"/>
-                                    <segue destination="Y6c-YO-xpe" kind="show" id="cLz-FJ-ORZ"/>
+                                    <segue destination="Y6c-YO-xpe" kind="show" identifier="job_continue" id="cLz-FJ-ORZ"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="现在任职的公司？" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Hw-dqC">
@@ -1507,11 +1507,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RegisterPlaceHolder" width="344" height="254"/>
-        <image name="Register_continue_btn" width="510" height="132"/>
+        <image name="RegisterPlaceHolder" width="172" height="127"/>
+        <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yRR-bR-An1"/>
+        <segue reference="52u-bf-ZGF"/>
         <segue reference="cLz-FJ-ORZ"/>
         <segue reference="Os6-NZ-WLV"/>
         <segue reference="OJW-vV-kwk"/>
