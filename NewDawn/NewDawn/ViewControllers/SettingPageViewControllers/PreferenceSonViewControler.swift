@@ -15,8 +15,8 @@ class AgePrefViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var age_pref: String = UNKNOWN
     let age_choices_from = [Int](18...60)
     let age_choices_to = [Int](18...60)
-    var from_age = ""
-    var to_age = ""
+    var from_age = String(18)
+    var to_age = String(60)
     @IBOutlet weak var age_range: UITextField!
     
     override func viewDidLoad() {
@@ -44,16 +44,8 @@ class AgePrefViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewWillDisappear(_ animated: Bool) {
         LocalStorageUtil.localStoreKeyValue(key: "age_pref", value: self.age_range.text!)
-        if self.from_age != "" {
-            LocalStorageUtil.localStoreKeyValue(key: "from_age", value: self.from_age)
-        } else {
-            LocalStorageUtil.localStoreKeyValue(key: "from_age", value: String(age_choices_from[0]))
-        }
-        if self.to_age != "" {
-            LocalStorageUtil.localStoreKeyValue(key: "to_age", value: self.to_age)
-        } else {
-            LocalStorageUtil.localStoreKeyValue(key: "to_age", value: String(age_choices_to[age_choices_to.count-1]))
-        }
+        LocalStorageUtil.localStoreKeyValue(key: "from_age", value: self.from_age)
+        LocalStorageUtil.localStoreKeyValue(key: "to_age", value: self.to_age)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -79,11 +71,7 @@ class AgePrefViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @objc func donePicker() {
-        if self.from_age != "" && self.to_age != ""{
-            age_range.text = self.from_age + " to " + self.to_age + " 岁"
-        }else{
-            age_range.text = "18 to 60 岁"
-        }
+        age_range.text = self.from_age + " to " + self.to_age + " 岁"
         age_range.resignFirstResponder()
     }
     
@@ -108,8 +96,8 @@ class HeightPrefViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var height_pref: String = UNKNOWN
     let height_choices_from = [Int](140...250)
     let height_choices_to = [Int](140...250)
-    var from_height = ""
-    var to_height = ""
+    var from_height = String(140)
+    var to_height = String(250)
     @IBOutlet weak var height_range: UITextField!
     
     override func viewDidLoad() {
@@ -136,16 +124,8 @@ class HeightPrefViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewWillDisappear(_ animated: Bool) {
         LocalStorageUtil.localStoreKeyValue(key: "height_pref", value: self.height_range.text!)
-        if self.from_height != "" {
-            LocalStorageUtil.localStoreKeyValue(key: "from_height", value: self.from_height)
-        } else {
-            LocalStorageUtil.localStoreKeyValue(key: "from_height", value: String(height_choices_from[0]))
-        }
-        if self.to_height != "" {
-            LocalStorageUtil.localStoreKeyValue(key: "to_height", value: self.to_height)
-        } else {
-            LocalStorageUtil.localStoreKeyValue(key: "to_height", value: String(height_choices_to[height_choices_to.count-1]))
-        }
+        LocalStorageUtil.localStoreKeyValue(key: "from_height", value: self.from_height)
+        LocalStorageUtil.localStoreKeyValue(key: "to_height", value: self.to_height)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -171,11 +151,7 @@ class HeightPrefViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @objc func donePicker() {
-        if self.from_height != "" && self.to_height != ""{
-            height_range.text = self.from_height + " to " + self.to_height + " cm"
-        }else{
-            height_range.text = "140 to 250 cm"
-        }
+        height_range.text = self.from_height + " to " + self.to_height + " cm"
         height_range.resignFirstResponder()
     }
     
