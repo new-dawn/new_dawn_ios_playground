@@ -28,6 +28,7 @@ let LIKED_QUESTION = "liked_question"
 let LIKED_ANSWER = "liked_answer"
 let TAKEN_REQUESTED_FROM_YOU = "taken_requested_from_you"
 let TAKEN_REQUESTED_FROM_ME = "taken_requested_from_me"
+let TAKEN_BY = "taken_by"
 
 // This is a sample json dict we expect to receive from backend
 let USER_DUMMY_DATA_1: NSDictionary = [
@@ -169,6 +170,7 @@ struct UserProfile: Codable {
     var likedInfoFromMe: LikedInfo = LikedInfo([:])
     var takenRequestedFromYou: Bool = false
     var takenRequestedFromMe: Bool = false
+    var takenBy: Int = -1
     
     init(data: NSDictionary) {
         if let user_id = data[USERID] as? String {
@@ -239,6 +241,9 @@ struct UserProfile: Codable {
         if let takenRequestedFromME = data[TAKEN_REQUESTED_FROM_ME] as? Bool {
             self.takenRequestedFromMe = takenRequestedFromME
         }
+        if let takenBy = data[TAKEN_BY] as? Int {
+            self.takenBy = takenBy
+        }
     }
 }
 
@@ -283,7 +288,8 @@ class UserProfileBuilder{
             LIKED_INFO_FROM_YOU: profile_data[LIKED_INFO_FROM_YOU] as? [String:Any] ?? [:],
             LIKED_INFO_FROM_ME: profile_data[LIKED_INFO_FROM_ME] as? [String:Any] ?? [:],
             TAKEN_REQUESTED_FROM_YOU: profile_data[TAKEN_REQUESTED_FROM_YOU] as? Bool ?? false,
-            TAKEN_REQUESTED_FROM_ME: profile_data[TAKEN_REQUESTED_FROM_ME] as? Bool ?? false
+            TAKEN_REQUESTED_FROM_ME: profile_data[TAKEN_REQUESTED_FROM_ME] as? Bool ?? false,
+            TAKEN_BY: profile_data[TAKEN_BY] as? Int ?? -1
         ]
         return info
     }
