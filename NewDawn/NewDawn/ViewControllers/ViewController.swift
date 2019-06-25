@@ -212,6 +212,22 @@ extension UIViewController {
             width: CGFloat(width), height: CGFloat(height))
     }
     
+    // A helper function to retrieve user preference
+    func getPref() -> Dictionary<String, String> {
+        var pref_params = [String: String]()
+        if let from_age = LocalStorageUtil.localReadKeyValue(key: "from_age"),
+            let to_age = LocalStorageUtil.localReadKeyValue(key: "to_age") {
+            let age_range = (from_age as! String)+","+(to_age as! String)
+            pref_params += ["age__range": age_range]
+        }
+        if let from_height = LocalStorageUtil.localReadKeyValue(key: "from_height"),
+            let to_height = LocalStorageUtil.localReadKeyValue(key: "to_height") {
+            let height_range = (from_height as! String) + "," + (to_height as! String)
+            pref_params += ["height__range": height_range]
+        }
+        return pref_params
+    }
+    
     // Check if timer is outdated, or force refresh the main page
     // with newly fetched user profiles. Also update profile index and timer.
     @objc func checkMainPageReload(_ force: Bool = false) {
@@ -223,7 +239,9 @@ extension UIViewController {
                 displayMessage(userMessage: "Error: Cannot find login user id from keychain")
                 return
             }
-            UserProfileBuilder.fetchUserProfiles(params: ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]) {
+            var params = ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]
+            params += getPref()
+            UserProfileBuilder.fetchUserProfiles(params: params) {
                 (data, error) in
                 if error != nil {
                     DispatchQueue.main.async {
