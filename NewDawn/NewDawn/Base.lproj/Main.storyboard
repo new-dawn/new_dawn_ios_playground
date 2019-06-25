@@ -311,6 +311,7 @@
         <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Xde-FY-Wcc"/>
         <segue reference="sDy-Zp-GUl"/>
     </inferredMetricsTieBreakers>
 </document>
