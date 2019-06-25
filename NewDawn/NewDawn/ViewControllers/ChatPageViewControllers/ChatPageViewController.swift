@@ -88,7 +88,7 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
         // Get the end user's information
         if let user_id = currentMessageResponse[END_USER_ID] as? Int, let firstName = currentMessageResponse[END_USER_FIRSTNAME] as? String, let lastName = currentMessageResponse[END_USER_LASTNAME] as? String, let imageURL = currentMessageResponse[END_USER_IMAGE_URL] as? String {
-            LoginUserUtil.fetchLoginUserProfile() {
+            LoginUserUtil.fetchLoginUserProfile(readLocal: true) {
                 my_profile, error in
                 print("taken by:", my_profile?.takenBy)
                 print("user id:", user_id)
