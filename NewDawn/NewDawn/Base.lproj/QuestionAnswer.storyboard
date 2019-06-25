@@ -29,7 +29,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="问答是慢慢社区中很重要的部分，高质量有趣的问答会很有帮助哦" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-EA-DeO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="问答是布咕中很重要的部分，高质量有趣的问答会很有帮助哦" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-EA-DeO">
                                 <rect key="frame" x="72.5" y="213" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0FN-Db-zkW"/>

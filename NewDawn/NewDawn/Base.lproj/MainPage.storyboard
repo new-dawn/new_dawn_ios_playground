@@ -71,7 +71,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People who matches with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-6N-SU6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="与你匹配的用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-6N-SU6">
                                 <rect key="frame" x="11" y="75" width="231" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CW6-WA-kCa"/>
@@ -93,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zp2-gO-EXw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="erX-xF-JYc"/>
+                    <navigationItem key="navigationItem" title="聊天" id="erX-xF-JYc"/>
                     <connections>
                         <outlet property="chatTableView" destination="8e2-I1-Shc" id="NxR-rW-87B"/>
                     </connections>
@@ -1997,7 +1997,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YOg-rt-lIT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Suggested" id="FWF-dW-M0B"/>
+                    <navigationItem key="navigationItem" title="推荐" id="FWF-dW-M0B"/>
                     <connections>
                         <outlet property="acceptLikeButton" destination="VgT-dT-FUD" id="dnF-MC-MTg"/>
                         <outlet property="tableView" destination="tfe-kP-M9w" id="y2O-4a-dje"/>
@@ -3566,7 +3566,7 @@
         <image name="EditProfile_Question" width="288" height="82"/>
         <image name="Editprofile_Basic" width="288" height="82"/>
         <image name="HomeTab" width="24" height="24"/>
-        <image name="HomeTownIcon" width="21" height="23"/>
+        <image name="HomeTownIcon" width="23" height="26"/>
         <image name="ImTakenButton" width="39" height="21"/>
         <image name="InfoPanel" width="345" height="284"/>
         <image name="LikeButtonNew" width="88" height="77"/>
@@ -3587,6 +3587,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HWe-46-cRr"/>
-        <segue reference="nT2-HC-WHj"/>
+        <segue reference="qKH-fg-6se"/>
     </inferredMetricsTieBreakers>
 </document>
