@@ -90,8 +90,8 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
         if let user_id = currentMessageResponse[END_USER_ID] as? Int, let firstName = currentMessageResponse[END_USER_FIRSTNAME] as? String, let lastName = currentMessageResponse[END_USER_LASTNAME] as? String, let imageURL = currentMessageResponse[END_USER_IMAGE_URL] as? String {
             LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
                 my_profile, error in
-                print("taken by:", my_profile?.takenBy)
-                print("user id:", user_id)
+                //print("taken by:", my_profile?.takenBy)
+                //print("user id:", user_id)
                 if error != nil {
                     DispatchQueue.main.async {
                         //self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
