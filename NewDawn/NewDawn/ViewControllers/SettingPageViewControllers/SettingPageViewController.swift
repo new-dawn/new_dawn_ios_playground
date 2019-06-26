@@ -27,7 +27,6 @@ class SettingPageViewController: UIViewController {
         
         // Move text up to the middle
         preferenceButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
-//        helpButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         settingButton.titleEdgeInsets = UIEdgeInsets(top: -20.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // Draw Straight Line
@@ -113,6 +112,31 @@ class SettingPageViewController: UIViewController {
             }
         }
     }
+    
+    func Alert (Message: String){
+        
+        let alert = UIAlertController(title: "Alert", message: Message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "edit_profile"{
+            if CheckInternet.Connection(){
+                print("Internet Is Connected")
+                return true
+            }
+            else{
+                self.Alert(Message: "只有联网才能修改账户")
+                print("No internet Connection")
+                return false
+            }
+        }
+        else{
+            return true
+        }
+    }
+    
 }
 
 
