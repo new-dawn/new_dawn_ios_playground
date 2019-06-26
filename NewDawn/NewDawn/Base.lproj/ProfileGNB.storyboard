@@ -46,7 +46,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="让我们更了解妳/你一点" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="让我们更了解你一点" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-sC-0PV">
                                 <rect key="frame" x="67" y="120" width="241" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -224,7 +224,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="请输入妳/你的身高" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1k-fz-d4Z">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="请输入你的身高" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1k-fz-d4Z">
                                 <rect key="frame" x="53" y="162" width="270" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -694,7 +694,6 @@
                             <constraint firstItem="W8E-dP-Edl" firstAttribute="width" secondItem="Wgh-Hw-dqC" secondAttribute="width" id="2Rs-gK-bnI"/>
                             <constraint firstItem="v1U-8N-iGH" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="52a-gm-Ed2"/>
                             <constraint firstItem="Q8G-Ka-uas" firstAttribute="top" secondItem="VcE-LR-sca" secondAttribute="bottom" constant="234" id="6yV-KG-VRp"/>
-                            <constraint firstItem="crW-OJ-FGp" firstAttribute="top" secondItem="v1U-8N-iGH" secondAttribute="bottom" constant="5" id="7Hv-nI-w8x"/>
                             <constraint firstItem="crW-OJ-FGp" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="8qF-1p-pch"/>
                             <constraint firstAttribute="trailing" secondItem="W8E-dP-Edl" secondAttribute="trailing" constant="80" id="BCC-Se-EbO"/>
                             <constraint firstItem="Zhs-c6-sIz" firstAttribute="centerX" secondItem="wKI-1i-6qz" secondAttribute="centerX" id="SAe-Wu-aVC"/>
@@ -704,6 +703,7 @@
                             <constraint firstItem="W8E-dP-Edl" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="75" id="cxQ-6j-lQP"/>
                             <constraint firstItem="05y-pb-bQx" firstAttribute="top" secondItem="v1U-8N-iGH" secondAttribute="bottom" constant="125" id="dtu-rX-vmD"/>
                             <constraint firstItem="Zhs-c6-sIz" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="75" id="eV0-U2-jgo"/>
+                            <constraint firstItem="05y-pb-bQx" firstAttribute="top" secondItem="crW-OJ-FGp" secondAttribute="bottom" constant="50" id="n1k-9D-l4b"/>
                             <constraint firstItem="Q8G-Ka-uas" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leadingMargin" constant="37" id="nRX-p8-Ygw"/>
                             <constraint firstItem="Zhs-c6-sIz" firstAttribute="width" secondItem="Wgh-Hw-dqC" secondAttribute="width" id="p5u-C8-IHy"/>
                             <constraint firstItem="Q5x-vh-NKl" firstAttribute="leading" secondItem="wKI-1i-6qz" secondAttribute="leading" constant="59" id="q9q-da-1zr"/>
@@ -1223,7 +1223,7 @@
                                     <constraint firstAttribute="width" constant="255" id="Okk-y2-4zv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我们非常在意我们的使用者质量，我们會尽速审查妳/你的资料后，让你/妳登入，请稍作等待。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c86-Es-ezV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="布咕会认真审核您的注册信息，保证资料的真实可靠。审核通过后，你将可以使用布咕的全部功能" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c86-Es-ezV">
                                 <rect key="frame" x="88" y="373" width="207" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1512,11 +1512,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="52u-bf-ZGF"/>
-        <segue reference="cLz-FJ-ORZ"/>
+        <segue reference="iHz-cU-Dm1"/>
         <segue reference="Os6-NZ-WLV"/>
-        <segue reference="OJW-vV-kwk"/>
+        <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
-        <segue reference="Lg2-B7-aic"/>
+        <segue reference="Sib-rs-igN"/>
         <segue reference="mEu-Ba-OjW"/>
         <segue reference="bHa-BE-YA6"/>
         <segue reference="amX-Zs-ZQr"/>
