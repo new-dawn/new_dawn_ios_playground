@@ -33,6 +33,8 @@ enum UserActionType: Int{
     case REQUEST_TAKEN = 6
     case UNMATCH = 7
     case ACCEPT_TAKEN = 8
+    case ALREADY_TAKEN = 9
+    case UNTAKEN = 10
 }
 
 enum EntityType: Int{
