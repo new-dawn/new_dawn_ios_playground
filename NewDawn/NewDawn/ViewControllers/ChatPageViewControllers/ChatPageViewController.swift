@@ -99,6 +99,11 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
                     return
                 }
                 DispatchQueue.main.async {
+                    if my_profile?.takenBy == -1 {
+                        cell.contentView.alpha = 1.0
+                        cell.contentView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.0)
+                        cell.isUserInteractionEnabled = true
+                    }
                     if my_profile?.takenBy != -1 {
                         if my_profile?.takenBy != user_id {
                             cell.contentView.alpha = 0.5
