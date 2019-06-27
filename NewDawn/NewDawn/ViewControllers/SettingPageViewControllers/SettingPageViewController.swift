@@ -113,13 +113,6 @@ class SettingPageViewController: UIViewController {
         }
     }
     
-    func Alert (Message: String){
-        
-        let alert = UIAlertController(title: "Alert", message: Message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "edit_profile"{
             if CheckInternet.Connection(){
@@ -127,7 +120,7 @@ class SettingPageViewController: UIViewController {
                 return true
             }
             else{
-                self.Alert(Message: "只有联网才能修改账户")
+                self.displayMessage(userMessage: "只有联网才能修改账户")
                 print("No internet Connection")
                 return false
             }

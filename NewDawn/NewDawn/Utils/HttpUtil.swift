@@ -227,9 +227,10 @@ class EditProfileUtil{
     }
     
     static func getAccountData() -> [String: Any] {
+        let raw_birthday = LocalStorageUtil.localReadKeyValue(key: BIRTHDAY) ?? "1990/01/01"
         return [
-            "birthday":_birthday_str_handler(birthday: LocalStorageUtil.localReadKeyValue(key: BIRTHDAY) as! String),
-            "gender":LocalStorageUtil.localReadKeyValue(key: GENDER)!,
+            "birthday":_birthday_str_handler(birthday: raw_birthday as! String),
+            "gender":LocalStorageUtil.localReadKeyValue(key: GENDER) ?? "M",
         ]
     }
     
