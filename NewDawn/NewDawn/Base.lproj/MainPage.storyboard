@@ -643,7 +643,7 @@
                                 </constraints>
                                 <state key="normal" image="EditProfile_Edit"/>
                                 <connections>
-                                    <segue destination="Kws-V2-Pxa" kind="show" id="2QU-Ls-cvK"/>
+                                    <segue destination="Kws-V2-Pxa" kind="show" identifier="edit_profile" id="2QU-Ls-cvK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qra-ng-JQW">
