@@ -61,7 +61,6 @@ class EditProfileTabelViewController: UITableViewController{
     }
     
     func overrideBackbutton(){
-        
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "< Setting", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton

@@ -137,4 +137,18 @@ class ImageUtil {
             })
         }
     }
+    
+    static func getProfileImage() -> UIImage?{
+        let dataPath = self.getPersonalImagesDirectory()
+        print(dataPath)
+        var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(String(0))
+        fileURL = fileURL.appendingPathExtension("jpeg")
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
 }
