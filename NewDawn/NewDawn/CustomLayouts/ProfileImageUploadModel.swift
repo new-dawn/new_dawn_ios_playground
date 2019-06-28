@@ -51,9 +51,9 @@ class ProfileImageUploadModel: NSObject{
     func fillCellsWithImages(){
         if let local_images = ImageUtil.getPersonalImagesWithData(){
             for local_image in local_images{
-                let order = local_image["order"] as! Int
+                let order = local_image["order"] as? Int
                 let single_img = local_image["img"]
-                imagesArray[order].image = (single_img as! UIImage)
+                imagesArray[order ?? 0].image = (single_img as! UIImage)
             }
         }
     }
