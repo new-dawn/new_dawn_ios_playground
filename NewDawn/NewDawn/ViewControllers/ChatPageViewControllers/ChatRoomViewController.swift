@@ -240,13 +240,7 @@ class ChatRoomViewController: MessagesViewController {
         fetchMessagesFromHistory()
         fetchEndUserProfile() {
             profile in
-            //if profile.takenBy != -1 {
-                //let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
-                //self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
-            //}
             if profile.takenBy == -1 {
-                //let sendTakenimg = UIImage(named: "ImTakenButton")
-                //self.imTakenButton.setImage(sendTakenimg, for: .normal)
                 if profile.takenRequestedFromYou {
                     DispatchQueue.main.async {
                         let alertController = UIAlertController(title: "专属模式", message: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
