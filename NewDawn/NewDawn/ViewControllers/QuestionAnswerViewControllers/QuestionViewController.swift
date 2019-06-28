@@ -8,7 +8,7 @@
 
 import UIKit
 
-let UNKNOWN = "N/A"
+let UNKNOWN = "未知"
 
 class QuestionViewController: UIViewController {
     
