@@ -37,6 +37,7 @@ class SettingPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.profileImage.image = ImageUtil.getProfileImage()
         super.viewWillAppear(animated)
         viewLoadSetup(loadCounts: 0)
     }
@@ -67,8 +68,6 @@ class SettingPageViewController: UIViewController {
                         if user_profile!.mainImages.count == images_count as! Int {
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
                             EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
-                            self.profileImage.downloaded(from:
-                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                         }else{
                             if loadCounts < 5{
                                 self.viewLoadSetup(loadCounts: loadCounts + 1)
@@ -78,8 +77,6 @@ class SettingPageViewController: UIViewController {
                         if user_profile!.mainImages.isEmpty == false {
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
                             EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
-                            self.profileImage.downloaded(from:
-                                self.profileImage.getURL(path: user_profile!.mainImages[0].image_url))
                         }
                     }
                 }

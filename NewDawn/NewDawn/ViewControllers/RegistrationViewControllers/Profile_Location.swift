@@ -12,7 +12,7 @@ let LOCATION = "location"
 
 class Profile_Location: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let locationPickerData = ["纽约", "波士顿"]
+    let locationPickerData = ["纽约", "波士顿", "其他"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
