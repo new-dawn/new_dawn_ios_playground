@@ -68,6 +68,7 @@ class EditProfileTabelViewController: UITableViewController{
     
     
     @objc func back(sender: UIBarButtonItem) {
+        sender.isEnabled = false
         // Get information from local and send to server
         // Go back to the root ViewController
         let request = EditProfileUtil.createRegistrationRequest()
