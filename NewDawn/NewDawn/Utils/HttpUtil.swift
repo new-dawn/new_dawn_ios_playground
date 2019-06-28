@@ -221,13 +221,13 @@ class EditProfileUtil{
     
     static func getUserData() -> [String: Any]{
         return  [
-            FIRSTNAME: LocalStorageUtil.localReadKeyValue(key: FIRSTNAME)!,
-            LASTNAME: LocalStorageUtil.localReadKeyValue(key: LASTNAME)!,
+            FIRSTNAME: LocalStorageUtil.localReadKeyValue(key: FIRSTNAME) ?? "未知",
+            LASTNAME: LocalStorageUtil.localReadKeyValue(key: LASTNAME) ?? "未知",
         ]
     }
     
     static func getAccountData() -> [String: Any] {
-        let raw_birthday = LocalStorageUtil.localReadKeyValue(key: BIRTHDAY) ?? "1990/01/01"
+        let raw_birthday = LocalStorageUtil.localReadKeyValue(key: BIRTHDAY) ?? "1900/01/01"
         return [
             "birthday":_birthday_str_handler(birthday: raw_birthday as! String),
             "gender":LocalStorageUtil.localReadKeyValue(key: GENDER) ?? "M",
