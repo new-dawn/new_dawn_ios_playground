@@ -161,7 +161,7 @@ class PhoneAuthenticateViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let postString = [
             "phone_number": userPhoneNumber,
-            "country_code": "1"
+            "country_code": "86"
             ] as [String: String]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)

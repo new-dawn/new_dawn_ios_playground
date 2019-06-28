@@ -21,6 +21,8 @@ struct SingleChatHistory: Codable {
 
 class ChatRoomViewController: MessagesViewController {
     
+    @IBOutlet weak var imTakenButton: UIButton!
+    
     let PUSHER_APP_KEY = "6cc619d64bfad1da062a"
     let TEST_CHANNEL = "test_channel"
     let CHAT_EVENT = "chat_event"
@@ -213,13 +215,38 @@ class ChatRoomViewController: MessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
+            my_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                if my_profile?.takenBy != -1 {
+                    let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                    self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+                }
+                else {
+                    let sendTakenimg = UIImage(named: "ImTakenButton")
+                    self.imTakenButton.setImage(sendTakenimg, for: .normal)
+                }
+            }
+        }
         configureSenders()
         configureMessageCollectionView()
         configureMessageInputBar()
         fetchMessagesFromHistory()
         fetchEndUserProfile() {
             profile in
+            //if profile.takenBy != -1 {
+                //let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                //self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+            //}
             if profile.takenBy == -1 {
+                //let sendTakenimg = UIImage(named: "ImTakenButton")
+                //self.imTakenButton.setImage(sendTakenimg, for: .normal)
                 if profile.takenRequestedFromYou {
                     DispatchQueue.main.async {
                         let alertController = UIAlertController(title: "专属模式", message: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
@@ -241,6 +268,10 @@ class ChatRoomViewController: MessagesViewController {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                 acceptAlertController.dismiss(animated: true, completion: nil)
                             }
+                            let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                            self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+                            self.messagesCollectionView.reloadData()
+                            self.messagesCollectionView.scrollToBottom()
                         }
                         let ignoreAction = UIAlertAction(title: "忽略", style: .default)
                         alertController.addAction(acceptAction)
@@ -339,6 +370,10 @@ class ChatRoomViewController: MessagesViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         removeAlertController.dismiss(animated: true, completion: nil)
                     }
+                    let sendTakenimg = UIImage(named: "ImTakenButton")
+                    self.imTakenButton.setImage(sendTakenimg, for: .normal)
+                    self.messagesCollectionView.reloadData()
+                    self.messagesCollectionView.scrollToBottom()
                 }
                 let cancelAction = UIAlertAction(title: "取消", style: .default)
                 alertController.addAction(cancelAction)

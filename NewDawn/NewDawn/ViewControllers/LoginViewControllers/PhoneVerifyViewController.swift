@@ -69,7 +69,7 @@ class PhoneVerifyViewController: UIViewController {
         // Prepare fields sent to next page
         let authenticateController = segue.destination as! PhoneAuthenticateViewController
         authenticateController.userPhoneNumber = phoneNumberTextField.text!
-        authenticateController.userCountryCode = "1"
+        authenticateController.userCountryCode = "86"
     }
     
     // Create Phoen Verify request according to API spec
@@ -81,7 +81,7 @@ class PhoneVerifyViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let postString = [
             "phone_number": phoneNumberTextField.text!,
-            "country_code": "1"
+            "country_code": "86"
             ] as [String: String]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
