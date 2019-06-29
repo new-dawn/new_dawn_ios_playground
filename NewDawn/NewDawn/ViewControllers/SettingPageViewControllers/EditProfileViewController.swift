@@ -138,9 +138,9 @@ class EditProfileTabelViewController: UITableViewController{
     }
     
     static func downloadOverwriteLocalImages(profile: UserProfile){
-
-        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
         let dataPath = ImageUtil.getPersonalImagesDirectory()
+        LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
+        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
         for (index, image) in profile.mainImages.enumerated(){
             let image_name = String(index)
             var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
@@ -182,6 +182,8 @@ class EditProfileTabelViewController: UITableViewController{
         LocalStorageUtil.localStoreKeyValue(key: LASTNAME, value: profile.lastname)
         LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
         LocalStorageUtil.localStoreKeyValue(key: AGE, value: String(profile.age))
+        LocalStorageUtil.localStoreKeyValue(key: GENDER, value: String(profile.gender))
+        LocalStorageUtil.localStoreKeyValue(key: BIRTHDAY, value: String(profile.birthday))
         LocalStorageUtil.localStoreKeyValue(key: HOMETOWN, value: profile.hometown)
         LocalStorageUtil.localStoreKeyValue(key: LOCATION, value: profile.location)
         LocalStorageUtil.localStoreKeyValue(key: SCHOOL, value: profile.school)

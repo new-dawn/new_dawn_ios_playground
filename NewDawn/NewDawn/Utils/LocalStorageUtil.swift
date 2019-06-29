@@ -58,6 +58,16 @@ class LocalStorageUtil {
             try? FileManager.default.removeItem(atPath: completePath)
         }
     }
+    
+    static func checkFolderExistOrCreate(dataPath: String){
+        if !FileManager.default.fileExists(atPath: dataPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Couldn't create document directory")
+            }
+        }
+    }
 }
 
 class LoginUserUtil {

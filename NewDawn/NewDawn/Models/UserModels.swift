@@ -135,6 +135,8 @@ struct UserProfile: Codable {
     var firstname: String = UNKNOWN
     var lastname: String = UNKNOWN
     var age: Int = -1
+    var gender: String = UNKNOWN
+    var birthday: String = UNKNOWN
     var height: Int = -1
     var hometown: String = UNKNOWN
     var school: String = UNKNOWN
@@ -165,6 +167,12 @@ struct UserProfile: Codable {
         }
         if let age = data[AGE] as? Int {
             self.age = age
+        }
+        if let gender = data[GENDER] as? String {
+            self.gender = gender
+        }
+        if let birthday = data[BIRTHDAY] as? String {
+            self.birthday = birthday
         }
         if let height = data[HEIGHT] as? Int {
             self.height = height
@@ -256,12 +264,15 @@ class UserProfileBuilder{
     
     static func parseProfileInfo(profile_data: [String: Any]) -> NSDictionary {
         let user_data = profile_data["user"] as? NSDictionary
+        let account_data = profile_data["account"] as? NSDictionary
         let user_id_int = user_data?["id"] as? Int ?? -1
         let info: NSMutableDictionary = [
             USERID: String(user_id_int),
             FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
             AGE: profile_data[AGE] as? Int ?? UNKNOWN,
+            GENDER: account_data?[GENDER] as? String ?? UNKNOWN,
+            BIRTHDAY: account_data?[BIRTHDAY] as? String ?? UNKNOWN,
             HEIGHT: profile_data[HEIGHT] as? Int ?? UNKNOWN,
             HOMETOWN: profile_data[HOMETOWN] as? String ?? UNKNOWN,
             WORKPLACE: profile_data[WORKPLACE] as? String ?? UNKNOWN,

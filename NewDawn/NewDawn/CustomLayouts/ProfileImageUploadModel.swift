@@ -34,18 +34,8 @@ class ProfileImageUploadModel: NSObject{
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView!.addGestureRecognizer(longPressGesture)
         picker.delegate = self
-        checkFolderExistOrCreate()
+        LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
         fillCellsWithImages()
-    }
-    
-    func checkFolderExistOrCreate(){
-        if !FileManager.default.fileExists(atPath: dataPath) {
-            do {
-                try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print("Couldn't create document directory")
-            }
-        }
     }
     
     func fillCellsWithImages(){
