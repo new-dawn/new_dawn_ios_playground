@@ -538,9 +538,9 @@ class EditProfile_WorkJob: UIViewController {
 
 class EditProfile_Smoke: UIViewController {
     
-    let FREQUENT_SMOKE = "frequent"
-    let NOSMOKE = "no"
-    let SOCIAL_SMOKE = "social"
+    let FREQUENT_SMOKE = "经常抽"
+    let NOSMOKE = "不抽"
+    let SOCIAL_SMOKE = "偶尔抽"
     let UNKNOWN = "N/A"
     var smoke_pref: String? = nil
     
@@ -645,9 +645,9 @@ class EditProfile_Smoke: UIViewController {
 
 class EditProfile_Drink: UIViewController {
     
-    let FREQUENT_DRINK = "frequent"
-    let NODRINK = "no"
-    let SOCIAL_DRINK = "social"
+    let FREQUENT_DRINK = "经常喝"
+    let NODRINK = "不喝"
+    let SOCIAL_DRINK = "偶尔喝"
     let UNKNOWN = "N/A"
     let VISIBLE = "drink_visible"
     var drink_pref: String? = nil

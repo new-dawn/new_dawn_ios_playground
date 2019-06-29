@@ -12,9 +12,9 @@ let SMOKE = "smoke"
 
 class Profile_Smoke: UIViewController {
 
-    let FREQUENT_SMOKE = "frequent"
-    let NOSMOKE = "no"
-    let SOCIAL_SMOKE = "social"
+    let FREQUENT_SMOKE = "经常抽"
+    let NOSMOKE = "不抽"
+    let SOCIAL_SMOKE = "偶尔抽"
     let UNKNOWN = "N/A"
     // let VISIBLE = "smoke_visible"
     var smoke_pref: String? = nil

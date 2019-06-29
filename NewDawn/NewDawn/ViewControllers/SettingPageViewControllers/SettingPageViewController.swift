@@ -38,8 +38,8 @@ class SettingPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.profileImage.image = ImageUtil.getProfileImage()
-        super.viewWillAppear(animated)
         viewLoadSetup(loadCounts: 0)
+        super.viewWillAppear(animated)
     }
     
     func viewLoadSetup(loadCounts: Int){
@@ -64,10 +64,10 @@ class SettingPageViewController: UIViewController {
                     let user_hometown = user_profile!.hometown
                     self.NameAgeText.text = user_firstname + ", " + String(user_age)
                     self.HomeTownText.text = user_hometown
+                    // TODO: Handle not all photos uploaded successfully
                     if let images_count = LocalStorageUtil.localReadKeyValue(key: "ImagesCount"){
                         if user_profile!.mainImages.count == images_count as! Int {
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
-                            EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
                         }else{
                             if loadCounts < 5{
                                 self.viewLoadSetup(loadCounts: loadCounts + 1)
@@ -76,10 +76,10 @@ class SettingPageViewController: UIViewController {
                     }else{
                         if user_profile!.mainImages.isEmpty == false {
                             EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
-                            EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
                         }
                     }
                 }
+                EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
             }
         }
     }
