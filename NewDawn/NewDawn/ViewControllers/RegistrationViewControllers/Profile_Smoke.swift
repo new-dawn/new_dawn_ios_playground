@@ -9,13 +9,11 @@
 import UIKit
 
 let SMOKE = "smoke"
+let FREQUENT_SMOKE = "经常"
+let NOSMOKE = "从不"
+let SOCIAL_SMOKE = "偶尔"
 
 class Profile_Smoke: UIViewController {
-
-    let FREQUENT_SMOKE = "frequent"
-    let NOSMOKE = "no"
-    let SOCIAL_SMOKE = "social"
-    let UNKNOWN = "N/A"
     // let VISIBLE = "smoke_visible"
     var smoke_pref: String? = nil
     // var visible_state = false

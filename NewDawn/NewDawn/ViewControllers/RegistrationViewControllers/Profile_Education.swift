@@ -10,6 +10,9 @@ import UIKit
 
 let SCHOOL = "school"
 let DEGREE = "degree"
+let UNDERGRAD = "本科"
+let GRAD = "硕士"
+let PHD = "博士"
 
 class Profile_Education: UIViewController {
     
@@ -36,10 +39,10 @@ class Profile_Education: UIViewController {
         }
         if let stored_degree = localReadKeyValue(key: DEGREE) as? String {
             degree = stored_degree
-            if degree == "本科" {
+            if degree == UNDERGRAD {
                 selectDegreeButton(button: undergrad)
             }
-            else if degree == "硕士" {
+            else if degree == GRAD {
                 selectDegreeButton(button: grad)
             }
             else {
@@ -71,7 +74,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: undergrad)
         deselectButton(button: grad)
         deselectButton(button: phd)
-        degree = "本科"
+        degree = UNDERGRAD
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     
@@ -79,7 +82,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: grad)
         deselectButton(button: undergrad)
         deselectButton(button: phd)
-        degree = "硕士"
+        degree = GRAD
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     
@@ -87,7 +90,7 @@ class Profile_Education: UIViewController {
         selectDegreeButton(button: phd)
         deselectButton(button: undergrad)
         deselectButton(button: grad)
-        degree = "博士"
+        degree = PHD
         localStoreKeyValue(key: DEGREE, value: degree)
     }
     

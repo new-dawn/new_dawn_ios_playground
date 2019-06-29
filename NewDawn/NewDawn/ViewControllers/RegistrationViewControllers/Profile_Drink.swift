@@ -9,13 +9,12 @@
 import UIKit
 
 let DRINK = "drink"
+let FREQUENT_DRINK = "经常"
+let NODRINK = "从不"
+let SOCIAL_DRINK = "偶尔"
 
 class Profile_Drink: UIViewController {
     
-    let FREQUENT_DRINK = "frequent"
-    let NODRINK = "no"
-    let SOCIAL_DRINK = "social"
-    let UNKNOWN = "N/A"
     let VISIBLE = "drink_visible"
     var drink_pref: String? = nil
     var visible_state = false

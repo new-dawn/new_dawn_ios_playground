@@ -8,8 +8,6 @@
 
 import UIKit
 
-let UNKNOWN = "未知"
-
 class QuestionViewController: UIViewController {
     
     let QUESTION_WIDTH = 230
