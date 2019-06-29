@@ -118,36 +118,6 @@ let USER_DUMMY_DATA_2: NSDictionary = [
 
 let USER_DUMMY_DATA = [USER_DUMMY_DATA_1, USER_DUMMY_DATA_2]
 
-// Question and answer structures
-struct Question: Codable {
-    var id: Int
-    var question: String
-    init() {
-        self.id = 0
-        self.question = UNKNOWN
-    }
-    init(id: Int, question: String) {
-        self.id = id
-        self.question = question
-    }
-}
-
-struct QuestionAnswer: Codable {
-    var id: Int
-    var question: Question
-    var answer: String
-    init() {
-        self.id = 0
-        self.question = Question()
-        self.answer = UNKNOWN
-    }
-    init(id: Int, question: Question, answer: String) {
-        self.id = id
-        self.question = question
-        self.answer = answer
-    }
-}
-
 struct MainImage: Codable {
     var id: Int
     var image_url: String

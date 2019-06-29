@@ -26,6 +26,7 @@
 		245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */; };
 		24B1EF5C22BDEEFE001602AA /* Profile_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */; };
 		24B1EF5E22BEDD52001602AA /* MainPagePendingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */; };
+		24B1EF6222C7A5A7001602AA /* QuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF6122C7A5A7001602AA /* QuestionAnswer.swift */; };
 		24C09FA02263E99400302CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C09F5E2263E99400302CEF /* Assets.xcassets */; };
 		24C09FA12263E99400302CEF /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F602263E99400302CEF /* HttpUtil.swift */; };
 		24C09FA22263E99400302CEF /* ChatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C09F612263E99400302CEF /* ChatUtil.swift */; };
@@ -116,6 +117,7 @@
 		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Location.swift; sourceTree = "<group>"; };
 		24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPagePendingReviewViewController.swift; path = ViewControllers/MainPageViewControllers/MainPagePendingReviewViewController.swift; sourceTree = "<group>"; };
+		24B1EF6122C7A5A7001602AA /* QuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswer.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		24C09F612263E99400302CEF /* ChatUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtil.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				24C09F672263E99400302CEF /* UserModels.swift */,
 				24C09F682263E99400302CEF /* Message.swift */,
 				24377842228921F000F41CB6 /* LikeInfo.swift */,
+				24B1EF6122C7A5A7001602AA /* QuestionAnswer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				24C09FB02263E99400302CEF /* AnswerQuestionViewController.swift in Sources */,
 				24C09FA82263E99400302CEF /* Message.swift in Sources */,
 				24C09FC02263E99400302CEF /* Profile_Notificatioin.swift in Sources */,
+				24B1EF6222C7A5A7001602AA /* QuestionAnswer.swift in Sources */,
 				24C09FBF2263E99400302CEF /* Profile_Drink.swift in Sources */,
 				06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */,
 				24C09FB62263E99400302CEF /* Profile_Height.swift in Sources */,

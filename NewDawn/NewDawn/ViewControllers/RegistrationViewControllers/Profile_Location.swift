@@ -9,10 +9,13 @@
 import UIKit
 
 let LOCATION = "location"
+let NEWYORK = "纽约"
+let BOSTON = "波士顿"
+let OTHERS = "其他"
 
 class Profile_Location: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let locationPickerData = ["纽约", "波士顿", "其他"]
+    let locationPickerData = [NEWYORK, BOSTON, OTHERS]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
