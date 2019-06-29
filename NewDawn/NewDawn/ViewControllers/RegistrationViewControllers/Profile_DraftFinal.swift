@@ -14,6 +14,8 @@ import PusherSwift
 
 let pushNotifications = PushNotifications.shared
 
+let UNKNOWN = "未知"
+
 class Profile_DraftFinal: UIViewController {
 
     override func viewDidLoad() {
