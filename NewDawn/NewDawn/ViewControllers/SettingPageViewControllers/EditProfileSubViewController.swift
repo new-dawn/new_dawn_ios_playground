@@ -508,7 +508,6 @@ class EditProfile_WorkJob: UIViewController {
 
 
 class EditProfile_Smoke: UIViewController {
-
     var smoke_pref: String? = nil
     
     @IBOutlet weak var sociallyButton: UIButton!
@@ -611,7 +610,6 @@ class EditProfile_Smoke: UIViewController {
 
 
 class EditProfile_Drink: UIViewController {
-
     let VISIBLE = "drink_visible"
     var drink_pref: String? = nil
     var visible_state = false

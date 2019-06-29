@@ -14,6 +14,7 @@ let NOSMOKE = "从不"
 let SOCIAL_SMOKE = "偶尔"
 
 class Profile_Smoke: UIViewController {
+
     // let VISIBLE = "smoke_visible"
     var smoke_pref: String? = nil
     // var visible_state = false

@@ -68,7 +68,6 @@ class EditProfileTabelViewController: UITableViewController{
     
     
     @objc func back(sender: UIBarButtonItem) {
-        sender.isEnabled = false
         // Get information from local and send to server
         // Go back to the root ViewController
         let request = EditProfileUtil.createRegistrationRequest()
@@ -103,6 +102,7 @@ class EditProfileTabelViewController: UITableViewController{
         if request == nil {
             return
         }
+        sender.isEnabled = false
         let activityIndicator = self.prepareActivityIndicator()
         self.processSessionTasks(request: request!){
             register_response in
@@ -181,7 +181,7 @@ class EditProfileTabelViewController: UITableViewController{
         LocalStorageUtil.localStoreKeyValue(key: FIRSTNAME, value: profile.firstname)
         LocalStorageUtil.localStoreKeyValue(key: LASTNAME, value: profile.lastname)
         LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
-        LocalStorageUtil.localStoreKeyValue(key: "age", value: String(profile.age))
+        LocalStorageUtil.localStoreKeyValue(key: AGE, value: String(profile.age))
         LocalStorageUtil.localStoreKeyValue(key: HOMETOWN, value: profile.hometown)
         LocalStorageUtil.localStoreKeyValue(key: LOCATION, value: profile.location)
         LocalStorageUtil.localStoreKeyValue(key: SCHOOL, value: profile.school)
@@ -269,9 +269,7 @@ class EditProfileTabelViewController: UITableViewController{
 
     
     func setupPersonalInfo(){
-        
-        
-        self.ageLabel.text = localReadKeyValue(key: "age") as? String
+        self.ageLabel.text = localReadKeyValue(key: AGE) as? String
         self.firstNameLabel.text = localReadKeyValue(key: FIRSTNAME) as? String
         self.heightLabel.text = localReadKeyValue(key: HEIGHT) as? String
         let employer_val = localReadKeyValue(key: WORKPLACE) as? String == UNKNOWN ? "" : localReadKeyValue(key: WORKPLACE) as? String
