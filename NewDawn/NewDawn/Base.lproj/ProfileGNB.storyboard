@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IvN-LX-e3l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1518,17 +1518,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RegisterPlaceHolder" width="172" height="127"/>
+        <image name="RegisterPlaceHolder" width="344" height="254"/>
         <image name="Register_continue_btn" width="255" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="52u-bf-ZGF"/>
         <segue reference="cLz-FJ-ORZ"/>
-        <segue reference="Ljg-P9-Kyv"/>
+        <segue reference="Os6-NZ-WLV"/>
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>
-        <segue reference="mEu-Ba-OjW"/>
+        <segue reference="4Ih-fu-uJC"/>
         <segue reference="wUG-32-BB0"/>
         <segue reference="amX-Zs-ZQr"/>
     </inferredMetricsTieBreakers>
