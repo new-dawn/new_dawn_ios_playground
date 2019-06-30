@@ -180,6 +180,7 @@ class EditProfileTabelViewController: UITableViewController{
     static func downloadOverwriteLocalInfo(profile: UserProfile){
         LocalStorageUtil.localStoreKeyValue(key: FIRSTNAME, value: profile.firstname)
         LocalStorageUtil.localStoreKeyValue(key: LASTNAME, value: profile.lastname)
+        LocalStorageUtil.localStoreKeyValue(key: USERNAME, value: profile.username)
         LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
         LocalStorageUtil.localStoreKeyValue(key: AGE, value: String(profile.age))
         LocalStorageUtil.localStoreKeyValue(key: GENDER, value: String(profile.gender))

@@ -206,7 +206,7 @@ class EditProfileUtil{
         // TODO: better handle username and password
         let random_id = UUID().uuidString
         let pesudo_data = [
-            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? random_id,
+            "username": LocalStorageUtil.localReadKeyValue(key: PHONE_NUMBER) ?? LocalStorageUtil.localReadKeyValue(key: USERNAME) ?? random_id,
             "password":random_id
         ]
         
