@@ -228,6 +228,10 @@ extension UIViewController {
         return pref_params
     }
     
+    func getReviewStatus() -> Dictionary<String, String> {
+        return ["review_status__gte": String(UserReviewStatus.NORMAL.rawValue)]
+    }
+    
     // Check if timer is outdated, or force refresh the main page
     // with newly fetched user profiles. Also update profile index and timer.
     @objc func checkMainPageReload(_ force: Bool = false) {
@@ -241,6 +245,7 @@ extension UIViewController {
             }
             var params = ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]
             params += getPref()
+            params += getReviewStatus()
             UserProfileBuilder.fetchUserProfiles(params: params) {
                 (data, error) in
                 if error != nil {
