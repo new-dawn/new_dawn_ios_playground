@@ -235,8 +235,9 @@ class EditProfileUtil{
     }
     
     static func getProfileData() -> [String: Any] {
+        let raw_height = LocalStorageUtil.localReadKeyValue(key: HEIGHT) ?? "140"
         return [
-            "height": _height_num_handler(height: LocalStorageUtil.localReadKeyValue(key: HEIGHT) as! String),
+            "height": _height_num_handler(height: raw_height as! String),
             "hometown":LocalStorageUtil.localReadKeyValue(key: HOMETOWN) ?? UNKNOWN,
             "school":LocalStorageUtil.localReadKeyValue(key: SCHOOL) ?? UNKNOWN,
             "degree":LocalStorageUtil.localReadKeyValue(key: DEGREE) ?? UNKNOWN,
