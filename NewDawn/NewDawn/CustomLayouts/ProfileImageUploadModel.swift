@@ -39,6 +39,7 @@ class ProfileImageUploadModel: NSObject{
     }
     
     func fillCellsWithImages(){
+        LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
         if let local_images = ImageUtil.getPersonalImagesWithData(){
             for local_image in local_images{
                 let order = local_image["order"] as? Int
