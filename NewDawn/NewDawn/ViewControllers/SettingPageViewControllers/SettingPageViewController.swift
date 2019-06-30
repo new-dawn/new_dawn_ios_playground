@@ -37,8 +37,8 @@ class SettingPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.profileImage.image = ImageUtil.getProfileImage()
         viewLoadSetup(loadCounts: 0)
+        self.profileImage.image = ImageUtil.getProfileImage()
         super.viewWillAppear(animated)
     }
     
