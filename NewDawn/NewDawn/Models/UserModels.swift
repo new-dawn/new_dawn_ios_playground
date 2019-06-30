@@ -30,6 +30,7 @@ let REVIEW_STATUS = "review_status"
 let TAKEN_REQUESTED_FROM_YOU = "taken_requested_from_you"
 let TAKEN_REQUESTED_FROM_ME = "taken_requested_from_me"
 let TAKEN_BY = "taken_by"
+let USERNAME = "username"
 
 enum UserReviewStatus: Int{
     case PENDING = 0
@@ -154,6 +155,7 @@ struct UserProfile: Codable {
     var takenRequestedFromYou: Bool = false
     var takenRequestedFromMe: Bool = false
     var takenBy: Int = -1
+    var username: String = UNKNOWN
     
     init(data: NSDictionary) {
         if let user_id = data[USERID] as? String {
@@ -239,6 +241,9 @@ struct UserProfile: Codable {
         if let takenBy = data[TAKEN_BY] as? Int {
             self.takenBy = takenBy
         }
+        if let username = data[USERNAME] as? String {
+            self.username = username
+        }
     }
 }
 
@@ -268,6 +273,7 @@ class UserProfileBuilder{
         let user_id_int = user_data?["id"] as? Int ?? -1
         let info: NSMutableDictionary = [
             USERID: String(user_id_int),
+            USERNAME: user_data?[USERNAME] as? String ?? UNKNOWN,
             FIRSTNAME: user_data?[FIRSTNAME] as? String ?? UNKNOWN,
             LASTNAME: user_data?[LASTNAME] as? String ?? UNKNOWN,
             AGE: profile_data[AGE] as? Int ?? UNKNOWN,
