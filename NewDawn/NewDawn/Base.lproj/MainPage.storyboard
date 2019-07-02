@@ -109,7 +109,7 @@
                     <view key="view" contentMode="scaleToFill" id="LiP-5g-NRf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="qfj-F7-mHG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="35B-QR-i1o">
