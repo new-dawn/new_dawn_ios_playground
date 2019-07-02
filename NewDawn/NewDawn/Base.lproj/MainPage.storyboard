@@ -121,7 +121,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFC-jU-9kv" userLabel="imTaken Button">
                                         <rect key="frame" x="50" y="12" width="44" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="ImTakenButton"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="imTakenButtonTapped:" destination="uWK-ge-vNo" eventType="touchUpInside" id="4Ij-4D-vgq"/>
                                         </connections>
@@ -139,6 +139,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imTakenButton" destination="yFC-jU-9kv" id="FAX-9j-HNF"/>
                         <segue destination="LUr-sQ-HWE" kind="show" identifier="chatProfile" id="qKH-fg-6se"/>
                     </connections>
                 </viewController>
@@ -3567,7 +3568,6 @@
         <image name="Editprofile_Basic" width="288" height="82"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="HomeTownIcon" width="21" height="23"/>
-        <image name="ImTakenButton" width="39" height="21"/>
         <image name="InfoPanel" width="690" height="568"/>
         <image name="LikeButtonNew" width="88" height="77"/>
         <image name="LikeButtonNew2" width="108" height="108"/>

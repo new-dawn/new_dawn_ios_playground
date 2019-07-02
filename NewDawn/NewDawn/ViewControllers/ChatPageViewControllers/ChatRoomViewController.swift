@@ -21,6 +21,8 @@ struct SingleChatHistory: Codable {
 
 class ChatRoomViewController: MessagesViewController {
     
+    @IBOutlet weak var imTakenButton: UIButton!
+    
     let PUSHER_APP_KEY = "6cc619d64bfad1da062a"
     let TEST_CHANNEL = "test_channel"
     let CHAT_EVENT = "chat_event"
@@ -41,6 +43,7 @@ class ChatRoomViewController: MessagesViewController {
     var userNameMe: String = "Me"
     var userNameYou: String = "You"
     var raw_messages: [[String: Any]] = []
+    var tempTakenBy: Int?
     // Senders and messages
     // To be configured when this view is loaded
     var senderMe: Sender?
@@ -213,13 +216,33 @@ class ChatRoomViewController: MessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
+            my_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                self.tempTakenBy = my_profile?.takenBy
+                if self.tempTakenBy != -1 {
+                    let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                    self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+                }
+                else {
+                    let sendTakenimg = UIImage(named: "ImTakenButton")
+                    self.imTakenButton.setImage(sendTakenimg, for: .normal)
+                }
+            }
+        }
         configureSenders()
         configureMessageCollectionView()
         configureMessageInputBar()
         fetchMessagesFromHistory()
         fetchEndUserProfile() {
             profile in
-            if profile.takenBy == -1 {
+            if self.tempTakenBy == -1 {
                 if profile.takenRequestedFromYou {
                     DispatchQueue.main.async {
                         let alertController = UIAlertController(title: "专属模式", message: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
@@ -241,6 +264,10 @@ class ChatRoomViewController: MessagesViewController {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                 acceptAlertController.dismiss(animated: true, completion: nil)
                             }
+                            let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                            self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+                            self.messagesCollectionView.reloadData()
+                            self.messagesCollectionView.scrollToBottom()
                         }
                         let ignoreAction = UIAlertAction(title: "忽略", style: .default)
                         alertController.addAction(acceptAction)
@@ -302,50 +329,61 @@ class ChatRoomViewController: MessagesViewController {
     }
     
     @IBAction func imTakenButtonTapped(_ sender: Any) {
-        fetchEndUserProfile() {
-            profile in
-            if profile.takenBy == -1 {
-                let alertController = UIAlertController(title: "专属模式", message: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.alignment = NSTextAlignment.left
-                let messageText = NSMutableAttributedString(
-                    string: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
-                    attributes: [
-                        NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
-                    ]
-                )
-                alertController.setValue(messageText, forKey: "attributedMessage")
-                self.present(alertController, animated: true, completion: nil)
-                let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                    HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                    let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
-                    self.present(sentAlertController, animated: true, completion: nil)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        sentAlertController.dismiss(animated: true, completion: nil)
-                    }
+        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
+            my_profile, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
                 }
-                let cancelAction = UIAlertAction(title: "取消", style: .default)
-                alertController.addAction(cancelAction)
-                alertController.addAction(confirmAction)
+                return
             }
-            else {
-                let alertController = UIAlertController(title: "专属模式", message: "确认与" + self.userNameYou + "解除“专属”模式吗？解除后，对方会收到提醒。你们的资料将重新对第三方可见。详情请见帮助菜单。", preferredStyle: .alert)
-                self.present(alertController, animated: true, completion: nil)
-                let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                    HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNTAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                    let removeAlertController = UIAlertController(title: nil, message: "专属模式已成功解除。", preferredStyle: .alert)
-                    self.present(removeAlertController, animated: true, completion: nil)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        removeAlertController.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                if my_profile?.takenBy == -1 {
+                    let alertController = UIAlertController(title: "专属模式", message: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
+                    let paragraphStyle = NSMutableParagraphStyle()
+                    paragraphStyle.alignment = NSTextAlignment.left
+                    let messageText = NSMutableAttributedString(
+                        string: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
+                        attributes: [
+                            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
+                        ]
+                    )
+                    alertController.setValue(messageText, forKey: "attributedMessage")
+                    self.present(alertController, animated: true, completion: nil)
+                    let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
+                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
+                        let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
+                        self.present(sentAlertController, animated: true, completion: nil)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            sentAlertController.dismiss(animated: true, completion: nil)
+                        }
+                        let sendTakenimg = UIImage(named: "ImTakenButton")
+                        self.imTakenButton.setImage(sendTakenimg, for: .normal)
+                        self.messagesCollectionView.reloadData()
+                        self.messagesCollectionView.scrollToBottom()
                     }
+                    let cancelAction = UIAlertAction(title: "取消", style: .default)
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(confirmAction)
                 }
-                let cancelAction = UIAlertAction(title: "取消", style: .default)
-                alertController.addAction(cancelAction)
-                alertController.addAction(confirmAction)
+                else {
+                    let alertController = UIAlertController(title: "专属模式", message: "确认与" + self.userNameYou + "解除“专属”模式吗？解除后，对方会收到提醒。你们的资料将重新对第三方可见。详情请见帮助菜单。", preferredStyle: .alert)
+                    self.present(alertController, animated: true, completion: nil)
+                    let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
+                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNTAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
+                        let removeAlertController = UIAlertController(title: nil, message: "专属模式已成功解除。", preferredStyle: .alert)
+                        self.present(removeAlertController, animated: true, completion: nil)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            removeAlertController.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                    let cancelAction = UIAlertAction(title: "取消", style: .default)
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(confirmAction)
+                }
             }
         }
-        
     }
     
     @IBAction func OptionsButtonTapped(_ sender: Any) {
