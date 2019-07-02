@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk6-UT-HuI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -2005,6 +2005,7 @@
                         <segue destination="uoe-vL-6bP" kind="show" identifier="mainPageEnd" id="7wV-IY-x2D"/>
                         <segue destination="FbV-Da-f0i" kind="presentation" identifier="mainPageMatch" modalTransitionStyle="crossDissolve" id="xcJ-b2-0Lb"/>
                         <segue destination="yKE-Nm-Tba" kind="show" identifier="pending_review" id="NPh-8Z-UNG"/>
+                        <segue destination="qLq-Zg-XLS" kind="show" identifier="already_taken" id="j3J-iD-QWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09B-dV-Nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3550,6 +3551,41 @@
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="-1288.6056971514245"/>
         </scene>
+        <!--Main Page Im Taken View Controller-->
+        <scene sceneID="z2i-gp-JOu">
+            <objects>
+                <viewController storyboardIdentifier="MainPageImTakenViewController" id="qLq-Zg-XLS" customClass="MainPageImTakenViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9gU-9k-25O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="专属模式中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-aV-cxG">
+                                <rect key="frame" x="122" y="150" width="130" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-YO-rs8">
+                                <rect key="frame" x="85" y="221" width="206" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="您现在正与另一位用户处于专属模式，无法浏览新的推荐，也无法和其他用户聊天。您可以在聊天页面里取消与该用户的专属模式。" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-50-4Mw">
+                                <rect key="frame" x="68" y="479" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.98431372549999996" green="0.97647058819999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79210387705616458" green="0.5" blue="0.72180879417671229" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="PYn-gi-SBs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgJ-sz-mqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959" y="-1289"/>
+        </scene>
     </scenes>
     <resources>
         <image name="3DotsButton" width="18" height="4"/>
@@ -3559,26 +3595,26 @@
         <image name="CloseButton" width="35" height="35"/>
         <image name="DegreeIcon" width="34" height="31"/>
         <image name="DrinkIcon" width="15" height="35"/>
-        <image name="EditProfile_Button" width="510" height="132"/>
-        <image name="EditProfile_Edit" width="88" height="88"/>
+        <image name="EditProfile_Button" width="255" height="66"/>
+        <image name="EditProfile_Edit" width="44" height="44"/>
         <image name="EditProfile_Personal" width="307" height="53"/>
-        <image name="EditProfile_Preview" width="88" height="88"/>
+        <image name="EditProfile_Preview" width="44" height="44"/>
         <image name="EditProfile_Question" width="288" height="82"/>
         <image name="Editprofile_Basic" width="288" height="82"/>
         <image name="HomeTab" width="24" height="24"/>
         <image name="HomeTownIcon" width="21" height="23"/>
         <image name="ImTakenButton" width="39" height="21"/>
-        <image name="InfoPanel" width="690" height="568"/>
+        <image name="InfoPanel" width="345" height="284"/>
         <image name="LikeButtonNew" width="88" height="77"/>
-        <image name="LikeButtonNew2" width="108" height="108"/>
+        <image name="LikeButtonNew2" width="54" height="54"/>
         <image name="LocationIcon" width="21" height="26"/>
         <image name="LogoPlaceholder" width="222" height="222"/>
-        <image name="MatchModal" width="394" height="460"/>
+        <image name="MatchModal" width="197" height="230"/>
         <image name="MeTab" width="24" height="24"/>
         <image name="QuestionBlock3" width="340" height="163"/>
         <image name="Register_continue_btn" width="255" height="66"/>
         <image name="SendLikeButton" width="101" height="88"/>
-        <image name="SettingContinueButton" width="80" height="80"/>
+        <image name="SettingContinueButton" width="40" height="40"/>
         <image name="SkipButton" width="62" height="62"/>
         <image name="SmokeIcon" width="36" height="24"/>
         <image name="TableCell" width="367" height="306"/>
@@ -3587,6 +3623,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HWe-46-cRr"/>
-        <segue reference="nT2-HC-WHj"/>
+        <segue reference="qKH-fg-6se"/>
     </inferredMetricsTieBreakers>
 </document>

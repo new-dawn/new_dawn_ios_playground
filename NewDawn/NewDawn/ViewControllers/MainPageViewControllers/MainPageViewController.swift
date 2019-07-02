@@ -22,8 +22,7 @@ class MainPageViewController: UIViewController {
         return userProfile.likedInfoFromYou.liked_entity_type != 0
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func checkReview() {
         // Check if the current user has passed the review
         LoginUserUtil.fetchLoginUserProfile() {
             user_profile, _  in
@@ -35,6 +34,26 @@ class MainPageViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func checkTaken() {
+        // Check if the current user has been taken
+        LoginUserUtil.fetchLoginUserProfile() {
+            user_profile, _  in
+            if user_profile != nil {
+                if user_profile?.takenBy != -1 {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "already_taken", sender: self)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.checkReview()
+        self.checkTaken()
     }
 
     override func viewDidLoad() {
