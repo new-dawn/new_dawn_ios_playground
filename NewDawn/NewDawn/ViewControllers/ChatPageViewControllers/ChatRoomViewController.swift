@@ -30,7 +30,7 @@ class ChatRoomViewController: MessagesViewController {
     let MESSAGE_USER_TO_ID = "user_to_id"
     
     // Chat Background Color
-    let myColor = UIColor(red: 255/255, green: 224/255, blue: 224/255, alpha: 1)
+    let myColor = UIColor(red: 189/255, green: 225/255, blue: 237/255, alpha: 1)
     let youColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
 
     // Meta-info about this chat room
