@@ -19,6 +19,7 @@
 		06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C278D9228908C600BB718A /* PhotoLayout.swift */; };
 		112A30412298FB280078A95B /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A30402298FB280078A95B /* VerificationTextField.swift */; };
 		2408CE3F2279331800042776 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408CE3E2279331800042776 /* UIViewExtensions.swift */; };
+		242CC2AA22CAE6E3009F11CD /* MainPageImTakenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242CC2A922CAE6E3009F11CD /* MainPageImTakenViewController.swift */; };
 		24377836228536CF00F41CB6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377835228536CF00F41CB6 /* UIButtonExtensions.swift */; };
 		2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */; };
 		24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377840228920FD00F41CB6 /* LikeInfoUtil.swift */; };
@@ -110,13 +111,14 @@
 		112A30402298FB280078A95B /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		2408CE3E2279331800042776 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		242CC2A922CAE6E3009F11CD /* MainPageImTakenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageImTakenViewController.swift; sourceTree = "<group>"; };
 		24377835228536CF00F41CB6 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectInfoViewController.swift; sourceTree = "<group>"; };
 		24377840228920FD00F41CB6 /* LikeInfoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoUtil.swift; sourceTree = "<group>"; };
 		24377842228921F000F41CB6 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
 		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Location.swift; sourceTree = "<group>"; };
-		24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPagePendingReviewViewController.swift; path = ViewControllers/MainPageViewControllers/MainPagePendingReviewViewController.swift; sourceTree = "<group>"; };
+		24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagePendingReviewViewController.swift; sourceTree = "<group>"; };
 		24B1EF6122C7A5A7001602AA /* QuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswer.swift; sourceTree = "<group>"; };
 		24C09F5E2263E99400302CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C09F602263E99400302CEF /* HttpUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
@@ -253,7 +255,6 @@
 				24C09F662263E99400302CEF /* Models */,
 				24C09F692263E99400302CEF /* LaunchScreen.storyboard */,
 				24C09F6B2263E99400302CEF /* MainPage.storyboard */,
-				24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */,
 				24C09F6D2263E99400302CEF /* Main.storyboard */,
 				24C09F6F2263E99400302CEF /* QuestionAnswer.storyboard */,
 				24C09F712263E99400302CEF /* ProfileGNB.storyboard */,
@@ -351,11 +352,13 @@
 				24C09F8C2263E99400302CEF /* MainPageTableViewCell.swift */,
 				24C09F8D2263E99400302CEF /* MainPageTabBarViewController.swift */,
 				24C09F8E2263E99400302CEF /* MainPageEndViewController.swift */,
+				24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */,
 				24C09F8F2263E99400302CEF /* ModalPopupViewController.swift */,
 				24C09F902263E99400302CEF /* MainPageViewController.swift */,
 				24C09F912263E99400302CEF /* MainPageViewModels.swift */,
 				2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */,
 				245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */,
+				242CC2A922CAE6E3009F11CD /* MainPageImTakenViewController.swift */,
 			);
 			path = MainPageViewControllers;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				24C09FCE2263E99400302CEF /* AppDelegate.swift in Sources */,
 				24C09FC32263E99400302CEF /* MainPageTabBarViewController.swift in Sources */,
 				24377843228921F000F41CB6 /* LikeInfo.swift in Sources */,
+				242CC2AA22CAE6E3009F11CD /* MainPageImTakenViewController.swift in Sources */,
 				24C09FB22263E99400302CEF /* ChatRoomViewController.swift in Sources */,
 				24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */,
 				0655DAC322A7635D0029604B /* ProfileImageUploadModel.swift in Sources */,
