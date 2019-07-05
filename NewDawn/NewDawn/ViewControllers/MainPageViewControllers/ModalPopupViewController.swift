@@ -36,7 +36,11 @@ class ModalPopupViewController: UIViewController {
                 entity_type: latest_like_item.entity_type,
                 entity_id: latest_like_item.entity_id,
                 message: commentTextField.text
-            )
+            ) {
+                success in
+                if success{
+                }
+            }
         }
         dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)

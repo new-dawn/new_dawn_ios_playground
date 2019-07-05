@@ -100,7 +100,7 @@ class HttpUtil{
         }
     }
     
-    static func sendAction(user_from: String, user_to: String, action_type: Int, entity_type: Int, entity_id: Int, message: String){
+    static func sendAction(user_from: String, user_to: String, action_type: Int, entity_type: Int, entity_id: Int, message: String, callback: @escaping (Bool) -> ()) {
         let url = getURL(path: "user_action/")
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
@@ -121,7 +121,19 @@ class HttpUtil{
             print(error.localizedDescription)
             return
         }
-        HttpUtil.processSessionTasks(request: request, callback: readActionResponse)
+        HttpUtil.processSessionTasks(request: request) {
+            parseJSON, error in
+            if error != nil {
+                print ("Send Action Data Failed to Send")
+                callback(false)
+            }
+            let msg = parseJSON["success"] as? Bool
+            if msg == false {
+                print ("Send Action Data Failed to Send")
+                callback(false)
+            }
+            callback(true)
+        }
     }
     
     static func readActionResponse(parseJSON: NSDictionary, error: String?) -> Void {
