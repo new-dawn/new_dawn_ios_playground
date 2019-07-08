@@ -264,8 +264,6 @@ class ChatRoomViewController: MessagesViewController {
                                     DispatchQueue.main.async {
                                         let takenAcceptedimg = UIImage(named: "AcceptedTakenButton")
                                         self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
-                                        self.messagesCollectionView.reloadData()
-                                        self.messagesCollectionView.scrollToBottom()
                                         let acceptAlertController = UIAlertController(title: nil, message: "已与" + self.userNameYou + "进入专属模式。", preferredStyle: .alert)
                                         self.present(acceptAlertController, animated: true, completion: nil)
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -383,8 +381,6 @@ class ChatRoomViewController: MessagesViewController {
                                 DispatchQueue.main.async {
                                     let sendTakenimg = UIImage(named: "ImTakenButton")
                                     self.imTakenButton.setImage(sendTakenimg, for: .normal)
-                                    self.messagesCollectionView.reloadData()
-                                    self.messagesCollectionView.scrollToBottom()
                                     let removeAlertController = UIAlertController(title: nil, message: "专属模式已成功解除。", preferredStyle: .alert)
                                     self.present(removeAlertController, animated: true, completion: nil)
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

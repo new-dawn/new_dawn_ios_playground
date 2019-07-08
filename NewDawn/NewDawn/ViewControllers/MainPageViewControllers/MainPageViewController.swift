@@ -123,9 +123,9 @@ class MainPageViewController: UIViewController {
                 ) {
                     success in
                     if success {
-                        // Go to match popup view
-                        self.performSegue(withIdentifier: "mainPageMatch", sender: yourUserProfile)
                     }
+                // Go to match popup view
+                self.performSegue(withIdentifier: "mainPageMatch", sender: yourUserProfile)
                 }
             }
         }
