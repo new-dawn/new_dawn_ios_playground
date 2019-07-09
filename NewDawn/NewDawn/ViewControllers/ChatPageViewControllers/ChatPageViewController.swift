@@ -16,6 +16,7 @@ let MESSAGES = "messages"
 let VIEWED_MESSAGES = "viewed_messages"
 let MATCHED_USER_ID = "matched_user_id"
 let MESSAGE_ID = "message_id"
+let DEFAULT_MESSAGE = "恭喜你们匹配成功，请点击进入聊天"
 
 class ChatPageViewController: UIViewController {
     
@@ -131,7 +132,12 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
                             cell.chatNotifImageView.isHidden = false
                         }
                     }
+                } else {
+                    cell.lastMessageText?.text = DEFAULT_MESSAGE
+                    cell.chatNotifImageView.isHidden = false
                 }
+            } else {
+                
             }
         }
         return cell
