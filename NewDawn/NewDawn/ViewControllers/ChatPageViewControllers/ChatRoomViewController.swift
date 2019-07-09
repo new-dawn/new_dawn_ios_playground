@@ -511,17 +511,11 @@ extension ChatRoomViewController: MessageCellDelegate {
         guard let messagesDataSource = messagesCollectionView.messagesDataSource else { return }
         let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
         let sender = message.sender
-        if sender.senderId == self.userIdYou {
-            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
+        if sender.senderId == self.userIdYou && self.userProfileYou != nil {
+            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou!)
         }
-        if sender.senderId == self.userIdMe {
-            LoginUserUtil.fetchLoginUserProfile() {
-                userProfileMe, error in
-                
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
-                }
-            }
+        if sender.senderId == self.userIdMe && self.userProfileMe != nil{
+            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileMe!)
         }
     }
 }
