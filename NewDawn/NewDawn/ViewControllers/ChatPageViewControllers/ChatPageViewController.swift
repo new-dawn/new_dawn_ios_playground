@@ -136,8 +136,6 @@ class ChatPageTableViewModel: NSObject, UITableViewDelegate, UITableViewDataSour
                     cell.lastMessageText?.text = DEFAULT_MESSAGE
                     cell.chatNotifImageView.isHidden = false
                 }
-            } else {
-                
             }
         }
         return cell
