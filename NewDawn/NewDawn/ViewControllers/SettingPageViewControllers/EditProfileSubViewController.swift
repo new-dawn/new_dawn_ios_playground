@@ -771,6 +771,9 @@ class EditProfile_Location: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @objc func donePicker() {
+        if (locationTextField.text!.isEmpty){
+            locationTextField.text = locationPickerData[0]
+        }
         locationTextField.resignFirstResponder()
     }
     

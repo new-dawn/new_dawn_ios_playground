@@ -46,6 +46,9 @@ func loadStoredFields() {
     }
     
     @objc func donePicker() {
+        if (locationTextField.text!.isEmpty){
+            locationTextField.text = locationPickerData[0]
+        }
         locationTextField.resignFirstResponder()
     }
     
