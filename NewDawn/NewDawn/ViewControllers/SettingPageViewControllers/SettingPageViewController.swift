@@ -37,51 +37,13 @@ class SettingPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewLoadSetup(loadCounts: 0)
         self.profileImage.image = ImageUtil.getProfileImage()
+        let user_age = localReadKeyValue(key: AGE) as? String
+        let user_firstname = localReadKeyValue(key: FIRSTNAME) as? String
+        let user_hometown = localReadKeyValue(key: HOMETOWN) as? String == UNKNOWN ? "" : localReadKeyValue(key: HOMETOWN) as? String
+        self.NameAgeText.text = user_firstname ?? UNKNOWN + ", " + String(user_age ?? UNKNOWN)
+        self.HomeTownText.text = user_hometown
         super.viewWillAppear(animated)
-    }
-    
-    func viewLoadSetup(loadCounts: Int){
-        LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
-            user_profile, error in
-            if error != nil {
-                self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                LoginUserUtil.logout()
-                return
-            }
-            // TODO: Have a helper function to check both login
-            // user id and access token matching status
-            if user_profile == nil && LoginUserUtil.getLoginUserId() != 1 {
-                self.displayMessage(userMessage: "Error: User profile doesn't exist. This might mean that your profile has been deleted from database: \(error!)")
-                LoginUserUtil.logout()
-                return
-            }
-            if user_profile != nil {
-                DispatchQueue.main.async {
-                    let user_age = user_profile!.age
-                    let user_firstname = user_profile!.firstname
-                    let user_hometown = user_profile!.hometown
-                    self.NameAgeText.text = user_firstname + ", " + String(user_age)
-                    self.HomeTownText.text = user_hometown
-                    // TODO: Handle not all photos uploaded successfully
-                    if let images_count = LocalStorageUtil.localReadKeyValue(key: "ImagesCount"){
-                        if user_profile!.mainImages.count == images_count as! Int {
-                            EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
-                        }else{
-                            if loadCounts < 5{
-                                self.viewLoadSetup(loadCounts: loadCounts + 1)
-                            }
-                        }
-                    }else{
-                        if user_profile!.mainImages.isEmpty == false {
-                            EditProfileTabelViewController.downloadOverwriteLocalImages(profile: user_profile!)
-                        }
-                    }
-                }
-                EditProfileTabelViewController.downloadOverwriteLocalInfo(profile: user_profile!)
-            }
-        }
     }
     
     @IBAction func previewButtonTapped(_ sender: Any) {
