@@ -179,7 +179,7 @@ extension ProfileImageUploadModel: UICollectionViewDataSource, UICollectionViewD
         //            self.camera()
         //        }))
         
-        alert.addAction(UIAlertAction(title: "Gallary", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
             self.gallary()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in}))
