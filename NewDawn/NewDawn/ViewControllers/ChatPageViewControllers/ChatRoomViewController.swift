@@ -51,7 +51,33 @@ class ChatRoomViewController: MessagesViewController {
     var pusher: Pusher!
     
     // User profile object
+    // These should be initialized in viewWillAppear()
     var userProfileYou: UserProfile?
+    var userProfileMe: UserProfile?
+    
+    // Prepare all user profile data before loading the view
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = userNameYou
+        // Prepare my Profile
+        LoginUserUtil.fetchLoginUserProfile() {
+            userProfileMe, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
+                }
+                return
+            }
+            self.userProfileMe = userProfileMe
+            // Prepare your profile
+            self.fetchEndUserProfile() {
+                profile in
+                self.userProfileYou = profile
+                DispatchQueue.main.async {
+                    super.viewWillAppear(animated)
+                }
+            }
+        }
+    }
     
     func configureSenders() -> Void {
         senderMe = Sender(id: userIdMe, displayName: userNameMe)
@@ -279,18 +305,13 @@ class ChatRoomViewController: MessagesViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         subscribeToChat()
+        super.viewDidAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         pusher.disconnect()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = userNameYou
     }
     
     func isLastSectionVisible() -> Bool {
@@ -438,25 +459,11 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.senderId
-        if userId == self.userIdMe {
-            LoginUserUtil.fetchLoginUserProfile() {
-                my_profile, error in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                    }
-                    return
-                }
-                if my_profile != nil && !my_profile!.mainImages.isEmpty {
-                    self.setAvatarForUser(url: my_profile!.mainImages[0].image_url, view: avatarView)
-                }
-            }
+        if userId == self.userIdMe && userProfileMe != nil {
+            self.setAvatarForUser(url: userProfileMe!.mainImages[0].image_url, view: avatarView)
         }
-        if userId == self.userIdYou {
-            fetchEndUserProfile() {
-                profile in
-                self.setAvatarForUser(url: profile.mainImages[0].image_url, view: avatarView)
-            }
+        if userId == self.userIdYou && userProfileYou != nil {
+            self.setAvatarForUser(url: userProfileYou!.mainImages[0].image_url, view: avatarView)
         }
     }
     func setAvatarForUser(url: String?, view: AvatarView) -> Void {
@@ -504,22 +511,11 @@ extension ChatRoomViewController: MessageCellDelegate {
         guard let messagesDataSource = messagesCollectionView.messagesDataSource else { return }
         let message = messagesDataSource.messageForItem(at: indexPath, in: messagesCollectionView)
         let sender = message.sender
-        if sender.senderId == self.userIdYou {
-            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou)
+        if sender.senderId == self.userIdYou && self.userProfileYou != nil {
+            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou!)
         }
-        if sender.senderId == self.userIdMe {
-            LoginUserUtil.fetchLoginUserProfile() {
-                userProfileMe, error in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                    }
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "chatProfile", sender: userProfileMe)
-                }
-            }
+        if sender.senderId == self.userIdMe && self.userProfileMe != nil{
+            self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileMe!)
         }
     }
 }
