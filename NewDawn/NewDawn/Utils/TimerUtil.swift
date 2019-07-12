@@ -36,7 +36,7 @@ struct DateTuple: Codable, Comparable {
 }
 
 class TimerUtil {
-    static let REFRESH_TIME_IN_SEC = 10
+    static let REFRESH_TIME_IN_SEC = 20
     
     static func buildDateTuple(date: DateComponents) -> DateTuple {
         return DateTuple(

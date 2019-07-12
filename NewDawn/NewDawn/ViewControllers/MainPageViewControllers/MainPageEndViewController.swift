@@ -17,7 +17,7 @@ class MainPageEndViewController: UIViewController {
         if TimerUtil.checkIfOutdatedAndRefresh() {
             // Wait for user profile to be available
             let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainPageViewController") as! MainPageTabBarViewController
             let appDelegate = UIApplication.shared.delegate
             appDelegate?.window??.rootViewController = homePage
         }

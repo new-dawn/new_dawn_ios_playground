@@ -47,13 +47,13 @@ class MainPageViewController: UIViewController {
                 // Start new round
                 self.user_profiles = profiles
                 self.profileIndex = -1
-                self.refreshTabBarCounterBadge(self.user_profiles)
+                self.refreshTabBarCounterBadge()
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
                 }
             }
         } else {
-            if self.user_profiles == nil {
+            if self.user_profiles == nil || self.user_profiles.isEmpty == true {
                 // No profiles have been loaded
                 // Get new profiles
                 getNewProfiles() {
@@ -62,7 +62,7 @@ class MainPageViewController: UIViewController {
                     self.user_profiles = profiles
                     self.profileIndex = 0
                     self.setupTableView()
-                    self.refreshTabBarCounterBadge(self.user_profiles)
+                    self.refreshTabBarCounterBadge()
                 }
             } else {
                 self.setupTableView()
@@ -72,6 +72,8 @@ class MainPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+        NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
         LoginUserUtil.fetchLoginUserProfile() {
             my_profile, error in
             if error != nil || my_profile == nil {
@@ -84,10 +86,10 @@ class MainPageViewController: UIViewController {
             self.checkRefreshRecommendation()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-            NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,8 +109,6 @@ class MainPageViewController: UIViewController {
     }
     
     func performSegueToNextProfile(_ sender: Any) {
-        NotificationCenter.default.removeObserver(self)
-        refreshTabBarCounterBadge(user_profiles)
         // This is the last profile. The next one is empty.
         if profileIndex + 1 >= user_profiles.count {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
@@ -152,9 +152,9 @@ class MainPageViewController: UIViewController {
         }
     }
 
-    func refreshTabBarCounterBadge(_ profiles: [UserProfile]) {
+    func refreshTabBarCounterBadge() {
         DispatchQueue.main.async {
-            self.tabBarController?.tabBar.items?.first?.badgeValue = "\(String(ProfileIndexUtil.numOfRemainedProfile(profiles: self.user_profiles)))"
+            self.tabBarController?.tabBar.items?.first?.badgeValue = "\(String(self.user_profiles.count - self.profileIndex - 1))"
         }
     }
     
@@ -194,7 +194,6 @@ class MainPageViewController: UIViewController {
             self.tableView.rowHeight = UITableView.automaticDimension
             self.tableView.estimatedRowHeight = UITableView.automaticDimension
             self.tableView.backgroundColor = UIColor.init(red: 251, green: 249, blue: 246, alpha: 1)
-            self.navigationItem.hidesBackButton = true
         }
     }
 }
