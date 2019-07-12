@@ -231,39 +231,6 @@ extension UIViewController {
     func getReviewStatus() -> Dictionary<String, String> {
         return ["review_status__gte": String(UserReviewStatus.NORMAL.rawValue)]
     }
-    
-    // Check if timer is outdated, or force refresh the main page
-    // with newly fetched user profiles. Also update profile index and timer.
-    @objc func checkMainPageReload(_ force: Bool = false) {
-        // If the current date is not the latest stored date, refresh the main page entirely
-        if force || TimerUtil.isOutdated() {
-            ProfileIndexUtil.refreshProfileIndex()
-            TimerUtil.updateDate()
-            if LoginUserUtil.getLoginUserId() == nil {
-                displayMessage(userMessage: "Error: Cannot find login user id from keychain")
-                return
-            }
-            var params = ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]
-            params += getPref()
-            params += getReviewStatus()
-            UserProfileBuilder.fetchUserProfiles(params: params) {
-                (data, error) in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
-                    }
-                    return
-                }
-                UserProfileBuilder.parseAndStoreInLocalStorage(response: data)
-                DispatchQueue.main.async {
-                    let mainPage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabViewController")
-                        as! MainPageTabBarViewController
-                    let appDelegate = UIApplication.shared.delegate
-                    appDelegate?.window??.rootViewController = mainPage
-                }
-            }
-        }
-    }
 }
 
 extension UITextField {
