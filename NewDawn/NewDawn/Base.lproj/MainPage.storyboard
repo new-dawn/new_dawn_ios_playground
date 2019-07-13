@@ -2073,7 +2073,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="目前推送已经浏览完了 我们明日会再次 为您推送适合的人选" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="目前推送已经浏览完了 我们会在以下时间 再次为您推送适合的人选" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH9-Ne-pni">
                                 <rect key="frame" x="32" y="392" width="310" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2084,10 +2084,20 @@
                                 <rect key="frame" x="76" y="139" width="222" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBh-cX-Mo9">
+                                <rect key="frame" x="83" y="490" width="209" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.97647058819999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="wUl-5W-KJG"/>
                     </view>
+                    <connections>
+                        <outlet property="timer" destination="VBh-cX-Mo9" id="bZE-7G-E8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XU-2e-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2096,7 +2106,7 @@
         <!--Main Page Match View Controller-->
         <scene sceneID="35Z-IR-CMf">
             <objects>
-                <viewController storyboardIdentifier="MainPageMatchViewController" id="FbV-Da-f0i" customClass="MainPageMatchViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageMatchViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="FbV-Da-f0i" customClass="MainPageMatchViewController" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10H-ge-FPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

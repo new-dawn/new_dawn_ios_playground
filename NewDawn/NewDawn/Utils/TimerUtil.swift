@@ -14,26 +14,40 @@ struct DateTuple: Codable, Comparable {
     var year: Int
     var month: Int
     var day: Int
-    init(year: Int, month: Int, day: Int) {
+    var hour: Int
+    var minute: Int
+    var second: Int
+    init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
         self.year = year
         self.month = month
         self.day = day
+        self.hour = hour
+        self.minute = minute
+        self.second = second
     }
     
     static func == (lhs: DateTuple, rhs: DateTuple) -> Bool {
-        return lhs.year == rhs.year &&
-            lhs.month == rhs.month &&
-            lhs.day == rhs.day
+        return [lhs.year, lhs.month, lhs.day, lhs.hour, lhs.minute, lhs.second].elementsEqual([rhs.year, rhs.month, rhs.day, rhs.hour, rhs.minute, rhs.second])
     }
     
     static func < (lhs: DateTuple, rhs: DateTuple) -> Bool {
-        return lhs.year < rhs.year ||
-            (lhs.year == rhs.year && lhs.month < rhs.month) ||
-            (lhs.year == rhs.year && lhs.month == rhs.month && lhs.day < rhs.day)
+        return [lhs.year, lhs.month, lhs.day, lhs.hour, lhs.minute, lhs.second].lexicographicallyPrecedes([rhs.year, rhs.month, rhs.day, rhs.hour, rhs.minute, rhs.second])
     }
 }
 
 class TimerUtil {
+    static let REFRESH_TIME_IN_SEC = 60
+    
+    static func buildDateTuple(date: DateComponents) -> DateTuple {
+        return DateTuple(
+            year: date.year!,
+            month: date.month!,
+            day: date.day!,
+            hour: date.hour!,
+            minute: date.minute!,
+            second: date.second!
+        )
+    }
     // A helper function to get current date
     static func getCurrentDate() -> DateTuple {
         let currentDateTime = Date()
@@ -48,33 +62,48 @@ class TimerUtil {
         ]
         // get the components
         let dateTimeComponents = userCalendar.dateComponents(requestedComponents, from: currentDateTime)
-        return DateTuple(year: dateTimeComponents.year!, month: dateTimeComponents.month!, day: dateTimeComponents.day!)
+        return buildDateTuple(date: dateTimeComponents)
+    }
+    // A helper function to get current date
+    static func getRefreshDate() -> DateTuple {
+        let currentDateTime = Date()
+        let userCalendar = Calendar.current
+        let refreshDate = Calendar.current.date(byAdding: .second, value: REFRESH_TIME_IN_SEC, to: currentDateTime)
+        let requestedComponents: Set<Calendar.Component> = [
+            .year,
+            .month,
+            .day,
+            .hour,
+            .minute,
+            .second
+        ]
+        // get the components
+        let dateTimeComponents = userCalendar.dateComponents(requestedComponents, from: refreshDate ?? currentDateTime)
+        return buildDateTuple(date: dateTimeComponents)
     }
     
     // A helper function to store the latest date
-    static func setStoredDate(date: DateTuple) -> Void {
-        LocalStorageUtil.localStoreKeyValueStruct(key: STORED_DATE, value: date)
+    static func storeRefreshDate() -> Void {
+        LocalStorageUtil.localStoreKeyValueStruct(key: STORED_DATE, value: getRefreshDate())
     }
     
     // A helper function to get the latest date
-    static func readStoredDate() -> DateTuple {
+    static func readRefreshDate() -> DateTuple {
         if let stored_date: DateTuple = LocalStorageUtil.localReadKeyValueStruct(key: STORED_DATE) {
             return stored_date
         } else {
-            let currentDate = getCurrentDate()
-            setStoredDate(date: currentDate)
-            return currentDate
+            storeRefreshDate()
+            return getRefreshDate()
         }
     }
     
     // A helper function to check if current date surpasses the latest date
-    static func isOutdated(always: Bool = false) -> Bool {
-        // TODO: Make always default to false
-        return always || getCurrentDate() > readStoredDate()
-    }
-    
-    // A helper function to update the stored data
-    static func updateDate() -> Void {
-        setStoredDate(date: getCurrentDate())
+    static func checkIfOutdatedAndRefresh() -> Bool {
+        if getCurrentDate() > readRefreshDate() {
+            storeRefreshDate()
+            return true
+        } else {
+            return false
+        }
     }
 }
