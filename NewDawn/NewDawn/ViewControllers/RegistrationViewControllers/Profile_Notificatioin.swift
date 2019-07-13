@@ -13,6 +13,7 @@ class Profile_Notificatioin: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         let notif_center = UNUserNotificationCenter.current()
         // Request permission to display alerts and play sounds.
         notif_center.requestAuthorization(options: [.alert, .sound])
@@ -21,10 +22,4 @@ class Profile_Notificatioin: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-
 }
