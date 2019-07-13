@@ -78,7 +78,6 @@ class MainPageViewController: UIViewController {
             DispatchQueue.main.async {
                 self.user_profiles = profiles
                 self.profileIndex = -1 // Next round will update to 0
-                self.refreshTabBarCounterBadge()
                 self.performSegueToNextProfile(self)
             }
         }
