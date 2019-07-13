@@ -8,16 +8,18 @@
 
 import UIKit
 
-let TEST_MAIN_PAGE_REFRESH_TIME = 5
 class MainPageEndViewController: UIViewController {
     
+    @IBOutlet weak var timer: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
+        let nextDate = TimerUtil.readRefreshDate()
+        timer.text = "\(nextDate.month)/\(nextDate.day) \(nextDate.hour):\(nextDate.minute):\(nextDate.second)"
         if TimerUtil.checkIfOutdatedAndRefresh() {
             // Wait for user profile to be available
             let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainPageViewController") as! MainPageTabBarViewController
+            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
             let appDelegate = UIApplication.shared.delegate
             appDelegate?.window??.rootViewController = homePage
         }

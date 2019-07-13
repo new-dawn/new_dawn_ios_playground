@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct CandidateProfiles: Codable {
+    var user_profiles: [UserProfile]
+    var profile_index: Int
+}
 
 class MainPageViewController: UIViewController {
     
@@ -42,30 +46,40 @@ class MainPageViewController: UIViewController {
     func checkRefreshRecommendation() {
         if TimerUtil.checkIfOutdatedAndRefresh() {
             // If outdated, the profile will refresh automatically
-            getNewProfiles() {
-                profiles in
-                // Start new round
-                self.user_profiles = profiles
-                self.profileIndex = -1
-                self.refreshTabBarCounterBadge()
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
-                }
-            }
+            self.startNewRound()
         } else {
             if self.user_profiles == nil || self.user_profiles.isEmpty == true {
-                // No profiles have been loaded
-                // Get new profiles
-                getNewProfiles() {
-                    profiles in
-                    // Start new round
-                    self.user_profiles = profiles
-                    self.profileIndex = 0
+                // This happens when the app is re-launched, or the view was killed. We then need to fetch stored candidates from local storage
+                if let candidate_profiles: CandidateProfiles = localReadKeyValueStruct(key: CANDIDATE_PROFILES) {
+                    self.user_profiles = candidate_profiles.user_profiles
+                    self.profileIndex = candidate_profiles.profile_index
                     self.setupTableView()
                     self.refreshTabBarCounterBadge()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    // No profiles have been loaded
+                    // Get new profiles
+                    self.startNewRound()
                 }
             } else {
                 self.setupTableView()
+                self.refreshTabBarCounterBadge()
+            }
+        }
+    }
+    
+    func startNewRound() {
+        // Start new round
+        getNewProfiles() {
+            profiles in
+            // Start new round
+            DispatchQueue.main.async {
+                self.user_profiles = profiles
+                self.profileIndex = -1 // Next round will update to 0
+                self.refreshTabBarCounterBadge()
+                self.performSegueToNextProfile(self)
             }
         }
     }
@@ -74,6 +88,10 @@ class MainPageViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.likeButtonTappedOnPopupModal), name: NSNotification.Name(rawValue: "likeButtonTappedOnPopupModal"), object: nil)
+        self.checkRefreshRecommendation()
+    }
+    
+    override func viewDidLoad() {
         LoginUserUtil.fetchLoginUserProfile() {
             my_profile, error in
             if error != nil || my_profile == nil {
@@ -83,13 +101,13 @@ class MainPageViewController: UIViewController {
             }
             self.checkReview(my_profile: my_profile!)
             self.checkTaken(my_profile: my_profile!)
-            self.checkRefreshRecommendation()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+        // Store current index
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,8 +130,10 @@ class MainPageViewController: UIViewController {
         // This is the last profile. The next one is empty.
         if profileIndex + 1 >= user_profiles.count {
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
+            localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: 0))
         } else {
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
+            localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: profileIndex + 1))
         }
     }
     
@@ -177,11 +197,12 @@ class MainPageViewController: UIViewController {
             DispatchQueue.main.async {
                 sentAlertController.dismiss(animated: true, completion: nil)
             }
-            callback(UserProfileBuilder.parseAndReturn(response: data))
+            let profiles = UserProfileBuilder.parseAndReturn(response: data)
+            callback(profiles)
         }
     }
     
-    func setupTableView() {
+    func setupTableView(_ reload: Bool = false) {
         DispatchQueue.main.async {
             // Prepare the current profile view
             self.current_user_profile = self.user_profiles[self.profileIndex]
