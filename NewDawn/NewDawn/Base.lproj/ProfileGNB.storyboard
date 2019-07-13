@@ -976,7 +976,7 @@
         <!--Profile Notificatioin-->
         <scene sceneID="LMB-uP-n63">
             <objects>
-                <viewController id="GWg-yl-rvs" customClass="Profile_Notificatioin" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notification" id="GWg-yl-rvs" customClass="Profile_Notificatioin" customModule="NewDawn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eEr-eZ-2P6"/>
                         <viewControllerLayoutGuide type="bottom" id="RaT-BE-Dho"/>
@@ -1208,7 +1208,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUd-Vx-ofH">
-                                <rect key="frame" x="51" y="482" width="273" height="60"/>
+                                <rect key="frame" x="51" y="477" width="273" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9gQ-lq-mHO"/>
@@ -1240,6 +1240,25 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9s-cS-h3a">
+                                <rect key="frame" x="51" y="547" width="273" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="9i8-GT-gwH"/>
+                                    <constraint firstAttribute="width" constant="273" id="Nja-GQ-CkN"/>
+                                </constraints>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="nuF-Ot-s92" eventType="touchUpInside" id="RAO-tY-mnT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1247,9 +1266,11 @@
                             <constraint firstItem="zjN-Gx-Vwq" firstAttribute="centerX" secondItem="XuZ-KP-R5x" secondAttribute="centerX" id="0hj-Ah-CZ5"/>
                             <constraint firstItem="VUd-Vx-ofH" firstAttribute="centerX" secondItem="XuZ-KP-R5x" secondAttribute="centerX" id="11C-p3-aWI"/>
                             <constraint firstItem="zjN-Gx-Vwq" firstAttribute="leading" secondItem="XuZ-KP-R5x" secondAttribute="leading" constant="60" id="7bJ-sb-cP4"/>
+                            <constraint firstItem="o45-Ic-WZA" firstAttribute="top" secondItem="e9s-cS-h3a" secondAttribute="bottom" constant="60" id="7oY-iX-2zu"/>
                             <constraint firstItem="KjW-5U-yGh" firstAttribute="top" secondItem="wWw-fa-7le" secondAttribute="bottom" constant="83" id="Sd3-C0-qF7"/>
+                            <constraint firstItem="e9s-cS-h3a" firstAttribute="centerX" secondItem="XuZ-KP-R5x" secondAttribute="centerX" id="bXa-Ef-Oyt"/>
                             <constraint firstItem="zjN-Gx-Vwq" firstAttribute="top" secondItem="KjW-5U-yGh" secondAttribute="bottom" constant="-9" id="cy9-r2-l48"/>
-                            <constraint firstItem="o45-Ic-WZA" firstAttribute="top" secondItem="VUd-Vx-ofH" secondAttribute="bottom" constant="125" id="pT1-oj-YKk"/>
+                            <constraint firstItem="e9s-cS-h3a" firstAttribute="top" secondItem="VUd-Vx-ofH" secondAttribute="bottom" constant="10" id="fpf-FP-WE4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1523,7 +1544,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="52u-bf-ZGF"/>
         <segue reference="cLz-FJ-ORZ"/>
-        <segue reference="Ljg-P9-Kyv"/>
+        <segue reference="Os6-NZ-WLV"/>
         <segue reference="Khe-Ut-PaY"/>
         <segue reference="vCo-NW-E29"/>
         <segue reference="Lg2-B7-aic"/>

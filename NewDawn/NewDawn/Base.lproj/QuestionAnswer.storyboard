@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7o6-hA-6Ni">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,8 +39,26 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NT-5V-E2r">
+                                <rect key="frame" x="51" y="557" width="273" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="g4Z-aw-dS7"/>
+                                    <constraint firstAttribute="width" constant="273" id="kbo-r0-QnI"/>
+                                </constraints>
+                                <state key="normal" title="返回" backgroundImage="Register_continue_btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topEdgeInset">
+                                        <real key="value" value="-20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Dl8-I8-WqK" kind="show" id="UNa-og-ZsI"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cka-hP-jaY">
-                                <rect key="frame" x="51" y="517" width="273" height="70"/>
+                                <rect key="frame" x="51" y="477" width="273" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="RjR-X6-eW8"/>
                                     <constraint firstAttribute="width" constant="273" id="vvc-Jf-OBx"/>
@@ -61,9 +79,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6NT-5V-E2r" firstAttribute="top" secondItem="cka-hP-jaY" secondAttribute="bottom" constant="10" id="06V-h2-X80"/>
+                            <constraint firstItem="6NT-5V-E2r" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="Ldz-Yd-9JD"/>
                             <constraint firstItem="R9e-EA-DeO" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="Rob-2v-q9e"/>
+                            <constraint firstItem="fAt-7v-Ncu" firstAttribute="bottom" secondItem="6NT-5V-E2r" secondAttribute="bottom" constant="40" id="dDu-Tq-Eev"/>
                             <constraint firstItem="cka-hP-jaY" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="f8u-t1-Q8T"/>
-                            <constraint firstItem="fAt-7v-Ncu" firstAttribute="bottom" secondItem="cka-hP-jaY" secondAttribute="bottom" constant="80" id="jzr-hc-eP6"/>
                             <constraint firstItem="R9e-EA-DeO" firstAttribute="top" secondItem="TBc-z2-7Al" secondAttribute="bottom" constant="8" id="kNN-GL-eIP"/>
                             <constraint firstItem="TBc-z2-7Al" firstAttribute="centerX" secondItem="xeQ-kL-ZA3" secondAttribute="centerX" id="sO4-Zx-zZG"/>
                             <constraint firstItem="TBc-z2-7Al" firstAttribute="top" secondItem="fAt-7v-Ncu" secondAttribute="top" constant="106" id="uDL-yD-Qpi"/>
@@ -86,6 +106,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgV-oo-y0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-100" y="580"/>
+        </scene>
+        <!--notification-->
+        <scene sceneID="PCh-hL-PlO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileGNB" referencedIdentifier="notification" id="Dl8-I8-WqK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o82-Wt-3P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="628"/>
         </scene>
         <!--Select Question View Controller-->
         <scene sceneID="QEU-wV-h72">
