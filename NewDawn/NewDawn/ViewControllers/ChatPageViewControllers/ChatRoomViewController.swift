@@ -359,10 +359,12 @@ class ChatRoomViewController: MessagesViewController {
                         HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
                             success in
                             if success {
-                                let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
-                                self.present(sentAlertController, animated: true, completion: nil)
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    sentAlertController.dismiss(animated: true, completion: nil)
+                                DispatchQueue.main.async {
+                                    let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
+                                    self.present(sentAlertController, animated: true, completion: nil)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        sentAlertController.dismiss(animated: true, completion: nil)
+                                    }
                                 }
                             }
                         }
