@@ -30,6 +30,9 @@ class Profile_DraftFinal: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
     @IBAction func getStartedButtonTapped(_ sender: Any) {
         // TODO: Send all info to backend and go to profile page

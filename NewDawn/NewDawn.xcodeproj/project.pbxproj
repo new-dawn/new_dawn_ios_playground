@@ -524,7 +524,6 @@
 					24F6581621B31C1400DB2547 = {
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
 						TestTargetID = 24F657F721B31C1300DB2547;
 					};
 				};
@@ -1018,6 +1017,9 @@
 			baseConfigurationReference = 5FCA5609F5DFD32BE2FFF302 /* Pods-NewDawnUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1026,6 +1028,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = NewDawn;
@@ -1037,6 +1041,9 @@
 			baseConfigurationReference = EAA2FE4297433EA944BC186B /* Pods-NewDawnUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewDawnUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1045,6 +1052,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.new-dawn.NewDawnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = NewDawn;
