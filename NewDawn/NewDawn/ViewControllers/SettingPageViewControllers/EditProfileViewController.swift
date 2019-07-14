@@ -106,7 +106,12 @@ class EditProfileTabelViewController: UITableViewController{
         sender.isEnabled = false
         let activityIndicator = self.prepareActivityIndicator()
         self.processSessionTasks(request: request!){
-            register_response in
+            register_response, error  in
+            if error != nil{
+                self.removeActivityIndicator(activityIndicator: activityIndicator)
+                sender.isEnabled = true
+                return
+            }
             if let images = ImageUtil.getPersonalImagesWithData(), images.count != 0{
                 var images_count = 0
                 for single_image in images{
@@ -279,7 +284,7 @@ class EditProfileTabelViewController: UITableViewController{
         let employer_val = localReadKeyValue(key: WORKPLACE) as? String == UNKNOWN ? "" : localReadKeyValue(key: WORKPLACE) as? String
         let jobtitle_val = localReadKeyValue(key: JOBTITLE) as? String == UNKNOWN ? "" : localReadKeyValue(key: JOBTITLE) as? String
         let school_val = localReadKeyValue(key: SCHOOL) as? String == UNKNOWN ? "" : localReadKeyValue(key: SCHOOL) as? String
-        let degree_val = localReadKeyValue(key: DEGREE) as? String == UNKNOWN ? "" : localReadKeyValue(key: DEGREE) as? String
+        let degree_val = localReadKeyValue(key: DEGREE) as? String == nil ? "" : localReadKeyValue(key: DEGREE) as? String
         let smoke_val = localReadKeyValue(key: SMOKE) as? String == UNKNOWN ? "" : localReadKeyValue(key: SMOKE) as? String
         let drink_val = localReadKeyValue(key: DRINK) as? String == UNKNOWN ? "" : localReadKeyValue(key: DRINK) as? String
         let hometown_val = localReadKeyValue(key: HOMETOWN) as? String == UNKNOWN ? "" : localReadKeyValue(key: HOMETOWN) as? String

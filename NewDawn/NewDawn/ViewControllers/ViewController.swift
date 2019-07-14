@@ -62,16 +62,17 @@ extension UIViewController {
     // This function is a wrapper of HttpUtil.processSessionTasks
     // It helps view controllers to display an alert when request failed
     func processSessionTasks(
-        request: URLRequest, callback: @escaping (NSDictionary) -> Void) {
+        request: URLRequest, callback: @escaping (NSDictionary, String?) -> Void) {
         HttpUtil.processSessionTasks(request: request) {
             response, error in
             if error != nil {
                 DispatchQueue.main.async {
                     self.displayMessage(userMessage: "Error: VC process session tasks failed - \(error!)")
+                    callback(["success":false], "error")
                 }
                 return
             }
-            callback(response)
+            callback(response, nil)
         }
     }
     

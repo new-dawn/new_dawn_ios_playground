@@ -45,7 +45,11 @@ class Profile_DraftFinal: UIViewController {
         }
         
         self.processSessionTasks(request: request!){
-            register_response in
+            register_response, error  in
+            if error != nil{
+                self.removeActivityIndicator(activityIndicator: activityIndicator)
+                return
+            }
             self.removeActivityIndicator(activityIndicator: activityIndicator)
             self.storeCertification(register_response: register_response)
             self.notificationSetUp()

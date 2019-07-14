@@ -267,6 +267,8 @@ class EditProfileBasicInfoViewController: UIViewController, UIPickerViewDelegate
             localStoreKeyValue(key: FIRSTNAME, value: firstnameTextField.text!)
             localStoreKeyValue(key: LASTNAME, value: lastnameTextField.text!)
             localStoreKeyValue(key: BIRTHDAY, value: birthdayTextField.text!)
+            let age = calcAge(birthday: birthdayTextField.text!)
+            localStoreKeyValue(key: AGE, value: String(age))
             localStoreKeyValue(key: HEIGHT, value: heightTextField.text!.prefix(3))
             self.dismiss(animated: true, completion: {})
             self.navigationController?.popViewController(animated: true)
@@ -284,6 +286,17 @@ class EditProfileBasicInfoViewController: UIViewController, UIPickerViewDelegate
         deselectButton(button: womanButton)
         gender = MAN
         localStoreKeyValue(key: GENDER, value: gender)
+    }
+    
+    func calcAge(birthday: String) -> Int {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy/MM/dd"
+        let birthdayDate = dateFormater.date(from: birthday)
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .gregorian)
+        let now = Date()
+        let calcAge = calendar.components(.year, from: birthdayDate!, to: now, options: [])
+        let age = calcAge.year
+        return age!
     }
     
     func showDatePicker() {
