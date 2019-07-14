@@ -58,7 +58,7 @@ class PhoneVerifyViewController: UIViewController {
         
         // Process Request
         self.processSessionTasks(request: request!) {
-            response in
+            response, error in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)
             self.readPhoneVerifyResponse(parseJSON: response)

@@ -41,7 +41,7 @@ class SettingPageViewController: UIViewController {
         let user_age = localReadKeyValue(key: AGE) as? String
         let user_firstname = localReadKeyValue(key: FIRSTNAME) as? String
         let user_hometown = localReadKeyValue(key: HOMETOWN) as? String == UNKNOWN ? "" : localReadKeyValue(key: HOMETOWN) as? String
-        self.NameAgeText.text = user_firstname ?? UNKNOWN + ", " + String(user_age ?? UNKNOWN)
+        self.NameAgeText.text = (user_firstname ?? UNKNOWN) + ", " + (user_age ?? UNKNOWN)
         self.HomeTownText.text = user_hometown
         super.viewWillAppear(animated)
     }

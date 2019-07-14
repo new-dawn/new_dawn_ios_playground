@@ -55,7 +55,7 @@ class PhoneAuthenticateViewController: UIViewController {
         
         // Process Request & Remove Activity Indicator
         self.processSessionTasks(request: request!) {
-            response in
+            response,error  in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)
             self.readPhoneAuthenticateResponse(parseJSON: response)
@@ -81,7 +81,7 @@ class PhoneAuthenticateViewController: UIViewController {
             
             // Process Request
             self.processSessionTasks(request: request!) {
-                response in
+                response,error  in
                 // Remove activity indicator
                 self.removeActivityIndicator(activityIndicator: activityIndicator)
                 self.readPhoneVerifyResponse(parseJSON: response)
