@@ -55,28 +55,68 @@ class ChatRoomViewController: MessagesViewController {
     var userProfileYou: UserProfile?
     var userProfileMe: UserProfile?
     
-    // Prepare all user profile data before loading the view
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = userNameYou
-        // Prepare my Profile
+    // User profile image
+    var yourProfileImage: UIImage?
+    var myProfileImage: UIImage?
+    
+    // Info collection group
+    let infoGroups = DispatchGroup()
+    
+    func getMyProfileInfo() {
+        infoGroups.enter()
         LoginUserUtil.fetchLoginUserProfile() {
             userProfileMe, error in
             if error != nil {
                 DispatchQueue.main.async {
                     self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed: \(error!)")
                 }
+                self.infoGroups.leave()
                 return
             }
             self.userProfileMe = userProfileMe
-            // Prepare your profile
-            self.fetchEndUserProfile() {
-                profile in
-                self.userProfileYou = profile
-                DispatchQueue.main.async {
-                    super.viewWillAppear(animated)
+            if let myImage = userProfileMe?.mainImages.first?.image_url {
+                ImageUtil.downLoadImage(url: myImage) {
+                    image in
+                    self.myProfileImage = image
+                    self.infoGroups.leave()
                 }
+            } else {
+                self.infoGroups.leave()
             }
         }
+    }
+    
+    func getYourProfileInfo() {
+        infoGroups.enter()
+        self.fetchEndUserProfile() {
+            profile in
+            self.userProfileYou = profile
+            if let yourImage = self.userProfileYou?.mainImages.first?.image_url {
+                ImageUtil.downLoadImage(url: yourImage) {
+                    image in
+                    self.yourProfileImage = image
+                    self.infoGroups.leave()
+                }
+            } else {
+                self.infoGroups.leave()
+            }
+        }
+    }
+    
+    // Prepare all user profile data before loading the view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = userNameYou
+        configureSenders()
+        configureMessageCollectionView()
+        configureMessageInputBar()
+        getMyProfileInfo()
+        getYourProfileInfo()
+        
+        // Update the view
+        infoGroups.notify(queue: DispatchQueue.main, execute: {
+            self.messagesCollectionView.reloadData()
+        })
     }
     
     func configureSenders() -> Void {
@@ -262,9 +302,6 @@ class ChatRoomViewController: MessagesViewController {
                 }
             }
         }
-        configureSenders()
-        configureMessageCollectionView()
-        configureMessageInputBar()
         fetchMessagesFromHistory()
         fetchEndUserProfile() {
             profile in
@@ -477,25 +514,13 @@ extension ChatRoomViewController: MessagesDisplayDelegate, MessagesLayoutDelegat
     }
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let userId = message.sender.senderId
-        if userId == self.userIdMe && userProfileMe != nil {
-            self.setAvatarForUser(url: userProfileMe!.mainImages[0].image_url, view: avatarView)
+        if userId == self.userIdMe && myProfileImage != nil {
+            let avatar = Avatar(image: myProfileImage, initials: "NA")
+            avatarView.set(avatar: avatar)
         }
-        if userId == self.userIdYou && userProfileYou != nil {
-            self.setAvatarForUser(url: userProfileYou!.mainImages[0].image_url, view: avatarView)
-        }
-    }
-    func setAvatarForUser(url: String?, view: AvatarView) -> Void {
-        if (url == nil) {
-            let avatar = Avatar(image: BLANK_IMG, initials: "NA")
-            view.set(avatar: avatar)
-        } else {
-            ImageUtil.downLoadImage(url: url!) {
-                image in
-                DispatchQueue.main.async {
-                    let avatar = Avatar(image: image, initials: "NA")
-                    view.set(avatar: avatar)
-                }
-            }
+        if userId == self.userIdYou && yourProfileImage != nil {
+            let avatar = Avatar(image: yourProfileImage, initials: "NA")
+            avatarView.set(avatar: avatar)
         }
     }
 }
