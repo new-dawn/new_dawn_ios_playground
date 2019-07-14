@@ -32,6 +32,7 @@ class ProfileImageUploadModel: NSObject{
         let customLayout = PhotoCollectionViewLayout(size: CGSize(width: size, height: size))
         collectionView!.collectionViewLayout = customLayout
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        longPressGesture.minimumPressDuration = 0.01
         collectionView!.addGestureRecognizer(longPressGesture)
         picker.delegate = self
         LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
