@@ -253,7 +253,7 @@ class ChatRoomViewController: MessagesViewController {
             DispatchQueue.main.async {
                 self.tempTakenBy = my_profile?.takenBy
                 if self.tempTakenBy != -1 {
-                    let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
+                    let takenAcceptedimg = UIImage(named: "AcceptedTakenButton")
                     self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
                 }
                 else {
@@ -284,16 +284,20 @@ class ChatRoomViewController: MessagesViewController {
                         alertController.setValue(messageText, forKey: "attributedMessage")
                         self.present(alertController, animated: true, completion: nil)
                         let acceptAction = UIAlertAction(title: "接受", style: .default) {(_) in
-                            HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.ACCEPT_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                            let acceptAlertController = UIAlertController(title: nil, message: "已与" + self.userNameYou + "进入专属模式。", preferredStyle: .alert)
-                            self.present(acceptAlertController, animated: true, completion: nil)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                acceptAlertController.dismiss(animated: true, completion: nil)
+                            HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.ACCEPT_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
+                                success in
+                                if success {
+                                    DispatchQueue.main.async {
+                                        let takenAcceptedimg = UIImage(named: "AcceptedTakenButton")
+                                        self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
+                                        let acceptAlertController = UIAlertController(title: nil, message: "已与" + self.userNameYou + "进入专属模式。", preferredStyle: .alert)
+                                        self.present(acceptAlertController, animated: true, completion: nil)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                            acceptAlertController.dismiss(animated: true, completion: nil)
+                                        }
+                                    }
+                                }
                             }
-                            let takenAcceptedimg = UIImage(named: "TakenAcceptedButton")
-                            self.imTakenButton.setImage(takenAcceptedimg, for: .normal)
-                            self.messagesCollectionView.reloadData()
-                            self.messagesCollectionView.scrollToBottom()
                         }
                         let ignoreAction = UIAlertAction(title: "忽略", style: .default)
                         alertController.addAction(acceptAction)
@@ -373,16 +377,18 @@ class ChatRoomViewController: MessagesViewController {
                     alertController.setValue(messageText, forKey: "attributedMessage")
                     self.present(alertController, animated: true, completion: nil)
                     let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                        let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
-                        self.present(sentAlertController, animated: true, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            sentAlertController.dismiss(animated: true, completion: nil)
+                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.REQUEST_TAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
+                            success in
+                            if success {
+                                DispatchQueue.main.async {
+                                    let sentAlertController = UIAlertController(title: nil, message: "专属邀请已成功寄出。", preferredStyle: .alert)
+                                    self.present(sentAlertController, animated: true, completion: nil)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        sentAlertController.dismiss(animated: true, completion: nil)
+                                    }
+                                }
+                            }
                         }
-                        let sendTakenimg = UIImage(named: "ImTakenButton")
-                        self.imTakenButton.setImage(sendTakenimg, for: .normal)
-                        self.messagesCollectionView.reloadData()
-                        self.messagesCollectionView.scrollToBottom()
                     }
                     let cancelAction = UIAlertAction(title: "取消", style: .default)
                     alertController.addAction(cancelAction)
@@ -392,11 +398,19 @@ class ChatRoomViewController: MessagesViewController {
                     let alertController = UIAlertController(title: "专属模式", message: "确认与" + self.userNameYou + "解除“专属”模式吗？解除后，对方会收到提醒。你们的资料将重新对第三方可见。详情请见帮助菜单。", preferredStyle: .alert)
                     self.present(alertController, animated: true, completion: nil)
                     let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNTAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                        let removeAlertController = UIAlertController(title: nil, message: "专属模式已成功解除。", preferredStyle: .alert)
-                        self.present(removeAlertController, animated: true, completion: nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            removeAlertController.dismiss(animated: true, completion: nil)
+                        HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNTAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
+                            success in
+                            if success {
+                                DispatchQueue.main.async {
+                                    let sendTakenimg = UIImage(named: "ImTakenButton")
+                                    self.imTakenButton.setImage(sendTakenimg, for: .normal)
+                                    let removeAlertController = UIAlertController(title: nil, message: "专属模式已成功解除。", preferredStyle: .alert)
+                                    self.present(removeAlertController, animated: true, completion: nil)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        removeAlertController.dismiss(animated: true, completion: nil)
+                                    }
+                                }
+                            }
                         }
                     }
                     let cancelAction = UIAlertAction(title: "取消", style: .default)
@@ -421,13 +435,17 @@ class ChatRoomViewController: MessagesViewController {
             let unmatchAlertController = UIAlertController(title: "删除匹配", message: "确认删除与对方用户的匹配吗？删除匹配后，双方将无法继续与对方聊天", preferredStyle: .alert)
             self.present(unmatchAlertController, animated: true)
             let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
-                HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNMATCH.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN)
-                // Go back to Chat root page
-                DispatchQueue.main.async {
-                    let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
-                    self.present (vc, animated: false, completion: nil)
-                    vc.selectedIndex = 1
+                HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNMATCH.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
+                    success in
+                    if success {
+                        // Go back to Chat root page
+                        DispatchQueue.main.async {
+                            let storyBoard = UIStoryboard(name: "MainPage", bundle: nil)
+                            let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as! UITabBarController
+                            self.present (vc, animated: false, completion: nil)
+                            vc.selectedIndex = 1
+                        }
+                    }
                 }
             }
             let cancelAction = UIAlertAction(title: "返回", style: .default)

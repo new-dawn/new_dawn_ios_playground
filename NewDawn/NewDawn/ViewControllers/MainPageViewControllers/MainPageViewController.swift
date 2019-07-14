@@ -164,9 +164,15 @@ class MainPageViewController: UIViewController {
                     entity_type: EntityType.NONE.rawValue,
                     entity_id: 0,
                     message: UNKNOWN
-                )
-                // Go to match popup view
-                self.performSegue(withIdentifier: "mainPageMatch", sender: yourUserProfile)
+                ) {
+                    success in
+                    if success {
+                        DispatchQueue.main.async {
+                            // Go to match popup view
+                            self.performSegue(withIdentifier: "mainPageMatch", sender: yourUserProfile)
+                        }
+                    }
+                }
             }
         }
     }
