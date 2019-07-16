@@ -348,3 +348,20 @@ extension String{
         }
     }
 }
+
+
+// controller() will return the closest responder that is of type UIViewController Then on the returned controller, you can use navigationController tofind its navigation controller.
+extension UIView {
+    
+    func controller() -> UIViewController? {
+        if let nextViewControllerResponder = next as? UIViewController {
+            return nextViewControllerResponder
+        }
+        else if let nextViewResponder = next as? UIView {
+            return nextViewResponder.controller()
+        }
+        else  {
+            return nil
+        }
+    }
+}

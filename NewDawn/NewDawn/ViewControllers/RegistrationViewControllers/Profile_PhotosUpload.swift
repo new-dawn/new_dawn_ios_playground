@@ -16,7 +16,7 @@ class Profile_PhotosUpload: UIViewController {
     
     
     @IBOutlet var collectionView: UICollectionView!
-    lazy var imageCV = ProfileImageUploadModel(collectionView, self, 300)
+    lazy var imageCV = ProfileImageUploadModel(collectionView, self, 300, self.view)
     
     override func viewDidLoad() {
         super.viewDidLoad()
