@@ -17,7 +17,8 @@ class MainPageEndViewController: UIViewController {
         let nextDate = TimerUtil.readRefreshDate()
         timer.text = "\(nextDate.month)/\(nextDate.day) \(nextDate.hour):\(nextDate.minute):\(nextDate.second)"
         if TimerUtil.checkIfOutdatedAndRefresh() {
-            // Wait for user profile to be available
+            // Refresh user profile
+            LocalStorageUtil.localRemoveKey(key: CANDIDATE_PROFILES)
             let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
             let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
             let appDelegate = UIApplication.shared.delegate
