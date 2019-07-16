@@ -246,11 +246,15 @@ extension ProfileImageUploadModel: UIImagePickerControllerDelegate, UINavigation
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
         self.motherView!.addSubview(newImageView)
-        self.motherView!.controller()?.navigationController!.isNavigationBarHidden = true
+        if let naviController = self.motherView!.controller()?.navigationController{
+            naviController.isNavigationBarHidden = true
+        }
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-        self.motherView!.controller()?.navigationController!.isNavigationBarHidden = false
+        if let naviController = self.motherView!.controller()?.navigationController{
+            naviController.isNavigationBarHidden = false
+        }
         sender.view?.removeFromSuperview()
     }
     
