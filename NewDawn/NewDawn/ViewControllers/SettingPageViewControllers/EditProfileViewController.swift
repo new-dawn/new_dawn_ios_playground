@@ -39,7 +39,7 @@ class EditProfileTabelViewController: UITableViewController{
     @IBOutlet weak var deleteButton_3: UIButton!
     @IBOutlet weak var questionFrameButton_3: UIButton!
     
-    lazy var imageCV = ProfileImageUploadModel(photoCollectionView, self, 270)
+    lazy var imageCV = ProfileImageUploadModel(photoCollectionView, self, 270, self.view)
     let sectionHeaderTitleArray = ["图片", "个人信息", " ", "我的问答"]
     @IBOutlet weak var personalAttribute: UIView!
     

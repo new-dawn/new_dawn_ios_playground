@@ -16,6 +16,7 @@ class ProfileImageUploadModel: NSObject{
         let imageName: String!
         var image: UIImage!
     }
+    var motherView: UIView?
     var collectionView: UICollectionView?
     var viewcontroller: UIViewController?
     var longPressGesture: UILongPressGestureRecognizer!
@@ -25,14 +26,15 @@ class ProfileImageUploadModel: NSObject{
     var imagesArray = [ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG), ImageItem(imageName: "", image: BLANK_IMG)]
     let dataPath = ImageUtil.getPersonalImagesDirectory()
     
-    init(_ cv: UICollectionView, _ Controller: UIViewController?, _ size: Int) {
+    init(_ cv: UICollectionView, _ Controller: UIViewController?, _ size: Int, _ superview: UIView?) {
         super.init()
+        motherView = superview
         collectionView = cv
         viewcontroller = Controller
         let customLayout = PhotoCollectionViewLayout(size: CGSize(width: size, height: size))
         collectionView!.collectionViewLayout = customLayout
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
-        longPressGesture.minimumPressDuration = 0.01
+        longPressGesture.minimumPressDuration = 0.3
         collectionView!.addGestureRecognizer(longPressGesture)
         picker.delegate = self
         LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
@@ -174,16 +176,20 @@ extension ProfileImageUploadModel: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         clicked_image = indexPath.row
-        let alert = UIAlertController(title: "Photo", message: "Choose Photo", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "照片", message: "选择一个选项", preferredStyle: .actionSheet)
         
         //        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
         //            self.camera()
         //        }))
-        
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
+        if self.imagesArray[clicked_image].image != BLANK_IMG{
+            alert.addAction(UIAlertAction(title: "预览", style: .default, handler: { (action) in
+                self.preview()
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "相册", style: .default, handler: { (action) in
             self.gallary()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in}))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (action) in}))
         viewcontroller!.present(alert,animated: true,completion: nil)
     }
 }
@@ -227,6 +233,29 @@ extension ProfileImageUploadModel: UIImagePickerControllerDelegate, UINavigation
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         viewcontroller!.present(picker,animated: true ,completion: nil)
+    }
+    
+    func preview(){
+        let image = self.imagesArray[self.clicked_image].image as UIImage
+        let newImageView = UIImageView(image: image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.isUserInteractionEnabled = true
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.clipsToBounds = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.motherView!.addSubview(newImageView)
+        if let naviController = self.motherView!.controller()?.navigationController{
+            naviController.isNavigationBarHidden = true
+        }
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        if let naviController = self.motherView!.controller()?.navigationController{
+            naviController.isNavigationBarHidden = false
+        }
+        sender.view?.removeFromSuperview()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
