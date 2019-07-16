@@ -181,10 +181,11 @@ extension ProfileImageUploadModel: UICollectionViewDataSource, UICollectionViewD
         //        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
         //            self.camera()
         //        }))
-        alert.addAction(UIAlertAction(title: "预览", style: .default, handler: { (action) in
-            self.preview()
-        }))
-        
+        if self.imagesArray[clicked_image].image != BLANK_IMG{
+            alert.addAction(UIAlertAction(title: "预览", style: .default, handler: { (action) in
+                self.preview()
+            }))
+        }
         alert.addAction(UIAlertAction(title: "相册", style: .default, handler: { (action) in
             self.gallary()
         }))
