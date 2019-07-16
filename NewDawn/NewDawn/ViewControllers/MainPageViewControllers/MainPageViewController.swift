@@ -43,20 +43,29 @@ class MainPageViewController: UIViewController {
         }
     }
     
+    func refreshView() {
+        DispatchQueue.main.async {
+            self.setupTableView()
+            self.refreshTabBarCounterBadge()
+            self.tableView.reloadData()
+        }
+    }
+    
     func checkRefreshRecommendation() {
         if TimerUtil.checkIfOutdatedAndRefresh() {
             // If outdated, the profile will refresh automatically
             self.startNewRound()
         } else {
-            if self.user_profiles == nil || self.user_profiles.isEmpty == true {
+            if self.user_profiles == nil {
                 // This happens when the app is re-launched, or the view was killed. We then need to fetch stored candidates from local storage
-                if let candidate_profiles: CandidateProfiles = localReadKeyValueStruct(key: CANDIDATE_PROFILES) {
+                if let candidate_profiles: CandidateProfiles = LocalStorageUtil.localReadKeyValueStruct(key: CANDIDATE_PROFILES) {
                     self.user_profiles = candidate_profiles.user_profiles
                     self.profileIndex = candidate_profiles.profile_index
-                    self.setupTableView()
-                    self.refreshTabBarCounterBadge()
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    if self.profileIndex >= self.user_profiles.count {
+                        // All profiles have been viewed
+                        self.performSegueToNextProfile(self.user_profiles)
+                    } else {
+                        self.refreshView()
                     }
                 } else {
                     // No profiles have been loaded
@@ -64,8 +73,12 @@ class MainPageViewController: UIViewController {
                     self.startNewRound()
                 }
             } else {
-                self.setupTableView()
-                self.refreshTabBarCounterBadge()
+                if self.profileIndex >= self.user_profiles.count {
+                    // All profile have been viewed
+                    self.performSegueToNextProfile(self.user_profiles)
+                } else {
+                    self.refreshView()
+                }
             }
         }
     }
@@ -106,7 +119,6 @@ class MainPageViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
-        // Store current index
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -126,13 +138,12 @@ class MainPageViewController: UIViewController {
     }
     
     func performSegueToNextProfile(_ sender: Any) {
-        // This is the last profile. The next one is empty.
         if profileIndex + 1 >= user_profiles.count {
+            LocalStorageUtil.localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: user_profiles.count))
             self.performSegue(withIdentifier: "mainPageEnd", sender: nil)
-            localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: 0))
         } else {
+            LocalStorageUtil.localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: profileIndex + 1))
             self.performSegue(withIdentifier: "mainPageSelf", sender: nil)
-            localStoreKeyValueStruct(key: CANDIDATE_PROFILES, value: CandidateProfiles(user_profiles: self.user_profiles, profile_index: profileIndex + 1))
         }
     }
     
@@ -208,18 +219,16 @@ class MainPageViewController: UIViewController {
     }
     
     func setupTableView(_ reload: Bool = false) {
-        DispatchQueue.main.async {
-            // Prepare the current profile view
-            self.current_user_profile = self.user_profiles[self.profileIndex]
-            // Show receive like button if the current user liked me
-            self.acceptLikeButton.isHidden = !self.isLiked(self.current_user_profile!)
-            // Build main page UI
-            self.viewModel = MainPageViewModel(userProfile: self.current_user_profile!)
-            self.tableView.dataSource = self.viewModel
-            self.tableView.delegate = self.viewModel
-            self.tableView.rowHeight = UITableView.automaticDimension
-            self.tableView.estimatedRowHeight = UITableView.automaticDimension
-            self.tableView.backgroundColor = UIColor.init(red: 251, green: 249, blue: 246, alpha: 1)
-        }
+        // Prepare the current profile view
+        self.current_user_profile = self.user_profiles[self.profileIndex]
+        // Show receive like button if the current user liked me
+        self.acceptLikeButton.isHidden = !self.isLiked(self.current_user_profile!)
+        // Build main page UI
+        self.viewModel = MainPageViewModel(userProfile: self.current_user_profile!)
+        self.tableView.dataSource = self.viewModel
+        self.tableView.delegate = self.viewModel
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.backgroundColor = UIColor.init(red: 251, green: 249, blue: 246, alpha: 1)
     }
 }
