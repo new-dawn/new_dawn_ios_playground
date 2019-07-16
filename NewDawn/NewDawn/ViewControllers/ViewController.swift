@@ -350,7 +350,7 @@ extension String{
 }
 
 
-// controller() will return the closest responder that is of type UIViewController Then on the returned controller, you can use navigationController tofind its navigation controller.
+// controller() will return the closest responder that is of type UIViewController. Then on the returned controller, you can use navigationController to find its navigation controller.
 extension UIView {
     
     func controller() -> UIViewController? {
