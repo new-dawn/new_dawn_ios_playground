@@ -198,6 +198,7 @@ class MainPageViewController: UIViewController {
         var params = ["viewer_id": String(LoginUserUtil.getLoginUserId()!)]
         params += getPref()
         params += getReviewStatus()
+        params += ["ranking": "True"]
         let sentAlertController = UIAlertController(title: nil, message: "正在获取新的推荐，请等待...", preferredStyle: .alert)
         DispatchQueue.main.async {
             self.present(sentAlertController, animated: true, completion: nil)
