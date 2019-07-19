@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 struct CandidateProfiles: Codable {
     var user_profiles: [UserProfile]
