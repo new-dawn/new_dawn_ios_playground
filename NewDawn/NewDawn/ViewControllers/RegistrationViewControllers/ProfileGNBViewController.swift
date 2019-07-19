@@ -52,7 +52,7 @@ class ProfileGNBViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Mixpanel.mainInstance().time(event: "Registration Start")
+        Mixpanel.mainInstance().time(event: "Registration Duration")
         polishGenderButton(button: womanButton)
         polishGenderButton(button: manButton)
 
