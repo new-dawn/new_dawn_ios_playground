@@ -271,11 +271,11 @@ class ChatRoomViewController: MessagesViewController {
             if self.tempTakenBy == -1 {
                 if profile.takenRequestedFromYou {
                     DispatchQueue.main.async {
-                        let alertController = UIAlertController(title: "专属模式", message: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "专属模式", message: "\n" + self.userNameYou + "向你发出“专属”邀请\n" + "\n接受邀请后，你们双方资料逗不再对第三方可见，无法和第三方聊天，也无法进行新的匹配\n" + "\n此模式可随时取消，对方会收到通知，详见帮助", preferredStyle: .alert)
                         let paragraphStyle = NSMutableParagraphStyle()
                         paragraphStyle.alignment = NSTextAlignment.left
                         let messageText = NSMutableAttributedString(
-                            string: self.userNameYou + "向你发出“专属”邀请，如果你接受邀请，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
+                            string: "\n" + self.userNameYou + "向你发出“专属”邀请\n" + "\n接受邀请后，你们双方资料逗不再对第三方可见，无法和第三方聊天，也无法进行新的匹配\n" + "\n此模式可随时取消，对方会收到通知，详见帮助",
                             attributes: [
                                 NSAttributedString.Key.paragraphStyle: paragraphStyle,
                                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
@@ -364,11 +364,11 @@ class ChatRoomViewController: MessagesViewController {
             }
             DispatchQueue.main.async {
                 if my_profile?.takenBy == -1 {
-                    let alertController = UIAlertController(title: "专属模式", message: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "专属模式", message: "\n确认向" + self.userNameYou + "发出“专属”邀请吗？\n" + "\n对方接受邀请后，你们的资料都不再对第三方可见，无法和第三方聊天，也无法进行新的匹配\n" + "\n此模式可随时取消，对方会收到通知，详见帮助", preferredStyle: .alert)
                     let paragraphStyle = NSMutableParagraphStyle()
                     paragraphStyle.alignment = NSTextAlignment.left
                     let messageText = NSMutableAttributedString(
-                        string: "确认向" + self.userNameYou + "发出“专属”邀请吗？" + self.userNameYou + "在接受邀请后，你们的资料就不再对第三方可见，无法和第三方聊天，也无法再进行新的匹配。专属模式可以随时取消，对方会收到提醒。详情请见帮助菜单。",
+                        string: "\n确认向" + self.userNameYou + "发出“专属”邀请吗？\n" + "\n对方接受邀请后，你们的资料都不再对第三方可见，无法和第三方聊天，也无法进行新的匹配\n" + "\n此模式可随时取消，对方会收到通知，详见帮助",
                         attributes: [
                             NSAttributedString.Key.paragraphStyle: paragraphStyle,
                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
@@ -395,7 +395,17 @@ class ChatRoomViewController: MessagesViewController {
                     alertController.addAction(confirmAction)
                 }
                 else {
-                    let alertController = UIAlertController(title: "专属模式", message: "确认与" + self.userNameYou + "解除“专属”模式吗？解除后，对方会收到提醒。你们的资料将重新对第三方可见。详情请见帮助菜单。", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "解除专属模式", message: "\n确认与" + self.userNameYou + "解除“专属”模式吗？\n" + "\n解除后，对方会收到提醒。你们的资料将重新对第三方可见，详见帮助", preferredStyle: .alert)
+                    let paragraphStyle = NSMutableParagraphStyle()
+                    paragraphStyle.alignment = NSTextAlignment.left
+                    let messageText = NSMutableAttributedString(
+                        string: "\n确认与" + self.userNameYou + "解除“专属”模式吗？\n" + "\n解除后，对方会收到提醒。你们的资料将重新对第三方可见，详见帮助",
+                        attributes: [
+                            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.0)
+                        ]
+                    )
+                    alertController.setValue(messageText, forKey: "attributedMessage")
                     self.present(alertController, animated: true, completion: nil)
                     let confirmAction = UIAlertAction(title: "确定", style: .default) {(_) in
                         HttpUtil.sendAction(user_from: self.userIdMe, user_to: self.userIdYou, action_type: UserActionType.UNTAKEN.rawValue, entity_type: EntityType.NONE.rawValue, entity_id: 0, message: UNKNOWN) {
