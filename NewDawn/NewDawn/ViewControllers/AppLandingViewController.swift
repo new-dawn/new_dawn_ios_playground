@@ -10,6 +10,8 @@ import UIKit
 
 class AppLandingViewController: UIViewController {
 
+    @IBOutlet weak var launchButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Override point for customization after application launch.
@@ -31,6 +33,13 @@ class AppLandingViewController: UIViewController {
                 }
             }
         }
+        else {
+            launchButton.isHidden = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        launchButton.isHidden = true
     }
     
     func goToMainPage() -> Void {
