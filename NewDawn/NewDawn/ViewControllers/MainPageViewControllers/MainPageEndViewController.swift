@@ -14,6 +14,7 @@ class MainPageEndViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
+        self.tabBarController?.tabBar.items?.first?.badgeValue = "0"
         let nextDate = TimerUtil.readRefreshDate()
         timer.text = "\(nextDate.month)/\(nextDate.day) \(nextDate.hour):\(nextDate.minute):\(nextDate.second)"
         if TimerUtil.checkIfOutdatedAndRefresh() {
