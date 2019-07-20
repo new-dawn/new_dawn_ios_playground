@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/LJL/Documents/manman/new_dawn_ios_playground/NewDawn/NewDawn/MixPanelConst.swift">
+   </FileRef>
+   <FileRef
       location = "group:NewDawn.xcodeproj">
    </FileRef>
    <FileRef

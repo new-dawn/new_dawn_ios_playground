@@ -69,7 +69,7 @@ class Profile_DraftFinal: UIViewController {
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "after_register", sender: self)
-                Mixpanel.mainInstance().track(event: "Registration Duration")
+                Mixpanel.mainInstance().track(event: REGISTRATION_DURATION)
             }
         }
         
