@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 let FIRSTNAME = "first_name"
 let LASTNAME = "last_name"
@@ -51,6 +52,7 @@ class ProfileGNBViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Mixpanel.mainInstance().time(event: REGISTRATION_DURATION)
         polishGenderButton(button: womanButton)
         polishGenderButton(button: manButton)
 
