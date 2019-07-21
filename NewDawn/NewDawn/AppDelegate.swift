@@ -9,6 +9,7 @@
 import CoreData
 import UIKit
 import SwiftKeychainWrapper
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        Mixpanel.initialize(token: "d5c2717aea747344be2c882e31805a2c")
         return true
     }
     

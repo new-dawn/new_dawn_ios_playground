@@ -11,6 +11,7 @@ import Alamofire
 import CommonCrypto
 import PushNotifications
 import PusherSwift
+import Mixpanel
 
 let pushNotifications = PushNotifications.shared
 
@@ -68,6 +69,7 @@ class Profile_DraftFinal: UIViewController {
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "after_register", sender: self)
+                Mixpanel.mainInstance().track(event: REGISTRATION_DURATION)
             }
         }
         

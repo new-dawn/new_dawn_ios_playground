@@ -10,6 +10,7 @@ target 'NewDawn' do
   pod 'Alamofire', '~> 4.0'
   pod 'PushNotifications', '~> 1.2.0'
   pod 'Kingfisher', '~> 5.0'
+  pod 'Mixpanel-swift'
   target 'NewDawnTests' do
     inherit! :search_paths
     # Pods for testing

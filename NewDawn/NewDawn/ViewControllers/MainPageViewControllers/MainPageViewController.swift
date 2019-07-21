@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 struct CandidateProfiles: Codable {
     var user_profiles: [UserProfile]
@@ -189,9 +190,7 @@ class MainPageViewController: UIViewController {
     }
 
     func refreshTabBarCounterBadge() {
-        DispatchQueue.main.async {
-            self.tabBarController?.tabBar.items?.first?.badgeValue = "\(String(self.user_profiles.count - self.profileIndex - 1))"
-        }
+        self.tabBarController?.tabBar.items?.first?.badgeValue = "\(String(self.user_profiles.count - self.profileIndex))"
     }
     
     func getNewProfiles(callback: @escaping ([UserProfile]) -> Void) {
