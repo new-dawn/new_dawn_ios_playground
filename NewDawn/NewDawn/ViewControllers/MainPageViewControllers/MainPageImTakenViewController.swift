@@ -15,9 +15,7 @@ class MainPageImTakenViewController: UIViewController {
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, _ in
             if user_profile?.takenBy == -1 {
-                DispatchQueue.main.async {
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
+                self.goToMainPage()
             }
         }
     }

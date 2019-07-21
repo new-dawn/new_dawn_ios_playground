@@ -14,9 +14,7 @@ class MainPagePendingReviewViewController: UIViewController {
         LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
             user_profile, _ in
             if user_profile?.review_status != UserReviewStatus.PENDING.rawValue {
-                DispatchQueue.main.async {
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
+                self.goToMainPage()
             }
         }
     }
