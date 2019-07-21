@@ -251,6 +251,7 @@
 		24C09F5C2263E99400302CEF /* NewDawn */ = {
 			isa = PBXGroup;
 			children = (
+				244D956A22E4A0BB002D6F03 /* MixPanelConst.swift */,
 				2408CE3D2279330500042776 /* Views */,
 				24C09F5E2263E99400302CEF /* Assets.xcassets */,
 				24C09F5F2263E99400302CEF /* Utils */,
@@ -297,7 +298,6 @@
 		24C09F732263E99400302CEF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				244D956A22E4A0BB002D6F03 /* MixPanelConst.swift */,
 				24C09F742263E99400302CEF /* ViewController.swift */,
 				24C09F752263E99400302CEF /* QuestionAnswerViewControllers */,
 				24C09F792263E99400302CEF /* ChatPageViewControllers */,
