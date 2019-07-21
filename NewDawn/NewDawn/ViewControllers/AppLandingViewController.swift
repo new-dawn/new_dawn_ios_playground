@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TaskQueue
 
 class AppLandingViewController: UIViewController {
 
@@ -24,7 +25,17 @@ class AppLandingViewController: UIViewController {
                     return
                 }
                 if user_profile != nil {
-                    self.goToMainPage()
+                    let queue = TaskQueue()
+                    queue.tasks +=~ {
+                        LoginUserUtil.downloadOverwriteLocalInfo(profile: user_profile!)
+                    }
+                    queue.tasks +=! {
+                        LoginUserUtil.downloadOverwriteLocalImages(profile: user_profile!)
+                    }
+                    queue.tasks +=! {
+                        self.goToMainPage()
+                    }
+                    queue.run()
                 } else if LoginUserUtil.getLoginUserId() == 1 {
                     self.displayMessage(userMessage: "Warning: You are login into an admin account. This account was created automatically thus doesn't have a user profile.")
                     self.goToMainPage()
