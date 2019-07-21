@@ -2,11 +2,1148 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/LJL/Documents/manman/new_dawn_ios_playground/NewDawn/NewDawn/MixPanelConst.swift">
-   </FileRef>
-   <FileRef
       location = "group:NewDawn.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:NewDawn"
+      name = "NewDawn">
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:HeightIcon.imageset"
+            name = "HeightIcon.imageset">
+            <FileRef
+               location = "group:Height@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Height@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Height.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:BackButton.imageset"
+            name = "BackButton.imageset">
+            <FileRef
+               location = "group:iconsBackArrow.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:iconsBackArrow@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:iconsBackArrow@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:HomeImage.imageset"
+            name = "HomeImage.imageset">
+            <FileRef
+               location = "group:B-2.png">
+            </FileRef>
+            <FileRef
+               location = "group:B-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:B.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:RegisterPlaceHolder.imageset"
+            name = "RegisterPlaceHolder.imageset">
+            <FileRef
+               location = "group:Placeholder_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Placeholder_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Placeholder_1x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:PreferenceHeight_Icon.imageset"
+            name = "PreferenceHeight_Icon.imageset">
+            <FileRef
+               location = "group:Height@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Height@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Height.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LikeButtonNew.imageset"
+            name = "LikeButtonNew.imageset">
+            <FileRef
+               location = "group:inactiveLoveButtonQ.png">
+            </FileRef>
+            <FileRef
+               location = "group:inactiveLoveButtonQ@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:inactiveLoveButtonQ@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Register_continue_btn.imageset"
+            name = "Register_continue_btn.imageset">
+            <FileRef
+               location = "group:Blue_Button.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Blue_Button@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Blue_Button@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ThreeDot.imageset"
+            name = "ThreeDot.imageset">
+            <FileRef
+               location = "group:3DotsControlIcon.png">
+            </FileRef>
+            <FileRef
+               location = "group:3DotsControlIcon@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:3DotsControlIcon@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MatchModal.imageset"
+            name = "MatchModal.imageset">
+            <FileRef
+               location = "group:Matchmodal_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Matchmodal_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Matchmodal_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:WaitImage.imageset"
+            name = "WaitImage.imageset">
+            <FileRef
+               location = "group:B_1.png">
+            </FileRef>
+            <FileRef
+               location = "group:B_1-2.png">
+            </FileRef>
+            <FileRef
+               location = "group:B_1-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:TableCell.imageset"
+            name = "TableCell.imageset">
+            <FileRef
+               location = "group:rectangleCopy@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionBlock.imageset"
+            name = "QuestionBlock.imageset">
+            <FileRef
+               location = "group:rectangleCopy5.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy5@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy5@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionBlock3.imageset"
+            name = "QuestionBlock3.imageset">
+            <FileRef
+               location = "group:rectangleCopy7.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy7@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy7@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionBlock2.imageset"
+            name = "QuestionBlock2.imageset">
+            <FileRef
+               location = "group:rectangleCopy7.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy7@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy7@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:3DotsButton.imageset"
+            name = "3DotsButton.imageset">
+            <FileRef
+               location = "group:3dotsControl_Icon@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:3dotsControl_Icon.png">
+            </FileRef>
+            <FileRef
+               location = "group:3dotsControl_Icon@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionBar.imageset"
+            name = "QuestionBar.imageset">
+            <FileRef
+               location = "group:Question_Bar_withShadow.png">
+            </FileRef>
+            <FileRef
+               location = "group:Question_Bar_withShadow_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Question_Bar_withShadow_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:line.imageset"
+            name = "line.imageset">
+            <FileRef
+               location = "group:line@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:line@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:line.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:HomeTownIcon.imageset"
+            name = "HomeTownIcon.imageset">
+            <FileRef
+               location = "group:Hometown@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Hometown@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Hometown.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccountSetting_Account.imageset"
+            name = "AccountSetting_Account.imageset">
+            <FileRef
+               location = "group:Profile@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Profile@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Profile.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:InfoPanel.imageset"
+            name = "InfoPanel.imageset">
+            <FileRef
+               location = "group:ID_Module_withShadow_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:ID_Module_withShadow_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:ID_Module_withShadow_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionCancelButton.imageset"
+            name = "QuestionCancelButton.imageset">
+            <FileRef
+               location = "group:CloseButton@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:CloseButton@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:CloseButton.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LikeButton.imageset"
+            name = "LikeButton.imageset">
+            <FileRef
+               location = "group:likeSomeoneButtonIcon@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:likeSomeoneButtonIcon.png">
+            </FileRef>
+            <FileRef
+               location = "group:likeSomeoneButtonIcon@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EditProfile_Question.imageset"
+            name = "EditProfile_Question.imageset">
+            <FileRef
+               location = "group:Rectangle Big@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents 2.json">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Big@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Big@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ChatTab.imageset"
+            name = "ChatTab.imageset">
+            <FileRef
+               location = "group:messageSquare.png">
+            </FileRef>
+            <FileRef
+               location = "group:messageSquare@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:messageSquare@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AcceptedTakenButton.imageset"
+            name = "AcceptedTakenButton.imageset">
+            <FileRef
+               location = "group:Group.png">
+            </FileRef>
+            <FileRef
+               location = "group:Group@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Group@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:Icon-App-76x76@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-29x29@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-40x40@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-20x20@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-83.5x83.5@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-20x20@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:ItunesArtwork@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-20x20@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-29x29@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-40x40@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-60x60@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-60x60@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-76x76@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-40x40@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Icon-App-29x29@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SmokeIcon.imageset"
+            name = "SmokeIcon.imageset">
+            <FileRef
+               location = "group:Smoking.png">
+            </FileRef>
+            <FileRef
+               location = "group:Smoking@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Smoking@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:WorkIcon.imageset"
+            name = "WorkIcon.imageset">
+            <FileRef
+               location = "group:Work.png">
+            </FileRef>
+            <FileRef
+               location = "group:Work@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Work@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EmptyImage.imageset"
+            name = "EmptyImage.imageset">
+            <FileRef
+               location = "group:PhotoSmall_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:PhotoSmall_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:PhotoSmall_2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LocationIcon.imageset"
+            name = "LocationIcon.imageset">
+            <FileRef
+               location = "group:Location@3x-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Location-2.png">
+            </FileRef>
+            <FileRef
+               location = "group:Location@2x-1.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:QuestionAddButton.imageset"
+            name = "QuestionAddButton.imageset">
+            <FileRef
+               location = "group:EditProfile_AddQuestions.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfile_AddQuestions@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfile_AddQuestions@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:CloseButton.imageset"
+            name = "CloseButton.imageset">
+            <FileRef
+               location = "group:closeButton@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:closeButton@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:closeButton.png">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <Group
+            location = "group:PreferenceAge_Icon.imageset"
+            name = "PreferenceAge_Icon.imageset">
+            <FileRef
+               location = "group:AgeRange.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:AgeRange@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:AgeRange@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:HomeTab.imageset"
+            name = "HomeTab.imageset">
+            <FileRef
+               location = "group:heart.png">
+            </FileRef>
+            <FileRef
+               location = "group:heart@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:heart@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccountSetting_Notification.imageset"
+            name = "AccountSetting_Notification.imageset">
+            <FileRef
+               location = "group:Notification@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Notification@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Notification.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ImTakenButton.imageset"
+            name = "ImTakenButton.imageset">
+            <FileRef
+               location = "group:LoveConnected@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:LoveConnected.png">
+            </FileRef>
+            <FileRef
+               location = "group:LoveConnected@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Editprofile_Basic.imageset"
+            name = "Editprofile_Basic.imageset">
+            <FileRef
+               location = "group:Rectangle Big@1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Big@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Big@3x 2.png">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Big@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EditProfile_Button.imageset"
+            name = "EditProfile_Button.imageset">
+            <FileRef
+               location = "group:Blue_Profile_Button_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Blue_Profile_ButtonwithShadow_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Blue_Profile_ButtonwithShadow_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:DegreeIcon.imageset"
+            name = "DegreeIcon.imageset">
+            <FileRef
+               location = "group:Graduation@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Graduation@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Graduation.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EditProfile_Edit.imageset"
+            name = "EditProfile_Edit.imageset">
+            <FileRef
+               location = "group:EditProfile_LightBlue_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfile_LightBlue_1x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SendLikeButton.imageset"
+            name = "SendLikeButton.imageset">
+            <FileRef
+               location = "group:rectangleCopy2@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy2@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:rectangleCopy2.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:DrinkIcon.imageset"
+            name = "DrinkIcon.imageset">
+            <FileRef
+               location = "group:Drinking@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Drinking@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Drinking.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LikeButtonNew2.imageset"
+            name = "LikeButtonNew2.imageset">
+            <FileRef
+               location = "group:LikeButton_noShadow_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:LikeButton_noShadow_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:LikeButton_noShadow_1x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LaunchImage.launchimage"
+            name = "LaunchImage.launchimage">
+            <FileRef
+               location = "group:Default2048x1536-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Default1024x768-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Default768x1024-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Default1536x2048-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccountSetting_Privacy.imageset"
+            name = "AccountSetting_Privacy.imageset">
+            <FileRef
+               location = "group:Shield_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Shield_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Shield_2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SkipButton.imageset"
+            name = "SkipButton.imageset">
+            <FileRef
+               location = "group:denySomeoneButtonIcon.png">
+            </FileRef>
+            <FileRef
+               location = "group:denySomeoneButtonIcon@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:denySomeoneButtonIcon@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:LogoPlaceholder.imageset"
+            name = "LogoPlaceholder.imageset">
+            <FileRef
+               location = "group:awardIconCopy7.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:awardIconCopy7@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:awardIconCopy7@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ChatNotification.imageset"
+            name = "ChatNotification.imageset">
+            <FileRef
+               location = "group:chatNotificationIcon@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:chatNotificationIcon@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:chatNotificationIcon.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EditProfile_Personal.imageset"
+            name = "EditProfile_Personal.imageset">
+            <FileRef
+               location = "group:Rectangle Small@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents 2.json">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Small@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Small@3x 2.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Rectangle Small@1x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:EditProfile_Preview.imageset"
+            name = "EditProfile_Preview.imageset">
+            <FileRef
+               location = "group:EditProfile_Preview_2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfile_Preview_1x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MeTab.imageset"
+            name = "MeTab.imageset">
+            <FileRef
+               location = "group:userPlus.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:userPlus@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:userPlus@2x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SettingContinueButton.imageset"
+            name = "SettingContinueButton.imageset">
+            <FileRef
+               location = "group:PointerButtonNoShadow_1x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:PointerButtonNoShadow_3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:PointerButtonNoShadow_2x.png">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:MixPanelConst.swift">
+      </FileRef>
+      <Group
+         location = "group:Utils"
+         name = "Utils">
+         <FileRef
+            location = "group:HttpUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ChatUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:LocalStorageUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ImageUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ProfileIndexUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:LikeInfoUtil.swift">
+         </FileRef>
+         <FileRef
+            location = "group:TimerUtil.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Models"
+         name = "Models">
+         <FileRef
+            location = "group:UserModels.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Message.swift">
+         </FileRef>
+         <FileRef
+            location = "group:LikeInfo.swift">
+         </FileRef>
+         <FileRef
+            location = "group:QuestionAnswer.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Base.lproj"
+         name = "Base.lproj">
+         <FileRef
+            location = "group:LaunchScreen.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:MainPage.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:Main.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:QuestionAnswer.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:ProfileGNB.storyboard">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:CustomLayouts"
+         name = "CustomLayouts">
+         <FileRef
+            location = "group:ImageCollectionViewCell.xib">
+         </FileRef>
+         <FileRef
+            location = "group:PhotoLayout.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ProfileImageUploadModel.swift">
+         </FileRef>
+         <FileRef
+            location = "group:AccountSettingTabelCell.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ImageCollectionViewCell.swift">
+         </FileRef>
+         <FileRef
+            location = "group:VerificationTextField.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PrefSettingTableCell.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:ViewControllers"
+         name = "ViewControllers">
+         <FileRef
+            location = "group:ViewController.swift">
+         </FileRef>
+         <Group
+            location = "group:QuestionAnswerViewControllers"
+            name = "QuestionAnswerViewControllers">
+            <FileRef
+               location = "group:QuestionViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:AnswerQuestionViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SelectQuestionViewController.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:ChatPageViewControllers"
+            name = "ChatPageViewControllers">
+            <FileRef
+               location = "group:ChatRoomViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ChatProfileViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ChatPageViewController.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:RegistrationViewControllers"
+            name = "RegistrationViewControllers">
+            <FileRef
+               location = "group:Profile_DraftFinal.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Height.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_WorkJob.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ProfileGNBViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Photos.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Location.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_HomeTown.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_PhotosUpload.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Education.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Smoke.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Drink.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Profile_Notificatioin.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MainPageViewControllers"
+            name = "MainPageViewControllers">
+            <FileRef
+               location = "group:MainPageTableViewCell.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RectInfoViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageTabBarViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPagePendingReviewViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageEndViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ModalPopupViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageMatchViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageViewModels.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MainPageImTakenViewController.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:SettingPageViewControllers"
+            name = "SettingPageViewControllers">
+            <FileRef
+               location = "group:PreferenceViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfileViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:EditProfileSubViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SettingPageViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ProfileSettingViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PreferenceSonViewControler.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:AppLandingViewController.swift">
+         </FileRef>
+         <Group
+            location = "group:LoginViewControllers"
+            name = "LoginViewControllers">
+            <FileRef
+               location = "group:PhoneAuthenticateViewController.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PhoneVerifyViewController.swift">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:NewDawn.entitlements">
+      </FileRef>
+      <FileRef
+         location = "group:UserInfoModel.xcdatamodeld">
+      </FileRef>
+      <FileRef
+         location = "group:AppDelegate.swift">
+      </FileRef>
+      <Group
+         location = "group:Views"
+         name = "Views">
+         <FileRef
+            location = "group:UIViewExtensions.swift">
+         </FileRef>
+         <FileRef
+            location = "group:UIButtonExtensions.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

@@ -17,7 +17,6 @@
 		0687F0D022680B1600729334 /* PreferenceSonViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */; };
 		0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687F0D122680B7B00729334 /* PreferenceViewController.swift */; };
 		06C278DA228908C600BB718A /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C278D9228908C600BB718A /* PhotoLayout.swift */; };
-		06FD34EA22E35CD800B0E8FC /* MixPanelConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD34E922E35CD800B0E8FC /* MixPanelConst.swift */; };
 		112A30412298FB280078A95B /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A30402298FB280078A95B /* VerificationTextField.swift */; };
 		2408CE3F2279331800042776 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2408CE3E2279331800042776 /* UIViewExtensions.swift */; };
 		242CC2AA22CAE6E3009F11CD /* MainPageImTakenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242CC2A922CAE6E3009F11CD /* MainPageImTakenViewController.swift */; };
@@ -25,6 +24,7 @@
 		2437783F2288FD6000F41CB6 /* RectInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */; };
 		24377841228920FD00F41CB6 /* LikeInfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377840228920FD00F41CB6 /* LikeInfoUtil.swift */; };
 		24377843228921F000F41CB6 /* LikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24377842228921F000F41CB6 /* LikeInfo.swift */; };
+		244D956B22E4A0BB002D6F03 /* MixPanelConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D956A22E4A0BB002D6F03 /* MixPanelConst.swift */; };
 		245F108E228D16B800F2DE40 /* MainPageMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */; };
 		24B1EF5C22BDEEFE001602AA /* Profile_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */; };
 		24B1EF5E22BEDD52001602AA /* MainPagePendingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */; };
@@ -109,7 +109,6 @@
 		0687F0CF22680B1600729334 /* PreferenceSonViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSonViewControler.swift; sourceTree = "<group>"; };
 		0687F0D122680B7B00729334 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		06C278D9228908C600BB718A /* PhotoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLayout.swift; sourceTree = "<group>"; };
-		06FD34E922E35CD800B0E8FC /* MixPanelConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MixPanelConst.swift; path = /Users/LJL/Documents/manman/new_dawn_ios_playground/NewDawn/NewDawn/MixPanelConst.swift; sourceTree = "<absolute>"; };
 		112A30402298FB280078A95B /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
 		178CD26DF50D54E486AB41DD /* Pods-NewDawnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewDawnTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewDawnTests/Pods-NewDawnTests.release.xcconfig"; sourceTree = "<group>"; };
 		2408CE3E2279331800042776 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		2437783E2288FD6000F41CB6 /* RectInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectInfoViewController.swift; sourceTree = "<group>"; };
 		24377840228920FD00F41CB6 /* LikeInfoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoUtil.swift; sourceTree = "<group>"; };
 		24377842228921F000F41CB6 /* LikeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfo.swift; sourceTree = "<group>"; };
+		244D956A22E4A0BB002D6F03 /* MixPanelConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixPanelConst.swift; sourceTree = "<group>"; };
 		245F108D228D16B800F2DE40 /* MainPageMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageMatchViewController.swift; sourceTree = "<group>"; };
 		24B1EF5B22BDEEFE001602AA /* Profile_Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_Location.swift; sourceTree = "<group>"; };
 		24B1EF5D22BEDD52001602AA /* MainPagePendingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagePendingReviewViewController.swift; sourceTree = "<group>"; };
@@ -264,7 +264,6 @@
 				24C09F732263E99400302CEF /* ViewControllers */,
 				24C09F992263E99400302CEF /* NewDawn.entitlements */,
 				24C09F9C2263E99400302CEF /* AppDelegate.swift */,
-				06FD34E922E35CD800B0E8FC /* MixPanelConst.swift */,
 				24C09F9E2263E99400302CEF /* Info.plist */,
 			);
 			path = NewDawn;
@@ -298,6 +297,7 @@
 		24C09F732263E99400302CEF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				244D956A22E4A0BB002D6F03 /* MixPanelConst.swift */,
 				24C09F742263E99400302CEF /* ViewController.swift */,
 				24C09F752263E99400302CEF /* QuestionAnswerViewControllers */,
 				24C09F792263E99400302CEF /* ChatPageViewControllers */,
@@ -710,7 +710,7 @@
 				24C09FBE2263E99400302CEF /* Profile_Smoke.swift in Sources */,
 				24C09FCB2263E99400302CEF /* PhoneAuthenticateViewController.swift in Sources */,
 				24C09FA52263E99400302CEF /* ProfileIndexUtil.swift in Sources */,
-				06FD34EA22E35CD800B0E8FC /* MixPanelConst.swift in Sources */,
+				244D956B22E4A0BB002D6F03 /* MixPanelConst.swift in Sources */,
 				0687F0D222680B7B00729334 /* PreferenceViewController.swift in Sources */,
 				24C09FB42263E99400302CEF /* ChatPageViewController.swift in Sources */,
 				24C09FB72263E99400302CEF /* Profile_WorkJob.swift in Sources */,
