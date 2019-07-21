@@ -20,6 +20,7 @@ class AppLandingViewController: UIViewController {
                 user_profile, error in
                 if error != nil {
                     self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
+                    self.launchButton.isHidden = false
                     return
                 }
                 if user_profile != nil {
@@ -30,6 +31,7 @@ class AppLandingViewController: UIViewController {
                 } else {
                     self.displayMessage(userMessage: "Warning: You have a login id \(String(describing: LoginUserUtil.getLoginUserId())) stored locally, but it doesn't have a linked user profile. It might because the database has refreshed or your profile has been deleted. For data safety purpose, your local credential will be revoked.")
                     _ = LoginUserUtil.logout()
+                    self.launchButton.isHidden = false
                 }
             }
         }
