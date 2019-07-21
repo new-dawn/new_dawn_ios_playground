@@ -147,7 +147,7 @@ class PhoneAuthenticateViewController: UIViewController {
                         queue.tasks +=~ {
                             LoginUserUtil.downloadOverwriteLocalInfo(profile: user_profile!)
                         }
-                        queue.tasks +=! {
+                        queue.tasks +=~ {
                             LoginUserUtil.downloadOverwriteLocalImages(profile: user_profile!)
                         }
                         queue.tasks +=! {
