@@ -41,7 +41,7 @@ class AppLandingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        launchButton.isHidden = true
+        launchButton.isHidden = false
     }
     
     func goToMainPage() -> Void {
