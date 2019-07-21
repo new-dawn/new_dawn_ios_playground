@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TaskQueue
 
 let PHONE_NUMBER = "phone_number"
 
@@ -133,11 +134,36 @@ class PhoneAuthenticateViewController: UIViewController {
             _ = LoginUserUtil.saveAccessToken(token: "N/A")
             // Phone verification success. Go to main registration page
             // Go to profile gender/name/birthday fill page
-            DispatchQueue.main.async {
-                let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                let appDelegate = UIApplication.shared.delegate
-                appDelegate?.window??.rootViewController = homePage
+            
+            if LoginUserUtil.isLogin() {
+                LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
+                    user_profile, error in
+                    if error != nil {
+                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
+                        return
+                    }
+                    if user_profile != nil {
+                        let queue = TaskQueue()
+                        queue.tasks +=~ {
+                            LoginUserUtil.downloadOverwriteLocalInfo(profile: user_profile!)
+                        }
+                        queue.tasks +=~ {
+                            LoginUserUtil.downloadOverwriteLocalImages(profile: user_profile!)
+                        }
+                        queue.tasks +=! {
+                            let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                            let appDelegate = UIApplication.shared.delegate
+                            appDelegate?.window??.rootViewController = homePage
+                        }
+                        queue.run()
+                    } else if LoginUserUtil.getLoginUserId() == 1 {
+                        self.displayMessage(userMessage: "Warning: You are login into an admin account. This account was created automatically thus doesn't have a user profile.")
+                    } else {
+                        self.displayMessage(userMessage: "Warning: You have a login id \(String(describing: LoginUserUtil.getLoginUserId())) stored locally, but it doesn't have a linked user profile. It might because the database has refreshed or your profile has been deleted. For data safety purpose, your local credential will be revoked.")
+                        _ = LoginUserUtil.logout()
+                    }
+                }
             }
             return
         }

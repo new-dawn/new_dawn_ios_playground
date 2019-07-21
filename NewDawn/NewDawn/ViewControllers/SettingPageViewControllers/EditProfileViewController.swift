@@ -142,27 +142,6 @@ class EditProfileTabelViewController: UITableViewController{
             }
         }
     }
-    
-    static func downloadOverwriteLocalImages(profile: UserProfile){
-        let dataPath = ImageUtil.getPersonalImagesDirectory()
-        LocalStorageUtil.checkFolderExistOrCreate(dataPath: dataPath)
-        LocalStorageUtil.cleanDirectory(directory: "PersonalImages")
-        for (index, image) in profile.mainImages.enumerated(){
-            let image_name = String(index)
-            var fileURL = URL(fileURLWithPath:dataPath).appendingPathComponent(image_name)
-            ImageUtil.downLoadImage(url: image.image_url){
-                image in
-                if let imageData = image.jpegData(compressionQuality: 1){
-                    fileURL = fileURL.appendingPathExtension("jpeg")
-                    do{
-                        try imageData.write(to: fileURL, options: .atomic)
-                    }catch{
-                        print ("error", error)
-                    }
-                }
-            }
-        }
-    }
 
     func setupQuestionAnswer(questionAnswers: Array<QuestionAnswer>){
         
@@ -180,26 +159,6 @@ class EditProfileTabelViewController: UITableViewController{
                 answerLabel_3.text = questionAnswer.answer
             }
         }
-    }
-    
-    
-    static func downloadOverwriteLocalInfo(profile: UserProfile){
-        LocalStorageUtil.localStoreKeyValue(key: FIRSTNAME, value: profile.firstname)
-        LocalStorageUtil.localStoreKeyValue(key: LASTNAME, value: profile.lastname)
-        LocalStorageUtil.localStoreKeyValue(key: USERNAME, value: profile.username)
-        LocalStorageUtil.localStoreKeyValue(key: HEIGHT, value: String(profile.height))
-        LocalStorageUtil.localStoreKeyValue(key: AGE, value: String(profile.age))
-        LocalStorageUtil.localStoreKeyValue(key: GENDER, value: String(profile.gender))
-        LocalStorageUtil.localStoreKeyValue(key: BIRTHDAY, value: String(profile.birthday))
-        LocalStorageUtil.localStoreKeyValue(key: HOMETOWN, value: profile.hometown)
-        LocalStorageUtil.localStoreKeyValue(key: LOCATION, value: profile.location)
-        LocalStorageUtil.localStoreKeyValue(key: SCHOOL, value: profile.school)
-        LocalStorageUtil.localStoreKeyValue(key: DEGREE, value: profile.degree)
-        LocalStorageUtil.localStoreKeyValue(key: JOBTITLE, value: profile.jobTitle)
-        LocalStorageUtil.localStoreKeyValue(key: WORKPLACE, value: profile.employer)
-        LocalStorageUtil.localStoreKeyValue(key: DRINK, value: profile.drink)
-        LocalStorageUtil.localStoreKeyValue(key: SMOKE, value: profile.smoke)
-        LocalStorageUtil.localStoreKeyValueStruct(key: QUESTION_ANSWERS, value: profile.questionAnswers)
     }
     
     func setupQuestionAnswer(){
