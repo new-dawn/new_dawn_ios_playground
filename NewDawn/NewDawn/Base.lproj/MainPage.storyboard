@@ -3512,7 +3512,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WaitImage" translatesAutoresizingMaskIntoConstraints="NO" id="POf-iR-UQg">
-                                <rect key="frame" x="85" y="221" width="206" height="171"/>
+                                <rect key="frame" x="52" y="189" width="270" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -3539,10 +3539,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-YO-rs8">
-                                <rect key="frame" x="85" y="221" width="206" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="您现在正与另一位用户处于专属模式，无法浏览新的推荐，也无法和其他用户聊天。您可以在聊天页面里取消与该用户的专属模式。" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-50-4Mw">
                                 <rect key="frame" x="68" y="479" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3550,6 +3546,10 @@
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-YO-rs8">
+                                <rect key="frame" x="47" y="189" width="283" height="234"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="PYn-gi-SBs"/>
@@ -3557,7 +3557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgJ-sz-mqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="-1289"/>
+            <point key="canvasLocation" x="-959.20000000000005" y="-1289.5052473763119"/>
         </scene>
     </scenes>
     <resources>

@@ -13,6 +13,16 @@ import CommonCrypto
 // applied to ALL UI VIEWS
 extension UIViewController {
     
+    func goToMainPage() -> Void {
+        DispatchQueue.main.async {
+            // Wait for user profile to be available
+            let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = homePage
+        }
+    }
+    
     // Define a default behavior for all views:
     // Get rid of keyboard when an user click on anywhere
     func hideKeyboardWhenTappedAround() {
