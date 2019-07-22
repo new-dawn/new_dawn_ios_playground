@@ -33,7 +33,7 @@ class PhoneAuthenticateViewController: UIViewController {
     }
 
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        
+        self.confirmButton.isEnabled = false
         let verificationCode = verificationCodeTextField1.text! + verificationCodeTextField2.text! + verificationCodeTextField3.text! + verificationCodeTextField4.text!
         
         // Validate Username and Password
@@ -59,7 +59,12 @@ class PhoneAuthenticateViewController: UIViewController {
             response,error  in
             // Remove activity indicator
             self.removeActivityIndicator(activityIndicator: activityIndicator)
-            self.readPhoneAuthenticateResponse(parseJSON: response)
+            if error != nil{
+                print("READ PHONE RESPONSE ERROR")
+                self.confirmButton.isEnabled = true
+            }else{
+                self.readPhoneAuthenticateResponse(parseJSON: response)
+            }
         }
     }
     
@@ -121,7 +126,7 @@ class PhoneAuthenticateViewController: UIViewController {
         let exist = parseJSON["exist"] as? Bool
         let user_id = parseJSON["user_id"] as? Int
         if success == false {
-            self.displayMessage(userMessage: message!)
+            self.displayMessage(userMessage: message ?? "READ PHONE ERROR")
             return
         }
         
@@ -129,40 +134,39 @@ class PhoneAuthenticateViewController: UIViewController {
         LocalStorageUtil.localStoreKeyValue(key: PHONE_NUMBER, value: userPhoneNumber)
         
         if exist != nil && exist == true && user_id != nil {
+            let
             _ = LoginUserUtil.saveLoginUserId(user_id: user_id!)
             // TODO: Let server return access token after login and store them in local storage
             _ = LoginUserUtil.saveAccessToken(token: "N/A")
             // Phone verification success. Go to main registration page
             // Go to profile gender/name/birthday fill page
-            
-            if LoginUserUtil.isLogin() {
-                LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
-                    user_profile, error in
-                    if error != nil {
-                        self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
-                        return
+            LoginUserUtil.fetchUserProfile(user_id: user_id!, accessToken: "N/A") {
+                user_profile, error in
+                if error != nil {
+                    self.displayMessage(userMessage: "Error: Fetch Login User Profile Failed for user id \(String(describing: LoginUserUtil.getLoginUserId())): \(error!). This can happen if you don't have accessToken stored locally")
+                    self.confirmButton.isEnabled = true
+                    return
+                }
+                if user_profile != nil {
+                    let queue = TaskQueue()
+                    queue.tasks +=~ {
+                        LoginUserUtil.downloadOverwriteLocalInfo(profile: user_profile!)
                     }
-                    if user_profile != nil {
-                        let queue = TaskQueue()
-                        queue.tasks +=~ {
-                            LoginUserUtil.downloadOverwriteLocalInfo(profile: user_profile!)
-                        }
-                        queue.tasks +=~ {
-                            LoginUserUtil.downloadOverwriteLocalImages(profile: user_profile!)
-                        }
-                        queue.tasks +=! {
-                            let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
-                            let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
-                            let appDelegate = UIApplication.shared.delegate
-                            appDelegate?.window??.rootViewController = homePage
-                        }
-                        queue.run()
-                    } else if LoginUserUtil.getLoginUserId() == 1 {
-                        self.displayMessage(userMessage: "Warning: You are login into an admin account. This account was created automatically thus doesn't have a user profile.")
-                    } else {
-                        self.displayMessage(userMessage: "Warning: You have a login id \(String(describing: LoginUserUtil.getLoginUserId())) stored locally, but it doesn't have a linked user profile. It might because the database has refreshed or your profile has been deleted. For data safety purpose, your local credential will be revoked.")
-                        _ = LoginUserUtil.logout()
+                    queue.tasks +=~ {
+                        LoginUserUtil.downloadOverwriteLocalImages(profile: user_profile!)
                     }
+                    queue.tasks +=! {
+                        let mainPageStoryboard:UIStoryboard = UIStoryboard(name: "MainPage", bundle: nil)
+                        let homePage = mainPageStoryboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainPageTabBarViewController
+                        let appDelegate = UIApplication.shared.delegate
+                        appDelegate?.window??.rootViewController = homePage
+                    }
+                    queue.run()
+                } else if LoginUserUtil.getLoginUserId() == 1 {
+                    self.displayMessage(userMessage: "Warning: You are login into an admin account. This account was created automatically thus doesn't have a user profile.")
+                } else {
+                    self.displayMessage(userMessage: "Warning: You have a login id \(String(describing: LoginUserUtil.getLoginUserId())) stored locally, but it doesn't have a linked user profile. It might because the database has refreshed or your profile has been deleted. For data safety purpose, your local credential will be revoked.")
+                    _ = LoginUserUtil.logout()
                 }
             }
             return
