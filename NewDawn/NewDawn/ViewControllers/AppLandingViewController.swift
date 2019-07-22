@@ -15,6 +15,10 @@ class AppLandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        launchButton.isHidden = true
         // Override point for customization after application launch.
         if LoginUserUtil.isLogin() {
             LoginUserUtil.fetchLoginUserProfile(readLocal: false) {
@@ -49,10 +53,6 @@ class AppLandingViewController: UIViewController {
         else {
             launchButton.isHidden = false
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        launchButton.isHidden = false
     }
 
     /*
