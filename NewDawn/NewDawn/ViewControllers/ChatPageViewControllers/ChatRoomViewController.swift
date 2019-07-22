@@ -472,8 +472,14 @@ class ChatRoomViewController: MessagesViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alertController, animated: true)
         let unmatchAction = self.getUnmatchAlertAction()
+        let profileAction = UIAlertAction(title: "查看对方资料", style: .default) {(_) in
+            if self.userProfileYou != nil {
+                self.performSegue(withIdentifier: "chatProfile", sender: self.userProfileYou!)
+            }
+        }
         let cancelAction = UIAlertAction(title: "返回", style: .default)
         alertController.addAction(unmatchAction)
+        alertController.addAction(profileAction)
         alertController.addAction(cancelAction)
     }
     
