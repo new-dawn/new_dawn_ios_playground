@@ -134,7 +134,6 @@ class PhoneAuthenticateViewController: UIViewController {
         LocalStorageUtil.localStoreKeyValue(key: PHONE_NUMBER, value: userPhoneNumber)
         
         if exist != nil && exist == true && user_id != nil {
-            let
             _ = LoginUserUtil.saveLoginUserId(user_id: user_id!)
             // TODO: Let server return access token after login and store them in local storage
             _ = LoginUserUtil.saveAccessToken(token: "N/A")
