@@ -799,7 +799,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GJJ-Js-E6c">
-                                <rect key="frame" x="96" y="314" width="183" height="22"/>
+                                <rect key="frame" x="96" y="294" width="183" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7dQ-jE-LLj"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -813,7 +816,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="50" id="Bef-lq-CfT"/>
+                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="30" id="Bef-lq-CfT"/>
                             <constraint firstItem="crV-31-bHz" firstAttribute="leading" secondItem="Og1-cF-j84" secondAttribute="leading" constant="63" id="FPU-uT-4tj"/>
                             <constraint firstItem="crV-31-bHz" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="30" id="Hjy-UK-QBH"/>
                             <constraint firstItem="x4y-SH-b4u" firstAttribute="centerX" secondItem="m9u-Xb-AwM" secondAttribute="centerX" id="M0V-y9-xuz"/>
@@ -1461,7 +1464,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYO-Yq-uqV">
-                                <rect key="frame" x="88" y="314" width="199" height="22"/>
+                                <rect key="frame" x="88" y="294" width="199" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0bq-v9-IeT"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1473,7 +1479,7 @@
                             <constraint firstItem="KYO-Yq-uqV" firstAttribute="leading" secondItem="T40-4U-lIG" secondAttribute="leading" constant="88" id="FxC-Vt-uuS"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="leading" secondItem="T40-4U-lIG" secondAttribute="leading" constant="55" id="NnF-cJ-5Up"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="centerX" secondItem="L0K-B8-pDF" secondAttribute="centerX" id="OCq-Ri-nt9"/>
-                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="top" secondItem="PD2-ab-0CD" secondAttribute="bottom" constant="50" id="RHn-Bb-L89"/>
+                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="top" secondItem="PD2-ab-0CD" secondAttribute="bottom" constant="30" id="RHn-Bb-L89"/>
                             <constraint firstItem="KYO-Yq-uqV" firstAttribute="centerX" secondItem="L0K-B8-pDF" secondAttribute="centerX" id="b7I-sX-BBS"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="top" secondItem="T40-4U-lIG" secondAttribute="top" constant="176" id="hL0-XU-op0"/>
                             <constraint firstItem="KYO-Yq-uqV" firstAttribute="leading" secondItem="7Wx-u4-ZlN" secondAttribute="trailing" constant="8" id="hx6-vx-u45"/>
