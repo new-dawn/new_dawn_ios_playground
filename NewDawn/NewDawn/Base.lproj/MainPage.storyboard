@@ -798,39 +798,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GJJ-Js-E6c">
-                                <rect key="frame" x="96" y="294" width="183" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7dQ-jE-LLj"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crV-31-bHz">
-                                <rect key="frame" x="63" y="294" width="20" height="41"/>
+                                <rect key="frame" x="63" y="294" width="15" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Oqs-tr-qvd"/>
+                                    <constraint firstAttribute="width" constant="15" id="cB3-h9-xCI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-22-AOl" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
+                                <rect key="frame" x="86" y="294" width="229" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="30" id="Bef-lq-CfT"/>
+                            <constraint firstItem="aoo-22-AOl" firstAttribute="leading" secondItem="crV-31-bHz" secondAttribute="trailing" constant="8" id="6De-FD-AQ6"/>
+                            <constraint firstItem="aoo-22-AOl" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="30" id="7VL-6r-6uy"/>
                             <constraint firstItem="crV-31-bHz" firstAttribute="leading" secondItem="Og1-cF-j84" secondAttribute="leading" constant="63" id="FPU-uT-4tj"/>
                             <constraint firstItem="crV-31-bHz" firstAttribute="top" secondItem="x4y-SH-b4u" secondAttribute="bottom" constant="30" id="Hjy-UK-QBH"/>
                             <constraint firstItem="x4y-SH-b4u" firstAttribute="centerX" secondItem="m9u-Xb-AwM" secondAttribute="centerX" id="M0V-y9-xuz"/>
-                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="leading" secondItem="crV-31-bHz" secondAttribute="trailing" constant="13" id="MQz-qS-s6c"/>
+                            <constraint firstItem="Og1-cF-j84" firstAttribute="trailing" secondItem="aoo-22-AOl" secondAttribute="trailing" constant="60" id="Uhw-tu-Fnz"/>
                             <constraint firstItem="x4y-SH-b4u" firstAttribute="leading" secondItem="Og1-cF-j84" secondAttribute="leading" constant="55" id="Z4W-yA-x9y"/>
-                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="centerX" secondItem="m9u-Xb-AwM" secondAttribute="centerX" id="b60-01-8J4"/>
-                            <constraint firstItem="GJJ-Js-E6c" firstAttribute="leading" secondItem="Og1-cF-j84" secondAttribute="leading" constant="96" id="wZO-ba-pi2"/>
                             <constraint firstItem="x4y-SH-b4u" firstAttribute="top" secondItem="Og1-cF-j84" secondAttribute="top" constant="176" id="whH-Hw-8af"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Og1-cF-j84"/>
                     </view>
                     <navigationItem key="navigationItem" title="年龄范围" id="xHd-9N-zwJ"/>
                     <connections>
-                        <outlet property="age_range" destination="GJJ-Js-E6c" id="r55-74-9JO"/>
+                        <outlet property="ageSlider" destination="aoo-22-AOl" id="wLg-tj-14l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgL-fa-ac9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1458,38 +1465,51 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身高" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wx-u4-ZlN">
-                                <rect key="frame" x="55" y="294" width="25" height="41"/>
+                                <rect key="frame" x="55" y="294" width="20" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="F94-RE-DTg"/>
+                                    <constraint firstAttribute="width" constant="20" id="UrC-t4-2WR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYO-Yq-uqV">
-                                <rect key="frame" x="88" y="294" width="199" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0bq-v9-IeT"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INi-9g-SVs" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
+                                <rect key="frame" x="83" y="294" width="232" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="140"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="250"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedMinValue">
+                                        <real key="value" value="140"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedMaxValue">
+                                        <real key="value" value="250"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Wx-u4-ZlN" firstAttribute="top" secondItem="PD2-ab-0CD" secondAttribute="bottom" constant="30" id="Ael-ES-yjA"/>
-                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="leading" secondItem="T40-4U-lIG" secondAttribute="leading" constant="88" id="FxC-Vt-uuS"/>
+                            <constraint firstItem="T40-4U-lIG" firstAttribute="trailing" secondItem="INi-9g-SVs" secondAttribute="trailing" constant="60" id="ApU-ZU-orV"/>
+                            <constraint firstItem="INi-9g-SVs" firstAttribute="leading" secondItem="7Wx-u4-ZlN" secondAttribute="trailing" constant="8" id="MCH-c7-qtg"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="leading" secondItem="T40-4U-lIG" secondAttribute="leading" constant="55" id="NnF-cJ-5Up"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="centerX" secondItem="L0K-B8-pDF" secondAttribute="centerX" id="OCq-Ri-nt9"/>
-                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="top" secondItem="PD2-ab-0CD" secondAttribute="bottom" constant="30" id="RHn-Bb-L89"/>
-                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="centerX" secondItem="L0K-B8-pDF" secondAttribute="centerX" id="b7I-sX-BBS"/>
+                            <constraint firstItem="INi-9g-SVs" firstAttribute="top" secondItem="PD2-ab-0CD" secondAttribute="bottom" constant="30" id="h72-Mg-Rpr"/>
                             <constraint firstItem="PD2-ab-0CD" firstAttribute="top" secondItem="T40-4U-lIG" secondAttribute="top" constant="176" id="hL0-XU-op0"/>
-                            <constraint firstItem="KYO-Yq-uqV" firstAttribute="leading" secondItem="7Wx-u4-ZlN" secondAttribute="trailing" constant="8" id="hx6-vx-u45"/>
                             <constraint firstItem="7Wx-u4-ZlN" firstAttribute="leading" secondItem="T40-4U-lIG" secondAttribute="leading" constant="55" id="vTU-fi-Zpg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T40-4U-lIG"/>
                     </view>
                     <navigationItem key="navigationItem" title="身高范围" id="RZT-kS-DTO"/>
                     <connections>
-                        <outlet property="height_range" destination="KYO-Yq-uqV" id="4ud-Xg-nKF"/>
+                        <outlet property="heightSlider" destination="INi-9g-SVs" id="vBe-xc-Hrt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpO-fG-Ql7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3532,7 +3552,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="布咕会认真审核您的注册信息，保证资料的真实可靠。信息越完整，质量和可信度越高，通过速度就会越快。" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcS-kJ-Ii9">
-                                <rect key="frame" x="67" y="485" width="240" height="128"/>
+                                <rect key="frame" x="66" y="485" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3567,7 +3587,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="您现在正与另一位用户处于专属模式，无法浏览新的推荐，也无法和其他用户聊天。您可以在聊天页面里取消与该用户的专属模式。" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-50-4Mw">
-                                <rect key="frame" x="68" y="479" width="240" height="128"/>
+                                <rect key="frame" x="67" y="479" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>

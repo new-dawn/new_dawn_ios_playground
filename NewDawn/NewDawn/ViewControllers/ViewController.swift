@@ -227,13 +227,13 @@ extension UIViewController {
     func getPref() -> Dictionary<String, String> {
         var pref_params = [String: String]()
         if let from_age = LocalStorageUtil.localReadKeyValue(key: "from_age"),
-            let to_age = LocalStorageUtil.localReadKeyValue(key: "to_age") {
-            let age_range = (from_age as! String)+","+(to_age as! String)
+            let to_age = LocalStorageUtil.localReadKeyValue(key: "to_age"){
+            let age_range = (from_age as? String ?? "0") + "," + (to_age as? String ?? "60")
             pref_params += ["age__range": age_range]
         }
         if let from_height = LocalStorageUtil.localReadKeyValue(key: "from_height"),
             let to_height = LocalStorageUtil.localReadKeyValue(key: "to_height") {
-            let height_range = (from_height as! String) + "," + (to_height as! String)
+            let height_range = (from_height as? String ?? "140") + "," + (to_height as? String ?? "250")
             pref_params += ["height__range": height_range]
         }
         return pref_params
