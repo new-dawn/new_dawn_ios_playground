@@ -17,6 +17,7 @@ PODS:
     - Starscream (~> 3.0.5)
     - TaskQueue (~> 1.1.1)
   - PushNotifications (1.2.1)
+  - RangeSeekSlider (1.8.0)
   - ReachabilitySwift (4.1.0)
   - Starscream (3.0.6)
   - SwiftKeychainWrapper (3.0.1)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Mixpanel-swift
   - PusherSwift
   - PushNotifications (~> 1.2.0)
+  - RangeSeekSlider
   - SwiftKeychainWrapper (~> 3.0)
 
 SPEC REPOS:
@@ -43,6 +45,7 @@ SPEC REPOS:
     - Mixpanel-swift
     - PusherSwift
     - PushNotifications
+    - RangeSeekSlider
     - ReachabilitySwift
     - Starscream
     - SwiftKeychainWrapper
@@ -58,11 +61,12 @@ SPEC CHECKSUMS:
   Mixpanel-swift: b022ad6cc352f916581b4f223f8a1e76d047fbe3
   PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   PushNotifications: b251b6243148e30039481cbb6e140fe7769d08d4
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: a5f7379df698d6aa3f948f5b988b0742d59a79fe
+PODFILE CHECKSUM: c59c0e5f0178b388acc7d867b933cbd1dc151809
 
 COCOAPODS: 1.6.1
